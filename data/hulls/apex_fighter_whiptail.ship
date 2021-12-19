@@ -1,0 +1,70 @@
+{
+  "hullName": "Whiptail",
+  "hullId": "apex_fighter_whiptail",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/fighters/apex_whiptail.png",
+  "style": "HIGH_TECH",
+  "height": 36,
+  "width": 54,
+  "center": [27, 18],
+  "collisionRadius": 27,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 30,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [7, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-5, 13],
+      "length": 17.5,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-5, -13],
+      "length": 17.5,
+      "width": 5,
+      "angle": -180,
+      "contrailSize": 5,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-4, 18],
+      "length": 17.5,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-4, -18],
+      "length": 17.5,
+      "width": 5,
+      "angle": -180,
+      "contrailSize": 5,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    5.5, 27,
+    16.5, 9.5,
+    16.5, -9.5,
+    5.5, -27,
+    -17, -8,
+    -17, 8
+  ]
+}

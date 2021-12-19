@@ -1,0 +1,207 @@
+{
+  "hullName": "Python",
+  "hullId": "apex_python",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/ships/phase/apex_python.png",
+  "style": "HIGH_TECH",
+  "height": 168,
+  "width": 268,
+  "center": [134, 86],
+  "collisionRadius": 135.5,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 165,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_cryo_armor",
+    "apex_phase_coils",
+    "phasefield",
+    "apex_cramped_mags"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "LARGE",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": 45,
+      "locations": [22, 55]
+    },
+    {
+      "id": "WS0002",
+      "size": "LARGE",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": -45,
+      "locations": [22, -55]
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": -45,
+      "locations": [-13, -100]
+    },
+    {
+      "id": "WS0004",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": 45,
+      "locations": [-13, 100]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 136,
+      "angle": 15,
+      "locations": [56, 51]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 136,
+      "angle": -15,
+      "locations": [56, -51]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 139,
+      "angle": -154.5,
+      "locations": [-69, -16]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 139,
+      "angle": 154.5,
+      "locations": [-69, 16]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-51.5, 102],
+      "length": 30,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-49.5, -102],
+      "length": 30,
+      "width": 10,
+      "angle": -180,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-47.5, 83],
+      "length": 30,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-45.5, -83],
+      "length": 30,
+      "width": 10,
+      "angle": -180,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-43.5, 64],
+      "length": 30,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-41.5, -64],
+      "length": 30,
+      "width": 10,
+      "angle": -180,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-39.5, 45],
+      "length": 30,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-37.5, -45],
+      "length": 30,
+      "width": 10,
+      "angle": -180,
+      "contrailSize": 30,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -78.5, 2.5,
+    -84.5, 8.5,
+    -80, 13,
+    -82, 21,
+    -76.5, 26,
+    -33.5, 32,
+    -47.5, 44.5,
+    -41.5, 54,
+    -51, 63.5,
+    -45.5, 73,
+    -54.5, 83,
+    -48.5, 91.5,
+    -59, 101.5,
+    -47.5, 113,
+    -48.5, 123,
+    -36.5, 129,
+    -25.5, 129.5,
+    -14, 132.5,
+    69.5, 51.5,
+    68, 45.5,
+    74, 12,
+    80, 3.5,
+    80, -3.5,
+    74, -12,
+    68, -45.5,
+    69.5, -51.5,
+    -14, -132.5,
+    -25.5, -129.5,
+    -36.5, -129,
+    -48.5, -123,
+    -47.5, -113,
+    -59, -101.5,
+    -48.5, -91.5,
+    -54.5, -83,
+    -45.5, -73,
+    -51, -63.5,
+    -41.5, -54,
+    -47.5, -44.5,
+    -33.5, -32,
+    -76.5, -26,
+    -82, -21,
+    -80, -13,
+    -84.5, -8.5,
+    -78.5, -2.5,
+    -84, -0
+  ]
+}

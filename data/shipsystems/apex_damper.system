@@ -1,0 +1,24 @@
+{
+	"id":"apex_damper",
+	"type":"STAT_MOD",
+	#"aiType":"DAMPER_FIELD",
+	"aiType":"CUSTOM",
+	
+	"aiScript":"data.shipsystems.ai.ApexDamperAI",
+	"statsScript":"data.shipsystems.ApexDamper",
+
+	#"runScriptWhileIdle":true, # unapply() never gets called
+		
+	"fadeActivationSoundOnChargedown":true,
+	"useSound":"system_damper_omega",
+	"loopSound":"system_damper_omega_loop",
+	"deactivateSound":"system_damper_omega_off",
+	"outOfUsesSound":"gun_out_of_ammo",
+	
+	"aiHints":{
+	}
+
+}
+
+
+

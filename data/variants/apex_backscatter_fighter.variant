@@ -1,0 +1,32 @@
+{
+    "displayName": "Fighter",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "goalVariant": true,
+    "hullId": "apex_backscatter",
+    "hullMods": ["expanded_deck_crew"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_backscatter_fighter",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "apex_qgpd_s_flak",
+                "WS0003": "apex_qgpd_s_flak",
+                "WS0004": "apex_qgpd_s_flak",
+                "WS0005": "apex_qgpd_s_flak"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "apex_arcspike_canister"}
+        }
+    ],
+    "wings": [
+        "apex_anole_wing",
+        "apex_gecko_wing"
+    ]
+}

@@ -1,0 +1,19 @@
+{
+	"id":"apex_repairblob",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"NONE",
+	"collisionClassByFighter":"NONE",
+	"length":25.0,
+	"width":15,
+	"fadeTime":0.3,
+	"fringeColor":[153,255,51,255],
+	"coreColor":[153,255,51,255],
+	"glowColor":[153,255,51,255],
+	"glowRadius":25,
+	"hitGlowRadius":100,	
+	"textureScrollSpeed":64.0,
+	"pixelsPerTexel":5.0,
+	"passThroughMissiles":true,
+	"bulletSprite":"graphics/missiles/apex_blob_smaller.png"	
+}

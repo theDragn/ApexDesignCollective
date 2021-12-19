@@ -1,0 +1,65 @@
+{
+  "hullName": "Photon",
+  "hullId": "apex_photon_p",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/apex_photon_p.png",
+  "style": "HIGH_TECH",
+  "height": 98,
+  "width": 56,
+  "center": [28, 49],
+  "collisionRadius": 49.5,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 71.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [43, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 360,
+      "angle": 180,
+      "locations": [-22, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-42, 6.5],
+      "length": 34,
+      "width": 13,
+      "angle": 180,
+      "contrailSize": 13,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-42, -6.5],
+      "length": 34,
+      "width": 13,
+      "angle": -180,
+      "contrailSize": 13,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -47.5, 14.5,
+    -35, 25.5,
+    10.5, 27.5,
+    48, 16,
+    48, -16,
+    10.5, -27.5,
+    -35, -25.5,
+    -47.5, -14.5
+  ]
+}

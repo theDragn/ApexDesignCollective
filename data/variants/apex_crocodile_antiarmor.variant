@@ -1,0 +1,66 @@
+{
+    "displayName": "Anti-Armor",
+    "fluxCapacitors": 5,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "apex_crocodile",
+    "hullMods": [
+        "targetingunit",
+        "apex_geodesic_shield",
+        "apex_armor_repairer",
+        "apex_warheads_acid"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_crocodile_antiarmor",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0015": "apex_vls_left_acid",
+                "WS0016": "apex_vls_right_acid"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0005": "apex_nanoacid_torp_rack",
+                "WS0006": "apex_nanoacid_torp_rack"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_qgp_med",
+                "WS0002": "apex_qgp_med"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0011": "apex_emp_laser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_coilgun_medium",
+                "WS0004": "apex_coilgun_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "apex_qgpd_s_flak",
+                "WS0008": "apex_qgpd_s_flak",
+                "WS0009": "apex_qgpd_s_flak",
+                "WS0010": "apex_qgpd_s_flak",
+                "WS0012": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

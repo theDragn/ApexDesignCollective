@@ -1,0 +1,19 @@
+{
+	"id":"apex_cryoblob_small",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"NONE",
+	"collisionClassByFighter":"NONE",
+	"length":15.0,
+	"width":9,
+	"fadeTime":0.3,
+	"fringeColor":[128,255,255,255],
+	"coreColor":[128,255,255,255],
+	"glowColor":[128,255,255,255],
+	"glowRadius":15,
+	"hitGlowRadius":100,	
+	"textureScrollSpeed":64.0,
+	"pixelsPerTexel":5.0,
+	"passThroughMissiles":true,
+	"bulletSprite":"graphics/missiles/apex_blob_even_smaller.png"	
+}

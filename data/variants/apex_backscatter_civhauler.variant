@@ -1,0 +1,27 @@
+{
+    "displayName": "Cargo",
+    "fluxCapacitors": 8,
+    "fluxVents": 0,
+    "hullId": "apex_backscatter_civcargo",
+    "hullMods": ["efficiency_overhaul"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_backscatter_civhauler",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "apex_qgpd_s_flak",
+                "WS0003": "apex_qgpd_s_flak",
+                "WS0004": "apex_qgpd_s_flak",
+                "WS0005": "apex_qgpd_s_flak"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "apex_sledgehammer_med"}
+        }
+    ]
+}

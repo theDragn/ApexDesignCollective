@@ -1,0 +1,64 @@
+{
+    "displayName": "Assault",
+    "fluxCapacitors": 14,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "apex_komodo",
+    "hullMods": [
+        "targetingunit",
+        "apex_cryo_projector"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_komodo_assault",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0012": "apex_dartgun"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0001": "apex_sledgehammer_small",
+                "WS0002": "apex_sledgehammer_small",
+                "WS0003": "apex_sledgehammer_small",
+                "WS0004": "apex_sledgehammer_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_emp_laser",
+                "WS0006": "apex_emp_laser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0013": "apex_coilgun_medium",
+                "WS0014": "apex_coilgun_medium",
+                "WS0015": "apex_coilgun_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0011": "apex_emp_laser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "apex_qgpd_s_flak",
+                "WS0008": "apex_qgpd_s_flak",
+                "WS0009": "apex_qgpd_s_flak",
+                "WS0010": "apex_qgpd_s_flak"
+            }
+        }
+    ],
+    "wings": ["apex_chameleon_wing"]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "apex_coilgun_medium",
+  "specClass": "projectile",
+  "projectileSpecId": "lightneedler_shot",
+  "type": "BALLISTIC",
+  "size": "MEDIUM",
+  "turretSprite": "graphics/weapons/apex_coilgun_med_t.png",
+  "turretGlowSprite": "graphics/weapons/apex_coilgun_med_t_glow.png",
+  "hardpointSprite": "graphics/weapons/apex_coilgun_med_h.png",
+  "hardpointGlowSprite": "graphics/weapons/apex_coilgun_med_h_glow.png",
+  "renderAboveAllWeapons": 0,
+  "glowColor": [
+    255,
+    228,
+    140,
+    255
+  ],
+  "turretOffsets": [
+    26,
+    2.5,
+    26,
+    -2.5
+  ],
+  "turretAngleOffsets": [
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    29.5,
+    2.5,
+    29.5,
+    -2.5
+  ],
+  "hardpointAngleOffsets": [
+    0,
+    0
+  ],
+  "barrelMode": "LINKED",
+  "animationType": "GLOW_AND_FLASH",
+  "muzzleFlashSpec": {
+    "length": 30,
+    "spread": 0,
+    "particleSizeMin": 7,
+    "particleSizeRange": 7,
+    "particleDuration": 0.2,
+    "particleCount": 12,
+    "particleColor": [
+      255,
+      255,
+      255,
+      175
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "needler_fire"
+}

@@ -1,0 +1,33 @@
+{
+    "displayName": "Gunner",
+    "fluxCapacitors": 10,
+    "fluxVents": 5,
+    "goalVariant": true,
+    "hullId": "apex_mamba",
+    "hullMods": [
+        "ecm",
+        "hardened_subsystems",
+        "adaptive_coils"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_mamba_gunner",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_coilgun_small",
+                "WS0002": "apex_coilgun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_nanogun_small",
+                "WS0004": "apex_nanogun_small"
+            }
+        }
+    ]
+}

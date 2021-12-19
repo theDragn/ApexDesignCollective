@@ -1,0 +1,76 @@
+{
+    "displayName": "Strike",
+    "fluxCapacitors": 19,
+    "fluxVents": 50,
+    "goalVariant": true,
+    "hullId": "apex_apex",
+    "hullMods": [
+        "apex_armor_repairer",
+        "targetingunit",
+        "apex_geodesic_shield"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_apex_strike",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_disruptor",
+                "WS0002": "apex_disruptor"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0003": "apex_sledgehammer_large",
+                "WS0004": "apex_sledgehammer_large"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "apex_emp_laser",
+                "WS0008": "apex_emp_laser",
+                "WS0009": "apex_emp_laser",
+                "WS0010": "apex_emp_laser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_coilgun_medium",
+                "WS0006": "apex_coilgun_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0017": "apex_coilgun_small",
+                "WS0018": "apex_coilgun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0019": "apex_fusion_medium"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0011": "apex_qgpd_s_flak",
+                "WS0012": "apex_qgpd_s_flak",
+                "WS0013": "apex_qgpd_s_flak",
+                "WS0014": "apex_qgpd_s_flak",
+                "WS0015": "apex_qgpd_s_flak",
+                "WS0016": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

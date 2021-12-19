@@ -1,0 +1,28 @@
+{
+	"id":"apex_design",
+	"name":"Apex Design Collective",
+	"author":"theDragn",
+	"version":"0.0.9",
+	"description":"A mod faction that focuses on ultra-modern, high-performance ships and remote support systems.",
+	"gameVersion":"0.95.1a-RC5",
+	"jars":["jars/ADC.jar"],
+	"dependencies": [
+        {
+            "id": "lw_lazylib",
+            "name": "LazyLib"
+        },
+		{
+			"id": "MagicLib",
+            "name": "MagicLib"
+		},
+		{
+			"id": "shaderLib",
+			"name": "GraphicsLib"
+		},
+		#{
+		#	"id": "dronelib",
+		#	"name": "DroneLib"
+		#}
+    ],
+	"modPlugin":"plugins.ApexModPlugin"
+}

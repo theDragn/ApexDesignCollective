@@ -1,0 +1,69 @@
+{
+  "id": "apex_qgpd_m_flak",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_flak_shot",
+  "type": "ENERGY",
+  "size": "MEDIUM",
+	"mountTypeOverride":"HYBRID",
+  "everyFrameEffect": "data.weapons.ApexQGPDEffects",
+  "turretSprite": "graphics/weapons/apex_qgpd_med_t.png",
+  "turretGunSprite": "graphics/weapons/apex_qgpd_med_recoil_t.png",
+  "hardpointSprite": "graphics/weapons/apex_qgpd_med_h.png",
+  "hardpointGunSprite": "graphics/weapons/apex_qgpd_med_recoil_h.png",
+  "renderAboveAllWeapons": 0,
+  "glowColor": [
+    255,
+    100,
+    100,
+    255
+  ],
+  "visualRecoil": 8,
+  "renderHints": [
+    RENDER_BARREL_BELOW
+  ],
+  "turretOffsets": [
+    23,
+    5.5,
+    23,
+    0,
+    23,
+    -5.5
+  ],
+  "turretAngleOffsets": [
+    0,
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    26.5,
+    5.5,
+    26.5,
+    0,
+    26.5,
+    -5.5
+  ],
+  "hardpointAngleOffsets": [
+    0,
+    0,
+    0
+  ],
+  "barrelMode": "ALTERNATING",
+  "animationType": "GLOW_AND_FLASH",
+  "autocharge": true,
+  "muzzleFlashSpec": {
+    "length": 23,
+    "spread": 5,
+    "particleSizeMin": 10,
+    "particleSizeRange": 12,
+    "particleDuration": 0.12,
+    "particleCount": 12,
+    "particleColor": [
+      255,
+      100,
+      100,
+      255
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "apex_flak_shot"
+}

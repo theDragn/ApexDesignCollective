@@ -1,0 +1,69 @@
+id,trigger,conditions,script,text,options,notes
+#RULESET_NAME Apex,,,,,,
+,,,,,,
+# Apex fleet greeting lines,,,,,,
+greetingSCYFriendly,OpenCommLink,"$faction.id == SCY
+$faction.friendlyToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions",Connection on secure channel established. Glad to see a friendly face.,,
+greetingSCYHostileWeaker,OpenCommLink,"$faction.id == SCY
+$faction.hostileToPlayer
+$relativeStrength < 0",$ignorePlayerCommRequests = true 1,Very well.,cutCommLink:Cut the comm link,
+greetingSCYHostileWeakerDefiant,OpenCommLink,"$faction.id == SCY
+$faction.hostileToPlayer
+$relativeStrength < 0
+$weakerThanPlayerButHolding",$ignorePlayerCommRequests = true 1,Very well.,cutCommLink:Cut the comm link,
+greetingSCYHostileStronger,OpenCommLink,"$faction.id == SCY
+$faction.hostileToPlayer
+$relativeStrength >= 0",$ignorePlayerCommRequests = true 1,Very well.,cutCommLink:Cut the comm link,
+greetingSCYNeutral,OpenCommLink,"$faction.id == SCY
+$faction.neutralToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions",Can I help you?,,
+,,,,,,
+,,,,,,
+# Trade panel flavor text,,,,,,
+#flavorTextMarketOnyxStation,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$id == apex_onyx_station score:1000","AddText""onyx market text""textGrayColor",,,
+flavorTextMarketEmerald,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$id == apex_emerald score:1000","AddText""While life on Emerald might be agrarian and peaceful, the port is no such thing. Traders crowd offloading captains, eager to sell their wares, and the general hubbub of a busy port fills the air.""textGrayColor",,,
+flavorTextMarketGlass,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$id == apex_glass score:1000","AddText""Glass's main port is here in orbit, as the shifting sands below are too unstable for any large long-term construction. Off-shift mining crews mingle noisily on the concourse as dockworkers direct sand-blasted transports offloading ore for the refineries.""textGrayColor",,,
+flavorTextMarketGranite,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$id == apex_granite score:1000
+$faction.id == apex_design","AddText""The port concourse is packed with various merchant haulers, distinctive green-hulled Collective warships, and even a few ships with what you're pretty sure are pirate markings. You aren't immediately harassed by speculators as you step out of the airlock, a welcome change. A foreman greets you instead, ready to swiftly handle any cargo exchanges you might make.""textGrayColor",,,
+flavorTextMarketSerpens,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$id == apex_serpens_station score:1000","AddText""Serpens is obviously a sleepy little station, and the docking bays are mostly empty aside from a few conspicuous racing pinnaces.""textGrayColor",,,
+,,,,,,
+,,,,,,
+# default commission conversation strings: copy and adjust this section for faction-specific conversation flavor,,,,,,
+CMSNTextRejectHostile_scy,CMSNTextRejectHostile,$faction.id == apex_design,,"""Get out of here, bootlicker.""",,
+CMSNTextHasOther_scy,CMSNTextHasOther,$faction.id == apex_design,,"""You're already commissioned with someone else, and we can't trust that.""",,
+CMSNTextUnsuited_scy,CMSNTextUnsuited,$faction.id == apex_design,,"""Nothing personal, but you'll need to prove yourself. We can't afford to let in any corporate spies.""",,
+CMSNTextSuitedPart1_scy,CMSNTextSuitedPart1,$faction.id == apex_design,,"""Our enemies will be your enemies, and you'll get access to Apex ships and ordnance. Sound good?""",,
+CMSNTextSuitedPart2_scy,CMSNTextSuitedPart2,$faction.id == apex_design,,"""Right, if you sign the dotted line, we can beat the corpos down and have you on the side of workers everywhere.""",,
+CMSNTextWelcomePart1_scy,CMSNTextWelcomePart1,$faction.id == apex_design,,"""Welcome to the Collective Defense Force. Good to have you, friend.""",,
+CMSNTextWelcomePart2_scy,CMSNTextWelcomePart2,$faction.id == apex_design,,"""Anything else I can do for you?""",,
+CMSNTextChangeMind_scy,CMSNTextChangeMind,$faction.id == apex_design,,"""Changed your mind? We won't hold it against you.""",,
+CMSNResignAskToConfirm_scy,CMSNResignAskToConfirm,$faction.id == apex_design,,"""What, you found something better to do? """,,
+CMSNResignConfirmed_scy,CMSNResignConfirmed,$faction.id == apex_design,,"""We thought we could depend on you. Disappointing.""",,
+CMSNResignCancelled_scy,CMSNResignCancelled,$faction.id == apex_design,,"""If you're facing doubts again, come talk to one of us, okay? The Collective takes care of its own.""",,
+,,,,,,
+# relationship level,,,,,,
+# relationship level descriptions,,,,,,
+relLevelNeutralApex,RelationshipLevelDesc,"$faction.rel == NEUTRAL
+$faction.id == apex_design",,"You've not well-known by Collective officials, for good or for ill.",,
+relLevelFavorableApex,RelationshipLevelDesc,"$faction.rel == FAVORABLE
+$faction.id == apex_design",,"You've done enough business with the Collective that you can breeze through docking procedures and score some decent deals on commodity contracts, but anything more is unlikely.",,
+relLevelWelcomingApex,RelationshipLevelDesc,"$faction.rel == WELCOMING
+$faction.id == apex_design",,"Your name is relatively well-known among Collective officials, and you are rarely hassled by patrols.",,
+relLevelFriendlyApex,RelationshipLevelDesc,"$faction.rel == FRIENDLY
+$faction.id == apex_design",,"You've proven your faithfulness to the Collective's cause. CDF fleets send friendly greetings when you're in range, and you might have some access to military ships and weapons.",,
+relLevelCooperativeApex,RelationshipLevelDesc,"$faction.rel == COOPERATIVE
+$faction.id == apex_design",,"You are considered an honorary member of the Collective, with all of the rights and privileges that entails. Your exploits in defense of workers across the sector are legendary.",,
+relLevelSuspiciousApex,RelationshipLevelDesc,"$faction.rel == SUSPICIOUS
+$faction.id == apex_design",,"Collective officials view you with some distrust, but are unlikely to do anything beyond the occasional extra inspection.",,
+relLevelInhospitableApex,RelationshipLevelDesc,"$faction.rel == INHOSPITABLE
+$faction.id == apex_design",,"Collective officials and fleet commanders are aware that you have been working against their interests. Stations refuse to grant docking clearance, and patrols frequently harass you.",,
+relLevelHostileApex,RelationshipLevelDesc,"$faction.rel == HOSTILE
+$faction.id == apex_design",,"CDF commanders have authorization to engage your fleet on sight. Fortunately, you don't particularly stand out as one of their enemies, and it's unlikely that they've tasked a fleet with your elimination.",,
+relLevelVengefulApex,RelationshipLevelDesc,"$faction.rel == VENGEFUL
+$faction.id == apex_design",,"Your actions have ensured that you are considered a high-priority target for the Collective. Your face and IDENT-hash are regular parts of Collective security bulletins, and your sources inform you that several contracts have been placed for your assassination. It's quite likely that a CDF fleet commander has been assigned to hunt you down.",,

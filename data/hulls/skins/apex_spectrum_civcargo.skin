@@ -1,0 +1,21 @@
+{
+	"baseHullId":"apex_spectrum",
+	"skinHullId":"apex_spectrum_civcargo",
+	"hullName":"Spectrum (CIV-C)",
+	"descriptionId":"apex_spectrum",
+	"descriptionPrefix":"A low-cost cargo version of the Spectrum designed for civilian use, this variant lacks military systems and swappable hangar modules, and is thus much cheaper to produce.",
+	"tags":["apex_hulls"],
+	"addHints":["CIVILIAN"],
+	"tech":"Apex Design Collective",
+	"fleetPoints":8,
+	"ordnancePoints":70,
+	"baseValueMult":0.5,
+	"systemId":"apex_microburn",
+	"removeWeaponSlots":[], 		# ids
+	"removeEngineSlots":[], 		# indices, as engine slots have no id in the .ship file
+	"removeBuiltInMods":["apex_expanded_squadrons","apex_civwhenrefit"], 		# hullmod ids
+	"removeBuiltInWeapons":[], 		# weapon slot ids
+	"builtInMods":["apex_spectrum_cargo","civgrade"],
+	"builtInWeapons":{
+     },
+}

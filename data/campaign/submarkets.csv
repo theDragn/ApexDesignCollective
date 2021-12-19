@@ -1,0 +1,9 @@
+id,name,faction,desc,script,icon,order
+apex_fake_open_market,"Open
+Market",,"The open market. Only legal goods may be traded here, and transactions are subject to tariffs. More goods are available when stability is high.
+
+Selling enough of a commodity will temporarily resolve a shortage.",data.campaign.submarkets.ApexFakeOpenMarket,,0
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,

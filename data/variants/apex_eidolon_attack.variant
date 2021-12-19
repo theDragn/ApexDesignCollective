@@ -1,0 +1,58 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 10,
+    "fluxVents": 48,
+    "goalVariant": true,
+    "hullId": "apex_eidolon",
+    "hullMods": [
+        "targetingunit",
+        "apex_flare_system",
+        "apex_geodesic_shield"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_eidolon_attack",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0009": "apex_dartgun",
+                "WS0010": "apex_dartgun"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0011": "apex_arcstorm_canister"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "apex_coilgun_medium",
+                "WS0008": "apex_coilgun_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_coilgun_small",
+                "WS0004": "apex_coilgun_small",
+                "WS0005": "apex_coilgun_small",
+                "WS0006": "apex_coilgun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_qgpd_s_flak",
+                "WS0002": "apex_qgpd_s_flak",
+                "WS0012": "apex_qgpd_m_flak",
+                "WS0013": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

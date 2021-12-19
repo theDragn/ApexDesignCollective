@@ -1,0 +1,56 @@
+{
+    "displayName": "Suppression",
+    "fluxCapacitors": 10,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "apex_crocodile",
+    "hullMods": [
+        "apex_warheads_tachyon",
+        "targetingunit",
+        "eccm",
+        "apex_cryo_projector"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_crocodile_suppression",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0015": "apex_vls_left_tachyon",
+                "WS0016": "apex_vls_right_tachyon"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0005": "apex_arcspike",
+                "WS0006": "apex_arcspike"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_qgp_med",
+                "WS0002": "apex_qgp_med",
+                "WS0003": "apex_qgp_med",
+                "WS0004": "apex_qgp_med"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "apex_qgpd_s_flak",
+                "WS0008": "apex_qgpd_s_flak",
+                "WS0009": "apex_qgpd_s_flak",
+                "WS0010": "apex_qgpd_s_flak",
+                "WS0011": "apex_qgpd_s_flak",
+                "WS0012": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

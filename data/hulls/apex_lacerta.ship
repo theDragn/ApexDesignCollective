@@ -1,0 +1,145 @@
+{
+  "hullName": "Lacerta",
+  "hullId": "apex_lacerta",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/apex_lacerta.png",
+  "style": "HIGH_TECH",
+  "height": 94,
+  "width": 94,
+  "center": [47, 47],
+  "collisionRadius": 57,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 64.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor",
+    "advancedshieldemitter"
+  ],
+  "builtInWeapons": {
+    "WS0010": "apex_deco_lacerta_left"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 139,
+      "angle": 45,
+      "locations": [-1.5, 24.5]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 139,
+      "angle": -45,
+      "locations": [-1.5, -24.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "SYNERGY",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -0,
+      "locations": [18, -13]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "SYNERGY",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [18, 13]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 138,
+      "locations": [-11, 39.5]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -138,
+      "locations": [-11, -39.5]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -98,
+      "locations": [-6.5, -42.5]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 98,
+      "locations": [-6.5, 42.5]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [12.5, -0],
+      "renderOrderMod": 10
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-28, 19],
+      "length": 43,
+      "width": 14,
+      "angle": 180,
+      "contrailSize": 14,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-28, -19],
+      "length": 43,
+      "width": 14,
+      "angle": -180,
+      "contrailSize": 14,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-28, -0],
+      "length": 43,
+      "width": 14,
+      "angle": 180,
+      "contrailSize": 14,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -31.5, 25,
+    -47.5, 33,
+    1.5, 44.5,
+    18, 34.5,
+    19.5, 9,
+    46, 6,
+    46, -6,
+    19.5, -9,
+    18, -34.5,
+    1.5, -44.5,
+    -47.5, -33,
+    -31.5, -25
+  ]
+}

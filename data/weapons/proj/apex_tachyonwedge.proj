@@ -1,0 +1,17 @@
+{
+	"id":"apex_tachyonwedge",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"length":20.0,
+	"width":12,
+	"fadeTime":0.5,
+	"fringeColor":[150,100,255,255],
+	"coreColor":[255,255,255,255],
+	#"glowColor":[150,100,255,75],
+	#"glowRadius":75,
+	"textureScrollSpeed":64.0,
+	"pixelsPerTexel":5.0,
+	"passThroughMissiles":true,
+}

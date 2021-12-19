@@ -1,0 +1,44 @@
+{
+	"id":"apex_arcspike",
+	"specClass":"missile",
+	"missileType":"MISSILE",
+	"sprite":"graphics/missiles/apex_arcspike.png",
+	"onHitEffect":"data.weapons.proj.ApexArcspikeOnHit",
+	"size":[5,11],	
+	"center":[2.5,5.5],
+	"collisionRadius":6,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[100,155,255,255],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":90, # purely visual
+	"flameoutTime":0.5,
+	"noEngineGlowTime":0.5,
+	"fadeTime":0.5,		
+	"glowColor":[100,200,255,75],
+	"glowRadius":75,			 
+	"engineSpec":{"turnAcc":720,
+				  "turnRate":720,
+				  "acc":2000,
+				  "dec":2000},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-4, 0],
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[125,175,255,255],
+						"glowSizeMult":1.5,
+						"glowAlternateColor":[0,200,255,75],
+						"contrailDuration":0.7,
+						"contrailWidthMult":1,
+						"contrailWidthAddedFractionAtEnd":-0.2,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":2, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.5f,
+						"contrailAngularVelocityMult":0.5f,
+						"contrailSpawnDistMult":0f, # how far away from engine it starts
+						"contrailColor":[100,155,255,255],
+						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":4.0,
+				    "length":48.0,
+				    "angle":180.0},
+				    ]
+}

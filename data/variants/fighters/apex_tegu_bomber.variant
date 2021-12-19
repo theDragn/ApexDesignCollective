@@ -1,0 +1,20 @@
+{
+    "displayName": "Torpedo Bomber",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "goalVariant": false,
+    "hullId": "apex_fighter_tegu",
+    "hullMods": [],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_tegu_bomber",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_nanoacid_torp_single"
+            }
+        }
+    ]
+}

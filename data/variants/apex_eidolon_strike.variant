@@ -1,0 +1,63 @@
+{
+    "displayName": "Strike",
+    "fluxCapacitors": 14,
+    "fluxVents": 45,
+    "goalVariant": true,
+    "hullId": "apex_eidolon",
+    "hullMods": [
+        "targetingunit",
+        "magazines",
+        "apex_geodesic_shield",
+        "apex_cryo_projector"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_eidolon_strike",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0011": "apex_nanoacid_torp_barrage"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0003": "apex_arcspike",
+                "WS0004": "apex_arcspike",
+                "WS0005": "apex_arcspike",
+                "WS0006": "apex_arcspike"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0009": "apex_tachyon",
+                "WS0010": "apex_tachyon"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "apex_coilgun_medium",
+                "WS0008": "apex_coilgun_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_qgpd_s_flak",
+                "WS0002": "apex_qgpd_s_flak",
+                "WS0013": "apex_qgpd_s_flak"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0012": "apex_qgpd_m_flak"}
+        }
+    ]
+}

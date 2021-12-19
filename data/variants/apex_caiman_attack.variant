@@ -1,0 +1,45 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 8,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "apex_caiman",
+    "hullMods": [
+        "apex_flare_system",
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_caiman_attack",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "apex_dartgun"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0002": "apex_sledgehammer_small",
+                "WS0003": "apex_sledgehammer_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "apex_coilgun_small",
+                "WS0005": "apex_coilgun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0006": "apex_qgpd_s_flak",
+                "WS0007": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

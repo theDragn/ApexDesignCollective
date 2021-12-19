@@ -1,0 +1,39 @@
+{
+    "displayName": "Cargo",
+    "fluxCapacitors": 6,
+    "fluxVents": 15,
+    "goalVariant": true,
+    "hullId": "apex_spectrum_civcargo",
+    "hullMods": ["efficiency_overhaul"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_spectrum_civhauler",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_coilgun_small",
+                "WS0004": "apex_coilgun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_fusion_small",
+                "WS0002": "apex_fusion_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_qgpd_s_flak",
+                "WS0006": "apex_qgpd_s_flak",
+                "WS0007": "apex_qgpd_s_flak",
+                "WS0008": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

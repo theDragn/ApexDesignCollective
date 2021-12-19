@@ -1,0 +1,26 @@
+{
+    "displayName": "Cargo",
+    "fluxCapacitors": 9,
+    "fluxVents": 0,
+    "goalVariant": true,
+    "hullId": "apex_photon_c",
+    "hullMods": [
+        "efficiency_overhaul",
+        "expanded_cargo_holds"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_photon_cargo",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "apex_qgpd_s_flak"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "apex_sledgehammer_small"}
+        }
+    ]
+}

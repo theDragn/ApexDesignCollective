@@ -1,0 +1,11 @@
+{
+	"baseHullId":"apex_spectrum",
+	"skinHullId":"apex_spectrum_refitdummy",
+	"hullName":"Spectrum",
+	"descriptionId":"apex_spectrum",
+	"tags":[],
+	"addHints":["CIVILIAN"],
+	"tech":"Apex Design Collective",
+	"fleetPoints":8,
+	"systemId":"apex_microburn",
+}

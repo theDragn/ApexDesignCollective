@@ -1,0 +1,2 @@
+name,id,planetary,decivRemove,script,desc,icon,order
+Collective Defense,apex_collectivedefense,TRUE,,data.campaign.econ.ApexCollectiveDefense,"The Collective is unified and fiercely independent. With a long history of fighting while outnumbered and outgunned, it will not readily submit to military force.",graphics/hullmods/apex_comm.png,2319

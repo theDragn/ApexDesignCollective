@@ -1,0 +1,123 @@
+{
+    "playableFaction":true,
+    "corvusCompatible":true,
+
+    "crewExpereinceLevelIncreaseChance":0.0,
+    "baseFleetCostMultiplier":1.0,
+
+	"invasionSupportFleetName":"Assault Squadron",
+    "responseFleetName":"Defense Squadron",
+    "defenceFleetName":"Defense Fleet",
+	
+    "positiveDiplomacyExtra":0,
+    "negativeDiplomacyExtra":0,
+    "factionsLiked":[
+		"hegemony", # we don't *like* them, but they're big, stable and fairly reliable, so they're good to have as a friend
+		"shadow_industry", # socialism is good, actually
+		"dassault_mikoyan", # not socialist, but vaguely good-aligned
+		"communist_clouds", # a bit extremist, but hey, so were we back in the old days
+        "brighton", # good guys
+        "roider", # unions are good
+        "exalted", # good guys
+        "unitedpamed", # idk their deal but they're good
+        "metelson", # good vibes, maybe a bit corporate
+        "scalartech" # elected corporate leadership is pretty good
+        ],
+    "factionsDisliked":[
+	    "tritachyon", # stereotypical evil corporation
+	    "luddic_church", # never got out of my edgy atheist phase, I just mellowed a bit
+	    "diableavionics", # these guys literally have slaves
+	    "fpe", # bash the fash
+        "xhanempire", # evil?
+        "draco", # evil.
+        "fang", # also evil
+        "templars", # omnicidal
+        "cabal", # cringe
+        "blade_breakers", # toxic vibes
+        "tahlan_legioinfernalis", # bash the fash
+        "hmi", # pretty evil
+        "blackrock_driveyards", # evil corporate bullshit
+        "gmda", # fuck da police
+        "COPS" # the cop is the natural enemy of the union man
+        ],
+	
+	# probably needs more so if you have someone to add to the list, ping @theDragn on discord
+	# starting relationships are set through scripting, not here, so look in the source code if you want the whole list
+    "maxRelationships":{
+    		"luddic_path": -0.6, # Yeah uhhh we're not gonna stop using tech, and you're not gonna stop being terrorists (the bad kind)
+    		"luddic_church": 0.0, # we can get neutrality, but we're not gonna be friends
+			"tritachyon": -0.5, # the only good tritachyon executive is a dead tritachyon executive
+    		"diableavionics": -0.25, # anime tritachyon
+			"sindrian_diktat": -0.25, # nationalist military dictatorship sounds pretty fash to me but they're not doing anything particularly fashy besides propaganda stuff, I guess?
+			"fpe": -0.5, # bash the fash
+            "tahlan_legioinfernalis":-0.5,
+            "hmi": -0.3,
+            }, 
+    "diplomacyPositiveChance":{
+    		"luddic_path": 0.1, # self-explanatory
+    		"luddic_church": 0.3, # still hung up on the technosatan thing, huh
+			"diableavionics": 0.4, # anime mech tritachyon is still tritachyon
+    		"tritachyon": 0.1, # you guys gonna stop speedrunning capitalism any time soon?
+    		"SCY": 0.5}, # what's their deal, anyway? sketchy motherfuckers
+    "diplomacyNegativeChance":{
+    		"communist_clouds": 0.5, # can we like, not do terrorism (unless it's cool and good terrorism)
+			"shadow_industry": 0.2, # good guys!
+    		"tritachyon": 1.5, # yeah
+            "hegemony":0.5 # going to war with the hegemony would be bad
+			},
+	
+    "morality":"good", # it's cool to care
+	
+    "alignments":{
+            "technocratic":1.0, # technology *will* actually save us
+            "diplomatic":0.7, # be rootin, be tootin, and by god be shootin, but most of all, be kind
+            "ideological":0.5, # we have an ideology but survival is probably more important than following it all the time
+            "hierarchical":-0.6, # democracy baybeee
+    },
+	
+	"diplomacyTraits":["neutralist", "stalwart", "helps_allies", "low_profile"],
+	
+    "startShipsSolo":[["apex_lacerta_strike"]],
+    "startShipsCombatSmall":
+	[
+		["apex_caiman_line", "apex_mamba_gunner", "apex_agama_picket"],
+		["apex_gharial_pursuit", "apex_lacerta_attack"],
+	],
+    "startShipsCombatLarge":
+	[
+	["apex_alligator_beam", "apex_caiman_strike", "apex_gharial_pursuit", "apex_agama_picket"],
+	["apex_crocodile_antishield", "apex_caiman_line", "apex_gharial_strike", "apex_agama_picket"],
+    ["apex_komodo_standard", "apex_caiman_assault", "apex_agama_picket", "apex_agama_attack"],
+    ["apex_python_strike", "apex_mamba_gunner", "apex_mamba_gunner", "apex_mamba_strike"]
+	],
+    "startShipsSuper":
+    [
+        ["apex_eidolon_strike"],
+        ["apex_apotheosis_brawler"]
+    ],
+		
+    "startSpecialItems":[
+        [["apex_weapons_package", "apex_hulls_package",""]]
+    ],
+	
+	"colonyExpeditionChance":0.7,	# for now
+    "colonyTargetValuator":"exerelin.campaign.colony.IndustrialColonyTargetValuator",
+    
+	    "defenceStations":[
+        {"ids":["orbitalstation_high", "battlestation_high", "starfortress_high"]},
+        {"ids":["orbitalstation_mid", "battlestation_mid", "starfortress_mid"], "weight":0.2},
+    ],
+    
+    "industrySeeds":[
+        {"id":"heavyindustry", "mult":0.1},
+        {"id":"fuelprod", "mult":0.1},
+        {"id":"lightindustry", "mult":0.1},
+    ],
+    # dunno what this does, but I'll leave it in
+    "bonusSeeds":[
+        {"id":"population_upsize", "count":1},
+        {"id":"nanoforge_corrupted", "count":1},
+		{"id":"synchrotron", "count":1},
+    ],
+	
+}

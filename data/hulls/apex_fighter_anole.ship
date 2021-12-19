@@ -1,0 +1,65 @@
+{
+  "hullName": "Anole",
+  "hullId": "apex_fighter_anole",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/fighters/apex_anole.png",
+  "style": "HIGH_TECH",
+  "height": 42,
+  "width": 34,
+  "center": [17, 21],
+  "collisionRadius": 21,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 23,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor",
+    "fluxbreakers",
+    "insulatedengine"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [10.5, 6]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -0,
+      "locations": [10.5, -6]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [18, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-14.5, -0],
+      "length": 22.5,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -20, 8,
+    -4.5, 17,
+    20, -0,
+    -4.5, -17,
+    -20, -8
+  ]
+}

@@ -1,0 +1,51 @@
+{
+    "displayName": "Beam",
+    "fluxCapacitors": 20,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "apex_alligator",
+    "hullMods": [
+        "targetingunit",
+        "apex_cryo_projector"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_alligator_beam",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_fusion_medium",
+                "WS0006": "apex_fusion_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "apex_coilgun_medium",
+                "WS0008": "apex_coilgun_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_emp_laser",
+                "WS0004": "apex_emp_laser",
+                "WS0011": "apex_emp_laser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_qgpd_s_flak",
+                "WS0002": "apex_qgpd_s_flak",
+                "WS0009": "apex_qgpd_s_flak",
+                "WS0010": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

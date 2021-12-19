@@ -1,0 +1,106 @@
+{
+  "hullName": "Mamba",
+  "hullId": "apex_mamba",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/phase/apex_mamba.png",
+  "style": "HIGH_TECH",
+  "height": 96,
+  "width": 90,
+  "center": [45, 48.5],
+  "collisionRadius": 50,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 56,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_cryo_armor",
+    "apex_phase_coils",
+    "phasefield",
+    "apex_super_range_sync"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": -45,
+      "locations": [16, -24]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": 45,
+      "locations": [16, 24]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": 45,
+      "locations": [2, 18],
+      "renderOrderMod": 50
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": -45,
+      "locations": [2, -18],
+      "renderOrderMod": 50
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-37, 21.5],
+      "length": 41.5,
+      "width": 15,
+      "angle": 180,
+      "contrailSize": 15,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-37, -21.5],
+      "length": 41.5,
+      "width": 15,
+      "angle": -180,
+      "contrailSize": 15,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-37, 8],
+      "length": 48.5,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 16,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-37, -8],
+      "length": 48.5,
+      "width": 16,
+      "angle": -180,
+      "contrailSize": 16,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -46, 8,
+    -46, 22,
+    -31, 35.5,
+    13.5, 44,
+    45, -0,
+    13.5, -44,
+    -31, -35.5,
+    -46, -22,
+    -46, -8,
+    -38, -0
+  ]
+}

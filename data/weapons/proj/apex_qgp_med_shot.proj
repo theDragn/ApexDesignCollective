@@ -1,0 +1,17 @@
+{
+	"id":"apex_qgp_med_shot",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"onHitEffect":"data.weapons.proj.ApexQGOnHit",
+	"length":30.0,
+	"width":14,
+	"fadeTime":0.1,
+	"fringeColor":[255,245,175,200],
+	"coreColor":[255,250,225,200],
+	"hitGlowRadius":20,
+	"textureScrollSpeed":64.0,
+	"pixelsPerTexel":5.0,
+	#"bulletSprite":"graphics/missiles/apex_plasma_shot.png"
+}

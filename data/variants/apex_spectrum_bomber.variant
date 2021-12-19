@@ -1,0 +1,37 @@
+{
+    "displayName": "Bomber",
+    "fluxCapacitors": 20,
+    "fluxVents": 0,
+    "goalVariant": true,
+    "hullId": "apex_spectrum",
+    "hullMods": ["expanded_deck_crew"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_spectrum_bomber",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_qgpd_s_flak",
+                "WS0002": "apex_qgpd_s_flak",
+                "WS0003": "apex_qgpd_s_flak",
+                "WS0004": "apex_qgpd_s_flak"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_qgpd_s_flak",
+                "WS0006": "apex_qgpd_s_flak",
+                "WS0007": "apex_qgpd_s_flak",
+                "WS0008": "apex_qgpd_s_flak"
+            }
+        }
+    ],
+    "wings": [
+        "apex_whiptail_wing",
+        "apex_tegu_wing"
+    ]
+}

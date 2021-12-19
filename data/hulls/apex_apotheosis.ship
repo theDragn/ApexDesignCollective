@@ -1,0 +1,220 @@
+{
+  "hullName": "Apotheosis",
+  "hullId": "apex_apotheosis",
+  "hullSize": "CAPITAL_SHIP",
+  "spriteName": "graphics/ships/apex_apotheosis.png",
+  "style": "HIGH_TECH",
+  "height": 302,
+  "width": 256,
+  "center": [128, 151],
+  "collisionRadius": 165.5,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 184,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "LARGE",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": 45,
+      "locations": [93, 52]
+    },
+    {
+      "id": "WS0002",
+      "size": "LARGE",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": -45,
+      "locations": [93, -52]
+    },
+    {
+      "id": "WS0003",
+      "size": "LARGE",
+      "type": "SYNERGY",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [106, -0]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": 45,
+      "locations": [112, 83]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": -45,
+      "locations": [112, -83]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": 45,
+      "locations": [102, 98]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": -45,
+      "locations": [102, -98]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": 135,
+      "locations": [11, 30]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": -135,
+      "locations": [11, -30]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": 135,
+      "locations": [-9, 30]
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 135,
+      "angle": -135,
+      "locations": [-9, -30]
+    },
+    {
+      "id": "WS0012",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 90,
+      "locations": [-35, 35.5]
+    },
+    {
+      "id": "WS0013",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -90,
+      "locations": [-35, -35.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-3, 54],
+      "length": 60.5,
+      "width": 17,
+      "angle": 180,
+      "contrailSize": 17,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-3, -54],
+      "length": 60.5,
+      "width": 17,
+      "angle": -180,
+      "contrailSize": 17,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [21, 75],
+      "length": 60.5,
+      "width": 17,
+      "angle": 180,
+      "contrailSize": 17,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [21, -75],
+      "length": 60.5,
+      "width": 17,
+      "angle": -180,
+      "contrailSize": 17,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -126, 2.5,
+    -132.5, 9,
+    -133, 16,
+    -149, 18.5,
+    -109, 28,
+    -99.5, 18.5,
+    -84, 55,
+    -71, 56,
+    -67, 28.5,
+    -43, 38.5,
+    -5, 40.5,
+    -14, 54.5,
+    -2, 65,
+    18, 65,
+    11.5, 76,
+    21, 85.5,
+    32, 87,
+    31.5, 94.5,
+    65, 125,
+    79, 128,
+    83.5, 124.5,
+    106, 126.5,
+    151.5, 58,
+    120, 9,
+    120, -9,
+    151.5, -58,
+    106, -126.5,
+    83.5, -124.5,
+    79, -128,
+    65, -125,
+    31.5, -94.5,
+    32, -87,
+    21, -85.5,
+    11.5, -76,
+    18, -65,
+    -2, -65,
+    -14, -54.5,
+    -5, -40.5,
+    -43, -38.5,
+    -67, -28.5,
+    -71, -56,
+    -84, -55,
+    -99.5, -18.5,
+    -109, -28,
+    -149, -18.5,
+    -133, -16,
+    -132.5, -9,
+    -126, -2.5
+  ]
+}

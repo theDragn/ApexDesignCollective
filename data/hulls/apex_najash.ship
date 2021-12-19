@@ -1,0 +1,56 @@
+{
+  "hullName": "Najash",
+  "hullId": "apex_najash",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/ships/apex_najash.png",
+  "style": "HIGH_TECH",
+  "height": 181,
+  "width": 86,
+  "center": [43, 90.5],
+  "collisionRadius": 92.5,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 100.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor",
+    "insulatedengine",
+    "advanced_ground_support"
+  ],
+  "weaponSlots": [],
+  "engineSlots": [
+    {
+      "location": [-73, 21.5],
+      "length": 70,
+      "width": 25,
+      "angle": 180,
+      "contrailSize": 25,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-73, -21.5],
+      "length": 70,
+      "width": 25,
+      "angle": -180,
+      "contrailSize": 25,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -77, 4.5,
+    -91, 22,
+    -76.5, 39.5,
+    -47.5, 39.5,
+    -35, 25,
+    -19.5, 38.5,
+    53, 38,
+    88.5, -0,
+    53, -38,
+    -19.5, -38.5,
+    -35, -25,
+    -47.5, -39.5,
+    -76.5, -39.5,
+    -91, -22,
+    -77, -4.5,
+    -57, -0
+  ]
+}

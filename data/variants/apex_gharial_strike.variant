@@ -1,0 +1,41 @@
+{
+    "displayName": "Strike",
+    "fluxCapacitors": 10,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "apex_gharial",
+    "hullMods": [
+        "apex_cryo_projector",
+        "magazines"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_gharial_strike",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_tachyondriver_s",
+                "WS0002": "apex_tachyondriver_s",
+                "WS0003": "apex_tachyondriver_s",
+                "WS0004": "apex_tachyondriver_s"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0009": "apex_nanoacid_torp_pod"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_qgpd_s_flak",
+                "WS0006": "apex_qgpd_s_flak",
+                "WS0007": "apex_qgpd_s_flak",
+                "WS0008": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

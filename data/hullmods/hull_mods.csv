@@ -1,0 +1,48 @@
+name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sprite
+,,,,,,,,,,,,,,,,,,
+# Modular Hullmods,,,,,,,,,,,,,,,,,,
+Geodesic Shield Matrix,apex_geodesic_shield,2,,Apex Design Collective,"defensive, shields",Shields,10000,,FALSE,,3,6,15,25,data.hullmods.ApexShield,"Converts the shield to a geodesic emitter, allowing some damage from each projectile impact to bypass the shield. The amount of damage that penetrates the shield varies depending on the damage type.",Bleedthrough shield emitter.,graphics/hullmods/apex_geodesic_shield.png
+Nanolaminate Plating,apex_armor,2,,Apex Design Collective,"defensive, req_spaceport",Defenses,10000,,FALSE,,8,15,20,40,data.hullmods.ApexArmor,"Increases armor by %s/%s/%s/%s, minimum armor rating by %s, and maximum armor damage reduction by %s. Regeneration from remote armor patches is increased by %s.",Regenerative armor.,graphics/hullmods/apex_armor.png
+Range Synchronizer,apex_range_sync,1,,Apex Design Collective,"offensive, req_spaceport",Weapons,10000,,FALSE,,3,6,9,15,data.hullmods.ApexRangeSync,"Averages the range of all projectile weapons of the same size. Does not affect beams, PD, missiles, or built-in weapons, and cannot increase any individual weapon's range by more than %s.",Averages weapon ranges.,graphics/hullmods/apex_range_sync.png
+Cryocooled Armor Lattice,apex_cryo_armor,2,,Apex Design Collective,defensive,Defenses,10000,,FALSE,,8,15,20,40,data.hullmods.ApexCryoArmor,"Allows the ship to receive Remote Armor Patches without requiring a shield generator. Increases armor rating by %s/%s/%s/%s, reduces damage taken from beams by %s, and reduces maneuverability by %s. Remote repairs take %s longer to apply.",Allows remote patches on shieldless ships.,graphics/hullmods/apex_cryo_armor.png
+Coherency Amplifier,apex_coherency_amplifier,1,,Apex Design Collective,offensive,Weapons,10000,,FALSE,,4,8,12,16,data.hullmods.ApexQGAmplifier,"Improves the coherency of quark-gluon plasma bolts, enhancing weapon effects.
+
+%s: Projectiles gain %s equal to %s of their base damage.
+
+%s: Projectiles deal an extra %s damage to ships and fighters.",Improve quark-gluon weapons.,graphics/hullmods/apex_coherency_amplifier.png
+,,,,,,,,,,,,,,,,,,
+# Subsystems,,,,,,,,,,,,,,,,,,
+Cryocoolant Projector,apex_cryo_projector,2,,Apex Design Collective,"defensive, special, req_spaceport","Defenses, Special",10000,,FALSE,,4,6,8,10,data.hullmods.ApexCryoSystemHullmod,"Installs a Cryocoolant Projector subsystem. Maintaining the system is a complex and expensive affair, increasing deployment and monthly supply cost by %s/%s/%s/%s.",Remote flux buff.,graphics/hullmods/apex_cryo_projector.png
+Remote Armor Patcher,apex_armor_repairer,3,,Apex Design Collective,"defensive, special, req_spaceport","Defenses, Special",10000,,FALSE,,4,6,8,10,data.hullmods.ApexArmorRepairHullmod,"Installs the Remote Armor Patch subsystem. Maintaining the system is a complex and expensive affair, increasing deployment and monthly supply cost by %s/%s/%s/%s.",Enables remote armor repair subsystem.,graphics/hullmods/apex_armor_repairer.png
+Active Flare Projector,apex_flare_system,1,,Apex Design Collective,"defensive, special, req_spaceport","Defenses, Special",10000,,FALSE,,4,6,8,10,data.hullmods.ApexFlareSystemHullmod,Installs an active flare launcher in the ship's nozzle system.,Flare subsystem.,graphics/hullmods/apex_flare_system.png
+,,,,,,,,,,,,,,,,,,
+# Builtins,,,,,,,,,,,,,,,,,,
+Augmented Range Synchronizer,apex_super_range_sync,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexSuperRangeSync,"Averages the range of all projectile weapons, regardless of weapon size. Does not affect beams, PD, missiles, or built-in weapons, and cannot increase any individual weapon's range by more than %s.",Averages weapon range.,graphics/hullmods/apex_super_range_sync.png
+Expanded Squadrons,apex_expanded_squadrons,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexExpandedSquadrons,"Advanced avionics and nanoforges can produce and command additional strikecraft, %s wing size (up to a maximum of 6 fighters in a wing) and reducing refit times by %s. These extra strikecraft have a %s effect on the fighter replacement rate if destroyed. Requires an additional %s crew per fighter bay.",Doubles squadron size.,graphics/hullmods/apex_expanded_squadrons.png
+Clustered Phase Coils,apex_phase_coils,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexPhaseCoils,"Multiple small, tightly-packed phase coils produce an altered phase profile.
+
+Reduces the timeflow bonus from phase to %s. In exchange, phase cloak cooldown and activation cost is reduced by %s, and the maximum speed penalty from phase coil stress is reduced to %s.",Improves phase cooldown.,graphics/hullmods/apex_phase_coils.png
+Limited Magazines,apex_cramped_mags,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexCrampedMags,A relative lack of large internal volumes %s. Mounting more than one large missile weapon or more than two total medium and large missile weapons will reduce missile fire rate by %s for each weapon above the cap.,Limits missile installation.,graphics/hullmods/apex_cramped_mags.png
+Enhanced Nozzles,apex_fast_nozzles,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexFastNozzles,Upgraded nozzle projection systems and larger internal volumes allow for more rapid activations of nozzle subsystems. Reduces nozzle subsystem cooldown by %s.,Faster nozzle cooldown.,graphics/hullmods/apex_fast_nozzles.png
+,,,,,,,,,,,,,,,,,,
+# Commission,,,,,,,,,,,,,,,,,,
+Collective Armor Engineering,CHM_apex,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexCommission,"Collective engineers have extensive experience with starship armor, allowing them to eke out a bit more performance and repair damaged sections faster. Armor rating for the damage reduction calculation is increased by %s, and %s of armor and hull damage is repaired after combat ends for no cost.
+
+""He was more than a hero. He was a union man.""",Improves armor performance.,graphics/hullmods/apex_comm.png
+,,,,,,,,,,,,,,,,,,
+# VLS hullmods,,,,,,,,,,,,,,,,,,
+Variable Warheads,apex_variable_warheads,,,Apex Design Collective,,,,,TRUE,TRUE,0,0,0,0,data.hullmods.ApexVariableWarheads,"Taipan VLS systems incorporate an advanced internal autoforge, allowing a variety of warheads to be produced with a simple reconfiguration. Switching missile payloads can be done %s for changing hullmods.",Variable missile ammo selection.,graphics/hullmods/apex_variable_warheads.png
+Nanoacid Warheads,apex_warheads_acid,,,Apex Design Collective,no_build_in,,,,TRUE,,0,0,0,0,data.hullmods.ApexVariableAcid,"Sets the integrated missile autoforge to produce %s warheads for the ship's Taipan VLS.
+
+Remove this hullmod to switch to %s warheads. Changing this hullmod in space has %s.",Nanoacid warheads.,graphics/hullmods/apex_warheads_acid.png
+Kinetic Warheads,apex_warheads_kin,,,Apex Design Collective,no_build_in,,,,TRUE,,0,0,0,0,data.hullmods.ApexVariableKin,"Sets the integrated missile autoforge to produce %s warheads for the ship's Taipan VLS.
+
+Remove this hullmod to switch to %s warheads. Changing this hullmod in space has %s.",Kinetic warheads.,graphics/hullmods/apex_warheads_kin.png
+Tachyon Warheads,apex_warheads_tachyon,,,Apex Design Collective,no_build_in,,,,TRUE,,0,0,0,0,data.hullmods.ApexVariableEmp,"Sets the integrated missile autoforge to produce %s warheads for the ship's Taipan VLS.
+
+Remove this hullmod to switch to %s warheads. Changing this hullmod in space has %s.",EMP warheads.,graphics/hullmods/apex_warheads_emp.png
+,,,,,,,,,,,,,,,,,,
+# Conversion hullmods,,,,,,,,,,,,,,,,,,
+Refit: Hauler,apex_spectrum_cargo,,,Apex Design Collective,req_spaceport,Logistics,,TRUE,,,0,30,30,0,data.hullmods.ApexSpectrumCargo,"Replaces the hangar modules with cargo pods, increasing cargo capacity by %s. Without the need to support fighters, deployment and maintenance costs are decreased by %s, and crew requirements are decreased by %s.",Cargo refit.,graphics/hullmods/apex_spectrum_cargo.png
+Refit: Tanker,apex_spectrum_fuel,,,Apex Design Collective,req_spaceport,Logistics,,TRUE,,,0,30,30,0,data.hullmods.ApexSpectrumFuel,"Replaces the hangar modules with fuel tanks, increasing fuel capacity by %s. Without the need to support fighters, deployment and maintenance costs are decreased by %s, and crew requirements are decreased by %s.",Tanker refit.,graphics/hullmods/apex_spectrum_fuel.png
+Civilian Refit,apex_civwhenrefit,,,Apex Design Collective,,,,,TRUE,TRUE,0,0,0,0,data.hullmods.ApexDummyCivHull,Hidden hullmod that makes refit carriers be treated as civilian ships.,,graphics/hullmods/apex_spectrum_fuel.png

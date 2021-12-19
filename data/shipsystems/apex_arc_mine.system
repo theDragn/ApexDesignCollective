@@ -1,0 +1,14 @@
+{
+	"id":"apex_arc_mine",
+	"type":"WEAPON",
+	"aiType":"CUSTOM",
+	
+	"aiScript":"data.shipsystems.ai.ApexArcMineDispenserAI",
+	
+	"weaponDataId":"apex_arc_mine",
+	"outOfUsesSound":"gun_out_of_ammo",
+	"fadeActivationSoundOnChargedown":true,
+	"useSound":"mine_teleport",
+	#"weaponGlowColor":[55,200,255,255],
+ 	#"weaponTypes":[SYSTEM],
+}

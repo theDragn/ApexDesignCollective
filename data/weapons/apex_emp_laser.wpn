@@ -1,0 +1,60 @@
+{
+  "id": "apex_emp_laser",
+  "specClass": "beam",
+  "type": "ENERGY",
+  "size": "SMALL",
+  "beamEffect": "data.weapons.ApexEmpLaserEffect",
+  "collisionClass": "RAY",
+  "collisionClassByFighter": "RAY_FIGHTER",
+  "turretSprite": "graphics/weapons/apex_emp_laser_turret.png",
+  "turretGlowSprite": "graphics/weapons/apex_emp_laser_turret_glow.png",
+  "hardpointSprite": "graphics/weapons/apex_emp_laser_hardpoint.png",
+  "hardpointGlowSprite": "graphics/weapons/apex_emp_laser_hardpoint_glow.png",
+  "renderAboveAllWeapons": 0,
+  "glowColor": [
+    100,
+    100,
+    255,
+    255
+  ],
+  "hitGlowRadius": 0,
+  "turretOffsets": [
+    6,
+    0
+  ],
+  "turretAngleOffsets": [
+    0
+  ],
+  "hardpointOffsets": [
+    6.5,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "fringeColor": [
+    0,
+    0,
+    255,
+    225
+  ],
+  "coreColor": [
+    255,
+    255,
+    255,
+    255
+  ],
+  "width": 13,
+  "textureType": ROUGH,
+  "textureScrollSpeed": 72,
+  "pixelsPerTexel": 5,
+  "pierceSet": [
+    PROJECTILE_FF,
+    PROJECTILE_NO_FF,
+    PROJECTILE_FIGHTER,
+    MISSILE_FF,
+    MISSILE_NO_FF
+  ],
+  "fireSoundOne": "laser_intro",
+  "fireSoundTwo": "laser_loop"
+}

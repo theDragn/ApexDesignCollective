@@ -1,0 +1,50 @@
+{
+    "displayName": "Red Guards",
+    "fluxCapacitors": 21,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "apex_apotheosis_rg",
+    "hullMods": [
+        "missleracks",
+        "targetingunit",
+        "hardenedshieldemitter"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_apotheosis_rg_redguards",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "hammerrack"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0006": "hammer",
+                "WS0007": "hammer"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "mark9",
+                "WS0002": "mark9"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "vulcan",
+                "WS0005": "vulcan",
+                "WS0008": "vulcan",
+                "WS0009": "vulcan",
+                "WS0010": "vulcan",
+                "WS0011": "vulcan"
+            }
+        }
+    ]
+}

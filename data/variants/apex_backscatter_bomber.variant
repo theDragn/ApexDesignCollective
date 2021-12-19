@@ -1,0 +1,32 @@
+{
+    "displayName": "Bomber",
+    "fluxCapacitors": 3,
+    "fluxVents": 0,
+    "goalVariant": true,
+    "hullId": "apex_backscatter",
+    "hullMods": ["expanded_deck_crew"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_backscatter_bomber",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "apex_qgpd_s_flak",
+                "WS0003": "apex_qgpd_s_flak",
+                "WS0004": "apex_qgpd_s_flak",
+                "WS0005": "apex_qgpd_s_flak"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "apex_sledgehammer_med"}
+        }
+    ],
+    "wings": [
+        "apex_whiptail_wing",
+        "apex_tegu_wing"
+    ]
+}

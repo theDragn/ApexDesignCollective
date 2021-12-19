@@ -1,0 +1,59 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 5,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "apex_komodo",
+    "hullMods": [
+        "targetingunit",
+        "apex_armor_repairer",
+        "apex_geodesic_shield"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_komodo_standard",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0001": "apex_nanoacid_torp_rack",
+                "WS0002": "apex_nanoacid_torp_rack",
+                "WS0003": "apex_nanoacid_torp_rack",
+                "WS0004": "apex_nanoacid_torp_rack"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0013": "apex_arcspike_canister"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0012": "apex_haymarket"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0014": "apex_nanogun_medium",
+                "WS0015": "apex_nanogun_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_qgpd_s_flak",
+                "WS0006": "apex_qgpd_s_flak",
+                "WS0007": "apex_qgpd_s_flak",
+                "WS0008": "apex_qgpd_s_flak",
+                "WS0009": "apex_qgpd_s_flak",
+                "WS0010": "apex_qgpd_s_flak",
+                "WS0011": "apex_qgpd_s_flak"
+            }
+        }
+    ],
+    "wings": ["apex_chameleon_wing"]
+}

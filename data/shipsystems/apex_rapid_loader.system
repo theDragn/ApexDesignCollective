@@ -1,0 +1,11 @@
+{
+	"id":"apex_rapid_loader",
+	"type":"STAT_MOD",
+	"aiType":"CUSTOM",
+	
+	"aiScript":"data.shipsystems.ai.ApexRapidLoaderAI",
+	"statsScript":"data.shipsystems.ApexRapidLoader",
+	
+	"useSound":"system_fast_missile_racks",
+	"outOfUsesSound":"gun_out_of_ammo",
+}

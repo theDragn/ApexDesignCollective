@@ -1,0 +1,63 @@
+{
+	"id":"apex_fusion_fighter",  # this id must match what's in the spreadsheet
+  "specClass": "beam",
+  "type": "ENERGY",
+  "size": "SMALL",
+  "beamEffect": "data.weapons.ApexFusionBeamEffect",
+  "collisionClass": "RAY",
+  "collisionClassByFighter": "RAY_FIGHTER",
+  "turretSprite": "graphics/weapons/apex_fusion_small_t.png",
+  "turretGlowSprite": "graphics/weapons/apex_fusion_small_t_glow.png",
+  "hardpointSprite": "graphics/weapons/apex_fusion_small_h.png",
+  "hardpointGlowSprite": "graphics/weapons/apex_fusion_small_h_glow.png",
+  "renderAboveAllWeapons": 0,
+  "glowColor": [
+    255,
+    155,
+    155,
+    255
+  ],
+  "hitGlowRadius": 0,
+  "turretOffsets": [
+    0,
+    0
+  ],
+  "turretAngleOffsets": [
+    0
+  ],
+  "hardpointOffsets": [
+    0,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "fringeColor": [
+    255,
+    0,
+    0,
+    225
+  ],
+  "coreColor": [
+    255,
+    255,
+    255,
+    255
+  ],
+  "width": 18,
+  "textureType": [
+    "graphics/fx/beam_laser_fringe.png",
+    "graphics/effects/apex_fusion_beam_core.png"
+  ],
+  "textureScrollSpeed": 600,
+  "pixelsPerTexel": 5,
+  "pierceSet": [
+    PROJECTILE_FF,
+    PROJECTILE_NO_FF,
+    PROJECTILE_FIGHTER,
+    MISSILE_FF,
+    MISSILE_NO_FF
+  ],
+  "fireSoundOne": "laser_intro",
+  "fireSoundTwo": "laser_loop"
+}

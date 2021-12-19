@@ -1,0 +1,36 @@
+{
+	"id":"apex_vls_tachyon_missile",
+	"specClass":"missile",	
+	"missileType":"MISSILE",
+	"sprite":"graphics/missiles/apex_vls_tachyon.png",
+	"onHitEffect":"data.weapons.ApexTachyonEffects",
+	"size":[6,14],	
+	"center":[3,7],
+	"collisionRadius":10,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[255,165,50,255],
+	"explosionRadius":50, # purely visual
+	"engineSpec":{"turnAcc":270,
+                        "turnRate":270,
+                        "acc":180,
+                        "dec":180},			  
+	"engineSlots":[{"id":"ES1",
+                        "loc":[-8, 0],
+                        "style":"CUSTOM",
+                        "styleSpec":{
+                                "mode":"QUAD_STRIP",
+                                "engineColor":[150,100,255,255],
+				"glowSizeMult":2,
+                                "contrailDuration":2.0,
+                                "contrailWidthMult":0.5,
+                                "contrailWidthAddedFractionAtEnd":2.5,
+                                "contrailMinSeg":5,
+                                "contrailMaxSpeedMult":0.75f,
+                                "contrailAngularVelocityMult":0.1f,
+                                "contrailColor":[150,100,255,255],
+                                "type":"SMOKE"
+                        },
+                        "width":4.0,
+                        "length":20.0,
+                        "angle":180.0}]
+}

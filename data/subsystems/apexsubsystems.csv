@@ -1,0 +1,4 @@
+name,id,hotkey,inTime,activeTime,outTime,cooldownTime,isToggle,fluxPerSecondPercentMaxCapacity,fluxPerSecondFlat
+Armor Patcher,apex_repairsubsystem,,0,0.1,0.5,30,FALSE,0,0
+Flare Launcher,apex_flaresubsystem,,0,1,0,19,FALSE,0,0
+Cryo Projector,apex_cryosubsystem,,0,0.1,0.5,30,FALSE,0,0

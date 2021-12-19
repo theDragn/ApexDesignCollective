@@ -1,0 +1,61 @@
+{
+  "hullName": "Gecko",
+  "hullId": "apex_fighter_gecko",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/fighters/apex_gecko.png",
+  "style": "HIGH_TECH",
+  "height": 38,
+  "width": 28,
+  "center": [14, 19],
+  "collisionRadius": 18.5,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 20,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [8, 5.5]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -0,
+      "locations": [8, -5.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-15, 5],
+      "length": 20.5,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-15, -5],
+      "length": 20.5,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -8.5, 15,
+    18, -0,
+    -8.5, -15,
+    -17.5, -0
+  ]
+}

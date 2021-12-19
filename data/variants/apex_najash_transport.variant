@@ -1,0 +1,16 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 14,
+    "fluxVents": 0,
+    "goalVariant": true,
+    "hullId": "apex_najash",
+    "hullMods": [
+        "unstable_injector",
+        "additional_berthing",
+        "efficiency_overhaul"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_najash_transport",
+    "weaponGroups": []
+}

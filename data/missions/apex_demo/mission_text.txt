@@ -1,0 +1,4 @@
+Location: Fleet Academy, Granite, Vela System
+Date: 204.2.10
+
+Welcome to the Fleet Combat Simulator. This simulation is intended to provide a general overview of various Apex Design Collective hulls.

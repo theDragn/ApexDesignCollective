@@ -1,0 +1,82 @@
+{
+  "id": "apex_tachyondriver_s",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_tachyonwedge",
+  "type": "ENERGY",
+  "size": "SMALL",
+  "turretSprite": "graphics/weapons/apex_tachyondriver_s_t.png",
+  "turretGlowSprite": "graphics/weapons/apex_tachyondriver_s_t_glow.png",
+  "hardpointSprite": "graphics/weapons/apex_tachyondriver_s_h.png",
+  "hardpointGlowSprite": "graphics/weapons/apex_tachyondriver_s_h_glow.png",
+  "renderAboveAllWeapons": 0,
+  "glowColor": [
+    140,
+    3,
+    252,
+    255
+  ],
+  "turretOffsets": [
+    10,
+    1,
+    10,
+    -1,
+    9,
+    3,
+    9,
+    -3,
+    8,
+    5,
+    8,
+    -5
+  ],
+  "turretAngleOffsets": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    13.5,
+    1,
+    13.5,
+    -1,
+    12.5,
+    3,
+    12.5,
+    -3,
+    11.5,
+    5,
+    11.5,
+    -5
+  ],
+  "hardpointAngleOffsets": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "autocharge": true,
+  "requiresFullCharge": false,
+  "barrelMode": "LINKED",
+  "animationType": "GLOW_AND_FLASH",
+  "muzzleFlashSpec": {
+    "length": 10,
+    "spread": 15,
+    "particleSizeMin": 15,
+    "particleSizeRange": 15,
+    "particleDuration": 0.15,
+    "particleCount": 3,
+    "particleColor": [
+      255,
+      100,
+      150,
+      255
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "apex_driver_s_shot"
+}

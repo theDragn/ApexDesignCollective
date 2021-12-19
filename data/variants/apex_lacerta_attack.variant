@@ -1,0 +1,31 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 8,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "apex_lacerta",
+    "hullMods": ["apex_cryo_projector"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_lacerta_attack",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "apex_nanogun_medium"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0003": "apex_nanoacid_torp_rack",
+                "WS0004": "apex_nanoacid_torp_rack"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "apex_coilgun_medium"}
+        }
+    ]
+}

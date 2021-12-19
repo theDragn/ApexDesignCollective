@@ -1,0 +1,47 @@
+{
+    "displayName": "Pursuit",
+    "fluxCapacitors": 9,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "apex_gharial",
+    "hullMods": [
+        "targetingunit",
+        "apex_flare_system"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_gharial_pursuit",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0009": "apex_coilgun_medium"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_nanogun_small",
+                "WS0002": "apex_nanogun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_qgp_small",
+                "WS0006": "apex_qgp_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_qgpd_s_flak",
+                "WS0004": "apex_qgpd_s_flak",
+                "WS0007": "apex_qgpd_s_flak",
+                "WS0008": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

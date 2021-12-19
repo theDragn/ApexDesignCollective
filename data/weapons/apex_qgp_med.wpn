@@ -1,0 +1,34 @@
+{
+	"id":"apex_qgp_med",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"type":"ENERGY",
+	"mountTypeOverride":"HYBRID",
+	"size":"MEDIUM",
+	"everyFrameEffect": "data.weapons.ApexQGeffects",
+	"turretSprite":"graphics/weapons/apex_qgp_med_t.png",
+	"turretGunSprite":"graphics/weapons/apex_qgp_med_recoil_t.png",
+	"turretGlowSprite":"graphics/weapons/apex_qgp_med_t_glow.png",
+	"hardpointSprite":"graphics/weapons/apex_qgp_med_h.png",
+	"hardpointGunSprite":"graphics/weapons/apex_qgp_med_recoil_h.png",
+	"hardpointGlowSprite":"graphics/weapons/apex_qgp_med_h_glow.png",
+	"visualRecoil":8.0,  # the gun sprites are only used if this is non-0
+	"renderHints":[RENDER_BARREL_BELOW],
+	"glowColor":[255,100,100,255],
+	"turretOffsets":[15, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[15, 0],
+	"hardpointAngleOffsets":[0],
+	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	#"animationType":"GLOW",
+	"animationType":"GLOW_AND_FLASH",
+	"muzzleFlashSpec":{"length":23.0,   # only used if animationType = MUZZLE_FLASH
+					   "spread":5.0,
+					   "particleSizeMin":10.0,
+					   "particleSizeRange":12.0,
+					   "particleDuration":0.12,
+					   "particleCount":12,
+					   "particleColor":[255,100,100,255]},	
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"projectileSpecId":"apex_qgp_med_shot",  # projectile that will be fired
+	"fireSoundTwo":"apex_qgp_med_shot",
+}

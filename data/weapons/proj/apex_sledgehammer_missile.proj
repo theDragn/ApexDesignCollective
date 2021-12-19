@@ -1,0 +1,37 @@
+{
+	"id":"apex_sledgehammer_missile",
+	"specClass":"missile",	
+	"missileType":"MISSILE",
+	"onHitEffect":"data.weapons.proj.ApexSledgehammerOnHit",
+	"sprite":"graphics/missiles/apex_sledgehammer.png",
+	"size":[10,22],	
+	"center":[5,12],
+	"collisionRadius":11,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[100,255,100,255],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":150, # purely visual
+	"engineSpec":{"turnAcc":210,
+				  "turnRate":70,
+				  "acc":200,
+				  "dec":100},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-13, 0],
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[100,255,100,255],
+						"glowSizeMult":1.8,
+						"contrailDuration":1,
+						"contrailWidthMult":2,
+						"contrailWidthAddedFractionAtEnd":2.5,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.5f,
+						"contrailAngularVelocityMult":0.5f,
+						"contrailColor":[100,165,100,75],
+						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":7.0,
+				    "length":40.0,
+				    "angle":180.0},
+				    ]
+}

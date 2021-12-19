@@ -1,0 +1,47 @@
+{
+	"id":"apex_mine_arc",
+	"specClass":"missile",	
+	"missileType":"PHASE_MINE",
+	"sprite":"graphics/missiles/apex_mine_arc.png",
+	"glowSprite":"graphics/missiles/heavy_mine2_glow.png",
+	"glowColor":[102,102,255,255],
+	"size":[48,48],	
+	"center":[24,24],	
+	"collisionRadius":10,
+	"collisionClass":"MISSILE_NO_FF",
+	"flameoutTime":0.1, # total time from flameout to full fadeout
+	"fadeTime":0.1, # fadeout duration
+	"noEngineGlowTime":0.05, # time spent without the engine glow being rendered
+	"explosionColor":[128,128,255,128],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":25, # purely visual	
+	"engineSpec":{"turnAcc":500,
+				  "turnRate":150,
+				  "acc":60,
+				  "dec":60},
+	"behaviorSpec":{"behavior":"PROXIMITY_FUSE",
+					"range":25,
+					"slowToMaxSpeed":true,
+					"delay":1.5,
+					"pingSound":"mine_ping",
+					"pingColor":[128,255,255,255],
+					"pingRadius":100,
+					"pingDuration":0.15,
+					"windupSound":"apex_mine_windup",
+					"windupDelay":0.5,
+					"explosionSpec":{"duration":0.1f,
+									 "radius":150,
+									 "coreRadius":100, # full damage within core radius
+									 "collisionClass":MISSILE_NO_FF,
+									 "collisionClassByFighter":MISSILE_NO_FF,
+									 "particleSizeMin":3.0,
+									 "particleSizeRange":3.0,
+									 "particleDuration":1,
+									 "particleCount":45,
+									 "particleColor":[128,128,255,128],
+									 "explosionColor":[128,128,255,64],
+									 "useDetailedExplosion":true,
+									 "sound":"apex_mine_explosion"},
+					}	
+}
+
+

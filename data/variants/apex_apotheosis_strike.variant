@@ -1,0 +1,49 @@
+{
+    "displayName": "Strike",
+    "fluxCapacitors": 19,
+    "fluxVents": 50,
+    "goalVariant": true,
+    "hullId": "apex_apotheosis",
+    "hullMods": [
+        "targetingunit",
+        "apex_cryo_projector"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_apotheosis_strike",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_disruptor",
+                "WS0002": "apex_disruptor"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "apex_nanoacid_torp_barrage"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0006": "apex_coilgun_small",
+                "WS0007": "apex_coilgun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "apex_qgpd_s_flak",
+                "WS0005": "apex_qgpd_s_flak",
+                "WS0008": "apex_qgpd_s_flak",
+                "WS0009": "apex_qgpd_s_flak",
+                "WS0010": "apex_qgpd_s_flak",
+                "WS0011": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

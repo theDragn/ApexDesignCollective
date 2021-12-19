@@ -1,0 +1,154 @@
+{
+  "hullName": "Gharil",
+  "hullId": "apex_gharial",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/ships/apex_gharial.png",
+  "style": "HIGH_TECH",
+  "height": 108,
+  "width": 146,
+  "center": [73, 55],
+  "collisionRadius": 76.5,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 85.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": 45,
+      "locations": [38, 35]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": -45,
+      "locations": [38, -35]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": 45,
+      "locations": [16, 60]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": -45,
+      "locations": [16, -60]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 205,
+      "angle": 90,
+      "locations": [5, 32]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 205,
+      "angle": -90,
+      "locations": [5, -32]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": 135,
+      "locations": [-12, 24]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": -135,
+      "locations": [-12, -24]
+    },
+    {
+      "id": "WS0009",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [42, 0]
+    },
+    {
+      "id": "WS0012",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 115.5,
+      "locations": [-10, 56.5]
+    },
+    {
+      "id": "WS0013",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -115.5,
+      "locations": [-10, -56.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-40, 20.5],
+      "length": 40,
+      "width": 16,
+      "angle": -180,
+      "contrailSize": 16,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-40, -20.5],
+      "length": 40,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 16,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -54, 5,
+    -44, 11,
+    -44.5, 28,
+    -25.5, 40,
+    -28, 52.5,
+    19, 72.5,
+    52.5, 33.5,
+    49, 9.5,
+    49, -9.5,
+    52.5, -33.5,
+    19, -72.5,
+    -28, -52.5,
+    -25.5, -40,
+    -44.5, -28,
+    -44, -11,
+    -54, -5
+  ]
+}

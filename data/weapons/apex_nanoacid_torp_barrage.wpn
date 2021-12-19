@@ -1,0 +1,60 @@
+{
+  "id": "apex_nanoacid_torp_barrage",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_nanoacid_torp",
+  "type": "MISSILE",
+  "size": "LARGE",
+  "turretSprite": "graphics/weapons/apex_nanotorp_large_t.png",
+  "hardpointSprite": "graphics/weapons/apex_nanotorp_large_h.png",
+  "renderAboveAllWeapons": 0,
+  "renderHints": [
+    RENDER_LOADED_MISSILES
+  ],
+  "turretOffsets": [
+    9,
+    0,
+    7,
+    -7.5,
+    7,
+    7.5
+  ],
+  "turretAngleOffsets": [
+    0,
+    -5.5,
+    5.5
+  ],
+  "hardpointOffsets": [
+    11,
+    0,
+    8.5,
+    -7,
+    8.5,
+    7
+  ],
+  "hardpointAngleOffsets": [
+    0,
+    -5.5,
+    5.5
+  ],
+  "barrelMode": "ALTERNATING",
+  "animationType": "SMOKE",
+  "smokeSpec": {
+    "particleSizeMin": 12,
+    "particleSizeRange": 12,
+    "cloudParticleCount": 6,
+    "cloudDuration": 1.5,
+    "cloudRadius": 10,
+    "blowbackParticleCount": 4,
+    "blowbackDuration": 2,
+    "blowbackLength": 22,
+    "blowbackSpread": 15,
+    "particleColor": [
+      100,
+      100,
+      100,
+      200
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "harpoon_fire"
+}

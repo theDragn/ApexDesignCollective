@@ -1,0 +1,34 @@
+{
+    "displayName": "Strike",
+    "fluxCapacitors": 6,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "apex_lacerta",
+    "hullMods": [
+        "apex_armor_repairer",
+        "hardened_subsystems"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_lacerta_strike",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "apex_tachyondriver_m"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0003": "apex_arcspike",
+                "WS0004": "apex_arcspike"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "apex_fusion_medium"}
+        }
+    ]
+}

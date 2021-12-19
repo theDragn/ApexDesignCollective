@@ -1,0 +1,48 @@
+{
+  "id": "apex_disruptor",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_disruptor_shot",
+  "type": "ENERGY",
+  "size": "LARGE",
+  "everyFrameEffect":"data.weapons.ApexDisruptorEffects",
+  "turretSprite": "graphics/weapons/apex_disruptor_t_base.png",
+  "turretGlowSprite": "graphics/weapons/apex_disruptor_t_glow.png",
+  "turretGunSprite": "graphics/weapons/apex_disruptor_t_recoil.png",
+  "hardpointSprite": "graphics/weapons/apex_disruptor_h_base.png",
+  "hardpointGlowSprite": "graphics/weapons/apex_disruptor_h_glow.png",
+  "hardpointGunSprite": "graphics/weapons/apex_disruptor_h_recoil.png",
+  "renderAboveAllWeapons": 0,
+  "glowColor": [232,41,246,255],
+  "visualRecoil": 6,
+  "renderHints": [
+    RENDER_BARREL_BELOW
+  ],
+  "turretOffsets": [
+    30,
+    0
+  ],
+  "turretAngleOffsets": [
+    0
+  ],
+  "hardpointOffsets": [
+    35,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "barrelMode": "ALTERNATING",
+  "animationType": "GLOW_AND_FLASH",
+  "autocharge": true,
+  "muzzleFlashSpec": {
+    "length": 20,
+    "spread": 30,
+    "particleSizeMin": 15,
+    "particleSizeRange": 15,
+    "particleDuration": 0.15,
+    "particleCount": 30,
+    "particleColor": [232,41,246,255]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "apex_disruptor_shot"
+}

@@ -1,0 +1,47 @@
+{
+  "plugins":{
+    "ApexSubsystemCombatManager":"apexsubs.ApexSubsystemCombatManager",
+  },
+	"designTypeColors":{
+	  "Apex Design Collective":[72,148,78,255]
+	},
+	"graphics": {
+    "blueprint_packages":{
+      "apex_weapons_package":"graphics/icons/cargo/apex_weapons_package.png",
+      "apex_hulls_package":"graphics/icons/cargo/apex_hulls_package.png"
+    },	
+		"misc": {
+		  "apex_regen": "graphics/icons/buffs/apex_regen.png",
+      "apex_cryo": "graphics/icons/buffs/apex_cryo.png",
+      "apex_nozzle": "graphics/hullmods/apex_nozzle.png",
+      "apex_dartgun_indicator_circle":"graphics/fx/shields256ring.png",
+      "apex_dartgun_indicator_pip":"graphics/ui/icons/16x_starburst_circle.png",
+      "apex_I_have_to_load":"graphics/ui/icons/damagetype_kinetic_20x.png",
+      "apex_these_stupid_sprites":"graphics/ui/icons/damagetype_energy_20x.png",
+      "apex_even_though_the_game":"graphics/ui/icons/damagetype_high_explosive_20x.png",
+      "apex_definitely_uses_them":"graphics/ui/icons/damagetype_fragmentation_20x.png",
+		},
+		"fx":{
+      "apex_trail_twin":"graphics/trails/fx/trails_twin.png",
+			"geodesic_spall":"graphics/effects/geodesic_spall.png"
+		},
+    "apex_spectrum":{
+      "apex_spectrum_cargo":"graphics/ships/apex_spectrum_cargo.png",
+      "apex_spectrum_fuel":"graphics/ships/apex_spectrum_fuel.png"
+    },
+    "apex_backscatter":{
+      "apex_backscatter_cargo":"graphics/ships/apex_backscatter_cargo.png",
+      "apex_backscatter_fuel":"graphics/ships/apex_backscatter_fuel.png"
+    },
+    "apex_vls":{
+      "vls_frame0":"graphics/weapons/vls_hatch/frame0.png",
+      "vls_frame1":"graphics/weapons/vls_hatch/frame1.png",
+      "vls_frame2":"graphics/weapons/vls_hatch/frame2.png",
+      "vls_frame3":"graphics/weapons/vls_hatch/frame3.png",
+      "vls_frame4":"graphics/weapons/vls_hatch/frame4.png",
+      "vls_frame5":"graphics/weapons/vls_hatch/frame5.png",
+      "vls_frame6":"graphics/weapons/vls_hatch/frame6.png"
+    }
+	}
+}
+

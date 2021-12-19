@@ -1,0 +1,44 @@
+{
+    "displayName": "Pursuit",
+    "fluxCapacitors": 8,
+    "fluxVents": 50,
+    "goalVariant": true,
+    "hullId": "apex_apotheosis",
+    "hullMods": [
+        "apex_armor_repairer",
+        "targetingunit",
+        "apex_geodesic_shield"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_apotheosis_pursuit",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "apex_fusion_large"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_haymarket",
+                "WS0002": "apex_haymarket"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "apex_qgpd_s_flak",
+                "WS0005": "apex_qgpd_s_flak",
+                "WS0006": "apex_qgpd_s_flak",
+                "WS0007": "apex_qgpd_s_flak",
+                "WS0008": "apex_qgpd_s_flak",
+                "WS0009": "apex_qgpd_s_flak",
+                "WS0010": "apex_qgpd_s_flak",
+                "WS0011": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

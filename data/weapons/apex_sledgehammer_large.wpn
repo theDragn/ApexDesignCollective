@@ -1,0 +1,81 @@
+{
+  "id": "apex_sledgehammer_large",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_sledgehammer_missile",
+  "type": "MISSILE",
+  "size": "LARGE",
+  "turretSprite": "graphics/weapons/apex_sledgehammer_l_t.png",
+  "hardpointSprite": "graphics/weapons/apex_sledgehammer_l_h.png",
+  "renderAboveAllWeapons": 0,
+  "turretOffsets": [
+    12.5,
+    16,
+    10.5,
+    8,
+    14.5,
+    8,
+    12.5,
+    0,
+    10.5,
+    -8,
+    14.5,
+    -8,
+    12.5,
+    -16
+  ],
+  "turretAngleOffsets": [
+    10,
+    7.5,
+    5,
+    0,
+    -7.5,
+    -5,
+    -10
+  ],
+  "hardpointOffsets": [
+    14.5,
+    16,
+    12.5,
+    8,
+    16.5,
+    8,
+    14.5,
+    0,
+    12.5,
+    -8,
+    16.5,
+    -8,
+    14.5,
+    -16
+  ],
+  "hardpointAngleOffsets": [
+    10,
+    7.5,
+    5,
+    0,
+    -7.5,
+    -5,
+    -10
+  ],
+  "barrelMode": "ALTERNATING",
+  "animationType": "SMOKE",
+  "smokeSpec": {
+    "particleSizeMin": 20,
+    "particleSizeRange": 20,
+    "cloudParticleCount": 3,
+    "cloudDuration": 1,
+    "cloudRadius": 10,
+    "blowbackParticleCount": 3,
+    "blowbackDuration": 2,
+    "blowbackLength": 5,
+    "blowbackSpread": 10,
+    "particleColor": [
+      100,
+      100,
+      100,
+      200
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "apex_sledgehammer_fire"
+}

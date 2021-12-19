@@ -1,0 +1,166 @@
+{
+  "hullName": "Agama",
+  "hullId": "apex_agama",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/apex_agama.png",
+  "style": "HIGH_TECH",
+  "height": 88,
+  "width": 90,
+  "center": [45, 44],
+  "collisionRadius": 46.5,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 54,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor"
+  ],
+  "builtInWeapons": {
+    "WS0010": "apex_deco_agama_wing_right",
+    "WS0011": "apex_deco_agama_wing_left",
+    "WS0012": "apex_deco_agama_center"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [32.5, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [9, -21]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -0,
+      "locations": [9, 21]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [-3, -34]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -0,
+      "locations": [-3, 34]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 187,
+      "angle": -69.5,
+      "locations": [-10, -17],
+      "renderOrderMod": 20
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 187,
+      "angle": 69.5,
+      "locations": [-10, 17],
+      "renderOrderMod": 20
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -126.5,
+      "locations": [-22.5, -35]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 126.5,
+      "locations": [-22.5, 35]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [-5.5, -25],
+      "renderOrderMod": 10
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -0,
+      "locations": [-5.5, 25],
+      "renderOrderMod": 10
+    },
+    {
+      "id": "WS0012",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -0,
+      "locations": [27.5, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-39, 13],
+      "length": 49.5,
+      "width": 17,
+      "angle": 180,
+      "contrailSize": 17,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-39, -13],
+      "length": 49.5,
+      "width": 17,
+      "angle": -180,
+      "contrailSize": 17,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -42.5, 18.5,
+    -35.5, 30,
+    -12, 44.5,
+    13, 19.5,
+    43, 8.5,
+    43, -8.5,
+    13, -19.5,
+    -12, -44.5,
+    -35.5, -30,
+    -42.5, -18.5
+  ]
+}

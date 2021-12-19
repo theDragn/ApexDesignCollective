@@ -1,0 +1,152 @@
+{
+  "hullName": "Caiman",
+  "hullId": "apex_caiman",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/ships/apex_caiman.png",
+  "style": "HIGH_TECH",
+  "height": 155,
+  "width": 120,
+  "center": [60, 77.5],
+  "collisionRadius": 79,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 105,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor",
+    "apex_super_range_sync"
+  ],
+  "builtInWeapons": {
+    "WS0010": "apex_deco_caiman_center"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "LARGE",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [42.5, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 194,
+      "angle": 45,
+      "renderOrderMod": 200,
+      "locations": [14.5, 24]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 194,
+      "angle": -45,
+      "renderOrderMod": 200,
+      "locations": [14.5, -24]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 194,
+      "angle": 90,
+      "locations": [-6.5, 32]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 194,
+      "angle": -90,
+      "locations": [-6.5, -32]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 135,
+      "locations": [-28.5, 32]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -135,
+      "locations": [-28.5, -32]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 125,
+      "locations": [-49.5, 34]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "TURRET",
+      "arc": 0,
+      "angle": -125,
+      "locations": [-49.5, -34]
+    },
+    {
+      "id": "WS0010",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 5,
+      "angle": 0,
+      "locations": [43.5, -0],
+      "renderOrderMod": 100
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-69.5, -0],
+      "length": 42,
+      "width": 14,
+      "angle": 180,
+      "contrailSize": 14,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-69.5, -17],
+      "length": 42,
+      "width": 13,
+      "angle": 180,
+      "contrailSize": 13,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-69.5, 17],
+      "length": 42,
+      "width": 13,
+      "angle": -180,
+      "contrailSize": 13,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -76, 21,
+    -29, 49.5,
+    18, 50,
+    73, 21,
+    73, -21,
+    18, -50,
+    -29, -49.5,
+    -76, -21
+  ]
+}

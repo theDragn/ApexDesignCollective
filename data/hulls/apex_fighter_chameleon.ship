@@ -1,0 +1,58 @@
+{
+  "hullName": "Chameleon",
+  "hullId": "apex_fighter_chameleon",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/fighters/apex_chameleon.png",
+  "style": "HIGH_TECH",
+  "height": 38,
+  "width": 38,
+  "center": [19, 19],
+  "collisionRadius": 20.5,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 24,
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HIDDEN",
+      "arc": 10,
+      "angle": 0,
+      "locations": [8, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HIDDEN",
+      "arc": 10,
+      "angle": 0,
+      "locations": [3, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-2.5, 7.5],
+      "length": 16,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-2.5, -7.5],
+      "length": 16,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    7.5, 19.5,
+    17, -0,
+    7.5, -19.5,
+    -15.5, -0
+  ]
+}

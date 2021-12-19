@@ -1,0 +1,52 @@
+{
+    "displayName": "Assault",
+    "fluxCapacitors": 6,
+    "fluxVents": 28,
+    "goalVariant": true,
+    "hullId": "apex_alligator",
+    "hullMods": [
+        "targetingunit",
+        "apex_armor_repairer",
+        "apex_geodesic_shield"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_alligator_line",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_qgp_med",
+                "WS0006": "apex_qgp_med"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "apex_coilgun_medium",
+                "WS0008": "apex_coilgun_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_nanogun_small",
+                "WS0004": "apex_nanogun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_qgpd_s_flak",
+                "WS0002": "apex_qgpd_s_flak",
+                "WS0009": "apex_qgpd_s_flak",
+                "WS0010": "apex_qgpd_s_flak",
+                "WS0011": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

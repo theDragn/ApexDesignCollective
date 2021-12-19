@@ -1,0 +1,21 @@
+{
+	"id":"apex_phasebanish",
+	"type":"STAT_MOD",
+	#"aiType":"DAMPER_FIELD",
+	"aiType":"CUSTOM",
+	
+	"aiScript":"data.shipsystems.ai.ApexPhaseBanishAI",
+	"statsScript":"data.shipsystems.ApexPhaseBanish",
+
+	"canUseWhileRightClickSystemOn":false,
+
+	"useSound":"system_interdictor",
+	"outOfUsesSound":"gun_out_of_ammo",
+	
+	"aiHints":{
+	}
+
+}
+
+
+

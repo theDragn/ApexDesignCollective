@@ -1,0 +1,31 @@
+{
+    "displayName": "Fuel",
+    "fluxCapacitors": 4,
+    "fluxVents": 0,
+    "goalVariant": true,
+    "hullId": "apex_backscatter_refitdummy",
+    "hullMods": [
+        "apex_spectrum_fuel",
+        "auxiliary_fuel_tanks"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_backscatter_miltanker",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "apex_qgpd_s_flak",
+                "WS0003": "apex_qgpd_s_flak",
+                "WS0004": "apex_qgpd_s_flak",
+                "WS0005": "apex_qgpd_s_flak"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "apex_sledgehammer_med"}
+        }
+    ]
+}

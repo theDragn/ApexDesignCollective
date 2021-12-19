@@ -1,0 +1,204 @@
+{
+  "hullName": "Alligator",
+  "hullId": "apex_alligator",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/ships/apex_alligator.png",
+  "style": "HIGH_TECH",
+  "height": 236,
+  "width": 204,
+  "center": [102, 118],
+  "collisionRadius": 117,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 127.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor"
+  ],
+  "builtInWeapons": {
+    "WS0014": "apex_deco_alligator_wing_left",
+    "WS0015": "apex_deco_alligator_wing_right"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 155,
+      "angle": -45,
+      "locations": [95, -10]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 155,
+      "angle": 45,
+      "locations": [95, 10]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 145,
+      "angle": 45,
+      "locations": [-9, 79]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 145,
+      "angle": -45,
+      "locations": [-9, -79]
+    },
+    {
+      "id": "WS0005",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [-8, 38]
+    },
+    {
+      "id": "WS0006",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -0,
+      "locations": [-8, -38]
+    },
+    {
+      "id": "WS0007",
+      "size": "MEDIUM",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 205,
+      "angle": 90,
+      "locations": [-37, 62]
+    },
+    {
+      "id": "WS0008",
+      "size": "MEDIUM",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 205,
+      "angle": -90,
+      "locations": [-37, -62]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 155,
+      "angle": 135,
+      "locations": [-84, 49]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 155,
+      "angle": -135,
+      "locations": [-84, -49]
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 200,
+      "angle": 0,
+      "locations": [38, -0]
+    },
+    {
+      "id": "WS0012",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 90,
+      "locations": [58, 19]
+    },
+    {
+      "id": "WS0013",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -90,
+      "locations": [58, -19]
+    },
+    {
+      "id": "WS0014",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [-20, 35.5]
+    },
+    {
+      "id": "WS0015",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -0,
+      "locations": [-20.5, -34.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-108, 12],
+      "length": 46,
+      "width": 11,
+      "angle": 180,
+      "contrailSize": 11,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-108, -12],
+      "length": 46,
+      "width": 11,
+      "angle": -180,
+      "contrailSize": 11,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-108, -0],
+      "length": 55.5,
+      "width": 15,
+      "angle": 180,
+      "contrailSize": 15,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -116.5, 13.5,
+    -106, 26.5,
+    -85.5, 27.5,
+    -94, 53.5,
+    -31.5, 101,
+    -0.5, 84.5,
+    -0.5, 50.5,
+    7.5, 31.5,
+    114, 15,
+    114, -15,
+    7.5, -31.5,
+    -0.5, -50.5,
+    -0.5, -84.5,
+    -31.5, -101,
+    -94, -53.5,
+    -85.5, -27.5,
+    -106, -26.5,
+    -116.5, -13.5
+  ]
+}

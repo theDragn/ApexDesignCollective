@@ -1,0 +1,19 @@
+Ships:
+- Komodo: Decreased speed to 35.
+- Python: Slightly increased duplication chance of Bifurcation Device.
+
+Weapons:
+- Nanoacid Torpedoes and Nanoacid Taipan MRMs: Increased debuff strength to 50%.
+
+Hullmods:
+- Cryocooled Armor Lattice: now increases repair time by 50% instead of 100%.
+- Spectrum Hauler/Tanker refits: Renamed, since they can be used on the new Backscatter. Addionally, they now change the ship's system to Maneuvering Pulse, and cause it to count as a civilian ship for skill thresholds.
+
+Other:
+- Fixed an issue where Apex markets would sell a huge number of their own hullmods instead of just one (whoops)
+
+Todo before next release:
+- consider a line of synergy weapons (toroid mortars)
+- Backscatter light carrier: A two-wing destroyer carrier. Like the Spectrum, it can be converted to carry cargo or fuel. System is Remote Temporal Damper.
+- Photon ultralight transport: A dirt-cheap and lightning-fast frigate hauler, solely useful for being nearly impossible to catch. Comes in cargo, fuel, and personnel configurations. System is Travel Drive.
+- Backscatter (CIV-F) and Backscatter (CIV-C)
