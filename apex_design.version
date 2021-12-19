@@ -1,11 +1,11 @@
 {
-    "masterVersionFile":"https://raw.githubusercontent.com/theDragn/HTE/main/HTE/hte.version",
-    "modName":"High Tech Expansion",
-    "modThreadId":19548,
+    "masterVersionFile":"https://raw.githubusercontent.com/theDragn/ApexDesignCollective/main/apex_design.version",
+    "modName":"Apex Design Collective",
+    "modThreadId":22704,
     "modVersion":
     {
-        "major":1,
-        "minor":4,
-        "patch":"8"
+        "major":0,
+        "minor":1,
+        "patch":"0"
     },
 }
