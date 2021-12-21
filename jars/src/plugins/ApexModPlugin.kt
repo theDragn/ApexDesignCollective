@@ -66,6 +66,7 @@ class ApexModPlugin : BaseModPlugin() {
         }
         if (!hasApex) {
             ApexSectorGenerator().generate(Global.getSector())
+            ApexSectorGenerator.createInitialPeople()
             if (GENERATE_RELICS && Global.getSector().memoryWithoutUpdate.contains("\$apex_placed_relics"))
                 ApexRelicPlacer().generate(Global.getSector())
         }

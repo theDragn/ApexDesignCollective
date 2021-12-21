@@ -107,7 +107,7 @@ public class ApexArmor extends BaseHullMod
                     incompatTextColor = Misc.getNegativeHighlightColor();
                 }
             }
-            tooltip.addPara("\n%s", 0, incompatTextColor, "Incomaptible with Cryocooled Armor Lattice, Heavy Armor, and other hullmods that provide significant bonuses to armor rating.");
+            tooltip.addPara("\n%s", 0, incompatTextColor, "Incompatible with Cryocooled Armor Lattice, Heavy Armor, and other hullmods that provide significant bonuses to armor rating.");
         }
     }
 

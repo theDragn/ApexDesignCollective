@@ -31,10 +31,10 @@ public class ApexSpectrumFuel extends BaseHullMod
     public static final HashMap<ShipAPI.HullSize, Float> DEPLOY_MAP = new HashMap<>();
     static
     {
-        DEPLOY_MAP.put(ShipAPI.HullSize.FRIGATE, -2f);
-        DEPLOY_MAP.put(ShipAPI.HullSize.DESTROYER, -7.5f);
-        DEPLOY_MAP.put(ShipAPI.HullSize.CRUISER, -19f);
-        DEPLOY_MAP.put(ShipAPI.HullSize.CAPITAL_SHIP, -30f);
+        DEPLOY_MAP.put(ShipAPI.HullSize.FRIGATE, 2f/4f);
+        DEPLOY_MAP.put(ShipAPI.HullSize.DESTROYER, 4.5f/12f);
+        DEPLOY_MAP.put(ShipAPI.HullSize.CRUISER, 9f/28f);
+        DEPLOY_MAP.put(ShipAPI.HullSize.CAPITAL_SHIP, 18f/45f);
     }
 
     @Override
@@ -49,8 +49,8 @@ public class ApexSpectrumFuel extends BaseHullMod
             stats.getFuelMod().modifyFlat(id, fuelmod);
         else
             stats.getFuelMod().modifyFlat(id, (fuelmod + 60f) * 1.3f - 160f);
-        stats.getSuppliesPerMonth().modifyFlat(id, deploymod);
-        stats.getSuppliesToRecover().modifyFlat(id, deploymod);
+        stats.getSuppliesPerMonth().modifyMult(id, deploymod);
+        stats.getSuppliesToRecover().modifyMult(id, deploymod);
         stats.getDynamic().getMod(Stats.DEPLOYMENT_POINTS_MOD).modifyFlat(id, deploymod);
         stats.getNumFighterBays().modifyMult(id, 0f);
         stats.getMinCrewMod().modifyMult(id, CREW_MULT);
@@ -83,7 +83,7 @@ public class ApexSpectrumFuel extends BaseHullMod
         if (index == 0)
             return (FUEL_MAP.get(hullSize)).intValue() + "";
         if (index == 1)
-            return Misc.getRoundedValue(-DEPLOY_MAP.get(hullSize));
+            return (int) (100f - 100f * DEPLOY_MAP.get(hullSize)) + "%";
         if (index == 2)
             return (int)(100f - CREW_MULT * 100f) + "%";
         return null;

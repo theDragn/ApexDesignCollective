@@ -131,6 +131,7 @@ public class ApexVela implements SectorGeneratorPlugin
         glassMarket.addSubmarket(Submarkets.SUBMARKET_BLACK);
         glassMarket.addSubmarket(Submarkets.SUBMARKET_STORAGE);
         glassMarket.addSubmarket(Submarkets.GENERIC_MILITARY);
+
         glass.setFaction("apex_design");
         for (MarketConditionAPI mc : glassMarket.getConditions())
         {

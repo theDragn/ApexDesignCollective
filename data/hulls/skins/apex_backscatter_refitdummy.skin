@@ -3,7 +3,7 @@
 	"skinHullId":"apex_backscatter_refitdummy",
 	"hullName":"Backscatter",
 	"descriptionId":"apex_backscatter",
-	"tags":[],
+	"tags":["no_sell","no_dealer","restricted"],
 	"addHints":["CIVILIAN"],
 	"tech":"Apex Design Collective",
 	"fleetPoints":8,

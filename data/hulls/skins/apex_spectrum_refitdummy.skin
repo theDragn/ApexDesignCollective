@@ -3,7 +3,7 @@
 	"skinHullId":"apex_spectrum_refitdummy",
 	"hullName":"Spectrum",
 	"descriptionId":"apex_spectrum",
-	"tags":[],
+	"tags":["no_sell","no_dealer","restricted"],
 	"addHints":["CIVILIAN"],
 	"tech":"Apex Design Collective",
 	"fleetPoints":8,

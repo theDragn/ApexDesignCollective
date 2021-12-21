@@ -1,7 +1,7 @@
 {
     "displayName": "Standard",
-    "fluxCapacitors": 5,
-    "fluxVents": 30,
+    "fluxCapacitors": 7,
+    "fluxVents": 25,
     "goalVariant": true,
     "hullId": "apex_komodo",
     "hullMods": [
