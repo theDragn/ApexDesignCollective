@@ -1,3 +1,5 @@
+// Borrowed from Tomatopaste's Dronelib
+
 package apexsubs;
 
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;

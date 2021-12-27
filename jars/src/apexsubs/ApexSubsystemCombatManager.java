@@ -1,3 +1,5 @@
+// Borrowed from Tomatopaste's Dronelib, with minor modification
+
 package apexsubs;
 
 import com.fs.starfarer.api.Global;
