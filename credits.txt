@@ -1,5 +1,8 @@
-Code, implementation, balancing- theDragn
-Sprites- Gwyvern
-Blueprint package backgrounds- Harmful Mechanic
+Credits
+Gwyvern: Sprites
+Tomatopaste: dronelib code
+Mayu: A few hullmod sprites
+Harmful Mechanic: Assets used for blueprint packs
+Farlarzia, Ruddygreat, Cjuicy, Silverlight, Avanitia: Loyal beta testers, may their names live on in glory
 
-beta testing and actually giving me feedback (the rest of you are just leeches)- Farlarzia, Ruddygreat, Cjuicy, Silverlight, Avanitia
+Source code is available at https://github.com/theDragn/ApexDesignCollective

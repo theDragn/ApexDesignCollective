@@ -4,4 +4,4 @@ Apex Design Collective is by theDragn, and is licensed under a Creative Commons 
 (translation: don't sell it, and if you change anything, don't distribute it.)
 
 This license does not apply to the code. Feel free to use any code in here however you want for your own mods. Credit is appreciated but not required. 
-Code not originally by me (some of the missile AI scripts) is under its original license.
+Code not originally by me (some of the missile AI scripts and dronelib code) is under its original license, which at time of writing was CC-NC-SA for the MagicLib missile AI, and free use for Dronelib.
