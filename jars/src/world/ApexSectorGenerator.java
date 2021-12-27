@@ -56,6 +56,7 @@ public class ApexSectorGenerator implements SectorGeneratorPlugin
         }
     }
 
+    // duplicate of vanilla's method, populates station/colony commanders and such
     public static void createInitialPeople()
     {
         ImportantPeopleAPI ip = Global.getSector().getImportantPeople();
@@ -64,6 +65,7 @@ public class ApexSectorGenerator implements SectorGeneratorPlugin
         for (MarketAPI market : Global.getSector().getEconomy().getMarketsCopy())
         {
             if (!market.getFactionId().equals("apex_design"))
+                continue;
             if (market.getMemoryWithoutUpdate().getBoolean(MemFlags.MARKET_DO_NOT_INIT_COMM_LISTINGS)) continue;
             boolean addedPerson = false;
 
