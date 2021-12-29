@@ -2,8 +2,8 @@
 	"id":"apex_design",
 	"name":"Apex Design Collective",
 	"author":"theDragn",
-	"version":"1.0.0",
-	"description":"A mod faction that focuses on ultra-modern, high-performance ships and remote support systems.",
+	"version":"1.0.2",
+	"description":"A collectivist faction that focuses on ultra-modern, high-performance ships and remote support systems.",
 	"gameVersion":"0.95.1a-RC6",
 	"jars":["jars/ADC.jar"],
 	"dependencies": [

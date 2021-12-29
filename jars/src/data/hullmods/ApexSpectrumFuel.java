@@ -51,7 +51,7 @@ public class ApexSpectrumFuel extends BaseHullMod
             stats.getFuelMod().modifyFlat(id, (fuelmod + 60f) * 1.3f - 160f);
         stats.getSuppliesPerMonth().modifyMult(id, deploymod);
         stats.getSuppliesToRecover().modifyMult(id, deploymod);
-        stats.getDynamic().getMod(Stats.DEPLOYMENT_POINTS_MOD).modifyFlat(id, deploymod);
+        stats.getDynamic().getMod(Stats.DEPLOYMENT_POINTS_MOD).modifyMult(id, deploymod);
         stats.getNumFighterBays().modifyMult(id, 0f);
         stats.getMinCrewMod().modifyMult(id, CREW_MULT);
     }

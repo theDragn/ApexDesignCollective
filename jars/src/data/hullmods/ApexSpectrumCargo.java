@@ -48,7 +48,7 @@ public class ApexSpectrumCargo extends BaseHullMod
             stats.getCargoMod().modifyFlat(id, (cargomod + 100f) * 1.3f - 200f);
         stats.getSuppliesPerMonth().modifyMult(id, deploymod);
         stats.getSuppliesToRecover().modifyMult(id, deploymod);
-        stats.getDynamic().getMod(Stats.DEPLOYMENT_POINTS_MOD).modifyFlat(id, deploymod);
+        stats.getDynamic().getMod(Stats.DEPLOYMENT_POINTS_MOD).modifyMult(id, deploymod);
         stats.getNumFighterBays().modifyMult(id, 0f);
         stats.getMinCrewMod().modifyMult(id, CREW_MULT);
     }
