@@ -59,6 +59,12 @@ public class ApexSectorGenerator implements SectorGeneratorPlugin
     // duplicate of vanilla's method, populates station/colony commanders and such
     public static void createInitialPeople()
     {
+        boolean isNexRandomMode = false;
+        boolean hasNex = Global.getSettings().getModManager().isModEnabled("nexerelin");
+        if (hasNex)
+            isNexRandomMode = !SectorManager.getManager().isCorvusMode();
+        if (isNexRandomMode)
+            return;
         ImportantPeopleAPI ip = Global.getSector().getImportantPeople();
 
 

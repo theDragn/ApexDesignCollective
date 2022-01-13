@@ -1,14 +1,31 @@
-- Fixed a Komodo variant having too much OP
-- Fuel and cargo carrier refits now reduce supply cost by a multiplier instead of a flat amount (avoids issues with expanded holds/tanks)
+- Fixed a bug that would add too many people to Apex markets when using Nex's random sector mode
+- Fixed the Backscatter's fighters not coming out of the hangar bay
+- Added the hull BP package to the Apex Nex start
+- Reduced the Photon (F)'s fuel capacity by 25.
 
 Todo before next release:
 - consider a line of synergy weapons (toroid mortars)
-- Backscatter light carrier: A two-wing destroyer carrier. Like the Spectrum, it can be converted to carry cargo or fuel. System is Remote Temporal Damper.
-- Photon ultralight transport: A dirt-cheap and lightning-fast frigate hauler, solely useful for being nearly impossible to catch. Comes in cargo, fuel, and personnel configurations. System is Travel Drive.
-- Backscatter (CIV-F) and Backscatter (CIV-C)
-
-- bifurcator
-	scalartech tousle flechette
-	unstable photon cannon (neutrino, bootleg so idc)
-	ironweaver adc (BRDY, bootleg so I won't support it)
-	pax cannon
+	- energy stats, fires a slow, guided, interceptable plasma ring
+	- big aoe, decent energy damage (400/shot, regens 1 every 10s?)
+- strategic cruiser (35 dp?)
+	- core (system, speed)
+		- Core: Dilation Engine
+			- temporal damper, 40 speed
+		- Core: Inertial Dissipator
+			- heavy inertial skimmer, 70 speed
+		- Core: Rapid Assembler
+			- arcmine dispenser (8x), builtin wing?, 60 speed
+	- offensive (weapons, flux diss, OP)
+		- Offensive: Multiplex Targeter
+			- 16ish small hybrids (8? converge), 2 medium missiles, +300 range for small projectile weapons, augmented range synch
+		- Offensive: Assault Matrix
+			- 6 medium hybrids, 4 small energies, +33% rate of fire and ammo regen, -25% flux cost.
+		- Offensive: Taipan Fabricator
+			- 3x 3x3 taipan launchers, variable warheads, two large hybrids, one medium uni, 4 small energies
+	- defensive (armor, shield, flux cap)
+		- Defensive: Armor Reinforcement
+			- increases armor rating by 33%, middling flux capacity
+		- Defensive: Support Processor
+			- has extra nozzle, adds Augmented Nozzles
+		- Defensive: Interception Array
+			- Increases PD rate of fire by 33%, increases damage to missiles and fighters by 33%

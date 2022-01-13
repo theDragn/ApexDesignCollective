@@ -27,7 +27,7 @@ Agama,apex_agama,Frigate,Apex Design Collective,apex_cruisemode,6,2000,300,2100,
 Mamba,apex_mamba,Phase Frigate,Apex Design Collective,apex_phasebanish,8,1500,400,3000,,350,55,,155,150,150,75,150,200,PHASE,apex_phasecloak,,,,0.03,0.04,5,10,25,50,1,50,10,40000,15,25,210,0.25,6,6,PHASE,apex_hulls,,0.5,2,2,,210
 # ???,,Heavy/Interdiction Frigate,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Photon (C),apex_photon_c,Ultralight Transport,Apex Design Collective,apex_cruisemode,3,1000,200,1500,,150,25,,150,200,200,100,100,150,OMNI,,180,0.2,0.9,,,5,10,100,25,1,25,11,7500,20,25,240,0.25,2,2,"CIVILIAN, FREIGHTER",apex_hulls,,0.4,2,2,,1
-Photon (F),apex_photon_f,Ultralight Transport,Apex Design Collective,apex_cruisemode,3,1000,200,1500,,150,25,,150,200,200,100,100,150,OMNI,,180,0.2,0.9,,,5,10,10,250,1,250,11,7500,20,25,240,0.25,2,2,"CIVILIAN, TANKER",apex_hulls,,0.4,2,2,,2
+Photon (F),apex_photon_f,Ultralight Transport,Apex Design Collective,apex_cruisemode,3,1000,200,1500,,150,25,,150,200,200,100,100,150,OMNI,,180,0.2,0.9,,,5,10,10,225,1,250,11,7500,20,25,240,0.25,2,2,"CIVILIAN, TANKER",apex_hulls,,0.4,2,2,,2
 Photon (P),apex_photon_p,Ultralight Transport,Apex Design Collective,apex_cruisemode,3,1000,200,1500,,150,25,,150,200,200,100,100,150,OMNI,,180,0.2,0.9,,,5,100,10,25,1,25,11,7500,20,25,240,0.25,2,2,"CIVILIAN, TRANSPORT",apex_hulls,,0.4,2,2,,3
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Fighters,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

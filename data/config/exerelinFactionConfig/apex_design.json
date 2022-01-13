@@ -97,7 +97,8 @@
     ],
 		
     "startSpecialItems":[
-        [["apex_weapons_package", "apex_hulls_package",""]]
+        [["apex_weapons_package", ""]],
+        [["apex_hulls_package",""]]
     ],
 	
 	"colonyExpeditionChance":0.7,	# for now
