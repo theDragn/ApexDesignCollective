@@ -62,6 +62,12 @@ public class ApexUtils
         LightShader.addLight(light);
     }
 
+    /**
+     * Used for figuring out damage mults for things that don't apply damage (onhit hardflux and armor damage, for example)
+     * @param source
+     * @param target
+     * @return
+     */
     public static float getDamageTypeMult(ShipAPI source, ShipAPI target)
     {
         if (source == null || target == null) return 1f;
@@ -88,6 +94,15 @@ public class ApexUtils
         return damageTypeMult;
     }
     // code provided by tomatopaste
+
+    /**
+     *
+     * @param entity
+     * @param center center point of arc
+     * @param centerAngle angle from center point to center of the edge
+     * @param arcDeviation angle to either side of center point (ie, 45 here would make a 90 degree arc)
+     * @return
+     */
     public static boolean isEntityInArc(CombatEntityAPI entity, Vector2f center, float centerAngle, float arcDeviation)
     {
         if (entity instanceof ShipAPI)
@@ -101,6 +116,12 @@ public class ApexUtils
         }
     }
 
+    /**
+     *
+     * @param ship
+     * @param point
+     * @return
+     */
     public static Vector2f getNearestPointOnShipBounds(ShipAPI ship, Vector2f point)
     {
         BoundsAPI bounds = ship.getExactBounds();
@@ -162,6 +183,14 @@ public class ApexUtils
         return new Color(r, g, b, a);
     }
 
+    // unused but perhaps useful in the future
+
+    /**
+     * Returns true if there is no more armor to remove at an impact point
+     * @param target
+     * @param point
+     * @return
+     */
     public static boolean isArmorStripped(ShipAPI target, Vector2f point)
     {
         ArmorGridAPI grid = target.getArmorGrid();

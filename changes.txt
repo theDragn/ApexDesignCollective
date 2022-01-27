@@ -1,9 +1,15 @@
-- Fixed a bug that would add too many people to Apex markets when using Nex's random sector mode
-- Fixed the Backscatter's fighters not coming out of the hangar bay
-- Added the hull BP package to the Apex Nex start
-- Reduced the Photon (F)'s fuel capacity by 25.
+New:
+- Defeat the blue corporate menace in three new missions.
+
+Balance:
+- Mamba: Increased DP (6 -> 8) and decreased OP (55 -> 50).
+- Crocodile: Reduced hull HP (10000 -> 8000) and OP (150 -> 140).
+- Komodo: Reduced hull HP (11000 -> 10000).
+- Temporal Damper (Caiman, Komodo, Apex): Decreased uptime (5s -> 4s) and chargeup/chargedown time (0.25s -> 0.1s).
 
 Todo before next release:
+- Tuatara-class destroyer: 13 DP. Basically half a Crocodile. Two Taipan-6 missile pods and three nozzles. System is Arcmine Dispenser.
+- Boa-class phase destroyer: 20 DP. An anti-phase phase ship. System is Temporal Siphon, a toggleable system that steals a portion of any timeflow bonuses on nearby hostile ships but generates hard flux while active.
 - consider a line of synergy weapons (toroid mortars)
 	- energy stats, fires a slow, guided, interceptable plasma ring
 	- big aoe, decent energy damage (400/shot, regens 1 every 10s?)
@@ -17,15 +23,15 @@ Todo before next release:
 			- arcmine dispenser (8x), builtin wing?, 60 speed
 	- offensive (weapons, flux diss, OP)
 		- Offensive: Multiplex Targeter
-			- 16ish small hybrids (8? converge), 2 medium missiles, +300 range for small projectile weapons, augmented range synch
+			- 16ish small hybrids (8? converge), 2 medium missiles, +300 range and +25% damage for small projectile weapons, augmented range synch
 		- Offensive: Assault Matrix
 			- 6 medium hybrids, 4 small energies, +33% rate of fire and ammo regen, -25% flux cost.
 		- Offensive: Taipan Fabricator
 			- 3x 3x3 taipan launchers, variable warheads, two large hybrids, one medium uni, 4 small energies
-	- defensive (armor, shield, flux cap)
+	- defensive (armor)
 		- Defensive: Armor Reinforcement
-			- increases armor rating by 33%, middling flux capacity
+			- increases armor rating by 33%.
 		- Defensive: Support Processor
-			- has extra nozzle, adds Augmented Nozzles
+			- Counts as a capital ship when applying cryocoolant or remote repairs to allies.
 		- Defensive: Interception Array
-			- Increases PD rate of fire by 33%, increases damage to missiles and fighters by 33%
+			- Increases PD rate of fire by 33%, increases damage to missiles and fighters by 33%.

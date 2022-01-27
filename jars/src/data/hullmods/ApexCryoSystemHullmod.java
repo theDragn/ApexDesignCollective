@@ -48,7 +48,7 @@ public class ApexCryoSystemHullmod extends BaseHullMod
 
 
     public static final String line1 = "\n• Fires magnetically-guided blobs of cryogenic coolant that decrease flux generation. " +
-            "\n• Has a " + (int)BASE_COOLDOWN + " second and generates soft flux on use. " +
+            "\n• Has a " + (int)BASE_COOLDOWN + " second cooldown and generates soft flux on use. " +
             "\n• Targets the selected ally, if in range. If no allied target is selected, targets allies with non-zero flux within range.";
     public static final String line2 = "• Projectiles decrease weapon and shield soft flux generation by %s for %s seconds.";
     public static final String line3 = "• Hitting an ally with multiple projectiles increases the duration of the buff, with diminishing returns.";

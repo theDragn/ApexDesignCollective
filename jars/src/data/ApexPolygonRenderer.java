@@ -22,6 +22,8 @@ public class ApexPolygonRenderer
 {
 
     // FIGHTING POLYGON ~~TEAM~~ RENDERER
+    // lots of code here provided by tomatopaste
+    // not used by default, but I spent too long fiddling with it to delete it now
 
     private static DrawableString DRAW_STRING;
 
