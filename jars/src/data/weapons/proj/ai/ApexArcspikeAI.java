@@ -11,6 +11,7 @@ import org.lwjgl.util.vector.Vector2f;
 
 public class ApexArcspikeAI implements MissileAIPlugin, GuidedMissileAI
 {
+    // magiclib code
 
     //////////////////////
     //     SETTINGS     //

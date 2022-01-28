@@ -12,6 +12,8 @@ import org.lwjgl.util.vector.Vector2f;
 
 public class ApexGuidedTorpAI implements MissileAIPlugin, GuidedMissileAI
 {
+    // magiclib code
+
     //////////////////////
     //     SETTINGS     //
     //////////////////////

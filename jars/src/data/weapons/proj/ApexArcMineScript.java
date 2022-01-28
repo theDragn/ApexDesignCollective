@@ -16,7 +16,6 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// this is both a mine AI script and the arc script
 public class ApexArcMineScript extends BaseEveryFrameCombatPlugin
 {
     // arc stats

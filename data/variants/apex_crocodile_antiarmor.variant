@@ -1,7 +1,7 @@
 {
     "displayName": "Anti-Armor",
     "fluxCapacitors": 5,
-    "fluxVents": 30,
+    "fluxVents": 20,
     "goalVariant": true,
     "hullId": "apex_crocodile",
     "hullMods": [
