@@ -145,6 +145,7 @@ public class ApexNanoacidEffect extends BaseCombatLayeredRenderingPlugin
     public void advance(float amount)
     {
         if (Global.getCombatEngine().isPaused()) return;
+
         if (degradeArmor)
             target.getMutableStats().getMinArmorFraction().modifyMult("apexAcid", 0.5f);
         Vector2f loc = new Vector2f(offset);

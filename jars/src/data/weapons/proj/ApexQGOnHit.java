@@ -10,11 +10,17 @@ import java.awt.*;
 
 public class ApexQGOnHit implements OnHitEffectPlugin
 {
+    private boolean didDamage = false;
     @Override
     public void onHit(DamagingProjectileAPI proj, CombatEntityAPI target, Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine)
     {
-        if (proj.getSource() != null && proj.getSource().getVariant().hasHullMod("apex_coherency_amplifier") && target instanceof ShipAPI)
+        if (proj.getSource() != null
+                && proj.getSource().getVariant().hasHullMod("apex_coherency_amplifier")
+                && target instanceof ShipAPI
+                && !didDamage)
         {
+            // prevents the explosion from dealing damage each frame it exists
+            didDamage = true;
             engine.addHitParticle(point, target.getVelocity(), 100f, 1.0F, 0.1F, Color.BLUE);
             // if it's the flak (flak aoe will have null for weapon)
             if (proj.getWeapon() == null || proj.getProjectileSpecId().startsWith("apex_flak"))

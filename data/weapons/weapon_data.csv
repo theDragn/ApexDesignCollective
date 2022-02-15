@@ -44,15 +44,15 @@ Tachyon Inverter,apex_tachyon,1,,5000,700,,300,300,10,10,25,20,1.2,5,ENERGY,300,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # BALLISTIC SMOL,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Light Burst Coilgun,apex_coilgun_small,0,0.5,800,700,,50,0,0,60,6,6,2,,KINETIC,40,,,0.25,,,0,4,0.66,4,,1200,,,,,,,"kinetic8, apex_weapons",,Apex Design Collective,,Anti Shield,,,,,,,,,,1
-Nanoacid Cannon,apex_nanogun_small,1,,900,700,,100,0,5,30,7,,,,HIGH_EXPLOSIVE,150,,,1,,,0,5,2,2,,800,,,,,,,"he7, apex_weapons",,Apex Design Collective,,Anti Armor,,,,,"%s: Hits to hull or armor deal an extra %s damage over %s seconds, ignoring armor damage reduction.",Nanoacid Shell | 33 | 5,,,,1
+Nanoacid Cannon,apex_nanogun_small,1,,900,700,,100,0,5,30,7,,,,HIGH_EXPLOSIVE,150,,,1,,,0,5,2,2,,1100,,,,,,,"he7, apex_weapons",,Apex Design Collective,,Anti Armor,,,,,"%s: Hits to hull or armor deal an extra %s damage over %s seconds, ignoring armor damage reduction.",Nanoacid Shell | 33 | 5,,,,1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # BALLISTIC MEDIUM,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Burst Coilgun,apex_coilgun_medium,1,,1500,800,,50,0,0,30,12,12,4,2,KINETIC,45,,,0.3333,,,0,4,0.66,4,,1200,,,,,,,"kinetic15, apex_weapons",,Apex Design Collective,,Anti Shield,,,,,,,,,,1
-Nanoacid Burstcannon,apex_nanogun_medium,1,,1750,800,,150,0,8,15,13,,,,HIGH_EXPLOSIVE,225,,,1.6666,2,0.3333,0,7,2,4,,800,,,,,,,"he15, apex_weapons",,Apex Design Collective,,Anti Armor,,,,,"%s: Hits to hull or armor deal an extra %s damage over %s seconds, ignoring armor damage reduction.",Nanoacid Shell | 50 | 5,,,,1
+Nanoacid Burstcannon,apex_nanogun_medium,1,,1750,800,,150,0,8,15,13,,,,HIGH_EXPLOSIVE,225,,,1.6666,2,0.3333,0,7,2,4,,1100,,,,,,,"he15, apex_weapons",,Apex Design Collective,,Anti Armor,,,,,"%s: Hits to hull or armor deal an extra %s damage over %s seconds, ignoring armor damage reduction.",Nanoacid Shell | 50 | 5,,,,1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # BALLISTIC LORGE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Haymarket Railcannon,apex_haymarket,3,,5000,900,,400,200,10,10,25,,,,KINETIC,500,,,1,,,,7,2,7,,1200,,,,,,,"kinetic15, apex_weapons",,Apex Design Collective,,Anti Shield,,,,,,,,,,1
-Harmonic Dart Cannon,apex_dartgun,2,,5000,900,,250,,10,10,25,,,,HIGH_EXPLOSIVE,325,,,1.75,4,0.25,0,9,3,9,,600,,,,,,,"he15, rare_bp",,Apex Design Collective,,Anti Armor,,,,,"%s: Each dart that hits hull or armor increases hull and armor damage taken from other darts by %s for %s seconds, up to a maximum of %s.",Harmonized | 7.5% | 4 | 75%,,,,1
+Harmonic Dart Cannon,apex_dartgun,2,,5000,900,,250,,10,10,25,,,,HIGH_EXPLOSIVE,325,,,1.75,4,0.25,0,9,3,9,,900,,,,,,,"he15, rare_bp",,Apex Design Collective,,Anti Armor,,,,,"%s: Each dart that hits hull or armor increases hull and armor damage taken from other darts by %s for %s seconds, up to a maximum of %s.",Harmonized | 7.5% | 4 | 75%,,,,1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # MISSILE SMOL,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Arcspike SRM Pod,apex_arcspike,1,0.5,800,1200,,125,200,10,30,4,20,,,KINETIC,,,,8,5,0.05,10,10,0,0,,700,50,2.5,225,,,,"kinetic6, apex_weapons",,Apex Design Collective,,Anti Shield,Very Fast,Good,,,"Shield hits raise hard flux by %s. Hull or armor hits have a %s chance to arc to weapons or engines, dealing %s EMP damage.",75 | 25% | 250,,,TRUE,1
