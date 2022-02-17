@@ -7,7 +7,7 @@ import org.lwjgl.util.vector.Vector2f;
 
 public class ApexEmpLaserEffect implements BeamEffectPlugin
 {
-    private IntervalUtil fireInterval = new IntervalUtil(0.25f, 4f);
+    private IntervalUtil fireInterval = new IntervalUtil(0.5f, 2f);
     private boolean wasZero = true;
 
 

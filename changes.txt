@@ -1,11 +1,9 @@
-New:
-- Defeat the blue corporate menace in three new missions.
+Komodo: Replaced temporal damper with retaliatory damper, which fires homing retaliatory projectiles at enemies when it takes damage.
+Fusion Beams: Now require 0.5 seconds of uninterrupted armor damage to trigger the explosion.
+Nanoacid Cannons: Significantly increased projectile velocity.
+Inversion Beam: Improved EMP damage and arc rate; roughly half as good as an ion cannon now.
+Coherency Amplifier: Fixed an issue where flak QGPD shots would deal the energy damage every frame the explosion existed.
 
-Balance:
-- Mamba: Increased DP (6 -> 8) and decreased OP (55 -> 50).
-- Crocodile: Reduced hull HP (10000 -> 8000) and OP (150 -> 140).
-- Komodo: Reduced hull HP (11000 -> 10000).
-- Temporal Damper (Caiman, Komodo, Apex): Decreased uptime (5s -> 4s) and chargeup/chargedown time (0.25s -> 0.1s).
 
 Todo before next release:
 - Tuatara-class destroyer: 13 DP. Basically half a Crocodile. Two Taipan-6 missile pods and three nozzles. System is Arcmine Dispenser.
