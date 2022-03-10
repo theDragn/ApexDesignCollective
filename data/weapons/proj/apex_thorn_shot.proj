@@ -1,19 +1,43 @@
 {
 	"id":"apex_thorn_shot",
-	"specClass":"projectile",
-	"spawnType":"BALLISTIC_AS_BEAM",
-	"collisionClass":"RAY",
-	"collisionClassByFighter":"RAY_FIGHTER",
-	"length":15.0,
-	"width":9,
-	"fadeTime":0.3,
-	"fringeColor":[255,64,255,255],
-	"coreColor":[255,64,255,255],
-	"glowColor":[255,64,255,255],
-	"glowRadius":15,
-	"hitGlowRadius":100,	
-	"textureScrollSpeed":64.0,
-	"pixelsPerTexel":5.0,
-	"passThroughMissiles":true,
-	"bulletSprite":"graphics/missiles/apex_blob_even_smaller.png"	
+	"specClass":"missile",
+	"missileType":"MISSILE",
+	"sprite":"",
+	"size":[5,5],	
+	"center":[2.5,2.5],
+	"collisionRadius":6,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[100,155,255,255],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":90, # purely visual
+	"flameoutTime":0.5,
+	"noEngineGlowTime":0.5,
+	"fadeTime":0.5,		
+	"glowColor":[100,200,255,75],
+	"glowRadius":75,			 
+	"engineSpec":{"turnAcc":360,
+				  "turnRate":360,
+				  "acc":1000,
+				  "dec":200},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-4, 0],
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[205,175,255,255],
+						"glowSizeMult":1.5,
+						"glowAlternateColor":[200,0,255,75],
+						"contrailDuration":0.7,
+						"contrailWidthMult":1,
+						"contrailWidthAddedFractionAtEnd":-0.2,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":2, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.5f,
+						"contrailAngularVelocityMult":0.5f,
+						"contrailSpawnDistMult":0f, # how far away from engine it starts
+						"contrailColor":[100,155,255,255],
+						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":4.0,
+				    "length":48.0,
+				    "angle":180.0},
+				    ]
 }

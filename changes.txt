@@ -1,9 +1,16 @@
-Komodo: Replaced temporal damper with retaliatory damper, which fires homing retaliatory projectiles at enemies when it takes damage.
+Komodo: Replaced temporal damper with retaliatory damper, which fires homing projectiles at enemies when it takes damage.
+Spectrum: Forward hybrid mounts changed to universals.
 Fusion Beams: Now require 0.5 seconds of uninterrupted armor damage to trigger the explosion.
 Nanoacid Cannons: Significantly increased projectile velocity.
-Inversion Beam: Improved EMP damage and arc rate; roughly half as good as an ion cannon now.
+Inversion Beam: Improved EMP damage and arc rate.
 Coherency Amplifier: Fixed an issue where flak QGPD shots would deal the energy damage every frame the explosion existed.
 
+Geodesic Emitter: 
+- Shields take 20 less damage from projectile hits.
+- Shields take 20 less damage per second from beams.
+- This damage reduction occurs before the shield flux-per-damage calculation.
+- This bonus decreases as the ship loses armor, becoming ineffective if armor is reduced below 30%.
+- Each time this prevents damage, the ship's armor takes energy damage equal to 120% of the prevented damage.
 
 Todo before next release:
 - Tuatara-class destroyer: 13 DP. Basically half a Crocodile. Two Taipan-6 missile pods and three nozzles. System is Arcmine Dispenser.
