@@ -39,13 +39,6 @@ public class ApexNanoacidProjEffect implements OnHitEffectPlugin
                 damageHull = true;
                 break;
             case "apex_nanoacid_torp":
-                acidDamage = ACID_DAMAGE_TORP * proj.getDamageAmount();
-                acidDuration = ACID_DURATION_TORP;
-                sizeMult = 2.25f;
-                degradeArmor = true;
-                damageHull = true;
-                alpha = 33;
-                break;
             case "apex_nanoacid_torp_guided":
                 acidDamage = ACID_DAMAGE_TORP * proj.getDamageAmount();
                 acidDuration = ACID_DURATION_TORP;
