@@ -20,7 +20,7 @@ import java.util.*;
 import static plugins.ApexModPlugin.GENERATE_SYSTEMS;
 import static plugins.ApexModPlugin.GENERATE_RELICS;
 
-public class ApexRelicPlacer
+public class ApexRelicPlacer implements SectorGeneratorPlugin
 {
     public static final Logger LOGGER = Global.getLogger(ApexRelicPlacer.class);
 
@@ -54,7 +54,7 @@ public class ApexRelicPlacer
         WEIGHTS.put(LocationType.L_POINT, 2f);
     }
 
-
+    @Override
     public void generate(SectorAPI sector)
     {
         if (!GENERATE_RELICS)

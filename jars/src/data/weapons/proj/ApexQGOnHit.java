@@ -7,20 +7,22 @@ import data.hullmods.ApexQGAmplifier;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
+import java.util.HashSet;
 
 public class ApexQGOnHit implements OnHitEffectPlugin
 {
-    private boolean didDamage = false;
+    private HashSet<CombatEntityAPI> hitTargets = new HashSet<>();
+
     @Override
     public void onHit(DamagingProjectileAPI proj, CombatEntityAPI target, Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine)
     {
         if (proj.getSource() != null
                 && proj.getSource().getVariant().hasHullMod("apex_coherency_amplifier")
                 && target instanceof ShipAPI
-                && !didDamage)
+                && !hitTargets.contains(target))
         {
-            // prevents the explosion from dealing damage each frame it exists
-            didDamage = true;
+            // prevents the damage being dealt more than once (a problem for the explosions)
+            hitTargets.add(target);
             engine.addHitParticle(point, target.getVelocity(), 100f, 1.0F, 0.1F, Color.BLUE);
             // if it's the flak (flak aoe will have null for weapon)
             if (proj.getWeapon() == null || proj.getProjectileSpecId().startsWith("apex_flak"))

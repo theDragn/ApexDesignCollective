@@ -1,4 +1,4 @@
-Komodo: Replaced temporal damper with retaliatory damper, which fires homing retaliatory projectiles at enemies when it takes damage.
+Komodo: Replaced temporal damper with retaliatory damper, which fires homing retaliatory projectiles at enemies when it takes damage, but also acts like a proper damper and disables weapons.
 Fusion Beams: Now require 0.5 seconds of uninterrupted armor damage to trigger the explosion.
 Nanoacid Cannons: Significantly increased projectile velocity.
 Inversion Beam: Improved EMP damage and arc rate; roughly half as good as an ion cannon now.
