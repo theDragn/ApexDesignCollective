@@ -3,12 +3,9 @@ package data.hullmods;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.DamageTakenModifier;
-import com.fs.starfarer.api.graphics.SpriteAPI;
-import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
-import data.ApexUtils;
 import data.scripts.util.MagicIncompatibleHullmods;
 import data.scripts.util.MagicRender;
 import org.jetbrains.annotations.Nullable;
@@ -33,7 +30,7 @@ public class ApexShield2 extends BaseHullMod
     public static final float TRANSFER_MULT = 1.25f;
     public static final float CUTOFF_FRACTION = 0.3f;
 
-    public static final float SMOD_UNFOLD_BONUS = 50f;
+    public static final float UNFOLD_BONUS = 50f;
     public static final float SMOD_ARC_BONUS = 60f;
 
     public static final Color FRAG_COLOR = new Color(255, 225, 131);
@@ -55,10 +52,10 @@ public class ApexShield2 extends BaseHullMod
     @Override
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id)
     {
+        stats.getShieldUnfoldRateMult().modifyPercent(id, UNFOLD_BONUS);
         if (stats.getVariant().getSMods().contains("apex_geodesic_shield"))
         {
             stats.getShieldArcBonus().modifyFlat(id, SMOD_ARC_BONUS);
-            stats.getShieldUnfoldRateMult().modifyPercent(id, SMOD_UNFOLD_BONUS);
         }
     }
 
@@ -198,7 +195,7 @@ public class ApexShield2 extends BaseHullMod
             if (shieldHit && target instanceof ShipAPI) {
                 if (param instanceof DamagingProjectileAPI) {
                     DamagingProjectileAPI proj = (DamagingProjectileAPI) param;
-                    float originalDamage = damage.getDamage();
+                    float originalDamage = damage.computeDamageDealt(Global.getCombatEngine().getElapsedInLastFrame());
                     ApexShield.spawnGeodesicSpall(point, target, damage);
                     Vector2f bypassLoc = getBypassLocation(proj, target);
                     if (bypassLoc == null)
@@ -206,12 +203,13 @@ public class ApexShield2 extends BaseHullMod
                     float armorFraction = DefenseUtils.getArmorLevel((ShipAPI) target, bypassLoc);
                     if (armorFraction < CUTOFF_FRACTION)
                         return null;
-                    float reduction = DAMAGE_REDUCTION * armorFraction;
+                    float reduction = DAMAGE_REDUCTION * armorFraction * (originalDamage / damage.getDamage());
                     if (originalDamage < reduction) {
                         reduction = originalDamage;
                     }
                     applyBypassDamage(proj.getSource(), reduction, target, bypassLoc);
                     damage.getModifier().modifyMult("apexGeodesic", 1f - reduction / originalDamage);
+                    spawnGeodesicSpall(point, target, damage);
                 } else if (param instanceof BeamAPI)
                 {
                     BeamAPI beam = (BeamAPI)param;
@@ -230,6 +228,7 @@ public class ApexShield2 extends BaseHullMod
                     }
                     applyBypassDamage(beam.getSource(), reduction, target, bypassLoc);
                     damage.getModifier().modifyMult("apexGeodesic", 1f - reduction / originalDamage);
+                    spawnGeodesicSpall(point, target, damage);
                 }
             }
             return null;
@@ -287,12 +286,15 @@ public class ApexShield2 extends BaseHullMod
                     0,
                     colors,
                     "energy", (int) (TRANSFER_MULT * 100) + "%");
-
-            tooltip.addPara("• Prevents the shield arc from being reduced while the shield is active.", 0);
-            tooltip.addPara("• The damage reduction decreases proportionally with the ship's armor, reaching zero effectiveness at %s armor.",
+            tooltip.addPara("• The damage reduction decreases proportionally with the ship's armor, becoming ineffective at %s armor.",
                     0,
                     Misc.getHighlightColor(),
-                    (int) (CUTOFF_FRACTION) + "%");
+                    (int) (CUTOFF_FRACTION * 100f) + "%");
+            tooltip.addPara("• Increases shield unfolding rate by %s.",
+                    0f,
+                    Misc.getHighlightColor(),
+                    (int) (UNFOLD_BONUS) + "%");
+            tooltip.addPara("• Prevents the shield arc from being reduced while the shield is active.", 0);
             Color incompatTextColor = Misc.getTextColor();
             for (String hullmod : BLOCKED_HULLMODS)
             {
@@ -305,17 +307,17 @@ public class ApexShield2 extends BaseHullMod
 
             if (ship.getVariant().getSMods().contains("apex_geodesic_shield"))
             {
-                tooltip.addPara("S-mod Bonus: Shield arc is increased by %s degrees, and unfolding rate is increased by %s",
+                tooltip.addPara("S-mod Bonus: Shield arc is increased by %s degrees",
                         10f,
                         Misc.getPositiveHighlightColor(),
                         Misc.getHighlightColor(),
-                        (int) (SMOD_ARC_BONUS) + "", (int) (SMOD_UNFOLD_BONUS) + "%");
+                        (int) (SMOD_ARC_BONUS) + "");
             } else
             {
-                tooltip.addPara("If this hullmod is built in, it will increase shield arc by %s degrees and unfolding rate by %s",
+                tooltip.addPara("If this hullmod is built in, it will increase shield arc by %s degrees",
                         10f,
                         Misc.getHighlightColor(),
-                        (int) (SMOD_ARC_BONUS) + "", (int) (SMOD_UNFOLD_BONUS) + "%");
+                        (int) (SMOD_ARC_BONUS) + "", (int) (UNFOLD_BONUS) + "%");
             }
         }
     }

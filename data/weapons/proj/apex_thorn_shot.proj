@@ -3,41 +3,32 @@
 	"specClass":"missile",
 	"missileType":"MISSILE",
 	"sprite":"",
-	"size":[5,5],	
-	"center":[2.5,2.5],
-	"collisionRadius":6,
+	"size":[2,2],	
+	"center":[1,1],
+	"collisionRadius":10,
 	"collisionClass":"MISSILE_NO_FF",
-	"explosionColor":[100,155,255,255],  # purely visual, will get a white additively blended core on top of this color
-	"explosionRadius":90, # purely visual
-	"flameoutTime":0.5,
-	"noEngineGlowTime":0.5,
-	"fadeTime":0.5,		
-	"glowColor":[100,200,255,75],
-	"glowRadius":75,			 
-	"engineSpec":{"turnAcc":360,
-				  "turnRate":360,
-				  "acc":1000,
-				  "dec":200},
+	"explosionColor":[0,105,255,205],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":70, # purely visual
+	"engineSpec":{"turnAcc":300,
+				  "turnRate":300,
+				  "acc":500,
+				  "dec":500},
 	"engineSlots":[{"id":"ES1",
-					"loc":[-4, 0],
+					"loc":[0, 0],
 				    "style":"CUSTOM",
 					"styleSpec":{
-						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
-						"engineColor":[205,175,255,255],
-						"glowSizeMult":1.5,
-						"glowAlternateColor":[200,0,255,75],
-						"contrailDuration":0.7,
-						"contrailWidthMult":1,
-						"contrailWidthAddedFractionAtEnd":-0.2,  # can be negative. makes trail spread out/narrow at the end
-						"contrailMinSeg":2, # min segment length, in pixels
-						"contrailMaxSpeedMult":0.5f,
-						"contrailAngularVelocityMult":0.5f,
-						"contrailSpawnDistMult":0f, # how far away from engine it starts
-						"contrailColor":[100,155,255,255],
+						"mode":"PARTICLES", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[165, 88, 255,0],
+						"contrailParticleSizeMult":50.0,
+						"contrailParticleDuration":0.1,
+						"contrailParticleFinalSizeMult":1.5,		
+						"contrailMaxSpeedMult":0.33,
+						"contrailAngularVelocityMult":0.33,
+						"contrailColor":[165, 88, 255,155],
 						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
 					},
-				    "width":4.0,
-				    "length":48.0,
+				    "width":1,
+				    "length":1,
 				    "angle":180.0},
 				    ]
 }

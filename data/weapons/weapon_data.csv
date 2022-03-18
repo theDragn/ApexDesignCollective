@@ -12,7 +12,7 @@ Taipan VLS-15N,apex_vls_left_acid,,,,2000,,100,0,,,,30,0.75,15,HIGH_EXPLOSIVE,0,
 Taipan VLS-15N,apex_vls_right_acid,,,,2000,,100,0,,,,30,0.75,15,HIGH_EXPLOSIVE,0,0,1,2.6,15,0.1,0,0,0,0,,300,100,12,60,,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE, GROUP_LINKED","no_drop, no_salvage",,Apex Design Collective,,General,Medium,Medium,,,"%s: Hits to hull or armor deal an extra %s damage over %s seconds, ignoring armor damage reduction. The effect temporarily reduces minimum armor value by %s.",Nanoacid Warhead | 50 | 10 | 33%,%s: Missiles always face towards the selected target on launch.,Vertical Launch,,1
 Taipan VLS-15E,apex_vls_left_tachyon,,,,2000,,100,400,,,,30,0.75,15,ENERGY,0,0,1,2.6,15,0.1,0,0,0,0,,300,100,12,60,,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE, GROUP_LINKED","no_drop, no_salvage",,Apex Design Collective,,General,Medium,Medium,,,%s: Hits to hull or armor have a %s chance to arc to weapons or engines for %s damage.,Tachyon Warhead | 50% | 75%,%s: Missiles always face towards the selected target on launch.,Vertical Launch,,1
 Taipan VLS-15E,apex_vls_right_tachyon,,,,2000,,100,400,,,,30,0.75,15,ENERGY,0,0,1,2.6,15,0.1,0,0,0,0,,300,100,12,60,,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE, GROUP_LINKED","no_drop, no_salvage",,Apex Design Collective,,General,Medium,Medium,,,%s: Hits to hull or armor have a %s chance to arc to weapons or engines for %s damage.,Tachyon Warhead | 50% | 75%,%s: Missiles always face towards the selected target on launch.,Vertical Launch,,1
-thorn proj,apex_thorn_wpn,,,,800,,75,25,,,,,,,ENERGY,0,0,0,1,1,0,0,0,0,0,,300,100,5,100,,,SYSTEM,,,,,,,,,,,,,,,
+thorn proj,apex_thorn_wpn,,,,800,,200,100,,,,,,,ENERGY,0,0,0,1,1,0,0,0,0,0,,600,100,5,200,,,SYSTEM,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # FIGHTER GUNS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Quark-Gluon PD (Fighter),apex_qgp_fighter,,,,500,,100,,0,0,0,,,,FRAGMENTATION,0,0,0,1.4,2,0.1,,,,,,1200,,,,,,"SYSTEM, PD","pd6, no_drop, no_salvage",,Apex Design Collective,,General,,,,,Projectiles have %s.,tracking,,,,
@@ -45,11 +45,11 @@ Tachyon Inverter,apex_tachyon,1,,5000,700,,300,300,10,10,25,20,1.2,5,ENERGY,300,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # BALLISTIC SMOL,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Light Burst Coilgun,apex_coilgun_small,0,0.5,800,700,,50,0,0,60,6,6,2,,KINETIC,40,,,0.25,,,0,4,0.66,4,,1200,,,,,,,"kinetic8, apex_weapons",,Apex Design Collective,,Anti Shield,,,,,,,,,,1
-Nanoacid Cannon,apex_nanogun_small,1,,900,700,,100,0,5,30,7,,,,HIGH_EXPLOSIVE,150,,,1,,,0,5,2,2,,1100,,,,,,,"he7, apex_weapons",,Apex Design Collective,,Anti Armor,,,,,"%s: Hits to hull or armor deal an extra %s damage over %s seconds, ignoring armor damage reduction.",Nanoacid Shell | 33 | 5,,,,1
+Nanoacid Cannon,apex_nanogun_small,1,,900,700,,100,0,5,30,7,,,,HIGH_EXPLOSIVE,140,,,1,,,0,5,2,2,,1100,,,,,,,"he7, apex_weapons",,Apex Design Collective,,Anti Armor,,,,,"%s: Hits to hull or armor deal an extra %s damage over %s seconds, ignoring armor damage reduction.",Nanoacid Shell | 33 | 5,,,,1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # BALLISTIC MEDIUM,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Burst Coilgun,apex_coilgun_medium,1,,1500,800,,50,0,0,30,12,12,4,2,KINETIC,45,,,0.3333,,,0,4,0.66,4,,1200,,,,,,,"kinetic15, apex_weapons",,Apex Design Collective,,Anti Shield,,,,,,,,,,1
-Nanoacid Burstcannon,apex_nanogun_medium,1,,1750,800,,150,0,8,15,13,,,,HIGH_EXPLOSIVE,225,,,1.6666,2,0.3333,0,7,2,4,,1100,,,,,,,"he15, apex_weapons",,Apex Design Collective,,Anti Armor,,,,,"%s: Hits to hull or armor deal an extra %s damage over %s seconds, ignoring armor damage reduction.",Nanoacid Shell | 50 | 5,,,,1
+Nanoacid Burstcannon,apex_nanogun_medium,1,,1750,800,,150,0,8,15,13,,,,HIGH_EXPLOSIVE,210,,,1.6666,2,0.3333,0,7,2,4,,1100,,,,,,,"he15, apex_weapons",,Apex Design Collective,,Anti Armor,,,,,"%s: Hits to hull or armor deal an extra %s damage over %s seconds, ignoring armor damage reduction.",Nanoacid Shell | 50 | 5,,,,1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # BALLISTIC LORGE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Haymarket Railcannon,apex_haymarket,3,,5000,900,,400,200,10,10,25,,,,KINETIC,500,,,1,,,,7,2,7,,1200,,,,,,,"kinetic15, apex_weapons",,Apex Design Collective,,Anti Shield,,,,,,,,,,1
