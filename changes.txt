@@ -1,15 +1,14 @@
 Ships:
 - Komodo: System changed to Entropy Consolidator. Speed increased to 45.
 - Caiman: System changed to Entropy Consolidator. Speed increased to 85.
-- Apex: Unchanged. Cope, seethe, mald, etc.
 - Entropy Consolidator acts like a normal damper field, but generates (interceptable) homing energy projectiles based on incoming damage.
 Weapons:
-- Fusion Beams (all sizes): Now requires 0.5 seconds of uninterrupted armor damage to trigger the explosion.
+- Fusion Beams (all sizes): Now require 0.5 seconds of uninterrupted armor damage to trigger the explosion.
 - Nanoacid Cannons (all sizes): Slightly improved efficiency; increased projectile velocity.
 - Inversion Beam: Improved EMP damage and arc rate.
 Hullmods:
 - Coherency Amplifier: Fixed an issue where flak QGPD shots could deal energy damage to the same target multiple times.
-- Geodesic Shield Matrix: Reworked. Now transfers a flat amount of damage from each hit to armor. Reduced the unfolding rate bonus to 50%. Now works with beams.
+- Geodesic Shield Matrix: Reworked, simplified, and nerfed. Now transfers a flat amount of damage from each hit to armor. Reduced the unfolding rate bonus to 50%. Also works on beams now.
 
 
 Todo before next release:

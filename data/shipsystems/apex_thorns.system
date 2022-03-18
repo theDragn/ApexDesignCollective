@@ -1,10 +1,9 @@
 {
 	"id":"apex_thorns",
 	"type":"STAT_MOD",
-	"aiType":"DAMPER_FIELD",
-	#"aiType":"CUSTOM",
+	"aiType":"CUSTOM",
 	
-	#"aiScript":"data.shipsystems.ai.ApexDamperAI",
+	"aiScript":"data.shipsystems.ai.ApexThornsAI",
 	"statsScript":"data.shipsystems.ApexThorns",
 
 	#"runScriptWhileIdle":true, # unapply() never gets called
