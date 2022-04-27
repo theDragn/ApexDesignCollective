@@ -11,9 +11,10 @@ Hullmods:
 - Geodesic Shield Matrix: Reworked, simplified, and nerfed. Now transfers a flat amount of damage from each hit to armor. Reduced the unfolding rate bonus to 50%. Also works on beams now.
 
 
-Todo before next release:
+Todo eventaully:
 - Tuatara-class destroyer: 13 DP. Basically half a Crocodile. Two Taipan-6 missile pods and three nozzles. System is Arcmine Dispenser.
 - Boa-class phase destroyer: 20 DP. An anti-phase phase ship. System is Temporal Siphon, a toggleable system that steals a portion of any timeflow bonuses on nearby hostile ships but generates hard flux while active.
+- Anaconda-class phase battlecruiser. 
 - consider a line of synergy weapons (toroid mortars)
 	- energy stats, fires a slow, guided, interceptable plasma ring
 	- big aoe, decent energy damage (400/shot, regens 1 every 10s?)

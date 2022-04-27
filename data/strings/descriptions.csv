@@ -55,6 +55,13 @@ While the heavier Spectrum carriers usually make up the mainline fighter platfor
 apex_photon_c,SHIP,"A tiny military cargo transport, the Photon is attractive purely for its blistering top speed and near-total immunity to interception. Even if an enemy fleet manages to wrangle it into combat, its quick-cycle travel drive usually allows it to escape unharmed. Should it be caught by anything larger than another shuttlecraft, however, the Photon is incapable of putting up much of a fight.",,,
 apex_photon_f,SHIP,"A tiny military tanker, the Photon is attractive purely for its blistering top speed and near-total immunity to interception. Even if an enemy fleet manages to wrangle it into combat, its quick-cycle travel drive usually allows it to escape unharmed. Should it be caught by anything larger than another shuttlecraft, however, the Photon is incapable of putting up much of a fight.",,,
 apex_photon_p,SHIP,"A tiny military shuttlecraft, the Photon is attractive purely for its blistering top speed and near-total immunity to interception. Even if an enemy fleet manages to wrangle it into combat, its quick-cycle travel drive usually allows it to escape unharmed. Should it be caught by anything larger than another shuttlecraft, however, the Photon is incapable of putting up much of a fight.",,,
+apex_excession,SHIP,"A unique prototype vessel designed to engage entire fleets, the Excession is the kind of ship that most captains only encounter once, and typically in the same way that a sentence encounters a period.
+
+Almost disappointingly, the interior of the ship bears little resemblance to the various rumors of ""superships"" bouncing around the hypernet. Indeed, the bridge is practically unchanged from more modern Collective frigates, aside from some minor improvements to the displays. 
+
+A sensor scan reveals a different picture- at close range, the scan penetrates the ship's integrated sensor baffles and ultradense armor lattice to reveal a captured hyperspace breach, wrangled into unhappy cooperation by more than a dozen capital-grade shield emitters. While the design would probably send a Luddic priest to meet their god a few decades early in a fit of apoplexy, it appears to provide capital-grade power generation in a fraction of the size.
+
+",,,
 ,,,,,
 # Fighters,,,,,
 apex_fighter_whiptail,SHIP,"A large drone bomber with a powerful anti-shield payload.
@@ -83,6 +90,7 @@ apex_rapid_loader,SHIP_SYSTEM,"Instantly fills weapon magazines with 20 seconds 
 apex_heavy_skimmer,SHIP_SYSTEM,"Provides a short bonus to maneuverability, followed by a high-speed movement burst in the current travel direction.",,,
 apex_bifurcator,SHIP_SYSTEM,Causes projectiles to occasionally summon a duplicate of themselves. Significantly less effective at long range.,,,
 apex_thorns,SHIP_SYSTEM,An exotic distortion field reduces incoming damage by 70% and generates homing energy projectiles when damaged. Disables weapons and shields while active.,,,
+apex_flux_reverser,SHIP_SYSTEM,Causes phase cloak and weapons to dissipate flux instead of generating it. Increases non-missile weapon damage based on flux level at activation. Disables natural dissipation while active.,,,
 ,,,,,
 apex_qgp_small,WEAPON,"Fires a small pulse of decoherent quark-gluon plasma at targets. The plasma is mostly ineffective against shields or armor, but devastating to less resilient internal compartments. In the interest of flexibility, it can accept both standard high-energy power linkages and mechanically-fed power cells.
 
@@ -180,6 +188,7 @@ apex_nanoacid_torp_single,WEAPON,A single nanoacid torpedo equipped with a rudim
 apex_nanoacid_torp_barrage,WEAPON,"Fires a rapid barrage of three nanoacid torpedoes. High-grade reloading systems and a sizeable internal magazine provide excellent sustained firepower.
 
 When nanoacid torpedo launchers were in their testing phase, they were only produced in small and medium mounts. Testing captains repeatedly expressed a desire for ""a Hammer Barrage that fires these things"", and the Fleet Design Bureau was quickly convinced of the error of their ways.",,,
+apex_tachyonshredder,WEAPON,An integrated spinal energy weapon based on similar principles as the Tachyon Inverter. Access to gravitic flux from the vessel's breach core substantially improves its offensive capabilities.,,,
 ,,,,,
 apex_design,FACTION,"The Apex Design Collective is a fairly insular polity originally founded as the Apex Design Corporation. Pre-collapse, it was a secretive military-industrial corporation that competed for bids to develop and manufacture high-spec warships for the Domain. Following the collapse, increasingly violent labor conflicts resulted in the expulsion (or execution) of the company's corporate masters, and the reformation of the corporation into a fully worker-owned entity. Today, Apex is more government than corporation, and its aggressively pro-worker attitude frequently puts it at odds with the sector's more capitalistic polities.  As such, it maintains a large, cutting-edge fleet which it uses to prevent any external interference. While Apex firmly denies that it uses its military for offensive actions, it's a poorly-kept secret that most of its ""foreign union organizers"" have extensive military training.
 
