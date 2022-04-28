@@ -12,6 +12,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static plugins.ApexModPlugin.POTATO_MODE;
+
 public class ApexPhaseBanish extends BaseShipSystemScript
 {
     boolean runOnce = false;
@@ -92,9 +94,12 @@ public class ApexPhaseBanish extends BaseShipSystemScript
     private void doRemoveVFX(CombatEntityAPI entity)
     {
         // draw removal effects
-        ApexUtils.addWaveDistortion(entity.getLocation(), 30f, 30f, 0.1f);
-        ApexUtils.plasmaEffects(entity, JITTER_UNDER_COLOR, Math.min(entity.getCollisionRadius() * 2f, 10f));
-        Global.getCombatEngine().addHitParticle(entity.getLocation(), entity.getVelocity(), 100f, 1.0f, 0.1f, JITTER_UNDER_COLOR);
+        if (!POTATO_MODE)
+        {
+            ApexUtils.addWaveDistortion(entity.getLocation(), 30f, 30f, 0.1f);
+            ApexUtils.plasmaEffects(entity, JITTER_UNDER_COLOR, Math.min(entity.getCollisionRadius() * 2f, 10f));
+            Global.getCombatEngine().addHitParticle(entity.getLocation(), entity.getVelocity(), 100f, 1.0f, 0.1f, JITTER_UNDER_COLOR);
+        }
     }
 
     public void unapply(MutableShipStatsAPI stats, String id)

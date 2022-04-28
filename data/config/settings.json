@@ -20,6 +20,7 @@
       "apex_these_stupid_sprites":"graphics/ui/icons/damagetype_energy_20x.png",
       "apex_even_though_the_game":"graphics/ui/icons/damagetype_high_explosive_20x.png",
       "apex_definitely_uses_them":"graphics/ui/icons/damagetype_fragmentation_20x.png",
+      "apex_breach_core":"graphics/icons/buffs/apex_breachcore.png"
 		},
 		"fx":{
       "apex_trail_twin":"graphics/trails/fx/trails_twin.png",

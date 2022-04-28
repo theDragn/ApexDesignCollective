@@ -1,0 +1,115 @@
+{
+  "hullName": "Excession",
+  "hullId": "apex_excession",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/ships/phase/apex_excession.png",
+  "style": "HIGH_TECH",
+  "height": 205,
+  "width": 220,
+  "center": [110, 102.5],
+  "collisionRadius": 103.5,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 103.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_excession_coils",
+    "apex_excession_armor",
+    "apex_excession_reactor"
+  ],
+  "builtInWeapons": {
+    "WS0001": "apex_tachyonshredder"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [12, 35.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -0,
+      "locations": [12, -35.5]
+    },
+    {
+      "id": "WS0001",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [32, 1]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-68.5, 7.5],
+      "length": 68.5,
+      "width": 17,
+      "angle": -180,
+      "contrailSize": 17,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-68.5, -7.5],
+      "length": 68.5,
+      "width": 17,
+      "angle": 180,
+      "contrailSize": 17,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-66, -19],
+      "length": 45.5,
+      "width": 18,
+      "angle": -169.5,
+      "contrailSize": 18,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-66, 19],
+      "length": 45.5,
+      "width": 18,
+      "angle": 169.5,
+      "contrailSize": 18,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -66, 25,
+    -92, 37,
+    -89.5, 52.5,
+    -43, 38,
+    -72.5, 72,
+    -57.5, 78,
+    -30, 46,
+    -40.5, 88,
+    -28.5, 92.5,
+    -8, 49,
+    17.5, 26.5,
+    81.5, 25.5,
+    96, 18,
+    86, 7,
+    86, -7,
+    96, -18,
+    81.5, -25.5,
+    17.5, -26.5,
+    -8, -49,
+    -28.5, -92.5,
+    -40.5, -88,
+    -30, -46,
+    -57.5, -78,
+    -72.5, -72,
+    -43, -38,
+    -89.5, -52.5,
+    -92, -37,
+    -66, -25
+  ]
+}

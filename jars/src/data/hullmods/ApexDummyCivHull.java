@@ -6,6 +6,7 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipVariantAPI;
 
+// used for ensuring that militarized spectrums count as civilian ships for skill bonuses if they have their refit hullmods applied.
 public class ApexDummyCivHull extends BaseHullMod
 {
     @Override
