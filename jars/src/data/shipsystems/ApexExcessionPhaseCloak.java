@@ -17,8 +17,14 @@ import static data.hullmods.ApexExcessionCoils.MAXIMUM_TIMEFLOW_MULT;
 public class ApexExcessionPhaseCloak extends BaseShipSystemScript
 {
     public static float SHIP_ALPHA_MULT = 0.25f;
+    public static boolean FLUX_LEVEL_AFFECTS_SPEED = false;
+    public static float MIN_SPEED_MULT = 0.5f;
+    public static float BASE_FLUX_LEVEL_FOR_MIN_SPEED = 0.5f;
 
+    protected Object STATUSKEY1 = new Object();
     protected Object STATUSKEY2 = new Object();
+    protected Object STATUSKEY3 = new Object();
+    protected Object STATUSKEY4 = new Object();
 
 
     public static float getMaxTimeMult(MutableShipStatsAPI stats)
@@ -41,6 +47,33 @@ public class ApexExcessionPhaseCloak extends BaseShipSystemScript
                 "timeflow multiplier: " + (Math.round(getMaxTimeMult(playerShip.getMutableStats()) * 10f) / 10f) + "x",
                 false);
 
+    }
+
+    protected boolean isDisruptable(ShipSystemAPI cloak)
+    {
+        return cloak.getSpecAPI().hasTag(Tags.DISRUPTABLE);
+    }
+
+    protected float getDisruptionLevel(ShipAPI ship)
+    {
+        //return disruptionLevel;
+        //if (true) return 0f;
+        if (FLUX_LEVEL_AFFECTS_SPEED)
+        {
+            float threshold = ship.getMutableStats().getDynamic().getMod(
+                    Stats.PHASE_CLOAK_FLUX_LEVEL_FOR_MIN_SPEED_MOD).computeEffective(BASE_FLUX_LEVEL_FOR_MIN_SPEED);
+            if (threshold <= 0) return 1f;
+            float level = ship.getHardFluxLevel() / threshold;
+            if (level > 1f) level = 1f;
+            return level;
+        }
+        return 0f;
+    }
+
+    public float getSpeedMult(ShipAPI ship, float effectLevel)
+    {
+        if (getDisruptionLevel(ship) <= 0f) return 1f;
+        return MIN_SPEED_MULT + (1f - MIN_SPEED_MULT) * (1f - getDisruptionLevel(ship) * effectLevel);
     }
 
     public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel)
@@ -71,6 +104,21 @@ public class ApexExcessionPhaseCloak extends BaseShipSystemScript
         if (cloak == null) cloak = ship.getSystem();
         if (cloak == null) return;
 
+        if (FLUX_LEVEL_AFFECTS_SPEED)
+        {
+            if (state == State.ACTIVE || state == State.OUT || state == State.IN)
+            {
+                float mult = getSpeedMult(ship, effectLevel);
+                if (mult < 1f)
+                {
+                    stats.getMaxSpeed().modifyMult(id + "_2", mult);
+                } else
+                {
+                    stats.getMaxSpeed().unmodifyMult(id + "_2");
+                }
+                ((PhaseCloakSystemAPI) cloak).setMinCoilJitterLevel(getDisruptionLevel(ship));
+            }
+        }
 
         if (state == State.COOLDOWN || state == State.IDLE)
         {

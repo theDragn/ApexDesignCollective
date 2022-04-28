@@ -1,7 +1,7 @@
 {
   "id": "apex_tachyonshredder",
   "specClass": "projectile",
-  "projectileSpecId": "apex_tachyon_shot",
+  "projectileSpecId": "apex_tachyon_shredder_shot",
   "type": "ENERGY",
   "size": "LARGE",
   #"everyFrameEffect": "data.weapons.ApexTachyonEffects",

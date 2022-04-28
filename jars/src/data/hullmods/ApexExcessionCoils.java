@@ -44,15 +44,10 @@ public class ApexExcessionCoils extends BaseHullMod
                     Misc.getHighlightColor(),
                     (int) (BASE_TIMEFLOW_MULT) + "x");
 
-            tooltip.addPara("• Reduces phase activation cost and cooldown duration by %s.",
+            tooltip.addPara("• %s phase activation cost and cooldown duration.",
                     0,
                     Misc.getHighlightColor(),
-                    (int) (PHASE_COOLDOWN_REDUCTION) + "%");
-
-            tooltip.addPara("• %s by phase coil stress.",
-                    0,
-                    Misc.getHighlightColor(),
-                    "Unaffected");
+                    "-" + (int) (PHASE_COOLDOWN_REDUCTION) + "%");
 
             tooltip.addPara("• Phase timeflow increases with flux level, up to %s at %s flux.",
                     0f,
@@ -62,7 +57,7 @@ public class ApexExcessionCoils extends BaseHullMod
             tooltip.addPara("• Speed increases with flux level, up to %s at %s flux.",
                     0f,
                     Misc.getHighlightColor(),
-                    (int) (MAXIMUM_SPEED_MULT * 100f - 100f) + "%", "100%");
+                    "+" + (int) (MAXIMUM_SPEED_MULT * 100f - 100f) + "%", "100%");
         }
     }
 

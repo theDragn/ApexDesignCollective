@@ -1,4 +1,4 @@
-package data.weapons.proj;
+package data.weapons;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
@@ -27,6 +27,7 @@ public class ApexTachyonShredder implements OnHitEffectPlugin
     private static final float OUTER_EXP_DUR = 0.2f;
     private static final float GLOW_RADIUS = 200f;
     private static final float GLOW_DUR = 0.2f;
+    private static final float VEL_MULT = 4f;
 
     @Override
     public void onHit(DamagingProjectileAPI proj, CombatEntityAPI target, Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine)
@@ -54,37 +55,37 @@ public class ApexTachyonShredder implements OnHitEffectPlugin
 
             // graphics
             // blatantly inspired by (and totally not stolen from) the scalartech ruffle
-            engine.spawnExplosion(point, Misc.ZERO, CORE_EXPLOSION_COLOR, CORE_EXP_RADIUS, CORE_EXP_DUR);
-            engine.spawnExplosion(point, Misc.ZERO, OUTER_EXPLOSION_COLOR, OUTER_EXP_RADIUS, OUTER_EXP_DUR);
-            engine.addHitParticle(point, Misc.ZERO, GLOW_RADIUS, 1f, GLOW_DUR, GLOW_COLOR);
+            engine.spawnExplosion(point, Misc.ZERO, CORE_EXPLOSION_COLOR, CORE_EXP_RADIUS, CORE_EXP_DUR / VEL_MULT);
+            engine.spawnExplosion(point, Misc.ZERO, OUTER_EXPLOSION_COLOR, OUTER_EXP_RADIUS, OUTER_EXP_DUR / VEL_MULT);
+            engine.addHitParticle(point, Misc.ZERO, GLOW_RADIUS, 1f, GLOW_DUR / VEL_MULT, GLOW_COLOR);
 
             MagicRender.battlespace(
                     Global.getSettings().getSprite("graphics/fx/explosion_ring0.png"),
                     point,
                     Misc.ZERO,
                     new Vector2f(80, 80),
-                    new Vector2f(240, 240),
+                    new Vector2f(240 * VEL_MULT, 240 * VEL_MULT),
                     MathUtils.getRandomNumberInRange(0, 360),
                     0,
                     GLOW_COLOR,
                     true,
-                    0.125f,
+                    0.125f / VEL_MULT,
                     0.0f,
-                    0.125f
+                    0.125f / VEL_MULT
             );
             MagicRender.battlespace(
                     Global.getSettings().getSprite("graphics/fx/explosion_ring0.png"),
                     point,
                     Misc.ZERO,
                     new Vector2f(120, 120),
-                    new Vector2f(100, 100),
+                    new Vector2f(100 * VEL_MULT, 100 * VEL_MULT),
                     MathUtils.getRandomNumberInRange(0, 360),
                     0,
                     CORE_EXPLOSION_COLOR,
                     true,
-                    0.2f,
+                    0.2f / VEL_MULT,
                     0.0f,
-                    0.2f
+                    0.2f / VEL_MULT
             );
         }
     }

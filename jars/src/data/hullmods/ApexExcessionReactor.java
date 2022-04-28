@@ -2,6 +2,7 @@ package data.hullmods;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
+import com.fs.starfarer.api.combat.listeners.DamageDealtModifier;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
@@ -18,13 +19,17 @@ import static plugins.ApexModPlugin.POTATO_MODE;
 
 public class ApexExcessionReactor extends BaseHullMod
 {
-    public static final float ARC_DPS = 750f; // evaporates this much damage per second.
-    public static final float ARC_DPS_MAX_PENALTY = 0.5f; // maximum DPS cut by this much at 100% flux.
-    public static final float STORED_DPS = 2000f; // can "store" up to this much dps, to deal with burst damage
+    public static final float BASE_CHARGE_RATE = 100f;
+    public static final float PHASE_CHARGE_MULT = 2f;
+    public static final float DAMAGE_CHARGE_MULT = 0.5f;
+    public static final float MAX_SYSTEM_CHARGE = 1500f;
+
+    public static final float MAX_STORED_CHARGE = 3000f; // can "store" up to this much
     public static final float FRAG_DAMAGE_MULT = 0.5f; // frag counts less when being deleted
     public static final float ARC_RANGE = 400f;
     public static final float ARC_FIGHTER_DAMAGE = 250f;
     public static final float FIGHTER_WEIGHT = 150f; // fighter value for weighting
+
 
     public static final float ARC_SIPHON_AMOUNT = 25f; // armor stored per hit
     public static final float MAX_STORED_ARMOR = 1000f;
@@ -37,6 +42,7 @@ public class ApexExcessionReactor extends BaseHullMod
     public static final WeightedRandomPicker<Vector2f> arcOrigins = new WeightedRandomPicker<>();
     static
     {
+        // first number is front (+)/back (-) on ship model
         arcOrigins.add(new Vector2f(100,0));
         arcOrigins.add(new Vector2f(0,0));
         arcOrigins.add(new Vector2f(0,0));
@@ -46,30 +52,47 @@ public class ApexExcessionReactor extends BaseHullMod
     }
 
     @Override
+    public void applyEffectsAfterShipCreation(ShipAPI ship, String id)
+    {
+        ship.addListener(new ApexExcessionChargeListener());
+    }
+
+    public static class ApexExcessionChargeListener implements DamageDealtModifier
+    {
+
+        @Override
+        public String modifyDamageDealt(Object param, CombatEntityAPI target, DamageAPI damage, Vector2f point, boolean shieldHit)
+        {
+            if (param instanceof DamagingProjectileAPI)
+                addCharge(((DamagingProjectileAPI) param).getSource(), ((DamagingProjectileAPI) param).getDamageAmount());
+            return null;
+        }
+
+        private void addCharge(ShipAPI source, float damageAmount)
+        {
+            damageMap.put(source, Math.min(damageMap.get(source) + damageAmount * DAMAGE_CHARGE_MULT, MAX_STORED_CHARGE));
+        }
+    }
+
+    @Override
     public void addPostDescriptionSection(TooltipMakerAPI tooltip, ShipAPI.HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec)
     {
         if (ship != null)
         {
             float pad = 10f;
             tooltip.addSectionHeading("Details", Alignment.MID, pad);
-
-            tooltip.addPara("\n• Generates gravitic arcs that destroy enemy projectiles and fighters.", 0);
-
-            tooltip.addPara("• Higher flux levels decrease core charge rate, reaching %s at %s flux.",
-                    0,
-                    Misc.getHighlightColor(),
-                    "-" + (int)(ARC_DPS_MAX_PENALTY * 100f) + "%", "100%");
-
-            tooltip.addPara("• Arcs siphon mass to be used for armor repair with each hit.", 0);
-
-            tooltip.addPara("• Consumes stored mass to repair %s armor per second.",
+            tooltip.addPara("\n• Charges slowly over time.", 0);
+            tooltip.addPara("• %s charge rate while phased.", 0, Misc.getHighlightColor(),
+                    "+" + (int)(PHASE_CHARGE_MULT * 100f - 100f) + "%");
+            tooltip.addPara("• Damaging targets generates charge.", 0);
+            tooltip.addPara("• Automatically expends charge to create gravitic arcs that destroy enemy projectiles and fighters.", 0);
+            tooltip.addPara("• Arcs siphon mass from targets, storing it. Stored mass is consumed to repair %s armor per second.",
                     0,
                     Misc.getHighlightColor(),
                     (int)(REPAIR_RATE) + "");
+            tooltip.addPara("• Armor repair rate is multiplied by any timeflow increases.", 0);
 
-            tooltip.addPara("• Armor repair rate is fixed to the local temporal reference frame, and is further multiplied by any timeflow increases.", 0);
-
-            tooltip.addPara("• Peak performance time depletion rate ignores timeflow increases, but decreases regardless of hostile presence.", 0);
+            tooltip.addPara("• Peak performance time depletion rate ignores timeflow changes, but decreases regardless of hostile presence.", 0);
         }
     }
 
@@ -78,7 +101,7 @@ public class ApexExcessionReactor extends BaseHullMod
     {
         // update maps first
         if (!damageMap.containsKey(ship))
-            damageMap.put(ship, STORED_DPS);
+            damageMap.put(ship, MAX_STORED_CHARGE);
         if (!repairMap.containsKey(ship))
             repairMap.put(ship, 0f);
         if (!dpTimeMap.containsKey(ship))
@@ -103,7 +126,7 @@ public class ApexExcessionReactor extends BaseHullMod
                     "apex_excession_reactor",
                     "graphics/icons/buffs/apex_breachcore.png",
                     "Breach Core",
-                    "Charge: " + (int) (storedDamage / STORED_DPS * 100f) + "%" + " / Stored Repair: " + (int)storedRepair,
+                    "Charge: " + (int) (storedDamage / MAX_STORED_CHARGE * 100f) + "%" + " / Stored Repair: " + (int)storedRepair,
                     false
             );
 
@@ -113,7 +136,7 @@ public class ApexExcessionReactor extends BaseHullMod
     private void fixDeploymentTime(ShipAPI ship, float amount)
     {
         float dpTime = dpTimeMap.get(ship);
-        dpTime += amount;
+        dpTime += amount / ship.getMutableStats().getTimeMult().getModifiedValue();
         ship.setTimeDeployed(dpTime);
         dpTimeMap.put(ship, dpTime);
     }
@@ -190,12 +213,11 @@ public class ApexExcessionReactor extends BaseHullMod
 
         // updates stored dps
         float storedDamage = damageMap.get(ship);
-        if (storedDamage < STORED_DPS)
-            storedDamage = Math.min(
-                    STORED_DPS,
-                    storedDamage + (ARC_DPS * (1f - ship.getFluxLevel() * ARC_DPS_MAX_PENALTY)) * amount
-            );
-
+        if (storedDamage < MAX_STORED_CHARGE)
+        {
+            float toStore = BASE_CHARGE_RATE * amount * (ship.isPhased() ? PHASE_CHARGE_MULT : 1f);
+            storedDamage = Math.min(MAX_STORED_CHARGE, storedDamage + toStore);
+        }
         if (!ship.isPhased() && ship.isAlive())
         {
             // bias arcs towards more dangerous threats - fighters and high-damage projectiles
