@@ -2,91 +2,146 @@ package data.weapons;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
-import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
-import com.fs.starfarer.api.loading.DamagingExplosionSpec;
-import com.fs.starfarer.api.util.Misc;
-import data.scripts.util.MagicRender;
+import com.fs.starfarer.api.graphics.SpriteAPI;
+import com.fs.starfarer.api.loading.ProjectileSpawnType;
+import data.scripts.plugins.MagicAutoTrails.trailData;
+import data.scripts.plugins.MagicTrailPlugin;
 import org.lazywizard.lazylib.MathUtils;
+import org.lazywizard.lazylib.VectorUtils;
 import org.lwjgl.util.vector.Vector2f;
 
-import java.awt.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-public class ApexTachyonShredder implements OnHitEffectPlugin
+// handles damage boost from flux and trail graphics
+public class ApexTachyonShredder implements EveryFrameWeaponEffectPlugin, OnFireEffectPlugin
 {
-    private static final float BASE_EXP_RADIUS = 100f;
-    private static final float RADIUS_BONUS_MULT = 0.75f; // 175 radius at maximum flux
-    private static final float FRAG_FRACTION = 0.5f; // proj damage * this = frag exp damage
+    public static final float DAMAGE_BOOST = 0.5f; // this much extra damage at maximum flux
+    // trail properties
+    trailData trailSpec = new trailData();
 
-    // onhit graphical effect
-    private static final Color CORE_EXPLOSION_COLOR = new Color(113,41,246, 255);
-    private static final Color OUTER_EXPLOSION_COLOR = new Color(187, 0, 255, 25);
-    private static final Color GLOW_COLOR = new Color(113,41,246, 150);
-    private static final float CORE_EXP_RADIUS = 100f;
-    private static final float CORE_EXP_DUR = 1f;
-    private static final float OUTER_EXP_RADIUS = 150f;
-    private static final float OUTER_EXP_DUR = 0.2f;
-    private static final float GLOW_RADIUS = 200f;
-    private static final float GLOW_DUR = 0.2f;
-    private static final float VEL_MULT = 4f;
+    // tracks projectiles + flux level at firing to do graphics
+    private final HashMap<DamagingProjectileAPI, Float> projMap = new HashMap<>();
 
     @Override
-    public void onHit(DamagingProjectileAPI proj, CombatEntityAPI target, Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine)
+    public void advance(float amount, CombatEngineAPI engine, WeaponAPI weapon)
     {
-        if (!(target instanceof MissileAPI))
+        ArrayList<DamagingProjectileAPI> toRemove = new ArrayList<>();
+        for (DamagingProjectileAPI proj : projMap.keySet())
         {
-            // damaging explosion
-            float radius = BASE_EXP_RADIUS + RADIUS_BONUS_MULT * proj.getSource().getFluxLevel();
-            DamagingExplosionSpec spec = new DamagingExplosionSpec(0.1f,
-                    radius,
-                    radius * 0.75f,
-                    proj.getDamageAmount() * FRAG_FRACTION,
-                    proj.getDamageAmount() * FRAG_FRACTION * 0.75f,
-                    CollisionClass.PROJECTILE_NO_FF,
-                    CollisionClass.PROJECTILE_FIGHTER,
-                    1f,
-                    10f,
-                    0.2f,
-                    20,
-                    Color.WHITE,
-                    null);
-            spec.setDamageType(DamageType.FRAGMENTATION);
-            spec.setShowGraphic(false);
-            engine.spawnDamagingExplosion(spec, proj.getSource(), point, false);
+            if (proj.didDamage() || proj.isExpired() || !engine.isEntityInPlay(proj))
+            {
+                toRemove.add(proj);
+                continue;
+            }
+            float scalar = projMap.get(proj);
+            addTrail(proj, scalar);
+        }
 
-            // graphics
-            // blatantly inspired by (and totally not stolen from) the scalartech ruffle
-            engine.spawnExplosion(point, Misc.ZERO, CORE_EXPLOSION_COLOR, CORE_EXP_RADIUS, CORE_EXP_DUR / VEL_MULT);
-            engine.spawnExplosion(point, Misc.ZERO, OUTER_EXPLOSION_COLOR, OUTER_EXP_RADIUS, OUTER_EXP_DUR / VEL_MULT);
-            engine.addHitParticle(point, Misc.ZERO, GLOW_RADIUS, 1f, GLOW_DUR / VEL_MULT, GLOW_COLOR);
-
-            MagicRender.battlespace(
-                    Global.getSettings().getSprite("graphics/fx/explosion_ring0.png"),
-                    point,
-                    Misc.ZERO,
-                    new Vector2f(80, 80),
-                    new Vector2f(240 * VEL_MULT, 240 * VEL_MULT),
-                    MathUtils.getRandomNumberInRange(0, 360),
-                    0,
-                    GLOW_COLOR,
-                    true,
-                    0.125f / VEL_MULT,
-                    0.0f,
-                    0.125f / VEL_MULT
-            );
-            MagicRender.battlespace(
-                    Global.getSettings().getSprite("graphics/fx/explosion_ring0.png"),
-                    point,
-                    Misc.ZERO,
-                    new Vector2f(120, 120),
-                    new Vector2f(100 * VEL_MULT, 100 * VEL_MULT),
-                    MathUtils.getRandomNumberInRange(0, 360),
-                    0,
-                    CORE_EXPLOSION_COLOR,
-                    true,
-                    0.2f / VEL_MULT,
-                    0.0f,
-                    0.2f / VEL_MULT
-            );
+        for (DamagingProjectileAPI proj : toRemove)
+        {
+            projMap.remove(proj);
         }
     }
+
+    @Override
+    public void onFire(DamagingProjectileAPI proj, WeaponAPI weapon, CombatEngineAPI engine)
+    {
+        projMap.put(proj, weapon.getShip().getFluxLevel());
+        proj.getDamage().getModifier().modifyMult("shredder_bonus", 1f + weapon.getShip().getFluxLevel() * DAMAGE_BOOST);
+    }
+
+    // long so I'm hiding it down here
+    private void addTrail(DamagingProjectileAPI proj, float scalar)
+    {
+        SpriteAPI spriteToUse = Global.getSettings().getSprite("fx", "sprite goes here");
+
+        Vector2f projVel = new Vector2f(proj.getVelocity());
+        //Fix for some first-frame error shenanigans
+        if (projVel.length() < 0.1f && proj.getSource() != null) {
+            projVel = new Vector2f(proj.getSource().getVelocity());
+        }
+        //If we use angle adjustment, do that here
+        if (ANGLE_ADJUSTMENT && projVel.length() > 0.1f && !proj.getSpawnType().equals(ProjectileSpawnType.BALLISTIC_AS_BEAM)) {
+            proj.setFacing(VectorUtils.getFacing(projVel));
+        }
+
+        //Gets a custom "offset" position, so we can slightly alter the spawn location to account for "natural fade-in", and add that to our spawn position
+//            Vector2f offsetPoint = new Vector2f((float) Math.cos(Math.toRadians(proj.getFacing())) * trailData.distance, (float) Math.sin(Math.toRadians(proj.getFacing())) * trailData.distance);
+//            Vector2f spawnPosition = new Vector2f(offsetPoint.x + proj.getLocation().x, offsetPoint.y + proj.getLocation().y);
+        Vector2f spawnPosition = MathUtils.getPointOnCircumference(
+                proj.getLocation(), DISTANCE, proj.getFacing());
+
+        //Sideway offset velocity, for projectiles that use it
+        Vector2f projBodyVel = new Vector2f(projVel);
+        projBodyVel = VectorUtils.rotate(projBodyVel, -proj.getFacing());
+        Vector2f projLateralBodyVel = new Vector2f(0f, projBodyVel.getY());
+        Vector2f sidewayVel = new Vector2f(projLateralBodyVel);
+        sidewayVel = (Vector2f) VectorUtils.rotate(sidewayVel, proj.getFacing()).scale(trailSpec.drift);
+
+        //random dispersion of the segments if necessary
+        float rotationIn = ROTATION_IN;
+        float rotationOut = ROTATION_OUT;
+
+        float velIn = VELOCITY_IN;
+        float velOut = VELOCITY_OUT;
+
+        if (RANDOM_ROTATION) {
+            float rand = MathUtils.getRandomNumberInRange(-1f, 1f);
+            rotationIn = rotationIn * rand;
+            rotationOut = rotationOut * rand;
+        }
+
+        if (DISPERSION > 0) {
+            Vector2f.add(
+                    sidewayVel,
+                    MathUtils.getRandomPointInCircle(null, DISPERSION),
+                    sidewayVel);
+        }
+
+        if (RANDOM_VELOCITY > 0) {
+            float rand = MathUtils.getRandomNumberInRange(-1f, 1f);
+            velIn *= 1 + RANDOM_VELOCITY * rand;
+            velOut *= 1 + RANDOM_VELOCITY * rand;
+        }
+
+        //Opacity adjustment for fade-out, if the projectile uses it
+        float opacityMult = 1f;
+        if (FADE_ON_FADE_OUT && proj.isFading()) {
+            opacityMult = Math.max(0, Math.min(1, proj.getDamageAmount() / proj.getBaseDamageAmount()));
+        }
+
+        //Then, actually spawn a trail
+        MagicTrailPlugin.AddTrailMemberAdvanced(
+                proj,
+         id,
+            sprite,
+        spawnPosition,
+        float startSpeed,
+        float endSpeed,
+        float angle,
+        float startAngularVelocity,
+        float endAngularVelocity,
+        float startSize,
+        float endSize,
+        java.awt.Color startColor,
+        java.awt.Color endColor,
+        float opacity,
+        float inDuration,
+        float mainDuration,
+        float outDuration,
+        boolean additive,
+        float textureLoopLength,
+        float textureScrollSpeed,
+        float textureOffset,
+        @Nullable
+        org.lwjgl.util.vector.Vector2f offsetVelocity,
+        @Nullable
+        java.util.Map<java.lang.String,java.lang.Object> advancedOptions,
+        @Nullable
+        com.fs.starfarer.api.combat.CombatEngineLayers layerToRenderOn,
+        float frameOffsetMult)
+        );
+    }
+
 }

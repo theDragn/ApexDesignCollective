@@ -127,10 +127,9 @@ public class ApexShield extends BaseHullMod
         if (ship.getShield().isOn())
         {
             // shield was on last frame, arc has shrunk, and is now smaller than the original maximum arc
-            if (tracker.arcLastFrame > ship.getShield().getActiveArc() && tracker.originalMaxArc > ship.getShield().getActiveArc())
-            {
+            if (tracker.arcLastFrame > ship.getShield().getActiveArc()
+                    && tracker.originalMaxArc > ship.getShield().getActiveArc())
                 ship.getShield().setActiveArc(tracker.originalMaxArc);
-            }
             tracker.arcLastFrame = ship.getShield().getActiveArc();
             for (WeaponAPI weapon : ship.getAllWeapons())
             {
@@ -143,9 +142,7 @@ public class ApexShield extends BaseHullMod
                     else
                         weapon.setCurrHealth(weapon.getMaxHealth());
                     if (weapon.isDisabled() && !weapon.isPermanentlyDisabled())
-                    {
                         weapon.repair();
-                    }
                 }
             }
             for (ShipEngineControllerAPI.ShipEngineAPI shipEngine : ship.getEngineController().getShipEngines())
@@ -158,7 +155,6 @@ public class ApexShield extends BaseHullMod
                         continue;
                     else
                         shipEngine.setHitpoints(shipEngine.getMaxHitpoints());
-
                 }
             }
         }
@@ -204,9 +200,8 @@ public class ApexShield extends BaseHullMod
                     if (armorFraction < CUTOFF_FRACTION)
                         return null;
                     float reduction = DAMAGE_REDUCTION * armorFraction * (originalDamage / damage.getDamage());
-                    if (originalDamage < reduction) {
+                    if (originalDamage < reduction)
                         reduction = originalDamage;
-                    }
                     applyBypassDamage(proj.getSource(), reduction, target, bypassLoc);
                     damage.getModifier().modifyMult("apexGeodesic", 1f - reduction / originalDamage);
                     spawnGeodesicSpall(point, target, damage);
@@ -223,9 +218,8 @@ public class ApexShield extends BaseHullMod
                     if (armorFraction < CUTOFF_FRACTION)
                         return null;
                     float reduction = DAMAGE_REDUCTION * armorFraction * Global.getCombatEngine().getElapsedInLastFrame();
-                    if (originalDamage < reduction) {
+                    if (originalDamage < reduction)
                         reduction = originalDamage;
-                    }
                     applyBypassDamage(beam.getSource(), reduction, target, bypassLoc);
                     damage.getModifier().modifyMult("apexGeodesic", 1f - reduction / originalDamage);
                     spawnGeodesicSpall(point, target, damage);

@@ -4,7 +4,7 @@
 	"spawnType":"BALLISTIC_AS_BEAM",
 	"collisionClass":"RAY",
 	"collisionClassByFighter":"RAY_FIGHTER",
-	"onHitEffect":"data.weapons.ApexTachyonShredder",
+	"onHitEffect":"data.weapons.proj.ApexTachyonShredderOnHit",
 	"length":75.0,
 	"width":9.5,
 	"fadeTime":0.3,
