@@ -66,18 +66,19 @@
 	},
 	"tankerMedium":{
 		"apex_spectrum_civtanker":5,
-		"apex_spectrum_miltanker":2,
+		# had issues with these replacing carrier variants in player fleets
+		#"apex_spectrum_miltanker":2, 
 		"apex_backscatter_civtanker":5,
-		"apex_backscatter_miltanker":2,
+		#"apex_backscatter_miltanker":2,
 	},
 	"tankerSmall":{
 		"apex_photon_fuel":10
 	},
 	"freighterMedium":{
 		"apex_spectrum_civhauler":5,
-		"apex_spectrum_milhauler":2,
+		#"apex_spectrum_milhauler":2,
 		"apex_backscatter_civhauler":5,
-		"apex_backscatter_milhauler":2,
+		#"apex_backscatter_milhauler":2,
 	},
 	"freighterSmall":{
 		"apex_photon_cargo":10

@@ -94,7 +94,9 @@ public class ApexSuperRangeSync extends BaseHullMod
         @Override
         public float getWeaponBaseRangeFlatMod(ShipAPI ship, WeaponAPI weapon)
         {
-            if (weapon.isBeam() || weapon.getType() == WeaponAPI.WeaponType.MISSILE || weapon.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD))
+            if (weapon.isBeam() || weapon.getType() == WeaponAPI.WeaponType.MISSILE || weapon.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || weapon.getSlot() == null)
+                return 0f;
+            if (weapon.getId().contains("apex_repair") || weapon.getId().contains("apex_cryo"))
                 return 0f;
             if (weapon.getSpec().getMaxRange() == 0f)
                 return 1f;

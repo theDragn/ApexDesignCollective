@@ -232,4 +232,18 @@ public class ApexFakeOpenMarket extends BaseSubmarketPlugin
         }
         return super.getTooltipAppendixHighlights(ui);
     }
+
+    @Override
+    public boolean isHidden()
+    {
+        if (!market.getFactionId().equals("apex_design"))
+            return true;
+        // remove the real open market if apex retakes the planet
+        for (SubmarketAPI sub : market.getSubmarketsCopy())
+        {
+            if (sub.getSpecId().equals("open_market"))
+                market.removeSubmarket("open_market");
+        }
+        return false;
+    }
 }

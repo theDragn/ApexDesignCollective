@@ -39,8 +39,8 @@ public class ApexExcessionPhaseCloak extends BaseShipSystemScript
         ShipSystemAPI cloak = playerShip.getPhaseCloak();
         if (cloak == null) cloak = playerShip.getSystem();
         if (cloak == null) return;
-
-        Global.getCombatEngine().maintainStatusForPlayerShip(
+        if (playerShip.isPhased())
+            Global.getCombatEngine().maintainStatusForPlayerShip(
                 STATUSKEY2,
                 cloak.getSpecAPI().getIconSpriteName(),
                 cloak.getDisplayName(),

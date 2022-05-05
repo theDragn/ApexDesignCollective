@@ -40,5 +40,5 @@ Chameleon,apex_fighter_chameleon,,Apex Design Collective,,,600,100,300,,75,0,,17
 # Export Hulls,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Apotheosis (RG),apex_apotheosis_rg,Battlecruiser,Red Guards,apex_microburn,23,10000,1100,13500,,650,215,,50,25,25,15,15,2000,OMNI,,180,0.3,0.9,,,350,500,300,240,8,30,8,250000,10,25,720,0.25,35,35,,"revolutionary, vayra_red_army",,0.33,2,3,,1312
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-# Secret,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Excession,apex_excession,Phase Destroyer,Apex Design Collective,apex_excessionsys,20,5000,1200,10000,,500,50,,125,300,300,270,270,400,PHASE,apex_excessionphase,,,,0.03,0.04,5,10,100,60,1,60,10,2000000,10,25,360,0.25,10,10,PHASE,,,0.5,2,3,,1312
+"# secret (I guess it's really not that secret if it's in here but I don't have that many options, y'know?)",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Excession,apex_excession,Phase Destroyer,Apex Design Collective,apex_excessionsys,20,3000,1000,5000,,400,50,,100,300,300,270,270,400,PHASE,apex_excessionphase,,,,0.03,0.04,5,10,100,60,1,60,10,2000000,10,25,360,0.25,40,40,PHASE,,,0.5,2,3,,1312

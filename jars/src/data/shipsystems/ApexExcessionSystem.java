@@ -1,46 +1,77 @@
 package data.shipsystems;
 
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
+import com.fs.starfarer.api.util.Misc;
+import org.dark.shaders.distortion.DistortionShader;
+import org.dark.shaders.distortion.RippleDistortion;
+import org.lazywizard.lazylib.MathUtils;
+import org.lazywizard.lazylib.VectorUtils;
+import org.lwjgl.util.vector.Vector2f;
 
-import static data.hullmods.ApexExcessionReactor.MAX_SYSTEM_CHARGE;
-import static data.hullmods.ApexExcessionReactor.damageMap;
+import java.awt.*;
+
+import static data.hullmods.ApexExcessionReactor.*;
 
 public class ApexExcessionSystem extends BaseShipSystemScript
 {
-    private static final float MAXIMUM_DAMAGE_BOOST = 1f;
+    public static final float INSTANT_DISS = 3f; // yo momma so fat, she can instantly dissipate this many seconds of flux dissipation
 
     private boolean runOnce = false;
-
+    private int doEffects = 0;
 
     @Override
     public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel)
     {
+        ShipAPI ship = (ShipAPI)stats.getEntity();
         if (!runOnce && stats.getEntity() != null)
         {
-            ShipAPI ship = (ShipAPI)stats.getEntity();
-            float fluxLevel = ship.getFluxLevel();
             runOnce = true;
-
-            float charge = MAX_SYSTEM_CHARGE * fluxLevel;
-            damageMap.put(ship, Math.min(damageMap.get(ship) + charge, MAX_SYSTEM_CHARGE));
-            ship.getFluxTracker().decreaseFlux(Math.min(ship.getFluxTracker().getCurrFlux() * 0.25f, 3000f));
-
-            doGraphics(ship);
+            float diss = stats.getFluxDissipation().getModifiedValue();
+            ship.getFluxTracker().decreaseFlux(diss * INSTANT_DISS);
+        }
+        // I wrote this code, I can steal it back
+        float shipRadius = ship.getCollisionRadius();
+        if (doEffects < 10) {
+            if (doEffects == 0) {
+                RippleDistortion ripple = new RippleDistortion(ship.getLocation(), ship.getVelocity());
+                ripple.setSize(300f + shipRadius * 1.75f);
+                ripple.setIntensity(shipRadius);
+                ripple.setFrameRate(60f);
+                ripple.fadeInSize(0.75f);
+                ripple.fadeOutIntensity(0.5f);
+                DistortionShader.addDistortion(ripple);
+            }
+            for (int i = 0; i < 2; i++) {
+                Vector2f particleLoc = MathUtils.getRandomPointInCircle(ship.getLocation(), (shipRadius + 300) * 2f);
+                Vector2f particleVel = MathUtils.getPointOnCircumference(Misc.ZERO, MathUtils.getDistance(particleLoc, ship.getLocation()), VectorUtils.getAngle(particleLoc, ship.getLocation()));
+                Global.getCombatEngine().addSmoothParticle(particleLoc, particleVel, (float)Math.random() * 15f + 5f, 0.5f, 0.75f, Color.white);
+            }
+            doEffects++;
         }
 
-    }
+        // three frames of full core charge - enough to wipe out whatever is within interception radius, but no more
+        if (doEffects < 3)
+        {
+            damageMap.put(ship, MAX_STORED_CHARGE); // hullmod script will make sure it doesn't go over 100%
+        }
+        //stats.getFluxDissipation().modifyMult(id, DISSIPATION_BOOST);
 
-    // TODO
-    private void doGraphics(ShipAPI ship)
-    {
+        //float charge = BASE_CHARGE_RATE * CORE_BASE_GEN_MULT * Global.getCombatEngine().getElapsedInLastFrame();
+
+
+        // prevent phase cloaking
+        ship.getPhaseCloak().setCooldown(0.1f);
     }
 
     @Override
     public void unapply(MutableShipStatsAPI stats, String id)
     {
         runOnce = false;
+        doEffects = 0;
+        stats.getFluxDissipation().unmodify(id);
     }
 
     @Override

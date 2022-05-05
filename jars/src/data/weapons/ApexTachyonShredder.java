@@ -4,24 +4,53 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.graphics.SpriteAPI;
 import com.fs.starfarer.api.loading.ProjectileSpawnType;
+import data.ApexUtils;
 import data.scripts.plugins.MagicAutoTrails.trailData;
 import data.scripts.plugins.MagicTrailPlugin;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lwjgl.util.vector.Vector2f;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import static org.lwjgl.opengl.GL11.GL_ONE;
+import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
 
 // handles damage boost from flux and trail graphics
 public class ApexTachyonShredder implements EveryFrameWeaponEffectPlugin, OnFireEffectPlugin
 {
     public static final float DAMAGE_BOOST = 0.5f; // this much extra damage at maximum flux
-    // trail properties
-    trailData trailSpec = new trailData();
+
+    private static final String SPRITE_ID = "base_trail_smooth";
+    private static final float FADE_IN_DURATION = 0f;
+    private static final float MAIN_DURATION = 0.05f;
+    private static final float FADE_OUT_DURATION = 0.5f;
+    private static final float SIZE_IN = 14f; // trail width when it fades in
+    private static final float SIZE_OUT = 0f; // trail width when it fades out
+    private static final Color COLOR_IN = new Color(12, 16, 226);
+    private static final Color COLOR_IN_FADE = new Color(192, 48, 238);
+    private static final Color COLOR_OUT = new Color(12, 16, 226);
+    private static final float OPACITY = 0.7f;
+    private static final float TEXTURE_LENGTH = 300;
+    private static final float TEXTURE_SCROLL = 400;
+    private static final float DISTANCE = 20; // distance in front of projectile to start spawning trail
+    private static final float DISPERSION = 0; // causes trail to spread out, iirc?
+    private static final float DRIFT = 1;
+    private static final boolean FADE_ON_FADE_OUT = true;
+    private static final boolean ANGLE_ADJUSTMENT = false;
+    private static final float VELOCITY_IN = 0;
+    private static final float VELOCITY_OUT = 0f;
+    private static final float ROTATION_IN = 0;
+    private static final float ROTATION_OUT = 0;
+    private static final float RANDOM_VELOCITY = 0;
+    private static final boolean RANDOM_ROTATION = false;
+
 
     // tracks projectiles + flux level at firing to do graphics
     private final HashMap<DamagingProjectileAPI, Float> projMap = new HashMap<>();
+    private final HashMap<DamagingProjectileAPI, Float> idMap = new HashMap<>();
 
     @Override
     public void advance(float amount, CombatEngineAPI engine, WeaponAPI weapon)
@@ -54,7 +83,10 @@ public class ApexTachyonShredder implements EveryFrameWeaponEffectPlugin, OnFire
     // long so I'm hiding it down here
     private void addTrail(DamagingProjectileAPI proj, float scalar)
     {
-        SpriteAPI spriteToUse = Global.getSettings().getSprite("fx", "sprite goes here");
+        if (!idMap.containsKey(proj))
+            idMap.put(proj, MagicTrailPlugin.getUniqueID());
+
+        SpriteAPI sprite = Global.getSettings().getSprite("fx", SPRITE_ID);
 
         Vector2f projVel = new Vector2f(proj.getVelocity());
         //Fix for some first-frame error shenanigans
@@ -77,7 +109,7 @@ public class ApexTachyonShredder implements EveryFrameWeaponEffectPlugin, OnFire
         projBodyVel = VectorUtils.rotate(projBodyVel, -proj.getFacing());
         Vector2f projLateralBodyVel = new Vector2f(0f, projBodyVel.getY());
         Vector2f sidewayVel = new Vector2f(projLateralBodyVel);
-        sidewayVel = (Vector2f) VectorUtils.rotate(sidewayVel, proj.getFacing()).scale(trailSpec.drift);
+        sidewayVel = (Vector2f) VectorUtils.rotate(sidewayVel, proj.getFacing()).scale(DRIFT);
 
         //random dispersion of the segments if necessary
         float rotationIn = ROTATION_IN;
@@ -114,33 +146,31 @@ public class ApexTachyonShredder implements EveryFrameWeaponEffectPlugin, OnFire
         //Then, actually spawn a trail
         MagicTrailPlugin.AddTrailMemberAdvanced(
                 proj,
-         id,
-            sprite,
-        spawnPosition,
-        float startSpeed,
-        float endSpeed,
-        float angle,
-        float startAngularVelocity,
-        float endAngularVelocity,
-        float startSize,
-        float endSize,
-        java.awt.Color startColor,
-        java.awt.Color endColor,
-        float opacity,
-        float inDuration,
-        float mainDuration,
-        float outDuration,
-        boolean additive,
-        float textureLoopLength,
-        float textureScrollSpeed,
-        float textureOffset,
-        @Nullable
-        org.lwjgl.util.vector.Vector2f offsetVelocity,
-        @Nullable
-        java.util.Map<java.lang.String,java.lang.Object> advancedOptions,
-        @Nullable
-        com.fs.starfarer.api.combat.CombatEngineLayers layerToRenderOn,
-        float frameOffsetMult)
+                idMap.get(proj),
+                sprite,
+                spawnPosition,
+                velIn,
+                velOut,
+                proj.getFacing() - 180f,
+                rotationIn,
+                rotationOut,
+                SIZE_IN,
+                SIZE_OUT,
+                ApexUtils.blendColors(COLOR_IN, COLOR_IN_FADE, scalar),
+                COLOR_OUT,
+                OPACITY * opacityMult,
+                FADE_IN_DURATION,
+                MAIN_DURATION,
+                FADE_OUT_DURATION,
+                GL_SRC_ALPHA,
+                GL_ONE,
+                TEXTURE_LENGTH,
+                TEXTURE_SCROLL,
+                0f,
+                sidewayVel,
+                null,
+                CombatEngineLayers.BELOW_INDICATORS_LAYER,
+                1f
         );
     }
 

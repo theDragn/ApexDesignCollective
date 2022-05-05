@@ -14,7 +14,9 @@
   "builtInMods": [
     "apex_excession_coils",
     "apex_excession_armor",
-    "apex_excession_reactor"
+    "apex_excession_reactor",
+    "phasefield",
+    "high_maintenance"
   ],
   "builtInWeapons": {
     "WS0001": "apex_tachyonshredder"

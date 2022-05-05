@@ -123,11 +123,11 @@ public class ApexNanoacidEffect extends BaseCombatLayeredRenderingPlugin
         }
     }
 
+    @Override
     public float getRenderRadius()
     {
         return 500f;
     }
-
 
     protected EnumSet<CombatEngineLayers> layers = EnumSet.of(CombatEngineLayers.BELOW_INDICATORS_LAYER);
 
@@ -137,11 +137,13 @@ public class ApexNanoacidEffect extends BaseCombatLayeredRenderingPlugin
         return layers;
     }
 
+    @Override
     public void init(CombatEntityAPI entity)
     {
         super.init(entity);
     }
 
+    @Override
     public void advance(float amount)
     {
         if (Global.getCombatEngine().isPaused()) return;
@@ -275,12 +277,14 @@ public class ApexNanoacidEffect extends BaseCombatLayeredRenderingPlugin
 
     }
 
+    @Override
     public boolean isExpired()
     {
         return particles.isEmpty() &&
                 (ticks >= maxTicks || !target.isAlive() || !Global.getCombatEngine().isEntityInPlay(target));
     }
 
+    @Override
     public void render(CombatEngineLayers layer, ViewportAPI viewport)
     {
         float x = entity.getLocation().x;

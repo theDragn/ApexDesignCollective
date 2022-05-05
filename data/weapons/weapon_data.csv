@@ -1,10 +1,10 @@
 name,id,tier,rarity,base value,range,damage/second,damage/shot,emp,impact,turn rate,OPs,ammo,ammo/sec,reload size,type,energy/shot,energy/second,chargeup,chargedown,burst size,burst delay,min spread,max spread,spread/shot,spread decay/sec,beam speed,proj speed,launch speed,flight time,proj hitpoints,autofireAccBonus,extraArcForAI,hints,tags,groupTag,tech/manufacturer,for weapon tooltip>>,primaryRoleStr,speedStr,trackingStr,turnRateStr,accuracyStr,customPrimary,customPrimaryHL,customAncillary,customAncillaryHL,noDPSInTooltip,number
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Builtins and Systems,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-repair blob,apex_repairgun,,,,3500,,1,0,,,,,0,,ENERGY,0,0,0,0.1,1,0.1,30,30,0,0,,300,100,20,1,,,SYSTEM,,,,,,,,,,,,,,,1
-repair blob small,apex_repairgun_small,,,,3500,,1,0,,,,,0,,ENERGY,0,0,0,0.1,1,0.1,30,30,0,0,,900,300,20,1,,,SYSTEM,,,,,,,,,,,,,,,1
-cryo blob,apex_cryogun,,,,3500,,1,0,,,,,0,,ENERGY,0,0,0,0.1,1,0.1,30,30,0,0,,300,100,20,1,,,SYSTEM,,,,,,,,,,,,,,,1
-cryo blob small,apex_cryogun_small,,,,3500,,1,0,,,,,0,,ENERGY,0,0,0,0.1,1,0.1,30,30,0,0,,900,300,20,1,,,SYSTEM,,,,,,,,,,,,,,,1
+repair blob,apex_repairgun,,,,9999,,50,0,,,,,0,,ENERGY,0,0,0,0.1,1,0.1,30,30,0,0,,300,100,20,1,,,SYSTEM,,,,,,,,,,,,,,,1
+repair blob small,apex_repairgun_small,,,,9999,,50,0,,,,,0,,ENERGY,0,0,0,0.1,1,0.1,30,30,0,0,,900,300,20,1,,,SYSTEM,,,,,,,,,,,,,,,1
+cryo blob,apex_cryogun,,,,9999,,50,0,,,,,0,,ENERGY,0,0,0,0.1,1,0.1,30,30,0,0,,300,100,20,1,,,SYSTEM,,,,,,,,,,,,,,,1
+cryo blob small,apex_cryogun_small,,,,9999,,50,0,,,,,0,,ENERGY,0,0,0,0.1,1,0.1,30,30,0,0,,900,300,20,1,,,SYSTEM,,,,,,,,,,,,,,,1
 arcmine,apex_arc_mine,,,,500,,300,600,,,,,,,ENERGY,0,0,0,0.1,1,0.1,30,30,0,0,,0,200,5,500,,,SYSTEM,,,,,,,,,,,,,,,1
 Taipan VLS-15K,apex_vls_left_kin,,,,2000,,100,0,,,,30,0.75,15,KINETIC,0,0,1,2.6,15,0.1,0,0,0,0,,300,100,12,60,,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE, GROUP_LINKED","no_drop, no_salvage",,Apex Design Collective,,General,Medium,Medium,,,%s: Shield hits increase the target's hard flux by %s.,Charged Warhead | 50,%s: Missiles always face towards the selected target on launch.,Vertical Launch,,1
 Taipan VLS-15K,apex_vls_right_kin,,,,2000,,100,0,,,,30,0.75,15,KINETIC,0,0,1,2.6,15,0.1,0,0,0,0,,300,100,12,60,,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE, GROUP_LINKED","no_drop, no_salvage",,Apex Design Collective,,General,Medium,Medium,,,%s: Shield hits increase the target's hard flux by %s.,Charged Warhead | 50,%s: Missiles always face towards the selected target on launch.,Vertical Launch,,1
@@ -13,7 +13,7 @@ Taipan VLS-15N,apex_vls_right_acid,,,,2000,,100,0,,,,30,0.75,15,HIGH_EXPLOSIVE,0
 Taipan VLS-15E,apex_vls_left_tachyon,,,,2000,,100,400,,,,30,0.75,15,ENERGY,0,0,1,2.6,15,0.1,0,0,0,0,,300,100,12,60,,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE, GROUP_LINKED","no_drop, no_salvage",,Apex Design Collective,,General,Medium,Medium,,,%s: Hits to hull or armor have a %s chance to arc to weapons or engines for %s damage.,Tachyon Warhead | 50% | 75%,%s: Missiles always face towards the selected target on launch.,Vertical Launch,,1
 Taipan VLS-15E,apex_vls_right_tachyon,,,,2000,,100,400,,,,30,0.75,15,ENERGY,0,0,1,2.6,15,0.1,0,0,0,0,,300,100,12,60,,,"SYSTEM, DO_NOT_AIM, DO_NOT_CONSERVE, GROUP_LINKED","no_drop, no_salvage",,Apex Design Collective,,General,Medium,Medium,,,%s: Hits to hull or armor have a %s chance to arc to weapons or engines for %s damage.,Tachyon Warhead | 50% | 75%,%s: Missiles always face towards the selected target on launch.,Vertical Launch,,1
 thorn proj,apex_thorn_wpn,,,,800,,200,100,,,,,,,ENERGY,0,0,0,1,1,0,0,0,0,0,,600,100,5,200,,,SYSTEM,,,,,,,,,,,,,,,
-Tachyon Shredder,apex_tachyonshredder,,,,700,,350,250,,,,,,,ENERGY,350,,,0.2,,,0,7,1,2,,1400,,,,,,SYSTEM,,,Apex Design Collective,,,,,,,,,,,,1
+Tachyon Shredder,apex_tachyonshredder,,,,700,,250,250,,,,,,,ENERGY,175,,,0.3333,,,0,4,1,2,,1400,,,,,,SYSTEM,,,Apex Design Collective,,General,,,,,Damage increases by up to %s with flux level. Higher flux levels produce explosions that deal %s of the projectile's damage as extra %s damage.,50% | 50% | fragmentation,,,,1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # FIGHTER GUNS,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Quark-Gluon PD (Fighter),apex_qgp_fighter,,,,500,,100,,0,0,0,,,,FRAGMENTATION,0,0,0,1.4,2,0.1,,,,,,1200,,,,,,"SYSTEM, PD","pd6, no_drop, no_salvage",,Apex Design Collective,,General,,,,,Projectiles have %s.,tracking,,,,

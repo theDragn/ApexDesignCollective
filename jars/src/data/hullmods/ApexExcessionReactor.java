@@ -8,9 +8,11 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
 import data.ApexUtils;
+import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
+import plugins.ApexRenderPlugin;
 
 import java.awt.*;
 import java.util.*;
@@ -20,9 +22,8 @@ import static plugins.ApexModPlugin.POTATO_MODE;
 public class ApexExcessionReactor extends BaseHullMod
 {
     public static final float BASE_CHARGE_RATE = 100f;
-    public static final float PHASE_CHARGE_MULT = 2f;
-    public static final float DAMAGE_CHARGE_MULT = 0.5f;
-    public static final float MAX_SYSTEM_CHARGE = 1500f;
+    public static final float PHASE_CHARGE_MULT = 2.5f;
+    public static final float DAMAGE_CHARGE_MULT = 0.2f;
 
     public static final float MAX_STORED_CHARGE = 3000f; // can "store" up to this much
     public static final float FRAG_DAMAGE_MULT = 0.5f; // frag counts less when being deleted
@@ -35,20 +36,25 @@ public class ApexExcessionReactor extends BaseHullMod
     public static final float MAX_STORED_ARMOR = 1000f;
     public static final float REPAIR_RATE = 25f; // flat armor repaired per second
 
+    public static final Color CHARGE_COLOR = new Color(89, 170, 255);
+
+    public static final Color REMOVE_COLOR = new Color(0,157,255,155);
+
     public static final HashMap<ShipAPI, Float> damageMap = new HashMap<>(); // tracks stored damage, in case there's more than one of these things
-    public static final HashMap<ShipAPI, Float> repairMap = new HashMap<>(); // tracks stored damage, in case there's more than one of these things
+    public static final HashMap<ShipAPI, Float> repairMap = new HashMap<>(); // tracks stored repair
     public static final HashMap<ShipAPI, Float> dpTimeMap = new HashMap<>();
+    public static final HashMap<ShipAPI, ApexRenderPlugin> pluginMap = new HashMap<>();
 
     public static final WeightedRandomPicker<Vector2f> arcOrigins = new WeightedRandomPicker<>();
     static
     {
         // first number is front (+)/back (-) on ship model
-        arcOrigins.add(new Vector2f(100,0));
-        arcOrigins.add(new Vector2f(0,0));
-        arcOrigins.add(new Vector2f(0,0));
-        arcOrigins.add(new Vector2f(0,0));
-        arcOrigins.add(new Vector2f(0,0));
-        arcOrigins.add(new Vector2f(0,0));
+        arcOrigins.add(new Vector2f(-100, 50));
+        arcOrigins.add(new Vector2f(-100, -50));
+        arcOrigins.add(new Vector2f(-100, 100));
+        arcOrigins.add(new Vector2f(-100, -100));
+        arcOrigins.add(new Vector2f(-100, 25));
+        arcOrigins.add(new Vector2f(-100, -25));
     }
 
     @Override
@@ -75,30 +81,41 @@ public class ApexExcessionReactor extends BaseHullMod
     }
 
     @Override
+    public int getDisplayCategoryIndex()
+    {
+        return -1;
+    }
+
+    @Override
     public void addPostDescriptionSection(TooltipMakerAPI tooltip, ShipAPI.HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec)
     {
         if (ship != null)
         {
             float pad = 10f;
             tooltip.addSectionHeading("Details", Alignment.MID, pad);
-            tooltip.addPara("\n• Charges slowly over time.", 0);
-            tooltip.addPara("• %s charge rate while phased.", 0, Misc.getHighlightColor(),
-                    "+" + (int)(PHASE_CHARGE_MULT * 100f - 100f) + "%");
-            tooltip.addPara("• Damaging targets generates charge.", 0);
-            tooltip.addPara("• Automatically expends charge to create gravitic arcs that destroy enemy projectiles and fighters.", 0);
-            tooltip.addPara("• Arcs siphon mass from targets, storing it. Stored mass is consumed to repair %s armor per second.",
+            tooltip.addPara("\n• The core %s slowly over time.", 0,
+                    CHARGE_COLOR,
+                    "charges");
+            Color[] colors = {Misc.getHighlightColor(), CHARGE_COLOR};
+            tooltip.addPara("• %s faster %s rate while phased.", 0, colors,
+                    (int) (PHASE_CHARGE_MULT * 100f - 100f) + "%", "charge");
+            tooltip.addPara("• Damaging targets generates %s.", 0, CHARGE_COLOR, "charge");
+            tooltip.addPara("• Automatically expends %s to destroy enemy projectiles and fighters, siphoning mass and energy.", 0, CHARGE_COLOR, "charge");
+            tooltip.addPara("• Siphoned mass and energy is consumed to repair %s armor per second.",
                     0,
                     Misc.getHighlightColor(),
-                    (int)(REPAIR_RATE) + "");
-            tooltip.addPara("• Armor repair rate is multiplied by any timeflow increases.", 0);
+                    (int) (REPAIR_RATE) + "");
+            tooltip.addPara("• Armor repair rate is %s.", 0, Misc.getHighlightColor(), "multiplied by timeflow increases");
 
-            tooltip.addPara("• Peak performance time depletion rate ignores timeflow changes, but decreases regardless of hostile presence.", 0);
+            tooltip.addPara("• Peak performance time %s, but decreases regardless of hostile presence.", 0, Misc.getHighlightColor(), "ignores timeflow changes");
         }
     }
 
     @Override
     public void advanceInCombat(ShipAPI ship, float amount)
     {
+        if (!ship.isAlive() || ship.isHulk())
+            return;
         // update maps first
         if (!damageMap.containsKey(ship))
             damageMap.put(ship, MAX_STORED_CHARGE);
@@ -106,7 +123,12 @@ public class ApexExcessionReactor extends BaseHullMod
             repairMap.put(ship, 0f);
         if (!dpTimeMap.containsKey(ship))
             dpTimeMap.put(ship, 0f);
-
+        if (!pluginMap.containsKey(ship))
+        {
+            ApexRenderPlugin plugin = new ApexRenderPlugin(ship);
+            pluginMap.put(ship, plugin);
+            Global.getCombatEngine().addLayeredRenderingPlugin(plugin);
+        }
         if (!ship.getFluxTracker().isOverloadedOrVenting())
         {
             doArcs(ship, amount);
@@ -126,7 +148,7 @@ public class ApexExcessionReactor extends BaseHullMod
                     "apex_excession_reactor",
                     "graphics/icons/buffs/apex_breachcore.png",
                     "Breach Core",
-                    "Charge: " + (int) (storedDamage / MAX_STORED_CHARGE * 100f) + "%" + " / Stored Repair: " + (int)storedRepair,
+                    "Charge: " + (int) (storedDamage / MAX_STORED_CHARGE * 100f) + "%" + " / Stored Repair: " + (int) storedRepair,
                     false
             );
 
@@ -146,7 +168,7 @@ public class ApexExcessionReactor extends BaseHullMod
         //System.out.println("did effect tick");
         CombatEngineAPI engine = Global.getCombatEngine();
         float timeMult = ship.getMutableStats().getTimeMult().getModifiedValue();
-        amount *= timeMult * timeMult; // first one is to bring it back to "normal" timeflow, second is to multiply it by timeflow.
+        amount *= timeMult; // first one is to bring it back to "normal" timeflow, second is to multiply it by timeflow.
         float repairThisFrame = Math.min(REPAIR_RATE * amount, repairMap.get(ship));
         if (repairThisFrame <= 0)
             return;
@@ -172,7 +194,7 @@ public class ApexExcessionReactor extends BaseHullMod
 
         // then, repair the cells
 
-        float repairPerCell = repairThisFrame / (float)numCellsToRepair;
+        float repairPerCell = repairThisFrame / (float) numCellsToRepair;
         float repairDoneThisFrame = 0f;
         for (int x = 0; x < gridWidth; x++)
         {
@@ -199,7 +221,8 @@ public class ApexExcessionReactor extends BaseHullMod
 
         if (repairDoneThisFrame > 0)
         {
-            if (Misc.shouldShowDamageFloaty(ship, ship))
+            // only show rapid regen while phased, normal regen is pretty damn slow
+            if (Misc.shouldShowDamageFloaty(ship, ship) && ship.isPhased())
             {
                 engine.addFloatingDamageText(ship.getLocation(), repairDoneThisFrame, Color.GREEN, ship, ship);
             }
@@ -216,8 +239,10 @@ public class ApexExcessionReactor extends BaseHullMod
         if (storedDamage < MAX_STORED_CHARGE)
         {
             float toStore = BASE_CHARGE_RATE * amount * (ship.isPhased() ? PHASE_CHARGE_MULT : 1f);
-            storedDamage = Math.min(MAX_STORED_CHARGE, storedDamage + toStore);
+            storedDamage = storedDamage + toStore;
         }
+        storedDamage = Math.min(storedDamage, MAX_STORED_CHARGE);
+
         if (!ship.isPhased() && ship.isAlive())
         {
             // bias arcs towards more dangerous threats - fighters and high-damage projectiles
@@ -257,7 +282,7 @@ public class ApexExcessionReactor extends BaseHullMod
             }
         }
         // update after whatever we've done this frame
-        damageMap.put(ship, storedDamage);
+        damageMap.put(ship, Math.max(storedDamage, 0f));
     }
 
     private void strike(CombatEntityAPI target, ShipAPI ship)
@@ -266,7 +291,7 @@ public class ApexExcessionReactor extends BaseHullMod
         VectorUtils.rotate(origin, ship.getFacing(), origin);
         Vector2f.add(ship.getLocation(), origin, origin);
         Vector2f to = target.getLocation();
-        Global.getCombatEngine().spawnEmpArc(
+        /*Global.getCombatEngine().spawnEmpArc(
                 ship,
                 origin,
                 ship,
@@ -279,15 +304,34 @@ public class ApexExcessionReactor extends BaseHullMod
                 5f,
                 Color.WHITE,
                 Color.MAGENTA
-        );
+        );*/
+        // draw removal effects
         if (!POTATO_MODE)
-            ApexUtils.addWaveDistortion(target.getLocation(), 30f, 30f, 0.1f);
+        {
+            ApexUtils.addWaveDistortion(target.getLocation(), 5f, 20f, 0.1f);
+            ApexUtils.plasmaEffects(target, REMOVE_COLOR, Math.min(target.getCollisionRadius() * 2f, 10f));
+            Global.getCombatEngine().addHitParticle(target.getLocation(), target.getVelocity(), 100f, 1.0f, 0.1f, Color.WHITE);
+        }
+        // spawn siphon particles
         float siphonAmount = ARC_SIPHON_AMOUNT;
+        int numParticles = 4;
         if (target instanceof DamagingProjectileAPI)
         {
-            DamagingProjectileAPI proj = (DamagingProjectileAPI)target;
+            DamagingProjectileAPI proj = (DamagingProjectileAPI) target;
             siphonAmount = Math.min(proj.getDamageAmount() * 0.25f, siphonAmount);
+            numParticles = Math.min((int)proj.getDamageAmount() / 40, numParticles);
+        } else
+        {
+            numParticles = 3;
+            Global.getCombatEngine().applyDamage(target, target.getLocation(), ARC_FIGHTER_DAMAGE, DamageType.ENERGY, ARC_FIGHTER_DAMAGE, false, false, ship);
         }
+        for (int i = 0; i < numParticles; i++)
+        {
+            Vector2f startVel = MathUtils.getRandomPointInCircle(Misc.ZERO, 100f);
+            // haha just write the whole fucking render plugin you dipshit
+            pluginMap.get(ship).addTargetedParticle(to, startVel, ship, arcOrigins.pick(), REMOVE_COLOR);
+        }
+
         repairMap.put(ship, Math.min(repairMap.get(ship) + siphonAmount, MAX_STORED_ARMOR));
         if (target instanceof DamagingProjectileAPI)
             Global.getCombatEngine().removeEntity(target);

@@ -13,9 +13,8 @@ import java.awt.*;
 public class ApexExcessionCoils extends BaseHullMod
 {
     public static final float BASE_TIMEFLOW_MULT = 2f; // read by phase script
-    public static final float MAXIMUM_TIMEFLOW_MULT = 4f; // maximum flux-based timeflow multiplier, read by phase script
-    public static final float PHASE_COOLDOWN_REDUCTION = 67f; // also used for cloak activation cost
-    public static final float MAXIMUM_SPEED_MULT = 2f;
+    public static final float MAXIMUM_TIMEFLOW_MULT = 5f; // maximum flux-based timeflow multiplier, read by phase script
+    public static final float PHASE_COOLDOWN_REDUCTION = 66.66f; // also used for cloak activation cost
 
 
     @Override
@@ -53,17 +52,6 @@ public class ApexExcessionCoils extends BaseHullMod
                     0f,
                     Misc.getHighlightColor(),
                     (int) (MAXIMUM_TIMEFLOW_MULT * BASE_TIMEFLOW_MULT) + "x", "100%");
-
-            tooltip.addPara("• Speed increases with flux level, up to %s at %s flux.",
-                    0f,
-                    Misc.getHighlightColor(),
-                    "+" + (int) (MAXIMUM_SPEED_MULT * 100f - 100f) + "%", "100%");
         }
-    }
-
-    @Override
-    public void advanceInCombat(ShipAPI ship, float amount)
-    {
-        ship.getMutableStats().getMaxSpeed().modifyMult("excessioncoils", 1f + (MAXIMUM_SPEED_MULT - 1f) * ship.getFluxLevel());
     }
 }
