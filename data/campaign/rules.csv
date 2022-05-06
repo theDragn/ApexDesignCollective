@@ -1,24 +1,24 @@
 id,trigger,conditions,script,text,options,notes
-#RULESET_NAME Apex,,,,,,
+#RULESET_NAME Apex Design Collective,,,,,,
 ,,,,,,
 # Apex fleet greeting lines,,,,,,
-greetingSCYFriendly,OpenCommLink,"$faction.id == SCY
+greetingApexFriendly,OpenCommLink,"$faction.id == apex_design
 $faction.friendlyToPlayer","$menuState = fleetConvMain 0
 FireAll PopulateOptions",Connection on secure channel established. Glad to see a friendly face.,,
-greetingSCYHostileWeaker,OpenCommLink,"$faction.id == SCY
+greetingApexHostileWeaker,OpenCommLink,"$faction.id == apex_design
 $faction.hostileToPlayer
 $relativeStrength < 0",$ignorePlayerCommRequests = true 1,Very well.,cutCommLink:Cut the comm link,
-greetingSCYHostileWeakerDefiant,OpenCommLink,"$faction.id == SCY
+greetingApexHostileWeakerDefiant,OpenCommLink,"$faction.id == apex_design
 $faction.hostileToPlayer
 $relativeStrength < 0
 $weakerThanPlayerButHolding",$ignorePlayerCommRequests = true 1,Very well.,cutCommLink:Cut the comm link,
-greetingSCYHostileStronger,OpenCommLink,"$faction.id == SCY
+greetingApexHostileStronger,OpenCommLink,"$faction.id == apex_design
 $faction.hostileToPlayer
 $relativeStrength >= 0",$ignorePlayerCommRequests = true 1,Very well.,cutCommLink:Cut the comm link,
-greetingSCYNeutral,OpenCommLink,"$faction.id == SCY
+greetingA[exNeutral,OpenCommLink,"$faction.id == apex_design
 $faction.neutralToPlayer","$menuState = fleetConvMain 0
 FireAll PopulateOptions",Can I help you?,,
-,,,,,,
+#END Apex fleet greeting lines,,,,,,
 ,,,,,,
 # Trade panel flavor text,,,,,,
 #flavorTextMarketOnyxStation,TradePanelFlavorText,"$global.tradePanelMode == MARKET
@@ -32,22 +32,22 @@ $id == apex_granite score:1000
 $faction.id == apex_design","AddText""The port concourse is packed with various merchant haulers, distinctive green-hulled Collective warships, and even a few ships with what you're pretty sure are pirate markings. You aren't immediately harassed by speculators as you step out of the airlock, a welcome change. A foreman greets you instead, ready to swiftly handle any cargo exchanges you might make.""textGrayColor",,,
 flavorTextMarketSerpens,TradePanelFlavorText,"$global.tradePanelMode == MARKET
 $id == apex_serpens_station score:1000","AddText""Serpens is obviously a sleepy little station, and the docking bays are mostly empty aside from a few conspicuous racing pinnaces.""textGrayColor",,,
-,,,,,,
+#END Trade panel flavor text,,,,,,
 ,,,,,,
 # default commission conversation strings: copy and adjust this section for faction-specific conversation flavor,,,,,,
-CMSNTextRejectHostile_scy,CMSNTextRejectHostile,$faction.id == apex_design,,"""Get out of here, bootlicker.""",,
-CMSNTextHasOther_scy,CMSNTextHasOther,$faction.id == apex_design,,"""You're already commissioned with someone else, and we can't trust that.""",,
-CMSNTextUnsuited_scy,CMSNTextUnsuited,$faction.id == apex_design,,"""Nothing personal, but you'll need to prove yourself. We can't afford to let in any corporate spies.""",,
-CMSNTextSuitedPart1_scy,CMSNTextSuitedPart1,$faction.id == apex_design,,"""Our enemies will be your enemies, and you'll get access to Apex ships and ordnance. Sound good?""",,
-CMSNTextSuitedPart2_scy,CMSNTextSuitedPart2,$faction.id == apex_design,,"""Right, if you sign the dotted line, we can beat the corpos down and have you on the side of workers everywhere.""",,
-CMSNTextWelcomePart1_scy,CMSNTextWelcomePart1,$faction.id == apex_design,,"""Welcome to the Collective Defense Force. Good to have you, friend.""",,
-CMSNTextWelcomePart2_scy,CMSNTextWelcomePart2,$faction.id == apex_design,,"""Anything else I can do for you?""",,
-CMSNTextChangeMind_scy,CMSNTextChangeMind,$faction.id == apex_design,,"""Changed your mind? We won't hold it against you.""",,
-CMSNResignAskToConfirm_scy,CMSNResignAskToConfirm,$faction.id == apex_design,,"""What, you found something better to do? """,,
-CMSNResignConfirmed_scy,CMSNResignConfirmed,$faction.id == apex_design,,"""We thought we could depend on you. Disappointing.""",,
-CMSNResignCancelled_scy,CMSNResignCancelled,$faction.id == apex_design,,"""If you're facing doubts again, come talk to one of us, okay? The Collective takes care of its own.""",,
+CMSNTextRejectHostile_apex,CMSNTextRejectHostile,$faction.id == apex_design,,"""Get out of here, bootlicker.""",,
+CMSNTextHasOther_apex,CMSNTextHasOther,$faction.id == apex_design,,"""You're already commissioned with someone else, and we can't trust that.""",,
+CMSNTextUnsuited_apex,CMSNTextUnsuited,$faction.id == apex_design,,"""Nothing personal, but you'll need to prove yourself. We can't afford to let in any corporate spies.""",,
+CMSNTextSuitedPart1_apex,CMSNTextSuitedPart1,$faction.id == apex_design,,"""Our enemies will be your enemies, and you'll get access to Apex ships and ordnance. Sound good?""",,
+CMSNTextSuitedPart2_apex,CMSNTextSuitedPart2,$faction.id == apex_design,,"""Right, if you sign the dotted line, we can get this show on the road.""",,
+CMSNTextWelcomePart1_apex,CMSNTextWelcomePart1,$faction.id == apex_design,,"""Welcome to the Collective Defense Force. Good to have you, friend.""",,
+CMSNTextWelcomePart2_apex,CMSNTextWelcomePart2,$faction.id == apex_design,,"""Anything else I can do for you?""",,
+CMSNTextChangeMind_apex,CMSNTextChangeMind,$faction.id == apex_design,,"""Changed your mind? We won't hold it against you.""",,
+CMSNResignAskToConfirm_apex,CMSNResignAskToConfirm,$faction.id == apex_design,,"""What, you found something better to do? """,,
+CMSNResignConfirmed_apex,CMSNResignConfirmed,$faction.id == apex_design,,"""We thought we could depend on you. Disappointing.""",,
+CMSNResignCancelled_apex,CMSNResignCancelled,$faction.id == apex_design,,"""If you're facing doubts again, come talk to one of us, okay? The Collective takes care of its own.""",,
+#END default commission conversation strings: copy and adjust this section for faction-specific conversation flavor,,,,,,
 ,,,,,,
-# relationship level,,,,,,
 # relationship level descriptions,,,,,,
 relLevelNeutralApex,RelationshipLevelDesc,"$faction.rel == NEUTRAL
 $faction.id == apex_design",,"You've not well-known by Collective officials, for good or for ill.",,
@@ -67,3 +67,41 @@ relLevelHostileApex,RelationshipLevelDesc,"$faction.rel == HOSTILE
 $faction.id == apex_design",,"CDF commanders have authorization to engage your fleet on sight. Fortunately, you don't particularly stand out as one of their enemies, and it's unlikely that they've tasked a fleet with your elimination.",,
 relLevelVengefulApex,RelationshipLevelDesc,"$faction.rel == VENGEFUL
 $faction.id == apex_design",,"Your actions have ensured that you are considered a high-priority target for the Collective. Your face and IDENT-hash are regular parts of Collective security bulletins, and your sources inform you that several contracts have been placed for your assassination. It's quite likely that a CDF fleet commander has been assigned to hunt you down.",,
+#END relationship level descriptions,,,,,,
+,,,,,,
+# Apex Excession Quest,,,,,,
+apexPrototypeBlurbBar,apexPrototype_blurbBar,,,A military officer wearing the CDF's intelligence branch insignia makes eye contact with you from a table across the room.,,
+apexPrototypeOfferOptionBar,apexPrototype_optionBar,,,,apexPrototype_intro:Talk to the intelligence officer at the private table,
+apexPrototypeIntro,DialogOptionSelected,$option == apexPrototype_intro,$missionId = apexPrototype,"""Captain, a pleasure to meet you. Such a coincidence meeting you here!"" $HeOrShe gives you a look that implies this meeting was anything but coincidence. ""Just a while ago, I was just discussing a new project with my comrades and your name happened to come up. Would you care to join me in a more private setting to discuss the details?""","apexPrototype_intro2:Follow the officer
+contact_declineBarNoContinue:Decline",
+apexPrototypeIntro2,DialogOptionSelected,$option == apexPrototype_intro2,,"The officer introduces $himOrHerself as $personRank $personName, though you get the distinct impression it's not $hisOrHer actual name. $HeOrShe takes you to a waiting tram, and as it heads towards the military docks $heOrShe hands you a pad with some legal documents on it. 
+
+""This is a non-disclosure agreement. Take your time and read it over, but the basic gist of it is that you'll need to keep what we talk about here today to yourself. If you don't want to agree to it, I'll drop you off at your ship, but you will need to sign before I can talk about any details.""
+
+A quick scan of the document reveals that it is, indeed, a pretty standard NDA. The ""penalties"" section is a bit open-ended, but does include the statement ""...up to and including death, if capture or extradition is impossible.""","apexPrototype_Reveal:Sign it
+apexPrototype_refuse:Decline",
+apexPrototypeReveal,DialogOptionSelected,$option == apexPrototype_Reveal,,"$HeOrShe nods approvingly, and engages a privacy field, muffling the noise of the tram.
+
+""Are you familiar with these anomalous entities? Hegemony COMSEC has them classified as SUPER ALABASTER, and we know that their combat reports have leaked."" $HeOrShe hands you the pad again, this time displaying images of angular, fractal-like ships, along with what appears to be intercepted Hegemony and Tri-Tachyon combat reports.","apexPrototype_iknow:""Omega.""
+apexPrototype_what:""I've never seen this before.""",
+apexPrototypeIKnow,DialogOptionSelected,$option == apexPrototype_iknow,,"$HeOrShe grimaces. ""Then I assume you understand why we're concerned.""","apexPrototype_Reveal2:""Yes.""",
+apexPrototypeWhat,DialogOptionSelected,$option == apexPrototype_what,,"""I'll forward all the information we've got, but the short version is that they're probably not from around here, if you catch my drift, and they don't seem to be real keen on conforming to what we understand as the laws of physics."" $HeOrShe grimaces. ""The combat assessments of these things are... not encouraging, to say the least.""",apexPrototype_Reveal2:Continue,
+apexPrototypeReveal2,DialogOptionSelected,$option == apexPrototype_Reveal2,,"""The Collective's opinion is that this represents what our eggheads call an ""Outside Context Problem"". A curveball nobody can see coming. Say, for example, you're living a happy, productive life on some remote planet, totally ignorant to the rest of the galaxy. And then a Domain gate-hauler dumps a gate next to your sun and a battlegroup comes rolling through. How could you have predicted that, much less prepared? That's what we're worried we're looking at here.""
+
+""Fortunately, we know that we're not knocked out yet, and for now we think we've got a fighting chance. The combat reports we've gotten our hands on show that while it isn't easy, these things can be destroyed by our weapons, and our defenses work against their guns. So that brings us to why we're talking to you about it.""",apexPrototype_Reveal3:Continue,
+apexPrototypeReveal3,DialogOptionSelected,$option == apexPrototype_Reveal3,SetTextHighlights Excession,"""Fleet Command has prioritized developing countermeasures to these entities over all other fleet design projects. Today, we're beginning fleet trials on a new prototype class of warships, the Excession-class phase destroyer. We have you to thank for it, actually- without you turning on those gates we never would have figured out the hyperspace physics for the reactor.""
+
+Before you can object, $heOrShe keeps talking. ""Before you try telling me you don't know what I'm talking about, we both know the Academy can't keep a secret to save their lives. And gate activations aren't exactly covert, you know. I'd be surprised if the whole sector isn't after you over it by now. But we're happy to keep that information to ourselves, since presumably if you went and found the rest of the Domain we'd be staring down a battlegroup instead of having a little chitchat.""",apexPrototype_offer:Continue,
+apexPrototypeOfferTextBar,DialogOptionSelected,$option == apexPrototype_offer,$missionId = apexPrototype,"""Anyway, enough of me trying to be intimidating. This thing is designed to predict the unpredictable, as much as that's possible, anyway. It also represents a massive leap in warship technology, and we're hoping to hold onto that edge as long as possible. But, it's still an unproven prototype, and there's no test like trial by fire.""
+
+""So, without further ado, we have a little present for you. Use it however you like, it'll send combat logs back to us for analysis.""
+
+""I'm also required to inform you that we've taken a few precautions to ensure its destruction if it winds up in someone else's hands. Oh, and please don't try to take it apart, I like my spacetime the same way I like my $apexPrototype_menOrWomen - three-dimensional and experiencing the linear flow of time.""",apexPrototype_lookBar:Examine the ship's specifications on the datapad,
+apexPrototypeBarLook,DialogOptionSelected,$option == apexPrototype_lookBar,Call $apexPrototype_ref showShip,You pull the datapad closer and scroll through the specs.,"contact_acceptBar:Take the ship
+contact_declineBarNoContinue:Decline",
+apexPrototypePostAccept,ContactPostAccept,$missionId == apexPrototype,"ShowPersonVisual
+AddShip $apexPrototype_member
+Call $apexPrototype_ref2 repSuccess
+Call $apexPrototype_ref2 addContacts",,,
+apexPrototypeRefuse,DialogOptionSelected,$option == apexPrototype_refuse,AdjustRep apex_design INHOSPITABLE -15,"Clearly disappointed, $PersonRank $personLastName returns you to your ship and wishes you farewell.",contact_declineBarNoContinue:Leave,
+#END Apex Excession Quest,,,,,,

@@ -27,12 +27,12 @@ public class ApexTachyonShredderOnHit implements OnHitEffectPlugin
     private static final float OUTER_EXP_DUR = 0.2f;
     private static final float GLOW_RADIUS = 200f;
     private static final float GLOW_DUR = 0.2f;
-    private static final float VEL_MULT = 4f;
+    private static final float VEL_MULT = 2f;
 
     @Override
     public void onHit(DamagingProjectileAPI proj, CombatEntityAPI target, Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine)
     {
-        if (!(target instanceof MissileAPI))
+        if (!(target instanceof MissileAPI) && proj.getSource().getFluxLevel() > 0.5f)
         {
             // damaging explosion
             float radius = BASE_EXP_RADIUS + RADIUS_BONUS_MULT * proj.getSource().getFluxLevel();

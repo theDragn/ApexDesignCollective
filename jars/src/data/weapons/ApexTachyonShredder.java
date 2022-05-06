@@ -78,6 +78,33 @@ public class ApexTachyonShredder implements EveryFrameWeaponEffectPlugin, OnFire
     {
         projMap.put(proj, weapon.getShip().getFluxLevel());
         proj.getDamage().getModifier().modifyMult("shredder_bonus", 1f + weapon.getShip().getFluxLevel() * DAMAGE_BOOST);
+        Color effectCol = new Color(
+                proj.getProjectileSpec().getFringeColor().getRed(),
+                proj.getProjectileSpec().getFringeColor().getGreen(),
+                proj.getProjectileSpec().getFringeColor().getBlue(),
+                100
+        );
+
+        for (int i = 0; i < 5 * proj.getSource().getFluxLevel(); i++) {
+            engine.addNegativeNebulaParticle(
+                    proj.getLocation(),
+                    weapon.getShip().getVelocity(),
+                    MathUtils.getRandomNumberInRange(40f, 60f),
+                    1.2f,
+                    0.1f,
+                    0.3f,
+                    MathUtils.getRandomNumberInRange(0.6f, 1.6f),
+                    effectCol
+            );
+        }
+
+        engine.spawnExplosion(
+                proj.getLocation(),
+                weapon.getShip().getVelocity(),
+                proj.getProjectileSpec().getFringeColor(),
+                60f,
+                0.15f
+        );
     }
 
     // long so I'm hiding it down here
