@@ -5,10 +5,10 @@
   "type": "ENERGY",
   "size": "LARGE",
   "everyFrameEffect": "data.weapons.ApexTachyonShredder",
-  "turretSprite": "",
-  "turretGlowSprite": "",
-  "hardpointSprite": "",
-  "hardpointGlowSprite": "graphics/weapons/apex_tachyon_h_glow.png",
+  "turretSprite": "graphics/weapons/apex_tachyon_shredder.png",
+  "turretGlowSprite": "graphics/weapons/apex_tachyon_shredder_glow.png",
+  "hardpointSprite": "graphics/weapons/apex_tachyon_shredder.png",
+  "hardpointGlowSprite": "graphics/weapons/apex_tachyon_shredder_glow.png",
   "renderAboveAllWeapons": 0,
   "glowColor": [
     140,
@@ -16,14 +16,30 @@
     252,
     255
   ],
-  "turretOffsets": [0,-15, 0, 15],
-  "turretAngleOffsets": [0, 0],
-  "hardpointOffsets": [0,-15,0,15],
-  "hardpointAngleOffsets": [0,0],
+  "turretOffsets": [
+    33.5,
+    -9.5,
+    33.5,
+    9.5
+  ],
+  "turretAngleOffsets": [
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    51.5,
+    -9.5,
+    51.5,
+    9.5
+  ],
+  "hardpointAngleOffsets": [
+    0,
+    0
+  ],
   "barrelMode": "LINKED",
   "animationType": "GLOW_AND_FLASH",
   "muzzleFlashSpec": {
-    "length": -34,
+    "length": 18,
     "spread": 15,
     "particleSizeMin": 15,
     "particleSizeRange": 15,
@@ -37,5 +53,5 @@
     ]
   },
   "textureType": ROUGH,
-  "fireSoundTwo": "antimatter_blaster_fire"
+  "fireSoundTwo": "apex_shredder_shot"
 }

@@ -21,7 +21,7 @@ import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
 // handles damage boost from flux and trail graphics
 public class ApexTachyonShredder implements EveryFrameWeaponEffectPlugin, OnFireEffectPlugin
 {
-    public static final float DAMAGE_BOOST = 0.5f; // this much extra damage at maximum flux
+    public static final float DAMAGE_BOOST = 1f; // this much extra damage at maximum flux
 
     private static final String SPRITE_ID = "base_trail_smooth";
     private static final float FADE_IN_DURATION = 0f;

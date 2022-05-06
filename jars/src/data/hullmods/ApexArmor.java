@@ -34,6 +34,7 @@ public class ApexArmor extends BaseHullMod
         BLOCKED_HULLMODS.add("istl_monobloc");
         // needed to be done
         BLOCKED_HULLMODS.add("monjeau_armour");
+        BLOCKED_HULLMODS.add("apex_excession_armor");
         // TODO: any others that need to be blocked?
     }
     public static final float REDUCTION_BONUS = 0.05f; // flat bonus to max armor damage reduction
