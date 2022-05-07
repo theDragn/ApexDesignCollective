@@ -54,6 +54,31 @@ public class ApexTachyonShredderOnHit implements OnHitEffectPlugin
             engine.spawnDamagingExplosion(spec, proj.getSource(), point, false);
 
             // graphics
+
+            Color color = proj.getProjectileSpec().getFringeColor();
+            color = Misc.setAlpha(color, 100);
+
+            Vector2f vel = new Vector2f();
+            if (target instanceof ShipAPI)
+            {
+                vel.set(target.getVelocity());
+            }
+
+            float sizeMult = Misc.getHitGlowSize(100f, proj.getDamage().getBaseDamage(), damageResult) / 100f;
+
+            for (int i = 0; i < 7; i++)
+            {
+                //float size = projectile.getProjectileSpec().getWidth() * (0.75f + (float) Math.random() * 0.5f);
+                float size = 40f * (0.75f + (float) Math.random() * 0.5f);
+
+                float dur = 1f;
+                //dur = 0.25f;
+                float rampUp = 0f;
+                Color c = Misc.scaleAlpha(color, proj.getBrightness());
+                engine.addNebulaParticle(point, vel, size, 5f + 3f * sizeMult,
+                        rampUp, 0f, dur, c, true);
+            }
+            /*
             // blatantly inspired by (and totally not stolen from) the scalartech ruffle
             engine.spawnExplosion(point, Misc.ZERO, CORE_EXPLOSION_COLOR, CORE_EXP_RADIUS, CORE_EXP_DUR / VEL_MULT);
             engine.spawnExplosion(point, Misc.ZERO, OUTER_EXPLOSION_COLOR, OUTER_EXP_RADIUS, OUTER_EXP_DUR / VEL_MULT);
@@ -86,7 +111,7 @@ public class ApexTachyonShredderOnHit implements OnHitEffectPlugin
                     0.2f / VEL_MULT,
                     0.0f,
                     0.2f / VEL_MULT
-            );
+            );*/
         }
     }
 }

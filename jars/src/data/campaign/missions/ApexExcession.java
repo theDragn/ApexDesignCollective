@@ -27,8 +27,9 @@ public class ApexExcession extends HubMissionWithBarEvent
     protected boolean create(MarketAPI createdAt, boolean barEvent)
     {
         System.out.println("Apex: called excession quest creation code");
-        if (barEvent) {
-            String post = Ranks.SPACE_CAPTAIN;
+        if (barEvent)
+        {
+            String post = Ranks.GROUND_COLONEL;
             setGiverPost(post);
             setGiverImportance(pickHighImportance());
             setGiverTags(Tags.CONTACT_MILITARY);
@@ -58,13 +59,6 @@ public class ApexExcession extends HubMissionWithBarEvent
         member.getCrewComposition().setCrew(100000);
         member.getRepairTracker().setCR(0.7f);
 
-        /*
-        if (BASE_PRICE_MULT == 1f) {
-            price = (int) Math.round(variant.getHullSpec().getBaseValue());
-        } else {
-            price = getRoundNumber(variant.getHullSpec().getBaseValue() * BASE_PRICE_MULT);
-        }*/
-
         setRepFactionChangesHigh();
         setRepPersonChangesHigh();
 
@@ -72,7 +66,8 @@ public class ApexExcession extends HubMissionWithBarEvent
     }
 
     @Override
-    protected void updateInteractionDataImpl() {
+    protected void updateInteractionDataImpl()
+    {
         // this is weird - in the accept() method, the mission is aborted, which unsets
         // $sShip_ref. So: we use $sShip_ref2 in the ContactPostAccept rule
         // and $sShip_ref2 has an expiration of 0, so it'll get unset on its own later.
@@ -86,7 +81,7 @@ public class ApexExcession extends HubMissionWithBarEvent
         set("$apexPrototype_rankAOrAn", getPerson().getRankArticle());
         set("$apexPrototype_hisOrHer", getPerson().getHisOrHer());
         set("$apexPrototype_member", member);
-        set("$apexPrototype_menOrWomen", (Misc.random.nextBoolean() ? "men" : "women"));
+        set("$apexPrototype_menOrWomen", (Misc.random.nextBoolean() ? "men" : "women")); // your contact's sexuality is randomized
     }
 
     @Override

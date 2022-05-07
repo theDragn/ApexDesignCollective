@@ -15,7 +15,7 @@ $weakerThanPlayerButHolding",$ignorePlayerCommRequests = true 1,Very well.,cutCo
 greetingApexHostileStronger,OpenCommLink,"$faction.id == apex_design
 $faction.hostileToPlayer
 $relativeStrength >= 0",$ignorePlayerCommRequests = true 1,Very well.,cutCommLink:Cut the comm link,
-greetingA[exNeutral,OpenCommLink,"$faction.id == apex_design
+greetingApexNeutral,OpenCommLink,"$faction.id == apex_design
 $faction.neutralToPlayer","$menuState = fleetConvMain 0
 FireAll PopulateOptions",Can I help you?,,
 #END Apex fleet greeting lines,,,,,,

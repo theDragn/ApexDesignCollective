@@ -21,16 +21,15 @@ import static plugins.ApexModPlugin.POTATO_MODE;
 
 public class ApexExcessionReactor extends BaseHullMod
 {
-    public static final float BASE_CHARGE_RATE = 100f;
-    public static final float PHASE_CHARGE_MULT = 2.5f;
+    public static final float BASE_CHARGE_RATE = 250f;
+    public static final float PHASE_CHARGE_MULT = 1f; // not used atm, only charges while phased
     public static final float DAMAGE_CHARGE_MULT = 0.2f;
 
     public static final float MAX_STORED_CHARGE = 3000f; // can "store" up to this much
-    public static final float FRAG_DAMAGE_MULT = 0.5f; // frag counts less when being deleted
     public static final float ARC_RANGE = 400f;
     public static final float ARC_FIGHTER_DAMAGE = 250f;
     public static final float FIGHTER_WEIGHT = 150f; // fighter value for weighting
-
+    private static final float DAMAGE_CUTOFF = 50f; // intercepts if projectile deals this much HE damage (reduced for other types)
 
     public static final float ARC_SIPHON_AMOUNT = 25f; // armor stored per hit
     public static final float MAX_STORED_ARMOR = 1000f;
@@ -46,6 +45,8 @@ public class ApexExcessionReactor extends BaseHullMod
     public static final HashMap<ShipAPI, ApexRenderPlugin> pluginMap = new HashMap<>();
 
     public static final WeightedRandomPicker<Vector2f> arcOrigins = new WeightedRandomPicker<>();
+
+
     static
     {
         // first number is front (+)/back (-) on ship model
@@ -93,21 +94,21 @@ public class ApexExcessionReactor extends BaseHullMod
         {
             float pad = 10f;
             tooltip.addSectionHeading("Details", Alignment.MID, pad);
-            tooltip.addPara("\n• The core %s slowly over time.", 0,
+            tooltip.addPara("\n• The core %s slowly while phased.", 0,
                     CHARGE_COLOR,
                     "charges");
-            Color[] colors = {Misc.getHighlightColor(), CHARGE_COLOR};
+            /*Color[] colors = {Misc.getHighlightColor(), CHARGE_COLOR};
             tooltip.addPara("• %s faster %s rate while phased.", 0, colors,
-                    (int) (PHASE_CHARGE_MULT * 100f - 100f) + "%", "charge");
+                    (int) (PHASE_CHARGE_MULT * 100f - 100f) + "%", "charge");*/
             tooltip.addPara("• Damaging targets generates %s.", 0, CHARGE_COLOR, "charge");
-            tooltip.addPara("• Automatically expends %s to destroy enemy projectiles and fighters, siphoning mass and energy.", 0, CHARGE_COLOR, "charge");
-            tooltip.addPara("• Siphoned mass and energy is consumed to repair %s armor per second.",
+            tooltip.addPara("• Automatically expends %s to destroy enemy projectiles and fighters, storing mass and energy. Ignores weaker projectiles.", 0, CHARGE_COLOR, "charge");
+            tooltip.addPara("• While phased, expends stored mass to repair %s armor per second.",
                     0,
                     Misc.getHighlightColor(),
                     (int) (REPAIR_RATE) + "");
             tooltip.addPara("• Armor repair rate is %s.", 0, Misc.getHighlightColor(), "multiplied by timeflow increases");
 
-            tooltip.addPara("• Peak performance time %s, but decreases regardless of hostile presence.", 0, Misc.getHighlightColor(), "ignores timeflow changes");
+            tooltip.addPara("• Peak performance time %s.", 0, Misc.getHighlightColor(), "ignores timeflow changes");
         }
     }
 
@@ -132,7 +133,8 @@ public class ApexExcessionReactor extends BaseHullMod
         if (!ship.getFluxTracker().isOverloadedOrVenting())
         {
             doArcs(ship, amount);
-            doRepair(ship, amount);
+            if (ship.isPhased())
+                doRepair(ship, amount);
             fixDeploymentTime(ship, amount);
         } else
         {
@@ -158,9 +160,12 @@ public class ApexExcessionReactor extends BaseHullMod
     private void fixDeploymentTime(ShipAPI ship, float amount)
     {
         float dpTime = dpTimeMap.get(ship);
-        dpTime += amount / ship.getMutableStats().getTimeMult().getModifiedValue();
-        ship.setTimeDeployed(dpTime);
-        dpTimeMap.put(ship, dpTime);
+        if (dpTime < ship.getFullTimeDeployed())
+        {
+            dpTime += amount / ship.getMutableStats().getTimeMult().getModifiedValue();
+            ship.setTimeDeployed(dpTime);
+            dpTimeMap.put(ship, dpTime);
+        }
     }
 
     private void doRepair(ShipAPI ship, float amount)
@@ -238,7 +243,7 @@ public class ApexExcessionReactor extends BaseHullMod
         float storedDamage = damageMap.get(ship);
         if (storedDamage < MAX_STORED_CHARGE)
         {
-            float toStore = BASE_CHARGE_RATE * amount * (ship.isPhased() ? PHASE_CHARGE_MULT : 1f);
+            float toStore = BASE_CHARGE_RATE * amount * (ship.isPhased() ? PHASE_CHARGE_MULT : 0f);
             storedDamage = storedDamage + toStore;
         }
         storedDamage = Math.min(storedDamage, MAX_STORED_CHARGE);
@@ -255,11 +260,17 @@ public class ApexExcessionReactor extends BaseHullMod
                     if (entity instanceof DamagingProjectileAPI)
                     {
                         DamagingProjectileAPI proj = ((DamagingProjectileAPI) entity);
+                        float damage = proj.getDamageAmount();
                         if (proj.getDamageType().equals(DamageType.FRAGMENTATION))
-                            targets.add(entity, proj.getDamageAmount() * FRAG_DAMAGE_MULT);
-                        else
+                            damage *= 0.125f;
+                        else if (proj.getDamageType().equals(DamageType.KINETIC))
+                            damage *= 0.25f;
+                        else if (proj.getDamageType().equals(DamageType.ENERGY))
+                            damage *= 0.5f;
+
+                        if (damage >= DAMAGE_CUTOFF)
                             targets.add(entity, proj.getDamageAmount());
-                    } else if (entity instanceof ShipAPI && ((ShipAPI) entity).getHullSize().equals(ShipAPI.HullSize.FIGHTER))
+                    } else if (entity instanceof ShipAPI && ((ShipAPI) entity).getHullSize().equals(ShipAPI.HullSize.FIGHTER) && ((ShipAPI) entity).isAlive())
                     {
                         targets.add(entity, FIGHTER_WEIGHT);
                     }
