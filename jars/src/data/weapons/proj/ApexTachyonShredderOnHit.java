@@ -5,11 +5,15 @@ import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
 import com.fs.starfarer.api.loading.DamagingExplosionSpec;
 import com.fs.starfarer.api.util.Misc;
+import data.ApexUtils;
 import data.scripts.util.MagicRender;
 import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
+
+import static data.weapons.ApexTachyonShredder.FINAL_COLOR;
+import static data.weapons.ApexTachyonShredder.START_COLOR;
 
 public class ApexTachyonShredderOnHit implements OnHitEffectPlugin
 {
@@ -55,7 +59,8 @@ public class ApexTachyonShredderOnHit implements OnHitEffectPlugin
 
             // graphics
 
-            Color color = proj.getProjectileSpec().getFringeColor();
+            Color color = ApexUtils.blendColors(START_COLOR, FINAL_COLOR, proj.getSource().getFluxLevel());
+                    //proj.getProjectileSpec().getFringeColor();
             color = Misc.setAlpha(color, 100);
 
             Vector2f vel = new Vector2f();
@@ -64,14 +69,14 @@ public class ApexTachyonShredderOnHit implements OnHitEffectPlugin
                 vel.set(target.getVelocity());
             }
 
-            float sizeMult = Misc.getHitGlowSize(100f, proj.getDamage().getBaseDamage(), damageResult) / 100f;
+            float sizeMult = Misc.getHitGlowSize(20f, proj.getDamage().getBaseDamage(), damageResult) / 100f;
 
             for (int i = 0; i < 7; i++)
             {
                 //float size = projectile.getProjectileSpec().getWidth() * (0.75f + (float) Math.random() * 0.5f);
-                float size = 40f * (0.75f + (float) Math.random() * 0.5f);
+                float size = 10f * (0.75f + (float) Math.random() * 0.5f);
 
-                float dur = 1f;
+                float dur = 0.25f;
                 //dur = 0.25f;
                 float rampUp = 0f;
                 Color c = Misc.scaleAlpha(color, proj.getBrightness());

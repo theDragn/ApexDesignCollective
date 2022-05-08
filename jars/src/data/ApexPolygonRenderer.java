@@ -110,8 +110,6 @@ public class ApexPolygonRenderer
 
             glColor(color, alpha, true);
 
-
-
             for (int i = 0; i < points; i++)
             {
                 Vector2f vertex = getVertex(i);

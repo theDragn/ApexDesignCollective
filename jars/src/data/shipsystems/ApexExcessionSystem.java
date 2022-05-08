@@ -18,6 +18,7 @@ import static data.hullmods.ApexExcessionReactor.*;
 public class ApexExcessionSystem extends BaseShipSystemScript
 {
     public static final float INSTANT_DISS = 3f; // yo momma so fat, she can instantly dissipate this many seconds of flux dissipation
+    public static final float CHARGE_MULT = 2f;
 
     private boolean runOnce = false;
     private int doEffects = 0;
@@ -52,11 +53,12 @@ public class ApexExcessionSystem extends BaseShipSystemScript
             doEffects++;
         }
 
+        // extra charge rate is from reactor hullmod now
         // three frames of full core charge - enough to wipe out whatever is within interception radius, but no more
-        if (doEffects < 3)
+        /*if (doEffects < 3)
         {
             damageMap.put(ship, MAX_STORED_CHARGE); // hullmod script will make sure it doesn't go over 100%
-        }
+        }*/
         //stats.getFluxDissipation().modifyMult(id, DISSIPATION_BOOST);
 
         //float charge = BASE_CHARGE_RATE * CORE_BASE_GEN_MULT * Global.getCombatEngine().getElapsedInLastFrame();

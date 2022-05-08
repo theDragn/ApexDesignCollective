@@ -20,7 +20,7 @@ import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
 
 // renders Excession's particle effects and indicator ring
-public class ApexRenderPlugin extends BaseCombatLayeredRenderingPlugin
+public class ApexExcessionRenderPlugin extends BaseCombatLayeredRenderingPlugin
 {
     private static final String SPRITE_ID = "graphics/fx/particlealpha32sq.png";
     public static final float MAX_SPEED = 350f;
@@ -29,14 +29,14 @@ public class ApexRenderPlugin extends BaseCombatLayeredRenderingPlugin
     public static final float MIN_SIZE = 10f;
     public static final float MAX_SIZE = 20f;
     public static final int NUM_INDICATOR_SEGMENTS = 8;
-    public static final float INDICATOR_OPACITY = 1f;
+    public static final float INDICATOR_OPACITY = 0.5f;
     public static final float LINE_WIDTH = 3f;
     public static final Color LINE_COLOR = new Color(0, 158, 0, 255);
 
     private ShipAPI ship;
     private final HashSet<TargetedParticle> particles = new HashSet<>();
 
-    public ApexRenderPlugin(ShipAPI ship)
+    public ApexExcessionRenderPlugin(ShipAPI ship)
     {
         this.ship = ship;
     }
@@ -82,7 +82,7 @@ public class ApexRenderPlugin extends BaseCombatLayeredRenderingPlugin
         }
     }
 
-    public ApexRenderPlugin()
+    public ApexExcessionRenderPlugin()
     {
     }
 
@@ -117,7 +117,8 @@ public class ApexRenderPlugin extends BaseCombatLayeredRenderingPlugin
             return;
         if (ship.isHulk() || !ship.isAlive())
             return;
-
+        if (!Global.getCombatEngine().isUIShowingHUD())
+            return;
         Vector2f ringCenter = ship.getLocation();
         // 1.0 at 100% width
         float arcWidth = ApexExcessionReactor.damageMap.get(ship) / ApexExcessionReactor.MAX_STORED_CHARGE;

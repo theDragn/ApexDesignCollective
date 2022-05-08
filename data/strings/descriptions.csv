@@ -90,7 +90,7 @@ apex_rapid_loader,SHIP_SYSTEM,"Instantly fills weapon magazines with 20 seconds 
 apex_heavy_skimmer,SHIP_SYSTEM,"Provides a short bonus to maneuverability, followed by a high-speed movement burst in the current travel direction.",,,
 apex_bifurcator,SHIP_SYSTEM,Causes projectiles to occasionally summon a duplicate of themselves. Significantly less effective at long range.,,,
 apex_thorns,SHIP_SYSTEM,An exotic distortion field reduces incoming damage by 70% and generates homing energy projectiles when damaged. Disables weapons and shields while active.,,,
-apex_flux_reverser,SHIP_SYSTEM,Causes phase cloak and weapons to dissipate flux instead of generating it. Increases non-missile weapon damage based on flux level at activation. Disables natural dissipation while active.,,,
+apex_excessionsys,SHIP_SYSTEM,"Dumps flux into the breach core, expanding the captured hyperspace tear. Massively increases core charge generation, but prevents phasing while active.",,,
 ,,,,,
 apex_qgp_small,WEAPON,"Fires a small pulse of decoherent quark-gluon plasma at targets. The plasma is mostly ineffective against shields or armor, but devastating to less resilient internal compartments. In the interest of flexibility, it can accept both standard high-energy power linkages and mechanically-fed power cells.
 

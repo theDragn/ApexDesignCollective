@@ -12,11 +12,12 @@ import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
-import plugins.ApexRenderPlugin;
+import plugins.ApexExcessionRenderPlugin;
 
 import java.awt.*;
 import java.util.*;
 
+import static data.shipsystems.ApexExcessionSystem.CHARGE_MULT;
 import static plugins.ApexModPlugin.POTATO_MODE;
 
 public class ApexExcessionReactor extends BaseHullMod
@@ -42,7 +43,7 @@ public class ApexExcessionReactor extends BaseHullMod
     public static final HashMap<ShipAPI, Float> damageMap = new HashMap<>(); // tracks stored damage, in case there's more than one of these things
     public static final HashMap<ShipAPI, Float> repairMap = new HashMap<>(); // tracks stored repair
     public static final HashMap<ShipAPI, Float> dpTimeMap = new HashMap<>();
-    public static final HashMap<ShipAPI, ApexRenderPlugin> pluginMap = new HashMap<>();
+    public static final HashMap<ShipAPI, ApexExcessionRenderPlugin> pluginMap = new HashMap<>();
 
     public static final WeightedRandomPicker<Vector2f> arcOrigins = new WeightedRandomPicker<>();
 
@@ -71,7 +72,12 @@ public class ApexExcessionReactor extends BaseHullMod
         public String modifyDamageDealt(Object param, CombatEntityAPI target, DamageAPI damage, Vector2f point, boolean shieldHit)
         {
             if (param instanceof DamagingProjectileAPI)
-                addCharge(((DamagingProjectileAPI) param).getSource(), ((DamagingProjectileAPI) param).getDamageAmount());
+            {
+                float chargeAmount = damage.getDamage();
+                if (((DamagingProjectileAPI) param).getSource().getSystem().isActive())
+                    chargeAmount *= CHARGE_MULT;
+                addCharge(((DamagingProjectileAPI) param).getSource(), chargeAmount);
+            }
             return null;
         }
 
@@ -101,7 +107,7 @@ public class ApexExcessionReactor extends BaseHullMod
             tooltip.addPara("• %s faster %s rate while phased.", 0, colors,
                     (int) (PHASE_CHARGE_MULT * 100f - 100f) + "%", "charge");*/
             tooltip.addPara("• Damaging targets generates %s.", 0, CHARGE_COLOR, "charge");
-            tooltip.addPara("• Automatically expends %s to destroy enemy projectiles and fighters, storing mass and energy. Ignores weaker projectiles.", 0, CHARGE_COLOR, "charge");
+            tooltip.addPara("• Automatically expends %s to destroy enemy projectiles and fighters, storing mass and energy. Ignores weaker projectiles unless charge level is high.", 0, CHARGE_COLOR, "charge");
             tooltip.addPara("• While phased, expends stored mass to repair %s armor per second.",
                     0,
                     Misc.getHighlightColor(),
@@ -126,7 +132,7 @@ public class ApexExcessionReactor extends BaseHullMod
             dpTimeMap.put(ship, 0f);
         if (!pluginMap.containsKey(ship))
         {
-            ApexRenderPlugin plugin = new ApexRenderPlugin(ship);
+            ApexExcessionRenderPlugin plugin = new ApexExcessionRenderPlugin(ship);
             pluginMap.put(ship, plugin);
             Global.getCombatEngine().addLayeredRenderingPlugin(plugin);
         }
@@ -160,7 +166,7 @@ public class ApexExcessionReactor extends BaseHullMod
     private void fixDeploymentTime(ShipAPI ship, float amount)
     {
         float dpTime = dpTimeMap.get(ship);
-        if (dpTime < ship.getFullTimeDeployed())
+        if (dpTime < ship.getTimeDeployedForCRReduction())
         {
             dpTime += amount / ship.getMutableStats().getTimeMult().getModifiedValue();
             ship.setTimeDeployed(dpTime);
@@ -268,7 +274,7 @@ public class ApexExcessionReactor extends BaseHullMod
                         else if (proj.getDamageType().equals(DamageType.ENERGY))
                             damage *= 0.5f;
 
-                        if (damage >= DAMAGE_CUTOFF)
+                        if (damage >= DAMAGE_CUTOFF || storedDamage > MAX_STORED_CHARGE * 0.9f)
                             targets.add(entity, proj.getDamageAmount());
                     } else if (entity instanceof ShipAPI && ((ShipAPI) entity).getHullSize().equals(ShipAPI.HullSize.FIGHTER) && ((ShipAPI) entity).isAlive())
                     {
@@ -329,7 +335,7 @@ public class ApexExcessionReactor extends BaseHullMod
         if (target instanceof DamagingProjectileAPI)
         {
             DamagingProjectileAPI proj = (DamagingProjectileAPI) target;
-            siphonAmount = Math.min(proj.getDamageAmount() * 0.25f, siphonAmount);
+            siphonAmount = proj.getDamageAmount() * 0.25f; //Math.min(proj.getDamageAmount() * 0.25f, siphonAmount);
             numParticles = Math.min((int)proj.getDamageAmount() / 40, numParticles);
         } else
         {
