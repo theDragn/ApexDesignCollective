@@ -1,42 +1,13 @@
-Ships:
-- Komodo: System changed to Entropy Consolidator. Speed increased to 45.
-- Caiman: System changed to Entropy Consolidator. Speed increased to 85.
-- Entropy Consolidator acts like a normal damper field, but generates (interceptable) homing energy projectiles based on incoming damage.
-Weapons:
-- Fusion Beams (all sizes): Now require 0.5 seconds of uninterrupted armor damage to trigger the explosion.
-- Nanoacid Cannons (all sizes): Slightly improved efficiency; increased projectile velocity.
-- Inversion Beam: Improved EMP damage and arc rate.
-Hullmods:
-- Coherency Amplifier: Fixed an issue where flak QGPD shots could deal energy damage to the same target multiple times.
-- Geodesic Shield Matrix: Reworked, simplified, and nerfed. Now transfers a flat amount of damage from each hit to armor. Reduced the unfolding rate bonus to 50%. Also works on beams now.
+New: Ship. Get the [REDACTED] device, use it a few times, and look for a bar event on Granite.
+Changes:
+- Eidolon: DP increased (40 -> 45). Too obvious of a choice at 40 DP, particularly as a flagship due to its mobility.
+- Apotheosis: DP increased (35 -> 38). A little bit overperforming for the cost, mostly because of its high dissipation and long range.
 
 
-Todo eventaully:
-- Tuatara-class destroyer: 13 DP. Basically half a Crocodile. Two Taipan-6 missile pods and three nozzles. System is Arcmine Dispenser.
-- Boa-class phase destroyer: 20 DP. An anti-phase phase ship. System is Temporal Siphon, a toggleable system that steals a portion of any timeflow bonuses on nearby hostile ships but generates hard flux while active.
-- Anaconda-class phase battlecruiser. 
+Todo, eventaully:
+- Tuatara-class destroyer. 13 DP. Basically half a Crocodile. Two Taipan-6 missile pods and three nozzles. System is Arcmine Dispenser.
+- Anaconda-class phase battlecruiser. System is temporal siphon; steals timeflow from nearby ships. Probably 1x large, 6x med?
 - consider a line of synergy weapons (toroid mortars)
 	- energy stats, fires a slow, guided, interceptable plasma ring
-	- big aoe, decent energy damage (400/shot, regens 1 every 10s?)
-- strategic cruiser (35 dp?)
-	- core (system, speed)
-		- Core: Dilation Engine
-			- temporal damper, 40 speed
-		- Core: Inertial Dissipator
-			- heavy inertial skimmer, 70 speed
-		- Core: Rapid Assembler
-			- arcmine dispenser (8x), builtin wing?, 60 speed
-	- offensive (weapons, flux diss, OP)
-		- Offensive: Multiplex Targeter
-			- 16ish small hybrids (8? converge), 2 medium missiles, +300 range and +25% damage for small projectile weapons, augmented range synch
-		- Offensive: Assault Matrix
-			- 6 medium hybrids, 4 small energies, +33% rate of fire and ammo regen, -25% flux cost.
-		- Offensive: Taipan Fabricator
-			- 3x 3x3 taipan launchers, variable warheads, two large hybrids, one medium uni, 4 small energies
-	- defensive (armor)
-		- Defensive: Armor Reinforcement
-			- increases armor rating by 33%.
-		- Defensive: Support Processor
-			- Counts as a capital ship when applying cryocoolant or remote repairs to allies.
-		- Defensive: Interception Array
-			- Increases PD rate of fire by 33%, increases damage to missiles and fighters by 33%.
+	- big aoe, real good energy damage (1000/shot, regens 1 every 10s?)
+- Sonora-class utility cruiser. 1x large uni hardpoint, 2x medium energy, some PD mounts, 1x bay. Salvage gantry, repair gantry hullmod. Good base speed, probably? Maybe a lighter cruiser than the alligator.

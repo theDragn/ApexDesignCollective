@@ -266,7 +266,7 @@ public class ApexExcessionReactor extends BaseHullMod
                     if (entity instanceof DamagingProjectileAPI)
                     {
                         DamagingProjectileAPI proj = ((DamagingProjectileAPI) entity);
-                        float damage = proj.getDamageAmount();
+                        float damage = proj.getDamageAmount() + proj.getEmpAmount(); // grab emp-heavy projectiles too, even if they deal little damage
                         if (proj.getDamageType().equals(DamageType.FRAGMENTATION))
                             damage *= 0.125f;
                         else if (proj.getDamageType().equals(DamageType.KINETIC))
@@ -275,7 +275,12 @@ public class ApexExcessionReactor extends BaseHullMod
                             damage *= 0.5f;
 
                         if (damage >= DAMAGE_CUTOFF || storedDamage > MAX_STORED_CHARGE * 0.9f)
-                            targets.add(entity, proj.getDamageAmount());
+                        {
+                            if (proj.getDamageType().equals(DamageType.FRAGMENTATION))
+                                targets.add(entity, proj.getDamageAmount() * 0.33f); // not quite 1/4, because fuck you, that's why
+                            else
+                                targets.add(entity, proj.getDamageAmount());
+                        }
                     } else if (entity instanceof ShipAPI && ((ShipAPI) entity).getHullSize().equals(ShipAPI.HullSize.FIGHTER) && ((ShipAPI) entity).isAlive())
                     {
                         targets.add(entity, FIGHTER_WEIGHT);
@@ -307,7 +312,7 @@ public class ApexExcessionReactor extends BaseHullMod
         Vector2f origin = new Vector2f(arcOrigins.pick());
         VectorUtils.rotate(origin, ship.getFacing(), origin);
         Vector2f.add(ship.getLocation(), origin, origin);
-        Vector2f to = target.getLocation();
+        Vector2f to = new Vector2f(target.getLocation());
         /*Global.getCombatEngine().spawnEmpArc(
                 ship,
                 origin,
@@ -331,15 +336,15 @@ public class ApexExcessionReactor extends BaseHullMod
         }
         // spawn siphon particles
         float siphonAmount = ARC_SIPHON_AMOUNT;
-        int numParticles = 4;
+        int numParticles = 10;
         if (target instanceof DamagingProjectileAPI)
         {
             DamagingProjectileAPI proj = (DamagingProjectileAPI) target;
             siphonAmount = proj.getDamageAmount() * 0.25f; //Math.min(proj.getDamageAmount() * 0.25f, siphonAmount);
-            numParticles = Math.min((int)proj.getDamageAmount() / 40, numParticles);
+            numParticles = Math.min((int)proj.getDamageAmount() / 20, numParticles);
         } else
         {
-            numParticles = 3;
+            //numParticles = 3;
             Global.getCombatEngine().applyDamage(target, target.getLocation(), ARC_FIGHTER_DAMAGE, DamageType.ENERGY, ARC_FIGHTER_DAMAGE, false, false, ship);
         }
         for (int i = 0; i < numParticles; i++)

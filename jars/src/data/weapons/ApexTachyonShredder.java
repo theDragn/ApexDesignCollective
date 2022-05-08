@@ -24,8 +24,8 @@ import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
 public class ApexTachyonShredder extends BaseCombatLayeredRenderingPlugin implements OnFireEffectPlugin, EveryFrameWeaponEffectPlugin
 {
     public static final float DAMAGE_BOOST = 1f; // this much extra damage at maximum flux
-    public static final Color START_COLOR = new Color(0, 0, 255);
-    public static final Color FINAL_COLOR = new Color(255, 0, 123);
+    public static final Color START_COLOR = new Color(48, 48, 255);
+    public static final Color FINAL_COLOR = new Color(255, 48, 144);
 
     // trail settings
     private static final String SPRITE_ID = "base_trail_smooth";

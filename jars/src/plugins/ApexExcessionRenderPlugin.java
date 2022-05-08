@@ -23,13 +23,13 @@ import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
 public class ApexExcessionRenderPlugin extends BaseCombatLayeredRenderingPlugin
 {
     private static final String SPRITE_ID = "graphics/fx/particlealpha32sq.png";
-    public static final float MAX_SPEED = 350f;
-    public static final float ACCEL = 350f;
+    public static final float MAX_SPEED = 200f;
+    public static final float ACCEL = 500f;
     public static final float PARTICLE_DURATION = 1f;
     public static final float MIN_SIZE = 10f;
     public static final float MAX_SIZE = 20f;
     public static final int NUM_INDICATOR_SEGMENTS = 8;
-    public static final float INDICATOR_OPACITY = 0.5f;
+    public static final float INDICATOR_OPACITY = 1f;
     public static final float LINE_WIDTH = 3f;
     public static final Color LINE_COLOR = new Color(0, 158, 0, 255);
 

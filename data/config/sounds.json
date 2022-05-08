@@ -86,5 +86,9 @@
 		{"file":"sounds/weapon/apex_shredder.ogg","pitch":1.0,"volume":0.6},
 		{"file":"sounds/weapon/apex_shredder.ogg","pitch":1.1,"volume":0.6},
 		{"file":"sounds/weapon/apex_shredder.ogg","pitch":0.9,"volume":0.6}
+	],
+	"apex_excession_system":
+	[
+		{"file":"sounds/system/apex_excession_system.ogg","pitch":1,"volume":1.5}
 	]
 }

@@ -38,15 +38,15 @@ public class ApexExcessionCoils extends BaseHullMod
             float pad = 10f;
             tooltip.addSectionHeading("Details", Alignment.MID, pad);
 
-            tooltip.addPara("\n• Reduces the timeflow bonus from phasing to %s.",
+            tooltip.addPara("\n• Reduces the base timeflow bonus from phasing to %s.",
                     0,
                     Misc.getHighlightColor(),
                     (int) (BASE_TIMEFLOW_MULT) + "x");
 
-            tooltip.addPara("• %s phase activation cost and cooldown duration.",
+            tooltip.addPara("• %s less phase activation cost and cooldown duration.",
                     0,
                     Misc.getHighlightColor(),
-                    "-" + (int) (PHASE_COOLDOWN_REDUCTION) + "%");
+                    (int) (PHASE_COOLDOWN_REDUCTION) + "%");
 
             tooltip.addPara("• Phase timeflow increases with flux level, up to %s at %s flux.",
                     0f,
