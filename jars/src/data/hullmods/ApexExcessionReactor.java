@@ -3,6 +3,7 @@ package data.hullmods;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.DamageDealtModifier;
+import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
@@ -46,7 +47,6 @@ public class ApexExcessionReactor extends BaseHullMod
     public static final HashMap<ShipAPI, ApexExcessionRenderPlugin> pluginMap = new HashMap<>();
 
     public static final WeightedRandomPicker<Vector2f> arcOrigins = new WeightedRandomPicker<>();
-
 
     static
     {
@@ -161,6 +161,34 @@ public class ApexExcessionReactor extends BaseHullMod
             );
 
         }
+
+        // trigger killswitch, if necessary
+        // no, they're not giving you a supership without some precautions
+        // triggers if your fleet kills some Apex ships
+        if (!Global.getCombatEngine().isSimulation()
+                && Global.getCombatEngine().getFleetManager(1) != null
+                && Misc.random.nextFloat() < 0.005)
+        {
+            int numDestroyedApexShips = 0;
+            for (FleetMemberAPI member : Global.getCombatEngine().getFleetManager(1).getDestroyedCopy())
+            {
+                if (member.getHullId().contains("apex_"))
+                    numDestroyedApexShips++;
+            }
+            if (numDestroyedApexShips > 4)
+            {
+                Global.getCombatEngine().addFloatingText(
+                        ship.getLocation(),
+                        "Killswitch Activated!",
+                        20,
+                        Color.RED,
+                        ship,
+                        0.5f,
+                        3f);
+                ship.getMutableStats().getMaxSpeed().modifyMult("apex_killswitch", 0.33f);
+                ship.getMutableStats().getFluxDissipation().modifyMult("apex_killswitch", 0.25f);
+            }
+        }
     }
 
     private void fixDeploymentTime(ShipAPI ship, float amount)
@@ -266,7 +294,8 @@ public class ApexExcessionReactor extends BaseHullMod
                     if (entity instanceof DamagingProjectileAPI)
                     {
                         DamagingProjectileAPI proj = ((DamagingProjectileAPI) entity);
-                        float damage = proj.getDamageAmount() + proj.getEmpAmount(); // grab emp-heavy projectiles too, even if they deal little damage
+                        // grab emp-heavy projectiles too, even if they deal little damage
+                        float damage = proj.getDamageAmount() + proj.getEmpAmount();
                         if (proj.getDamageType().equals(DamageType.FRAGMENTATION))
                             damage *= 0.125f;
                         else if (proj.getDamageType().equals(DamageType.KINETIC))
@@ -277,11 +306,14 @@ public class ApexExcessionReactor extends BaseHullMod
                         if (damage >= DAMAGE_CUTOFF || storedDamage > MAX_STORED_CHARGE * 0.9f)
                         {
                             if (proj.getDamageType().equals(DamageType.FRAGMENTATION))
-                                targets.add(entity, proj.getDamageAmount() * 0.33f); // not quite 1/4, because fuck you, that's why
+                                // not quite 1/4, because fuck you, that's why
+                                targets.add(entity, proj.getDamageAmount() * 0.33f);
                             else
                                 targets.add(entity, proj.getDamageAmount());
                         }
-                    } else if (entity instanceof ShipAPI && ((ShipAPI) entity).getHullSize().equals(ShipAPI.HullSize.FIGHTER) && ((ShipAPI) entity).isAlive())
+                    } else if (entity instanceof ShipAPI
+                            && ((ShipAPI) entity).getHullSize().equals(ShipAPI.HullSize.FIGHTER)
+                            && ((ShipAPI) entity).isAlive())
                     {
                         targets.add(entity, FIGHTER_WEIGHT);
                     }
@@ -328,11 +360,17 @@ public class ApexExcessionReactor extends BaseHullMod
                 Color.MAGENTA
         );*/
         // draw removal effects
+        ApexUtils.plasmaEffects(target, REMOVE_COLOR, Math.min(target.getCollisionRadius() * 2f, 10f));
         if (!POTATO_MODE)
         {
             ApexUtils.addWaveDistortion(target.getLocation(), 5f, 20f, 0.1f);
-            ApexUtils.plasmaEffects(target, REMOVE_COLOR, Math.min(target.getCollisionRadius() * 2f, 10f));
-            Global.getCombatEngine().addHitParticle(target.getLocation(), target.getVelocity(), 100f, 1.0f, 0.1f, Color.WHITE);
+            Global.getCombatEngine().addHitParticle(
+                    target.getLocation(),
+                    target.getVelocity(),
+                    100f,
+                    1.0f,
+                    0.1f,
+                    Color.WHITE);
         }
         // spawn siphon particles
         float siphonAmount = ARC_SIPHON_AMOUNT;
@@ -345,12 +383,21 @@ public class ApexExcessionReactor extends BaseHullMod
         } else
         {
             //numParticles = 3;
-            Global.getCombatEngine().applyDamage(target, target.getLocation(), ARC_FIGHTER_DAMAGE, DamageType.ENERGY, ARC_FIGHTER_DAMAGE, false, false, ship);
+            Global.getCombatEngine().applyDamage(
+                    target,
+                    target.getLocation(),
+                    ARC_FIGHTER_DAMAGE,
+                    DamageType.ENERGY,
+                    ARC_FIGHTER_DAMAGE,
+                    false,
+                    false,
+                    ship);
         }
         for (int i = 0; i < numParticles; i++)
         {
             Vector2f startVel = MathUtils.getRandomPointInCircle(Misc.ZERO, 100f);
-            // haha just write the whole fucking render plugin you dipshit
+            // haha, just write the whole fucking render plugin you dipshit
+            // fuck you past me, I did
             pluginMap.get(ship).addTargetedParticle(to, startVel, ship, arcOrigins.pick(), REMOVE_COLOR);
         }
 
@@ -359,6 +406,4 @@ public class ApexExcessionReactor extends BaseHullMod
             Global.getCombatEngine().removeEntity(target);
 
     }
-
-
 }

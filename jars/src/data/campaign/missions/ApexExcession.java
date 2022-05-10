@@ -13,6 +13,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithBarEvent;
 import com.fs.starfarer.api.util.Misc;
+import com.fs.starfarer.api.util.WeightedRandomPicker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,11 @@ import java.util.Map;
 public class ApexExcession extends HubMissionWithBarEvent
 {
     protected FleetMemberAPI member;
+    private static final WeightedRandomPicker<String> NAMES = new WeightedRandomPicker<>();
+    static {
+
+    }
+
 
     @Override
     protected boolean create(MarketAPI createdAt, boolean barEvent)
@@ -55,6 +61,7 @@ public class ApexExcession extends HubMissionWithBarEvent
 
         member = Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant);
         assignShipName(member, "apex_design");
+        // TODO: small chance of funny names
         member.setShipName("CDFS Inside Context");
         member.getCrewComposition().setCrew(100000);
         member.getRepairTracker().setCR(0.7f);
