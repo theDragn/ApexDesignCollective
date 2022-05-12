@@ -2,6 +2,8 @@ package data.campaign.missions;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
+import com.fs.starfarer.api.campaign.PersonImportance;
+import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
@@ -24,8 +26,14 @@ public class ApexExcession extends HubMissionWithBarEvent
 {
     protected FleetMemberAPI member;
     private static final WeightedRandomPicker<String> NAMES = new WeightedRandomPicker<>();
-    static {
 
+    static
+    {
+        NAMES.add("CDFS Inside Context", 1000);
+        NAMES.add("CDFS Irregular Apocalypse", 100);
+        NAMES.add("CDFS Gunboat Diplomat", 100);
+        NAMES.add("CDFS Big Stick", 100);
+        NAMES.add("CDFS Coldsteel the Hedgehog", 0.1f);
     }
 
 
@@ -33,14 +41,23 @@ public class ApexExcession extends HubMissionWithBarEvent
     protected boolean create(MarketAPI createdAt, boolean barEvent)
     {
         System.out.println("Apex: called excession quest creation code");
-        if (barEvent)
+        // requires cooperative rep and a working janus device
+        if (Global.getSector().getMemoryWithoutUpdate().contains("$gatesActive"))
         {
-            String post = Ranks.GROUND_COLONEL;
-            setGiverPost(post);
-            setGiverImportance(pickHighImportance());
-            setGiverTags(Tags.CONTACT_MILITARY);
-            findOrCreateGiver(createdAt, false, false);
-        }
+            if (!(boolean) Global.getSector().getMemoryWithoutUpdate().get("$gatesActive"))
+                return false;
+        } else
+            return false;
+
+        if (!Global.getSector().getPlayerFaction().getRelationshipLevel("apex_design").isAtWorst(RepLevel.COOPERATIVE))
+            return false;
+
+        setGiverRank(Ranks.SPACE_COMMANDER);
+        setGiverPost(Ranks.POST_STATION_COMMANDER);
+        setGiverImportance(PersonImportance.VERY_HIGH);
+        setGiverTags(Tags.CONTACT_MILITARY);
+        findOrCreateGiver(createdAt, false, false);
+
 
         PersonAPI person = getPerson();
         if (person == null) return false;
@@ -49,20 +66,20 @@ public class ApexExcession extends HubMissionWithBarEvent
 
         if (!Misc.isMilitary(market) && market.getSize() < 7) return false;
 
-        if (!setPersonMissionRef(person, "$apexPrototype_ref")) {
+        if (!setPersonMissionRef(person, "$apexPrototype_ref"))
+        {
             return false;
         }
 
-        if (barEvent) {
-            setGiverIsPotentialContactOnSuccess();
-        }
+        setGiverIsPotentialContactOnSuccess();
+
 
         ShipVariantAPI variant = Global.getSettings().getVariant("apex_excession_Hull").clone();
 
         member = Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant);
         assignShipName(member, "apex_design");
         // TODO: small chance of funny names
-        member.setShipName("CDFS Inside Context");
+        member.setShipName(NAMES.pick());
         member.getCrewComposition().setCrew(100000);
         member.getRepairTracker().setCR(0.7f);
 
@@ -92,11 +109,14 @@ public class ApexExcession extends HubMissionWithBarEvent
     }
 
     @Override
-    protected boolean callAction(String action, String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params, Map<String, MemoryAPI> memoryMap) {
-        if ("showShip".equals(action)) {
+    protected boolean callAction(String action, String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params, Map<String, MemoryAPI> memoryMap)
+    {
+        if ("showShip".equals(action))
+        {
             dialog.getVisualPanel().showFleetMemberInfo(member, true);
             return true;
-        } else if ("showPerson".equals(action)) {
+        } else if ("showPerson".equals(action))
+        {
             dialog.getVisualPanel().showPersonInfo(getPerson(), true);
             return true;
         }
@@ -104,12 +124,14 @@ public class ApexExcession extends HubMissionWithBarEvent
     }
 
     @Override
-    public String getBaseName() {
+    public String getBaseName()
+    {
         return "Fleet Trials"; // not used I don't think
     }
 
     @Override
-    public void accept(InteractionDialogAPI dialog, Map<String, MemoryAPI> memoryMap) {
+    public void accept(InteractionDialogAPI dialog, Map<String, MemoryAPI> memoryMap)
+    {
         // it's just an transaction immediate transaction handled in rules.csv
         // no intel item etc
 

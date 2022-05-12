@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.DamageDealtModifier;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
@@ -14,6 +15,7 @@ import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
 import plugins.ApexExcessionRenderPlugin;
+import plugins.ApexModPlugin;
 
 import java.awt.*;
 import java.util.*;
@@ -164,29 +166,39 @@ public class ApexExcessionReactor extends BaseHullMod
 
         // trigger killswitch, if necessary
         // no, they're not giving you a supership without some precautions
-        // triggers if your fleet kills some Apex ships
+        // triggers if enemy fleet has more than a few apex ships
         if (!Global.getCombatEngine().isSimulation()
                 && Global.getCombatEngine().getFleetManager(1) != null
-                && Misc.random.nextFloat() < 0.005)
+                && Misc.random.nextFloat() < 0.005 // every 200 frames, on average
+                && ship.getOwner() == 0)
         {
-            int numDestroyedApexShips = 0;
-            for (FleetMemberAPI member : Global.getCombatEngine().getFleetManager(1).getDestroyedCopy())
+            int numApexShips = 0;
+            for (FleetMemberAPI member : Global.getCombatEngine().getFleetManager(1).getDeployedCopy())
             {
                 if (member.getHullId().contains("apex_"))
-                    numDestroyedApexShips++;
+                    numApexShips++;
             }
-            if (numDestroyedApexShips > 4)
+            if (numApexShips > 4)
             {
                 Global.getCombatEngine().addFloatingText(
                         ship.getLocation(),
-                        "Killswitch Activated!",
-                        20,
+                        ApexModPlugin.Companion.xd("S2lsbHN3aXRjaCBBY3RpdmF0ZWQh"), // hiding text for funsies
+                        40,
                         Color.RED,
                         ship,
                         0.5f,
-                        3f);
-                ship.getMutableStats().getMaxSpeed().modifyMult("apex_killswitch", 0.33f);
-                ship.getMutableStats().getFluxDissipation().modifyMult("apex_killswitch", 0.25f);
+                        6f);
+                ship.getMutableStats().getMaxSpeed().modifyMult("get owned", 0.33f);
+                ship.getMutableStats().getFluxDissipation().modifyMult("you idiot", 0.25f);
+                Global.getCombatEngine().applyDamage(
+                        ship,
+                        ship.getLocation(),
+                        3000f,
+                        DamageType.ENERGY,
+                        10000f,
+                        true,
+                        false,
+                        ship);
             }
         }
     }
