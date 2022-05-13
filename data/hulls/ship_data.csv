@@ -41,4 +41,8 @@ Chameleon,apex_fighter_chameleon,,Apex Design Collective,,,600,100,300,,75,0,,17
 Apotheosis (RG),apex_apotheosis_rg,Battlecruiser,Red Guards,apex_microburn,23,10000,1100,13500,,650,215,,50,25,25,15,15,2000,OMNI,,180,0.3,0.9,,,350,500,300,240,8,30,8,250000,10,25,720,0.25,38,38,,"revolutionary, vayra_red_army",,0.33,2,3,,1312
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 "# secret (I guess it's really not that secret if it's in here but I don't have that many options, y'know?)",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+<<<<<<< Updated upstream
 Excession,apex_excession,Phase Destroyer,Apex Design Collective,apex_excessionsys,20,3000,1000,5000,,400,50,,90,250,250,230,230,400,PHASE,apex_excessionphase,,,,0.03,0.06,5,10,100,60,1,60,10,2000000,10,25,360,0.25,40,40,"PHASE, HIDE_IN_CODEX",no_dealer,,0.5,2,3,,1312
+=======
+Excession,apex_excession,Phase Destroyer,Apex Design Collective,apex_excessionsys,20,3000,1000,5000,,400,50,,100,300,300,270,270,400,PHASE,apex_excessionphase,,,,0.03,0.04,5,10,100,60,1,60,10,2000000,10,25,360,0.25,40,40,"PHASE, HIDE_IN_CODEX",,,0.5,2,3,,1312
+>>>>>>> Stashed changes
