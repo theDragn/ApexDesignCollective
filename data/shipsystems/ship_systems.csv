@@ -1,6 +1,6 @@
 name,id,flux/second,f/s (base rate),f/s (base cap),flux/use,f/u (base rate),f/u (base cap),cr/u,max uses,regen,charge up,active,down,cooldown,toggle,noDissipation,noHardDissipation,hardFlux,noFiring,noTurning,noStrafing,noAccel,noShield,noVent,isPhaseCloak,tags,icon
 Maneuvering Pulse,apex_microburn,,,,,,,,4,0.1,0.25,0.25,0.5,,,,,,,,TRUE,TRUE,,,,,graphics/icons/hullsys/burn_drive.png
-Temporal Damper,apex_damper,,,,,,0.05,,2,0.05,0.25,5,0.25,,,,TRUE,,,,,,TRUE,,,,graphics/icons/hullsys/damper_field.png
+Temporal Damper,apex_damper,,,,,,0.05,,2,0.05,0.5,5,0.5,,,,TRUE,,,,,,TRUE,,,,graphics/icons/hullsys/damper_field.png
 Remote Temporal Damper,apex_remote_damper,,,,,,0.2,,,,0.25,5,0.25,15,,,,,,,,,,,,,graphics/icons/hullsys/damper_field.png
 Inertial Skimmer,apex_inertial_skimmer,,,,,,,,4,0.167,0.2,0.2,0.2,0.25,,,,,,,,,,,,,graphics/icons/hullsys/burn_drive.png
 Travel Drive,apex_cruisemode,,,,,,,,,,3,,2,,TRUE,,,,TRUE,,TRUE,TRUE,TRUE,,,,graphics/icons/hullsys/burn_drive.png

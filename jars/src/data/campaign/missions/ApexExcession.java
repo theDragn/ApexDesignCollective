@@ -10,21 +10,21 @@ import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.combat.ShipVariantAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
-import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Ranks;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithBarEvent;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 // this is mostly a modification of the "surplus hull" mission
+// superceded by ApexExcessionEvent
 public class ApexExcession extends HubMissionWithBarEvent
 {
-    protected FleetMemberAPI member;
+    protected FleetMemberAPI excession;
+    protected FleetMemberAPI omega;
     private static final WeightedRandomPicker<String> NAMES = new WeightedRandomPicker<>();
 
     static
@@ -40,11 +40,14 @@ public class ApexExcession extends HubMissionWithBarEvent
     @Override
     protected boolean create(MarketAPI createdAt, boolean barEvent)
     {
-        System.out.println("Apex: called excession quest creation code");
+        //System.out.println("Apex: called excession quest creation code");
         // requires cooperative rep and a working janus device
         if (Global.getSector().getMemoryWithoutUpdate().contains("$gatesActive"))
         {
-            if (!(boolean) Global.getSector().getMemoryWithoutUpdate().get("$gatesActive"))
+            Object o = Global.getSector().getMemoryWithoutUpdate().get("$gatesActive");
+            if (o instanceof Boolean && !(boolean)o)
+                return false;
+            if (o instanceof String && !o.equals("true"))
                 return false;
         } else
             return false;
@@ -73,18 +76,23 @@ public class ApexExcession extends HubMissionWithBarEvent
 
         setGiverIsPotentialContactOnSuccess();
 
-
+        // create excession to give to the player
         ShipVariantAPI variant = Global.getSettings().getVariant("apex_excession_Hull").clone();
 
-        member = Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant);
-        assignShipName(member, "apex_design");
+        excession = Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant);
+        assignShipName(excession, "apex_design");
         // TODO: small chance of funny names
-        member.setShipName(NAMES.pick());
-        member.getCrewComposition().setCrew(100000);
-        member.getRepairTracker().setCR(0.7f);
+        excession.setShipName(NAMES.pick());
+        excession.getCrewComposition().setCrew(100000);
+        excession.getRepairTracker().setCR(0.7f);
 
         setRepFactionChangesHigh();
         setRepPersonChangesHigh();
+
+        // create omega to show to the player
+        ShipVariantAPI variant2 = Global.getSettings().getVariant("facet_Hull").clone();
+        omega = Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant2);
+        omega.setShipName("Unknown Entity");
 
         return true;
     }
@@ -98,13 +106,13 @@ public class ApexExcession extends HubMissionWithBarEvent
         set("$apexPrototype_ref2", this);
 
         set("$apexPrototype_barEvent", isBarEvent());
-        set("$apexPrototype_hullSize", member.getHullSpec().getDesignation().toLowerCase());
-        set("$apexPrototype_hullClass", member.getHullSpec().getHullNameWithDashClass());
+        set("$apexPrototype_hullSize", excession.getHullSpec().getDesignation().toLowerCase());
+        set("$apexPrototype_hullClass", excession.getHullSpec().getHullNameWithDashClass());
         set("$apexPrototype_manOrWoman", getPerson().getManOrWoman());
         set("$apexPrototype_rank", getPerson().getRank().toLowerCase());
         set("$apexPrototype_rankAOrAn", getPerson().getRankArticle());
         set("$apexPrototype_hisOrHer", getPerson().getHisOrHer());
-        set("$apexPrototype_member", member);
+        set("$apexPrototype_member", excession);
         set("$apexPrototype_menOrWomen", (Misc.random.nextBoolean() ? "men" : "women")); // your contact's sexuality is randomized
     }
 
@@ -113,11 +121,15 @@ public class ApexExcession extends HubMissionWithBarEvent
     {
         if ("showShip".equals(action))
         {
-            dialog.getVisualPanel().showFleetMemberInfo(member, true);
+            dialog.getVisualPanel().showFleetMemberInfo(excession, true);
             return true;
         } else if ("showPerson".equals(action))
         {
             dialog.getVisualPanel().showPersonInfo(getPerson(), true);
+            return true;
+        } else if ("showOmega".equals(action))
+        {
+            dialog.getVisualPanel().showFleetMemberInfo(omega, true);
             return true;
         }
         return false;
@@ -138,5 +150,4 @@ public class ApexExcession extends HubMissionWithBarEvent
         currentStage = new Object(); // so that the abort() assumes the mission was successful
         abort();
     }
-
 }

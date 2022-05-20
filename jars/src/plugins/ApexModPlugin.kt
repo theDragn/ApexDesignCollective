@@ -8,6 +8,7 @@ import com.fs.starfarer.api.campaign.CampaignPlugin
 import com.fs.starfarer.api.combat.MissileAIPlugin
 import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.combat.ShipAPI
+import data.campaign.missions.ApexExcessionAdder
 import data.weapons.proj.ai.*
 import org.json.JSONException
 import world.ApexRelicPlacer
@@ -70,6 +71,8 @@ class ApexModPlugin : BaseModPlugin() {
             if (GENERATE_RELICS && Global.getSector().memoryWithoutUpdate.contains("\$apex_placed_relics"))
                 ApexRelicPlacer().generate(Global.getSector())
         }
+
+        Global.getSector().addTransientListener(ApexExcessionAdder())
     }
 
     override fun pickMissileAI(missile: MissileAPI, launchingShip: ShipAPI): PluginPick<MissileAIPlugin>? {
@@ -110,6 +113,9 @@ class ApexModPlugin : BaseModPlugin() {
         @JvmField
         var SHOW_DARTGUN_OVERLAY = false
 
+        @JvmField
+        var EUROBEAT_MODE = false;
+
         @Throws(IOException::class, JSONException::class)
         private fun loadApexSettings() {
             val settings = Global.getSettings().loadJSON(SETTINGS_FILE)
@@ -118,6 +124,7 @@ class ApexModPlugin : BaseModPlugin() {
             POTATO_MODE = settings.getBoolean("potatoMode")
             GENERATE_RELICS = settings.getBoolean("generateRelics")
             SHOW_DARTGUN_OVERLAY = settings.getBoolean("showDartgunOverlay")
+            EUROBEAT_MODE = settings.getBoolean("eurobeatMode")
             try {
                 // die mad, fash
                 Global.getSettings().scriptClassLoader.loadClass(xd("ZGF0YS5zY3JpcHRzLk1hZ2ljX21vZFBsdWdpbg=="))

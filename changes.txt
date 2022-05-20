@@ -1,3 +1,7 @@
+Some fixes for new content.
+- Excession no longer generates charge from shooting dead ships.
+- Hullmod 
+
 New: Ship. Get the [REDACTED] device, use it a few times, and look for a bar event on Granite.
 Changes:
 - Eidolon: DP increased (40 -> 45). Too obvious of a choice at 40 DP, particularly as a flagship due to its mobility.

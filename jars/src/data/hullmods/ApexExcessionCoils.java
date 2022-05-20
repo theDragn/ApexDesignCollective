@@ -52,6 +52,11 @@ public class ApexExcessionCoils extends BaseHullMod
                     0f,
                     Misc.getHighlightColor(),
                     (int) (MAXIMUM_TIMEFLOW_MULT * BASE_TIMEFLOW_MULT) + "x", "100%");
+
+            tooltip.addPara("• %s by phase coil stress.",
+                    0f,
+                    Misc.getHighlightColor(),
+                    "Unaffected");
         }
     }
 }

@@ -43,6 +43,9 @@
       "vls_frame5":"graphics/weapons/vls_hatch/frame5.png",
       "vls_frame6":"graphics/weapons/vls_hatch/frame6.png"
     }
-	}
+	},
+  "ruleCommandPackages": [
+        "data.campaign.missions.rulecmd"
+  ]
 }
 

@@ -3,7 +3,6 @@ package plugins;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.graphics.SpriteAPI;
-import com.fs.starfarer.api.util.FaderUtil;
 import com.fs.starfarer.api.util.Misc;
 import data.hullmods.ApexExcessionReactor;
 import org.lazywizard.lazylib.MathUtils;
@@ -121,7 +120,7 @@ public class ApexExcessionRenderPlugin extends BaseCombatLayeredRenderingPlugin
             return;
         Vector2f ringCenter = ship.getLocation();
         // 1.0 at 100% width
-        float arcWidth = ApexExcessionReactor.damageMap.get(ship) / ApexExcessionReactor.MAX_STORED_CHARGE;
+        float arcWidth = ApexExcessionReactor.chargeMap.get(ship) / ApexExcessionReactor.MAX_STORED_CHARGE;
         // draw segments
 
 

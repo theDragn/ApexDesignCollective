@@ -11,6 +11,8 @@ import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
 import org.lwjgl.util.vector.Vector2f;
 
+import static plugins.ApexModPlugin.EUROBEAT_MODE;
+
 public class ApexCruiseModeAI implements ShipSystemAIScript
 {
     private ShipAPI ship;
@@ -34,6 +36,8 @@ public class ApexCruiseModeAI implements ShipSystemAIScript
         if (!ship.isAlive() || engine.isPaused())
             return;
         timer.advance(amount);
+        if (EUROBEAT_MODE && system.getState().equals(ShipSystemAPI.SystemState.IDLE))
+            ship.useSystem();
         if (timer.intervalElapsed())
         {
             // get this ship's destination from

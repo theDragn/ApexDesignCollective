@@ -39,7 +39,52 @@
 		"Debt Forgiver",
 		"Shareholder's Nightmare",
 		"Rent Free",
-		"Loan Forgiveness"
+		"Loan Forgiveness",
+		"Guillotine",
+		"People's Hangman",
+		"Unity",
+		"Solidarity",
+		"Proletarian",
+		"Better Than Barbarism"
+	],
+	# inspired by and/or stolen from my boy iain, rip
+	"CULTURE":
+	[
+		"Determinist",
+		"Eschatologist",
+		"Nervous Energy",
+		"Revisionist",
+		"Trade Surplus",
+		"So Much For Subtlety",
+		"Limiting Factor",
+		"Gunboat Diplomat",
+		"Ship With A View",
+		"Synchronize Your Dogmas",
+		"Unwitting Accomplice",
+		"Witting Accomplice",
+		"Ethics Gradient",
+		"Uninvited Guest",
+		"Make Like A Tree",
+		"Misophist",
+		"Steely Glint",
+		"Grey Area",
+		"Problem Child",
+		"Reasonable Excuse",
+		"Tactical Grace",
+		"Attitude Adjuster",
+		"Frank Exchange of Views",
+		"Devil's Advocate",
+		"Charitable View",
+		"Appeal To Reason",
+		"Hypercredulous",
+		"Lapsed Pacifist",
+		"Penalty Boxer",
+		"Armchair Admiral",
+		"Backseat Driver",
+		"Beats Working",
+		"Questionable Ethics",
+		"Author Self-Insert",
+		"Just Leave The Ship Name Blank"
 	]
 }
 

@@ -21,5 +21,9 @@
     # you normally can't get more than one nozzle subsystem...
     # but in case you do (through some cross-mod interaction), your second and third ones will use these keys. Again, if you've got dronelib enabled, it'll use those keybinds instead.
     "subsystemKeybind2":"J",
-    "subsystemKeybind3":"N"
+    "subsystemKeybind3":"N",
+
+    # added due to a request
+    # causes AI ships with the Travel Drive system to turn it on at the earliest possible moment, and never turn it off.
+    "eurobeatMode":false,
 }

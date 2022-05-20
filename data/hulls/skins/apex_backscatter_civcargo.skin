@@ -1,6 +1,7 @@
 {
 	"baseHullId":"apex_backscatter",
 	"skinHullId":"apex_backscatter_civcargo",
+	"spriteName":"graphics/ships/apex_backscatter_cargo.png",
 	"hullName":"Backscatter (CIV-C)",
 	"descriptionId":"apex_backscatter",
 	"descriptionPrefix":"A low-cost cargo version of the Backscatter designed for civilian use, this variant lacks military systems and swappable hangar modules, and is thus much cheaper to produce.",
@@ -9,6 +10,7 @@
 	"tech":"Apex Design Collective",
 	"fleetPoints":4,
 	"ordnancePoints":40,
+	"fighterBays":0,
 	"baseValueMult":0.5,
 	"systemId":"apex_microburn",
 	"removeWeaponSlots":[], 		# ids

@@ -36,6 +36,7 @@ public class ApexVLSEffects implements OnFireEffectPlugin, EveryFrameWeaponEffec
         if (animTimer > 0)
         {
             // would normally have to check hardpoint/turret, but this will always be a turret
+            // or at least they'll always have the same offsets
             for (int i = 0; i < weapon.getSpec().getTurretFireOffsets().size(); i++)
             {
                 int frame = (int) ((animTimer - (DELAY_BETWEEN_TUBES / missileRofMult) * i) * FRAMES_PER_SECOND);

@@ -4,7 +4,7 @@
   "hullSize": "DESTROYER",
   "spriteName": "graphics/ships/phase/apex_excession.png",
   "style": "HIGH_TECH",
-  "height": 187,
+  "height": 188,
   "width": 160,
   "center": [80, 90],
   "collisionRadius": 97.5,

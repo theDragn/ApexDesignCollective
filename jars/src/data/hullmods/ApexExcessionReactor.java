@@ -4,7 +4,6 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.DamageDealtModifier;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
@@ -43,7 +42,7 @@ public class ApexExcessionReactor extends BaseHullMod
 
     public static final Color REMOVE_COLOR = new Color(0,157,255,155);
 
-    public static final HashMap<ShipAPI, Float> damageMap = new HashMap<>(); // tracks stored damage, in case there's more than one of these things
+    public static final HashMap<ShipAPI, Float> chargeMap = new HashMap<>(); // tracks stored damage, in case there's more than one of these things
     public static final HashMap<ShipAPI, Float> repairMap = new HashMap<>(); // tracks stored repair
     public static final HashMap<ShipAPI, Float> dpTimeMap = new HashMap<>();
     public static final HashMap<ShipAPI, ApexExcessionRenderPlugin> pluginMap = new HashMap<>();
@@ -61,6 +60,8 @@ public class ApexExcessionReactor extends BaseHullMod
         arcOrigins.add(new Vector2f(-100, -25));
     }
 
+    private int lastEngineHashcode = 0;
+
     @Override
     public void applyEffectsAfterShipCreation(ShipAPI ship, String id)
     {
@@ -73,19 +74,26 @@ public class ApexExcessionReactor extends BaseHullMod
         @Override
         public String modifyDamageDealt(Object param, CombatEntityAPI target, DamageAPI damage, Vector2f point, boolean shieldHit)
         {
+            if (target instanceof ShipAPI && ((ShipAPI) target).isHulk())
+                return null;
             if (param instanceof DamagingProjectileAPI)
             {
                 float chargeAmount = damage.getDamage();
-                if (((DamagingProjectileAPI) param).getSource().getSystem().isActive())
+                DamagingProjectileAPI proj = (DamagingProjectileAPI)param;
+                if (proj.getSource().getSystem().isActive())
                     chargeAmount *= CHARGE_MULT;
-                addCharge(((DamagingProjectileAPI) param).getSource(), chargeAmount);
+                addCharge(proj.getSource(), chargeAmount);
+                if (Misc.shouldShowDamageFloaty(proj.getSource(), proj.getSource()) && proj.getSource().getSystem().isActive() && proj.getWeapon() != null)
+                {
+                    Global.getCombatEngine().addFloatingDamageText(proj.getWeapon().getLocation(), chargeAmount * DAMAGE_CHARGE_MULT, Color.MAGENTA, proj.getSource(), proj.getSource());
+                }
             }
             return null;
         }
 
         private void addCharge(ShipAPI source, float damageAmount)
         {
-            damageMap.put(source, Math.min(damageMap.get(source) + damageAmount * DAMAGE_CHARGE_MULT, MAX_STORED_CHARGE));
+            chargeMap.put(source, Math.min(chargeMap.get(source) + damageAmount * DAMAGE_CHARGE_MULT, MAX_STORED_CHARGE));
         }
     }
 
@@ -105,17 +113,15 @@ public class ApexExcessionReactor extends BaseHullMod
             tooltip.addPara("\n• The core %s slowly while phased.", 0,
                     CHARGE_COLOR,
                     "charges");
-            /*Color[] colors = {Misc.getHighlightColor(), CHARGE_COLOR};
-            tooltip.addPara("• %s faster %s rate while phased.", 0, colors,
-                    (int) (PHASE_CHARGE_MULT * 100f - 100f) + "%", "charge");*/
             tooltip.addPara("• Damaging targets generates %s.", 0, CHARGE_COLOR, "charge");
             tooltip.addPara("• Automatically expends %s to destroy enemy projectiles and fighters, storing mass and energy. Ignores weaker projectiles unless charge level is high.", 0, CHARGE_COLOR, "charge");
+            Color[] colors = {Misc.getHighlightColor(), CHARGE_COLOR};
+            tooltip.addPara("• %s dissipates stored %s and mass.", 0, colors, "Venting or overloading","charge");
             tooltip.addPara("• While phased, expends stored mass to repair %s armor per second.",
                     0,
                     Misc.getHighlightColor(),
                     (int) (REPAIR_RATE) + "");
             tooltip.addPara("• Armor repair rate is %s.", 0, Misc.getHighlightColor(), "multiplied by timeflow increases");
-
             tooltip.addPara("• Peak performance time %s.", 0, Misc.getHighlightColor(), "ignores timeflow changes");
         }
     }
@@ -123,11 +129,19 @@ public class ApexExcessionReactor extends BaseHullMod
     @Override
     public void advanceInCombat(ShipAPI ship, float amount)
     {
+        if (lastEngineHashcode != Global.getCombatEngine().hashCode())
+        {
+            chargeMap.clear();
+            repairMap.clear();
+            dpTimeMap.clear();
+            pluginMap.clear();
+            lastEngineHashcode = Global.getCombatEngine().hashCode();
+        }
         if (!ship.isAlive() || ship.isHulk())
             return;
         // update maps first
-        if (!damageMap.containsKey(ship))
-            damageMap.put(ship, MAX_STORED_CHARGE);
+        if (!chargeMap.containsKey(ship))
+            chargeMap.put(ship, MAX_STORED_CHARGE);
         if (!repairMap.containsKey(ship))
             repairMap.put(ship, 0f);
         if (!dpTimeMap.containsKey(ship))
@@ -146,13 +160,17 @@ public class ApexExcessionReactor extends BaseHullMod
             fixDeploymentTime(ship, amount);
         } else
         {
-            repairMap.put(ship, 0f);
-            damageMap.put(ship, 0f);
+            float repair = repairMap.get(ship);
+            repair = Math.max(repair - amount * MAX_STORED_ARMOR, 0);
+            repairMap.put(ship, repair);
+            float charge = chargeMap.get(ship);
+            charge = Math.max(charge - amount * MAX_STORED_CHARGE, 0);
+            chargeMap.put(ship, charge);
         }
         // show reactor/repair status
         if (ship == Global.getCombatEngine().getPlayerShip())
         {
-            float storedDamage = damageMap.get(ship);
+            float storedDamage = chargeMap.get(ship);
             float storedRepair = repairMap.get(ship);
             Global.getCombatEngine().maintainStatusForPlayerShip(
                     "apex_excession_reactor",
@@ -188,6 +206,8 @@ public class ApexExcessionReactor extends BaseHullMod
                         ship,
                         0.5f,
                         6f);
+                // you fool, you utter buffoon
+                // did you really think they'd give you a ship that you could use against them
                 ship.getMutableStats().getMaxSpeed().modifyMult("get owned", 0.33f);
                 ship.getMutableStats().getFluxDissipation().modifyMult("you idiot", 0.25f);
                 Global.getCombatEngine().applyDamage(
@@ -286,7 +306,7 @@ public class ApexExcessionReactor extends BaseHullMod
     {
 
         // updates stored dps
-        float storedDamage = damageMap.get(ship);
+        float storedDamage = chargeMap.get(ship);
         if (storedDamage < MAX_STORED_CHARGE)
         {
             float toStore = BASE_CHARGE_RATE * amount * (ship.isPhased() ? PHASE_CHARGE_MULT : 0f);
@@ -348,7 +368,7 @@ public class ApexExcessionReactor extends BaseHullMod
             }
         }
         // update after whatever we've done this frame
-        damageMap.put(ship, Math.max(storedDamage, 0f));
+        chargeMap.put(ship, Math.max(storedDamage, 0f));
     }
 
     private void strike(CombatEntityAPI target, ShipAPI ship)

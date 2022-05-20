@@ -1,6 +1,7 @@
 {
 	"baseHullId":"apex_spectrum",
 	"skinHullId":"apex_spectrum_civfuel",
+	"spriteName":"graphics/ships/apex_spectrum_fuel.png",
 	"hullName":"Spectrum (CIV-F)",
 	"descriptionId":"apex_spectrum",
 	"descriptionPrefix":"A low-cost tanker version of the Spectrum designed for civilian use, this variant lacks military systems and swappable hangar modules, and is thus much cheaper to produce.",
@@ -9,6 +10,7 @@
 	"tech":"Apex Design Collective",
 	"fleetPoints":8,
 	"ordnancePoints":70,
+	"fighterBays":0,
 	"baseValueMult":0.5,
 	"systemId":"apex_microburn",
 	"removeWeaponSlots":[], 		# ids

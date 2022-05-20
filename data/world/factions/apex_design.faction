@@ -13,7 +13,8 @@
 	"crest":"graphics/factions/apex_crest.png",
 	"shipNamePrefix":"CDFS",
 	"shipNameSources":{
-		"UNION":1,
+		"UNION":1.5,
+		"CULTURE":1.5,
 		"CELTIC":1,
 		"SPACE":1,
 		"GENERAL":1,

@@ -13,8 +13,6 @@ import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
 
-import static data.hullmods.ApexExcessionReactor.*;
-
 public class ApexExcessionSystem extends BaseShipSystemScript
 {
     public static final float INSTANT_DISS = 3f; // yo momma so fat, she can instantly dissipate this many seconds of flux dissipation
@@ -60,20 +58,7 @@ public class ApexExcessionSystem extends BaseShipSystemScript
             }
             doEffects++;
         }
-
-        // extra charge rate is from reactor hullmod now
-        // three frames of full core charge - enough to wipe out whatever is within interception radius, but no more
-        /*if (doEffects < 3)
-        {
-            damageMap.put(ship, MAX_STORED_CHARGE); // hullmod script will make sure it doesn't go over 100%
-        }*/
-        //stats.getFluxDissipation().modifyMult(id, DISSIPATION_BOOST);
-
-        //float charge = BASE_CHARGE_RATE * CORE_BASE_GEN_MULT * Global.getCombatEngine().getElapsedInLastFrame();
-
-
-
-    }
+            }
 
     @Override
     public void unapply(MutableShipStatsAPI stats, String id)
@@ -86,6 +71,15 @@ public class ApexExcessionSystem extends BaseShipSystemScript
     @Override
     public StatusData getStatusData(int index, State state, float effectLevel)
     {
+        if (index == 0)
+        {
+            return new StatusData("Charge Generation Increased", false);
+		} /*else if (index == 1)
+        {
+        // I have no clue where this is coming from, help
+        // it's obviously not here
+            return new StatusData("Cloak Disabled", true);
+        } */
         return null;
     }
 }
