@@ -198,7 +198,10 @@ public class ApexCryoSubsystem extends ApexBaseSubsystem
             if (ally.getHullSize().equals(ShipAPI.HullSize.FIGHTER))
                 continue;
             if (ally.getFluxLevel() > 0.2f)
+            {
                 activate();
+                return;
+            }
         }
     }
 

@@ -1,12 +1,14 @@
-Some fixes for new content.
-- Excession no longer generates charge from shooting dead ships.
-- Hullmod 
+Tachyon Drivers: Significantly reduced EMP damage. Had too much EMP DPS for their range after the buff.
+Geodesic Shield Matrix: Frag damage that penetrates the shield remains frag damage instead of being converted to energy (vulcans were far too good at shredding armor through the shield).
+Gecko Interceptor Wing: Increased armor (100 -> 150)
+Anole Heavy Fighter Wing: Buffed these a bit to justify their cost. Increased armor (200 -> 250) and hull (700 -> 750), slighly improved coilgun total DPS (~180 -> 200), improved fusion beam DPS by increasing the rate of fire, shifting more damage into the on-hit effect, and decreased replacement time (18s -> 15s).
 
-New: Ship. Get the [REDACTED] device, use it a few times, and look for a bar event on Granite.
+
 Changes:
-- Eidolon: DP increased (40 -> 45). Too obvious of a choice at 40 DP, particularly as a flagship due to its mobility.
-- Apotheosis: DP increased (35 -> 38). A little bit overperforming for the cost, mostly because of its high dissipation and long range.
-
+- Lacerta: Increased max flux (2500 -> 3000) to bring its effective HP more in line with other high-end frigates.
+- Tachyon Drivers: Increased range by 200, to 700/800 for the small/medium. Removed magazine system from small. Increased re-fire time to 1.5 sec. Excellent range for energy weapons, but poor projectile velocity and armor penetration. Useful for ships that want to rangematch ballistics with energies.
+Fixes:
+- Reworked the "add to existing save" functionality, hopefully fixing a rare bug that could cause Apex to reset its relations with other factions.
 
 Todo, eventaully:
 - Tuatara-class destroyer. 13 DP. Basically half a Crocodile. Two Taipan-6 missile pods and three nozzles. System is Arcmine Dispenser.

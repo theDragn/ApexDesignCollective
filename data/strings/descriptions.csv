@@ -170,10 +170,10 @@ One of the few missiles in the sector to actually feature dedicated armor, Sledg
 apex_sledgehammer_large,WEAPON,"Septuple Sledgehammer launch tubes crammed into a large standardized mount. Capable of dealing massive damage to targets that cannot evade or intercept the slow-moving missiles.
 
 A simple missile launcher at first glance, the single sticking point of this oversized clump of missile tubes is the autoloading mechanism. Sledgehammer missiles are particularly large, and size constraints in the mount mean that only one missile can pass through the interface at a time, limiting the overall fire rate quite severely.",,,
-apex_tachyondriver_s,WEAPON,"A downscaled version of the Tachyon Driver designed for use in smaller ships. Offers good burst damage, but has relatively lackluster anti-armor performance.
+apex_tachyondriver_s,WEAPON,"A downscaled version of the Tachyon Driver designed for use in smaller ships. Compensates for its low projectile velocity with excellent range and efficiency.
 
-Not everything can be scaled down easily, and the Light Tachyon Driver suffers from this quite heavily- the tachyon pulse generator used in its larger cousin is vastly weaker when miniaturized. To compensate, the weapon makes use of a series of supercapacitors, which permits a few rapid shots followed by a rather lengthy recharge.",,,
-apex_tachyondriver_m,WEAPON,"Fires a wedge-shaped blast of small tachyon bolts. Very efficient, but limited by poor anti-armor performance and the low velocity of the tachyon wedge.
+Not everything can be scaled down easily, and the Light Tachyon Driver suffers from this quite heavily- the tachyon pulse generator used in its larger cousin is vastly weaker when miniaturized.",,,
+apex_tachyondriver_m,WEAPON,"Fires a wedge-shaped blast of small tachyon bolts. Compensates for its poor projectile velocity and lackluster anti-armor performance with above-average range and efficiency.
 
 A particularly complex weapon best explained using a blob of modeling clay and a potato masher, the tachyon driver ""extrudes"" a series of tachyon bolts from a short-lived tachyon pulse. The ensuing projectiles are relatively weak for the flux cost, but overall damage output is still high enough to make it an attractive general-purpose weapon.",,,
 apex_swarmer,WEAPON,An integrated Swarmer SRM launcher.,,,

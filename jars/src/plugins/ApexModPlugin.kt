@@ -8,6 +8,7 @@ import com.fs.starfarer.api.campaign.CampaignPlugin
 import com.fs.starfarer.api.combat.MissileAIPlugin
 import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.combat.ShipAPI
+import com.fs.starfarer.api.impl.campaign.shared.SharedData
 import data.campaign.missions.ApexExcessionAdder
 import data.weapons.proj.ai.*
 import org.json.JSONException
@@ -60,11 +61,12 @@ class ApexModPlugin : BaseModPlugin() {
 
     override fun onGameLoad(newGame: Boolean) {
         var hasApex = false
-        for (system in Global.getSector().getStarSystems()) {
+        /*for (system in Global.getSector().getStarSystems()) {
             if (system.baseName.equals("Vela")) {
                 hasApex = true
             }
-        }
+        }*/
+        hasApex = SharedData.getData().personBountyEventData.participatingFactions.contains("apex_design")
         if (!hasApex) {
             ApexSectorGenerator().generate(Global.getSector())
             ApexSectorGenerator.createInitialPeople()

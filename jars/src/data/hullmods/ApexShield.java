@@ -188,6 +188,8 @@ public class ApexShield extends BaseHullMod
 
         public String modifyDamageTaken(Object param, CombatEntityAPI target, DamageAPI damage, Vector2f point, boolean shieldHit)
         {
+            if (damage.getDamage() <= 0)
+                return null;
             if (shieldHit && target instanceof ShipAPI) {
                 if (param instanceof DamagingProjectileAPI) {
                     DamagingProjectileAPI proj = (DamagingProjectileAPI) param;
@@ -202,7 +204,7 @@ public class ApexShield extends BaseHullMod
                     float reduction = DAMAGE_REDUCTION * armorFraction * (originalDamage / damage.getDamage());
                     if (originalDamage < reduction)
                         reduction = originalDamage;
-                    applyBypassDamage(proj.getSource(), reduction, target, bypassLoc);
+                    applyBypassDamage(proj.getSource(), reduction, target, bypassLoc, damage.getType().equals(DamageType.FRAGMENTATION));
                     damage.getModifier().modifyMult("apexGeodesic", 1f - reduction / originalDamage);
                     spawnGeodesicSpall(point, target, damage);
                 } else if (param instanceof BeamAPI)
@@ -220,7 +222,7 @@ public class ApexShield extends BaseHullMod
                     float reduction = DAMAGE_REDUCTION * armorFraction * Global.getCombatEngine().getElapsedInLastFrame();
                     if (originalDamage < reduction)
                         reduction = originalDamage;
-                    applyBypassDamage(beam.getSource(), reduction, target, bypassLoc);
+                    applyBypassDamage(beam.getSource(), reduction, target, bypassLoc, damage.getType().equals(DamageType.FRAGMENTATION));
                     damage.getModifier().modifyMult("apexGeodesic", 1f - reduction / originalDamage);
                     spawnGeodesicSpall(point, target, damage);
                 }
@@ -244,12 +246,12 @@ public class ApexShield extends BaseHullMod
             return CollisionUtils.getCollisionPoint(beam.getFrom(), endpoint, target);
         }
 
-        public void applyBypassDamage(ShipAPI source, float remainingDamage, CombatEntityAPI target, Vector2f bypassloc)
+        public void applyBypassDamage(ShipAPI source, float remainingDamage, CombatEntityAPI target, Vector2f bypassloc, boolean isFrag)
         {
             Global.getCombatEngine().applyDamage(target,
                     bypassloc,
                     remainingDamage * TRANSFER_MULT,
-                    DamageType.ENERGY,
+                    isFrag ? DamageType.FRAGMENTATION : DamageType.ENERGY,
                     0f,
                     true,
                     false,
@@ -271,12 +273,12 @@ public class ApexShield extends BaseHullMod
             float pad = 10f;
             tooltip.addSectionHeading("Details", Alignment.MID, pad);
 
-            tooltip.addPara("\n• Shields take %s less damage from projectile hits. \n• Shields take %s less damage per second from beams.",
+            tooltip.addPara("\n• Shields take %s less flat damage from projectile hits. \n• Shields take %s less flat damage per second from beams.",
                     0,
                     Misc.getHighlightColor(),
                     (int) (DAMAGE_REDUCTION) + "", (int) (DAMAGE_REDUCTION) + "");
             Color[] colors = {ENG_COLOR, Misc.getHighlightColor()};
-            tooltip.addPara("• Each time this bonus prevents damage, the ship's armor takes %s damage equal to %s of the prevented damage.",
+            tooltip.addPara("• Each time this prevents damage, the ship's armor takes %s damage equal to %s of the prevented damage.",
                     0,
                     colors,
                     "energy", (int) (TRANSFER_MULT * 100) + "%");

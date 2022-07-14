@@ -304,7 +304,7 @@ public class ApexTachyonShredder extends BaseCombatLayeredRenderingPlugin implem
         ArrayList<DamagingProjectileAPI> toRemove = new ArrayList<>();
         for (DamagingProjectileAPI proj : projectiles)
         {
-            if (proj.isExpired() || proj.didDamage())
+            if (proj.isExpired() || proj.didDamage() || !engine.isInPlay(proj))
                 toRemove.add(proj);
             else
                 addTrailSegment(proj, weapon.getShip().getFluxLevel());
@@ -313,6 +313,7 @@ public class ApexTachyonShredder extends BaseCombatLayeredRenderingPlugin implem
         {
             projectiles.remove(proj);
         }
+        //System.out.println(projectiles.size());
     }
 
     // spawns trail segment. should be called each frame on each projectile.
