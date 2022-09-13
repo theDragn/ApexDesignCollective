@@ -35,6 +35,8 @@ public class ApexArmor extends BaseHullMod
         // needed to be done
         BLOCKED_HULLMODS.add("monjeau_armour");
         BLOCKED_HULLMODS.add("apex_excession_armor");
+        // way too much minimum armor when combo'd with this
+        BLOCKED_HULLMODS.add("eis_damperhull");
         // TODO: any others that need to be blocked?
     }
     public static final float REDUCTION_BONUS = 0.05f; // flat bonus to max armor damage reduction
