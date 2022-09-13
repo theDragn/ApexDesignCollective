@@ -26,7 +26,7 @@ public class ApexFusionBeamEffect implements BeamEffectPlugin
     public static final float BONUS_DAMAGE_FRACTION_SMALL = 0.05f;
     public static final float BONUS_DAMAGE_FRACTION_MEDIUM = 0.10f;
     public static final float BONUS_DAMAGE_FRACTION_LARGE = 0.20f;
-    public static final float TIME_FOR_EXPLOSION = 0.5f;
+    public static final float TIME_FOR_EXPLOSION = 0.33f;
 
     private IntervalUtil flashInterval = new IntervalUtil(0.1f, 0.2f);
     private float timeOnTarget = 0f;
@@ -55,7 +55,7 @@ public class ApexFusionBeamEffect implements BeamEffectPlugin
 
                 timeOnTarget += amount;
 
-                if (timeOnTarget > TIME_FOR_EXPLOSION)
+                if (timeOnTarget > TIME_FOR_EXPLOSION || beam.getWeapon().getId().equals("apex_fusion_fighter"))
                 {
                     hitTargets.add(target);
                     Vector2f point = beam.getRayEndPrevFrame();

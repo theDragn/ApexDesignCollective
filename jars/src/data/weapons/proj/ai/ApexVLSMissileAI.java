@@ -59,6 +59,9 @@ public class ApexVLSMissileAI implements MissileAIPlugin, GuidedMissileAI
      * The missile will pick the closest target of interest. Useful for custom MIRVs.
      *
      */
+
+    // note that the VLS firing script overrides this initial targeting
+    // so this only comes into play if the initial target is lost
     private final MagicTargeting.targetSeeking seeking = MagicTargeting.targetSeeking.FULL_RANDOM;
 
     //Target class priorities
@@ -151,8 +154,7 @@ public class ApexVLSMissileAI implements MissileAIPlugin, GuidedMissileAI
         if (target == null
                 || (TARGET_SWITCH
                 && ((target instanceof ShipAPI && !((ShipAPI) target).isAlive())
-                || !engine.isEntityInPlay(target))
-        )
+                || !engine.isEntityInPlay(target)))
         )
         {
             setTarget(
@@ -235,21 +237,11 @@ public class ApexVLSMissileAI implements MissileAIPlugin, GuidedMissileAI
             correctAngle = correctAngle + correction;
         }
 
-        if (WAVE_AMPLITUDE > 0)
-        {
-            //waving
-            float multiplier = 1;
-            if (ECCM <= 1)
-            {
-                multiplier = 0.3f;
-            }
-            correctAngle += multiplier * WAVE_AMPLITUDE * check * Math.cos(OFFSET + MISSILE.getElapsed() * (2 * MathUtils.FPI / WAVE_TIME));
-        }
 
         //target angle for interception
         float aimAngle = MathUtils.getShortestRotation(MISSILE.getFacing(), correctAngle);
 
-        if (OVERSHOT_ANGLE <= 0 || Math.abs(aimAngle) < OVERSHOT_ANGLE)
+        if (Math.abs(aimAngle) < OVERSHOT_ANGLE)
         {
             MISSILE.giveCommand(ShipCommand.ACCELERATE);
         }
@@ -261,6 +253,7 @@ public class ApexVLSMissileAI implements MissileAIPlugin, GuidedMissileAI
         {
             MISSILE.giveCommand(ShipCommand.TURN_LEFT);
         }
+        // this is the special stuff
         // only gets strafe tracking if ship has ECCM
         if (ECCM == 1)
         {
@@ -269,8 +262,12 @@ public class ApexVLSMissileAI implements MissileAIPlugin, GuidedMissileAI
             // relative velocity angle; 0 deg is "relative velocity is directly forwards from missile facing"
             float relativeVelAngle = MathUtils.getShortestRotation(VectorUtils.getAngle(Misc.ZERO, relativeVelToTarget), MISSILE.getFacing());
             // only begin strafing to zero out relative velocities if we're close to the target
+            // this prevents clumping up early on, helping missiles converge from multiple directions and overwhelm PD
             if (MathUtils.getDistanceSquared(MISSILE.getLocation(), target.getLocation()) < 400 * 400)
             {
+                // this could be zero degrees instead of 10, it would work fine
+                // but we leave a little bit of wiggle room to get some missiles to miss very fast-maneuvering targets on their first pass
+                // really amps up the feel if a few miss and then come right back around to smack em
                 if (relativeVelAngle < -10f)
                 {
                     MISSILE.giveCommand(ShipCommand.STRAFE_RIGHT);
