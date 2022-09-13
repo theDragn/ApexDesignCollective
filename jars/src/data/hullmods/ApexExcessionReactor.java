@@ -36,7 +36,7 @@ public class ApexExcessionReactor extends BaseHullMod
 
     public static final float ARC_SIPHON_AMOUNT = 25f; // armor stored per hit
     public static final float MAX_STORED_ARMOR = 1000f;
-    public static final float REPAIR_RATE = 25f; // flat armor repaired per second
+    public static final float REPAIR_RATE = 15f; // flat armor repaired per second
 
     public static final Color CHARGE_COLOR = new Color(89, 170, 255);
 

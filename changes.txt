@@ -1,19 +1,38 @@
-Tachyon Drivers: Significantly reduced EMP damage. Had too much EMP DPS for their range after the buff.
-Geodesic Shield Matrix: Frag damage that penetrates the shield remains frag damage instead of being converted to energy (vulcans were far too good at shredding armor through the shield).
-Gecko Interceptor Wing: Increased armor (100 -> 150)
-Anole Heavy Fighter Wing: Buffed these a bit to justify their cost. Increased armor (200 -> 250) and hull (700 -> 750), slighly improved coilgun total DPS (~180 -> 200), improved fusion beam DPS by increasing the rate of fire, shifting more damage into the on-hit effect, and decreased replacement time (18s -> 15s).
+Lots of balance fiddling and two new bounties.
+
+Weapons:
+- Taipan VLS-15K (Kinetic VLS on the Crocodile): Discovered that the weapon card was lying about the hard flux on hit (it did more than the listed amount). Oops. Buffed it anyways,, since it seemed like nobody used them. Now deals 75 hard flux on shield hit (for real this time) and 50 soft flux on armor hit. Note that this ignores damage modifiers (like armor or shields) when adding flux, just like the Arcspikes and Disruption Propagator.
+- Tachyon Drivers: Significantly reduced EMP damage. Had *way* too much EMP DPS for their range after they got bumped up to 800 (oops).
+- Sledgehammer Cluster Launcher: Increased ammo (5 -> 8 salvos) and slightly increased fire rate (25s -> 22s). Was nasty when it was useful, but otherwise meh because of the ammo limitations.
+- Sledgehammer Launcher/Pod: Increased ammo (3 -> 4 shots for small, 4 -> 5 salvos for medium). The painfully slow speed on these makes them pretty situational, particularly the small. More ammo means whiffing doesn't hurt as much.
+- Nanoacid Torpedo Launcher/Pod: Improved reload time (5 -> 4 seconds), and increased ammo by 33%. Low shield damage and an inability to be ripple-fired meant that Hammers were usually a better pick.
+- Nanoacid Cannons: Some people ~~complained~~ mentioned that these felt weak, especially the medium. Small one just got the efficiency improved (1.4 -> 1.33), medium got ~20% more rate of fire for ~7% more flux/sec. 
+
+Hullmods:
+- Geodesic Shield Matrix: Frag damage that penetrates the shield remains frag damage instead of being converted to energy (since it was turning vulcans into 500dps energy guns that ignored shields). Smaller ships now have a lower multiplier to bleedthrough damage, so it's actually worthwhile on smaller ships. Slightly increased OP cost for frigates and destroyers (3 -> 4 and 6 -> 8, respectively).
+- Limited Magazines (the missile limiting hullmod on the Python): Reworked to make it less jank. Missile weapons now cost 1/2/4 points to mount; the hull can take up to 2/4/6/8 points of missiles. Multiplies missile fire rate by 0.9x for each point above the cap.
+- Nanolaminate Plating: Now blocks Iron Shell's Vaingloria armor hullmod. Sorry.
+
+Ships and Fighters:
+- Gecko Interceptor Wing: Increased armor (100 -> 150). Kinda fragile for a 16 OP fighter.
+- Chameleon Support Wing: Added lore.
+- Anole Heavy Fighter Wing: Buffed these a bit to justify their cost and relative fragility compared to shielded superheavy fighters. Increased hull (700 -> 750), coilgun total DPS (~180 -> 200), and fusion beam DPS (dps is technically unchanged, but it fires more often, so it procs the on-hit more), and decreased replacement time (18s -> 15s).
+- Alligator: Reduced flux dissipation by 25. Probably shouldn't have the same dissipation as an Eagle when it costs less.
+- Excession: Reduced base repair rate (25/s -> 15/s) and hull HP (3000 -> 2500). Increased cloak upkeep cost by 33%.
+- Mamba: System is now more likely to banish projectiles headed towards the ship. 
+- Komodo and Caiman: Greatly increased retaliatory projectile HP (200 -> 500) and EMP damage (100 -> 400).
+- Caiman: Increased armor (600 -> 700). Slot layout feelt kinda weak despite its excellent dissipation, so some more durability should help.
+- Spectrum: Deleted militarized tanker and hauler variants (just the autofits, not the hullmods) since player colony fleets were STILL using them instead of the combat variants. (This matters because the refit versions have less autoresolve power.) 
+
+TODO:
+
+- touhou mod needs guns added to python system list
+- ed shipyard too
+- Kommok and Odomodo bounty (2x large one has projectile-spewing system, 6x med one has augmented temporal damper)
+- Summit ("Everest"?) bounty (has temporal shell instead of temporal damper)
 
 
-Changes:
-- Lacerta: Increased max flux (2500 -> 3000) to bring its effective HP more in line with other high-end frigates.
-- Tachyon Drivers: Increased range by 200, to 700/800 for the small/medium. Removed magazine system from small. Increased re-fire time to 1.5 sec. Excellent range for energy weapons, but poor projectile velocity and armor penetration. Useful for ships that want to rangematch ballistics with energies.
-Fixes:
-- Reworked the "add to existing save" functionality, hopefully fixing a rare bug that could cause Apex to reset its relations with other factions.
-
-Todo, eventaully:
-- Tuatara-class destroyer. 13 DP. Basically half a Crocodile. Two Taipan-6 missile pods and three nozzles. System is Arcmine Dispenser.
+NEEDS SPRITIN':
+- Tuatara-class destroyer. 13 DP. System is Arcmine Dispenser. Equipped with 2 (1?) Rainbow SLRM Launchers. Rainbow Strategic Long-Range Missiles are standoff weapons equipped with a single-use Ultrachromatic Beam Generator that deals a significant amount of energy damage over a medium duration. Ultrachromatic beams cause targets to become rainbow and take additional damage. (ADD TRANS AND BI FLAG OPTIONS)
 - Anaconda-class phase battlecruiser. System is temporal siphon; steals timeflow from nearby ships. Probably 1x large, 6x med?
-- consider a line of synergy weapons (toroid mortars)
-	- energy stats, fires a slow, guided, interceptable plasma ring
-	- big aoe, real good energy damage (1000/shot, regens 1 every 10s?)
-- Sonora-class utility cruiser. 1x large uni hardpoint, 2x medium energy, some PD mounts, 1x bay. Salvage gantry, repair gantry hullmod. Good base speed, probably? Maybe a lighter cruiser than the alligator.
+- Sonora-class utility cruiser. Mounts???? Salvage gantry, repair gantry hullmod. Good base speed, probably? Aiming for 18 DP.

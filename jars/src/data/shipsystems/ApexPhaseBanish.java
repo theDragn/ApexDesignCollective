@@ -5,8 +5,10 @@ import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
 import com.fs.starfarer.api.util.Misc;
+import com.fs.starfarer.api.util.WeightedRandomPicker;
 import data.ApexUtils;
 import org.lazywizard.lazylib.MathUtils;
+import org.lazywizard.lazylib.VectorUtils;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -35,19 +37,19 @@ public class ApexPhaseBanish extends BaseShipSystemScript
             runOnce = true;
             float rangeSquared = ship.getMutableStats().getSystemRangeBonus().computeEffective(RANGE);
             rangeSquared = rangeSquared * rangeSquared;
-            ArrayList<CombatEntityAPI> banishTargets = new ArrayList<>();
+            WeightedRandomPicker<CombatEntityAPI> banishTargets = new WeightedRandomPicker<>();
             for (MissileAPI missile : engine.getMissiles())
             {
                 if (missile.getOwner() != ship.getOwner() && MathUtils.getDistanceSquared(missile.getLocation(), ship.getLocation()) < rangeSquared)
                 {
-                    banishTargets.add(missile);
+                    banishTargets.add(missile, getWeight(missile, ship));
                 }
             }
             for (DamagingProjectileAPI proj : engine.getProjectiles())
             {
                 if (proj.getOwner() != ship.getOwner() && MathUtils.getDistanceSquared(proj.getLocation(), ship.getLocation()) < rangeSquared)
                 {
-                    banishTargets.add(proj);
+                    banishTargets.add(proj, getWeight(proj, ship));
                 }
             }
             for (ShipAPI otherShip : engine.getShips())
@@ -55,14 +57,14 @@ public class ApexPhaseBanish extends BaseShipSystemScript
                 if (!otherShip.getHullSize().equals(ShipAPI.HullSize.FIGHTER) || otherShip.getOwner() == ship.getOwner())
                     continue;
                 if (MathUtils.getDistanceSquared(otherShip.getLocation(), ship.getLocation()) < rangeSquared)
-                    banishTargets.add(otherShip);
+                    banishTargets.add(otherShip, 28000);
             }
             if (banishTargets.isEmpty())
                 return;
             float remainingDamage = MAX_DAMAGE;
-            Collections.shuffle(banishTargets, Misc.random);
-            for (CombatEntityAPI target : banishTargets)
+            while (remainingDamage > 0 && !banishTargets.isEmpty())
             {
+                CombatEntityAPI target = banishTargets.pickAndRemove();
                 if (target instanceof MissileAPI)
                 {
                     doRemoveVFX(target);
@@ -81,14 +83,18 @@ public class ApexPhaseBanish extends BaseShipSystemScript
                     doRemoveVFX(target);
                     engine.applyDamage(target, target.getLocation(), 500, DamageType.ENERGY, 100, false, false, ship);
                 }
-                if (remainingDamage <= 0f)
-                    break;
             }
-
         }
 
         ship.setJitterUnder(this, JITTER_UNDER_COLOR, effectLevel, 11, 0f, 3f + effectLevel * 25f);
         ship.setJitter(this, JITTER_COLOR, effectLevel, 4, 0f, 0 + effectLevel * 25f);
+    }
+
+    private static float getWeight(CombatEntityAPI target, CombatEntityAPI self)
+    {
+        float angleTo = VectorUtils.getAngle(target.getLocation(), self.getLocation());
+        float delta = MathUtils.getShortestRotation(target.getFacing(), angleTo);
+        return (180 - delta) * (180 - delta); // maximum weight is facing directly at ship, minimum weight is facing directly away from ship
     }
 
     private void doRemoveVFX(CombatEntityAPI entity)

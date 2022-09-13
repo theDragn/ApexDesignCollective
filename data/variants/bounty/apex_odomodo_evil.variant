@@ -1,0 +1,18 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 7,
+    "fluxVents": 25,
+    "goalVariant": true,
+    "hullId": "apex_bounty_odomodo",
+    "hullMods": [
+        "targetingunit",
+        "apex_armor_repairer",
+        "apex_geodesic_shield"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_odomodo_evil",
+    "weaponGroups": [
+    ],
+    "wings": ["apex_chameleon_wing"]
+}

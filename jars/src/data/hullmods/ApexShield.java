@@ -27,8 +27,16 @@ public class ApexShield extends BaseHullMod
     private Map<ShipAPI, ApexShieldTracker> trackerMap = new HashMap<>(); // stores the base shield arc for each ship when deployed
 
     public static final float DAMAGE_REDUCTION = 20f; // reduces incoming damage/beam dps by this flat amount
-    public static final float TRANSFER_MULT = 1.25f;
+    //public static final float TRANSFER_MULT = 1.25f;
     public static final float CUTOFF_FRACTION = 0.3f;
+    private static final HashMap<ShipAPI.HullSize, Float> MULT_MAP = new HashMap<>();
+    static {
+        MULT_MAP.put(ShipAPI.HullSize.FIGHTER, 0.5f);
+        MULT_MAP.put(ShipAPI.HullSize.FRIGATE, 0.66f);
+        MULT_MAP.put(ShipAPI.HullSize.DESTROYER, 0.8f);
+        MULT_MAP.put(ShipAPI.HullSize.CRUISER, 1.1f);
+        MULT_MAP.put(ShipAPI.HullSize.CAPITAL_SHIP, 1.25f);
+    }
 
     public static final float UNFOLD_BONUS = 50f;
     public static final float SMOD_ARC_BONUS = 60f;
@@ -250,7 +258,7 @@ public class ApexShield extends BaseHullMod
         {
             Global.getCombatEngine().applyDamage(target,
                     bypassloc,
-                    remainingDamage * TRANSFER_MULT,
+                    remainingDamage * MULT_MAP.get(((ShipAPI)target).getHullSize()),
                     isFrag ? DamageType.FRAGMENTATION : DamageType.ENERGY,
                     0f,
                     true,
@@ -273,15 +281,19 @@ public class ApexShield extends BaseHullMod
             float pad = 10f;
             tooltip.addSectionHeading("Details", Alignment.MID, pad);
 
-            tooltip.addPara("\n• Shields take %s less flat damage from projectile hits. \n• Shields take %s less flat damage per second from beams.",
+            tooltip.addPara("\n• Shields take %s less flat damage from projectile hits. \n• Shields take %s less flat damage per second from beams. \n• The flat reduction occurs before damage type and shield bonuses.",
                     0,
                     Misc.getHighlightColor(),
                     (int) (DAMAGE_REDUCTION) + "", (int) (DAMAGE_REDUCTION) + "");
-            Color[] colors = {ENG_COLOR, Misc.getHighlightColor()};
-            tooltip.addPara("• Each time this prevents damage, the ship's armor takes %s damage equal to %s of the prevented damage.",
+            Color[] colors = {ENG_COLOR, Misc.getHighlightColor(), Misc.getHighlightColor(), Misc.getHighlightColor(), Misc.getHighlightColor()};
+            tooltip.addPara("• Each time this prevents damage, the ship's armor takes %s damage equal to %s/%s/%s/%s of the prevented damage.",
                     0,
                     colors,
-                    "energy", (int) (TRANSFER_MULT * 100) + "%");
+                    "energy",
+                    (int) (MULT_MAP.get(ShipAPI.HullSize.FRIGATE) * 100) + "%",
+                    (int) (MULT_MAP.get(ShipAPI.HullSize.DESTROYER) * 100) + "%",
+                    (int) (MULT_MAP.get(ShipAPI.HullSize.CRUISER) * 100) + "%",
+                    (int) (MULT_MAP.get(ShipAPI.HullSize.CAPITAL_SHIP) * 100) + "%");
             tooltip.addPara("• The damage reduction decreases proportionally with the ship's armor, becoming ineffective at %s armor.",
                     0,
                     Misc.getHighlightColor(),

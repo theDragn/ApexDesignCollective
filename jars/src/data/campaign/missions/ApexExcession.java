@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 // this is mostly a modification of the "surplus hull" mission
-// superceded by ApexExcessionEvent
+// dear future me: good luck figuring this one out, asshole
 public class ApexExcession extends HubMissionWithBarEvent
 {
     protected FleetMemberAPI excession;
@@ -78,7 +78,7 @@ public class ApexExcession extends HubMissionWithBarEvent
 
         // create excession to give to the player
         ShipVariantAPI variant = Global.getSettings().getVariant("apex_excession_Hull").clone();
-
+        variant.addTag(Tags.SHIP_UNIQUE_SIGNATURE);
         excession = Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant);
         assignShipName(excession, "apex_design");
         // TODO: small chance of funny names
@@ -113,6 +113,9 @@ public class ApexExcession extends HubMissionWithBarEvent
         set("$apexPrototype_rankAOrAn", getPerson().getRankArticle());
         set("$apexPrototype_hisOrHer", getPerson().getHisOrHer());
         set("$apexPrototype_member", excession);
+        // TODO: make them randomly prefer enbies? idk maybe that's chaser-ish
+        // are enbies common enough that it would be justified to list that as a preference?
+        //
         set("$apexPrototype_menOrWomen", (Misc.random.nextBoolean() ? "men" : "women")); // your contact's sexuality is randomized
     }
 

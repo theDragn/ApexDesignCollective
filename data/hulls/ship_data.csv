@@ -7,19 +7,19 @@ Eidolon,apex_eidolon,Battlecruiser,Apex Design Collective,apex_heavy_skimmer,24,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Cruisers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Spectrum,apex_spectrum,Carrier,Apex Design Collective,apex_remote_damper,16,6500,600,6000,,350,100,2,55,50,40,20,20,900,OMNI,,180,0.3,0.9,,,100,200,100,60,3,20,8,150000,10,25,480,0.25,28,28,CARRIER,apex_hulls,,0.33,2,3,,1312
-Alligator,apex_alligator,Cruiser,Apex Design Collective,apex_inertial_skimmer,14,8000,750,9250,,600,150,,65,50,35,15,20,1200,OMNI,,180,0.3,0.9,,,100,200,150,100,3,33,8,120000,10,25,480,0.25,20,20,,apex_hulls,,0.5,2,3,,1312
+Alligator,apex_alligator,Cruiser,Apex Design Collective,apex_inertial_skimmer,14,8000,750,9250,,575,150,,65,50,35,15,20,1200,OMNI,,180,0.3,0.9,,,100,200,150,100,3,33,8,120000,10,25,480,0.25,20,20,,apex_hulls,,0.5,2,3,,1312
 Komodo,apex_komodo,Heavy Cruiser,Apex Design Collective,apex_thorns,19,10000,1150,10000,,750,185,1,45,35,35,15,15,1750,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,COMBAT,rare_bp,,0.25,2,3,,69420
 # Sonora,,Utility Rig,,apex_microburn,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Crocodile,apex_crocodile,Missile Cruiser,Apex Design Collective,apex_rapid_loader,15,8000,950,10000,,600,140,,50,40,35,15,15,1500,OMNI,,180,0.3,0.9,,,125,250,200,100,3,33,8,140000,10,25,480,0.25,26,26,,apex_hulls,,0.33,2,3,,1312
 Python,apex_python,Phase Cruiser,Apex Design Collective,apex_bifurcator,22,8000,1300,10000,,850,145,,70,55,40,30,40,1200,PHASE,apex_phasecloak,,,,0.05,0.04,50,100,120,150,3,50,8,250000,7.5,25,420,0.25,35,35,PHASE,rare_bp,,0.5,2,3,,111111
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Destroyers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Caiman,apex_caiman,Destroyer,Apex Design Collective,apex_thorns,10,5000,400,4200,,425,95,,85,60,40,30,60,400,OMNI,,180,0.3,0.9,,,50,75,100,60,2,30,9,40000,10,25,360,0.25,10,10,,apex_hulls,,0.5,2,3,,1312
+Caiman,apex_caiman,Destroyer,Apex Design Collective,apex_thorns,10,5000,500,4200,,425,95,,85,60,40,30,60,400,OMNI,,180,0.3,0.9,,,50,75,100,60,2,30,9,40000,10,25,360,0.25,10,10,,apex_hulls,,0.5,2,3,,1312
 Gharial,apex_gharial,Destroyer,Apex Design Collective,apex_microburn,9,4000,400,4200,,400,95,,120,100,100,45,90,400,OMNI,,180,0.3,0.9,,,50,75,100,60,2,30,10,40000,10,25,360,0.25,9,9,,apex_hulls,,0.5,2,3,,1312
 Backscatter,apex_backscatter,Carrier,Apex Design Collective,apex_remote_damper,10,4000,400,2500,,200,70,2,75,60,40,30,45,400,OMNI,,180,0.3,0.9,,,50,100,100,50,2,25,10,45000,10,25,360,0.25,12,12,CARRIER,apex_hulls,,0.5,2,3,,1312
 Najash,apex_najash,Dropship,Apex Design Collective,apex_microburn,6,3500,400,2250,,100,40,,80,60,60,30,45,400,OMNI,,180,0.3,0.9,,,10,250,50,80,2,40,10,35000,10,25,360,0.25,8,8,"CIVILIAN, TRANSPORT",apex_hulls,,0.5,2,3,,7
 # Tuatara,,"??? Another destroyer. Taipans, maybe?",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-# Boa,,Phase Destroyer,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# Boa,,Phase Destroyer,,apex_temporal_siphon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Frigates,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Lacerta,apex_lacerta,Frigate,Apex Design Collective,apex_arc_mine,8,2000,400,3000,,225,55,,150,200,175,90,270,200,OMNI,,180,0.2,0.9,,,15,25,30,25,1,25,11,15000,20,25,210,0.25,8,8,,apex_hulls,,0.4,2,2,,1312
@@ -37,8 +37,10 @@ Anole,apex_fighter_anole,,Apex Design Collective,apex_inertial_skimmer,,750,250,
 Gecko,apex_fighter_gecko,,Apex Design Collective,,,400,150,200,,75,0,,250,500,500,360,720,10,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,69
 Chameleon,apex_fighter_chameleon,,Apex Design Collective,,,600,100,300,,75,0,,175,175,175,180,360,20,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,69
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,,,,42069
-# Export Hulls,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# Export Hulls (should probably do more of these but I'm lazy),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Apotheosis (RG),apex_apotheosis_rg,Battlecruiser,Red Guards,apex_microburn,23,10000,1100,13500,,650,215,,50,25,25,15,15,2000,OMNI,,180,0.3,0.9,,,350,500,300,240,8,30,8,250000,10,25,720,0.25,38,38,,"revolutionary, vayra_red_army",,0.33,2,3,,1312
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 "# secret (I guess it's really not that secret if it's in here but I don't have that many options, y'know?)",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Excession,apex_excession,Phase Destroyer,Apex Design Collective,apex_excessionsys,20,3000,1000,5000,,400,50,,90,250,250,230,230,400,PHASE,apex_excessionphase,,,,0.03,0.06,5,10,100,60,1,60,10,2000000,10,25,360,0.25,40,40,"PHASE, HIDE_IN_CODEX",no_dealer,,0.5,2,3,,1312
+Excession,apex_excession,Phase Destroyer,Apex Design Collective,apex_excessionsys,150,2500,1000,5000,,400,50,,90,250,250,230,230,400,PHASE,apex_excessionphase,,,,0.03,0.08,5,10,100,60,1,60,10,2000000,10,25,360,0.25,40,40,"PHASE, HIDE_IN_CODEX",no_dealer,,0.5,2,3,,1312
+Kommok,apex_bounty_kommok,Heavy Cruiser,Apex Design Collective,temporalshell,25,10000,1150,10000,,750,195,1,45,35,35,15,15,1750,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,COMBAT,rare_bp,,0.25,2,3,,69420
+Odomodo,apex_bounty_odomodo,Heavy Cruiser,Apex Design Collective,apex_bounty_superdamper,25,10000,1150,10000,,750,195,1,45,35,35,15,15,1750,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,COMBAT,rare_bp,,0.25,2,3,,69420

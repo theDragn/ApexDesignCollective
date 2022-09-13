@@ -23,7 +23,7 @@ public class ApexArcspikeOnHit implements OnHitEffectPlugin
             if (Misc.shouldShowDamageFloaty(proj.getSource(), (ShipAPI) target)) {
                 engine.addFloatingDamageText(point, damage, Misc.FLOATY_SHIELD_DAMAGE_COLOR, target, proj.getSource());
             }
-        } else if (!shieldhit && target instanceof ShipAPI && Misc.random.nextFloat() <= ARC_CHANCE && !proj.getProjectileSpecId().equals("apex_vls_kin_missile"))
+        } else if (!shieldhit && target instanceof ShipAPI && Misc.random.nextFloat() <= ARC_CHANCE)
         {
             engine.spawnEmpArc(proj.getSource(), point, target, target,
                     DamageType.ENERGY,

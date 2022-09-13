@@ -7,6 +7,7 @@ import com.fs.starfarer.api.campaign.econ.MarketAPI;
 
 import java.util.ArrayList;
 
+// ensures that the event is in the market a
 public class ApexExcessionAdder extends BaseCampaignEventListener
 {
     public ApexExcessionAdder()

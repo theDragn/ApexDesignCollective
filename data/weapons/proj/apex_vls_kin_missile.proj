@@ -3,7 +3,7 @@
 	"specClass":"missile",	
 	"missileType":"MISSILE",
 	"sprite":"graphics/missiles/apex_vls_kin.png",
-	"onHitEffect":"data.weapons.proj.ApexArcspikeOnHit",
+	"onHitEffect":"data.weapons.proj.ApexKinVLSOnHit",
 	"size":[6,14],	
 	"center":[3,7],
 	"collisionRadius":10,
