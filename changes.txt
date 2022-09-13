@@ -3,9 +3,10 @@ Lots of balance fiddling and two new bounties.
 Weapons:
 - Taipan VLS-15K (Kinetic VLS on the Crocodile): Discovered that the weapon card was lying about the hard flux on hit (it did more than the listed amount). Oops. Buffed it anyways,, since it seemed like nobody used them. Now deals 50 hard flux on shield hit (for real this time) and 50 soft flux on armor hit. Note that this ignores damage modifiers (like armor or shields) when adding flux, just like the Arcspikes and Disruption Propagator.
 - Tachyon Drivers: Significantly reduced EMP damage. Had *way* too much EMP DPS for their range after they got bumped up to 800 (oops).
-- Sledgehammer Cluster Launcher: Increased ammo (5 -> 8 salvos) and slightly increased fire rate (25s -> 22s). Was nasty when it was useful, but otherwise meh because of the ammo limitations.
+- Sledgehammer Cluster Launcher: Increased ammo (5 -> 8 salvos) and slightly increased fire rate (25s -> 22s). Was nasty when it was useful, but a hard pick because of the ammo limitations.
 - Sledgehammer Launcher/Pod: Increased ammo (3 -> 4 shots for small, 4 -> 5 salvos for medium). The painfully slow speed on these makes them pretty situational, particularly the small. More ammo means whiffing doesn't hurt as much.
 - Nanoacid Torpedo Launcher/Pod: Improved reload time (5 -> 4 seconds), and increased ammo by 33%. Low shield damage and an inability to be ripple-fired meant that Hammers were usually a better pick.
+- Nanoacid Torpedo Repeater: Very slightly reduced spread (11 deg -> 10 deg).
 - Nanoacid Cannons: Some people ~~complained~~ mentioned that these felt weak, especially the medium. Small one just got the efficiency improved (1.4 -> 1.33), medium got ~20% more rate of fire for ~7% more flux/sec. 
 
 Hullmods:
@@ -15,14 +16,14 @@ Hullmods:
 
 Ships and Fighters:
 - Gecko Interceptor Wing: Increased armor (100 -> 150). Kinda fragile for a 16 OP fighter.
-- Chameleon Support Wing: Added lore.
+- Chameleon Support Wing: Added lore in the codex entry.
 - Anole Heavy Fighter Wing: Buffed these a bit to justify their cost and relative fragility compared to shielded superheavy fighters. Increased hull (700 -> 750), coilgun total DPS (~180 -> 200), and fusion beam DPS (dps is technically unchanged, but it fires more often, so it procs the on-hit more), and decreased replacement time (18s -> 15s).
 - Alligator: Reduced flux dissipation by 25. Probably shouldn't have the same dissipation as an Eagle when it costs less.
 - Excession: Reduced base repair rate (25/s -> 15/s) and hull HP (3000 -> 2500). Increased cloak upkeep cost by 33%.
 - Mamba: System is now more likely to banish projectiles headed towards the ship. 
 - Komodo and Caiman: Greatly increased retaliatory projectile HP (200 -> 500) and EMP damage (100 -> 400).
 - Caiman: Increased armor (600 -> 700). Slot layout feelt kinda weak despite its excellent dissipation, so some more durability should help.
-- Spectrum: Deleted militarized tanker and hauler variants (just the autofits, not the hullmods) since player colony fleets were STILL using them instead of the combat variants. (This matters because the refit versions have less autoresolve power.) 
+- Spectrum: Player colony fleets won't use the militarized cargo/fuel fits, for real this time. Had to remove the militarized autofit variants to fix this; the hullmods are unchanged.
 
 TODO:
 
