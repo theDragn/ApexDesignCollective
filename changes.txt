@@ -1,7 +1,7 @@
 Lots of balance fiddling and two new bounties.
 
 Weapons:
-- Taipan VLS-15K (Kinetic VLS on the Crocodile): Discovered that the weapon card was lying about the hard flux on hit (it did more than the listed amount). Oops. Buffed it anyways,, since it seemed like nobody used them. Now deals 75 hard flux on shield hit (for real this time) and 50 soft flux on armor hit. Note that this ignores damage modifiers (like armor or shields) when adding flux, just like the Arcspikes and Disruption Propagator.
+- Taipan VLS-15K (Kinetic VLS on the Crocodile): Discovered that the weapon card was lying about the hard flux on hit (it did more than the listed amount). Oops. Buffed it anyways,, since it seemed like nobody used them. Now deals 50 hard flux on shield hit (for real this time) and 50 soft flux on armor hit. Note that this ignores damage modifiers (like armor or shields) when adding flux, just like the Arcspikes and Disruption Propagator.
 - Tachyon Drivers: Significantly reduced EMP damage. Had *way* too much EMP DPS for their range after they got bumped up to 800 (oops).
 - Sledgehammer Cluster Launcher: Increased ammo (5 -> 8 salvos) and slightly increased fire rate (25s -> 22s). Was nasty when it was useful, but otherwise meh because of the ammo limitations.
 - Sledgehammer Launcher/Pod: Increased ammo (3 -> 4 shots for small, 4 -> 5 salvos for medium). The painfully slow speed on these makes them pretty situational, particularly the small. More ammo means whiffing doesn't hurt as much.

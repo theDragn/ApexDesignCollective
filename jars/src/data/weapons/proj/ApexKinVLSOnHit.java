@@ -9,7 +9,7 @@ import org.lwjgl.util.vector.Vector2f;
 public class ApexKinVLSOnHit implements OnHitEffectPlugin
 {
 
-    public static final float SHIELD_HIT_FLUX_FRAC = 0.75f;
+    public static final float SHIELD_HIT_FLUX_FRAC = 0.50f;
     public static final float ARMOR_HIT_FLUX_FRAC = 0.50f;
 
     @Override
