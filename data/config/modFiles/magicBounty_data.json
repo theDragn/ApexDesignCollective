@@ -140,8 +140,8 @@
 		"job_deadline":60,
 		"job_reputation_reward":10,
 		"job_item_reward": {
-			"weapon_bp apex_disruptor": 1,
-			"ship_bp apex_komodo": 1,
+			"weapon_bp apex_dartgun": 1,
+			"weapon_bp apex_sledgehammer_large": 1,
 			"crew": 100
 		},
 		"job_credit_reward":150000,

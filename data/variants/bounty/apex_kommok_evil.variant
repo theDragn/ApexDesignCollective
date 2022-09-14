@@ -1,18 +1,48 @@
 {
-    "displayName": "Standard",
-    "fluxCapacitors": 7,
-    "fluxVents": 25,
+    "displayName": "Mirrored",
+    "fluxCapacitors": 11,
+    "fluxVents": 10,
     "goalVariant": true,
     "hullId": "apex_bounty_kommok",
     "hullMods": [
-        "targetingunit",
-        "apex_armor_repairer",
-        "apex_geodesic_shield"
+        "apex_geodesic_shield",
+        "safetyoverrides"
     ],
     "permaMods": [],
     "sMods": [],
     "variantId": "apex_kommok_evil",
     "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0013": "plasma",
+                "WS0014": "plasma"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0001": "sabot",
+                "WS0002": "sabot",
+                "WS0003": "sabot",
+                "WS0004": "sabot"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "vulcan",
+                "WS0006": "vulcan",
+                "WS0007": "vulcan",
+                "WS0008": "vulcan",
+                "WS0009": "vulcan",
+                "WS0010": "vulcan",
+                "WS0011": "vulcan"
+            }
+        }
     ],
     "wings": ["apex_chameleon_wing"]
 }
