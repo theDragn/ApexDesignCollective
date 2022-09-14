@@ -16,26 +16,15 @@ Hullmods:
 - Nanolaminate Plating: Now blocks Iron Shell's Vaingloria armor hullmod. Sorry.
 
 Ships and Fighters:
-<<<<<<< Updated upstream
-- Gecko Interceptor Wing: Increased armor (100 -> 150). Kinda fragile for a 16 OP fighter.
-- Chameleon Support Wing: Added lore in the codex entry.
-- Anole Heavy Fighter Wing: Buffed these a bit to justify their cost and relative fragility compared to shielded superheavy fighters. Increased hull (700 -> 750), coilgun total DPS (~180 -> 200), and fusion beam DPS (dps is technically unchanged, but it fires more often, so it procs the on-hit more), and decreased replacement time (18s -> 15s).
-=======
 - Gecko Interceptor Wing: Increased armor (100 -> 150). Kinda fragile for a 16 OP fighter. (Damn Broadswords at it again.)
 - Chameleon Support Wing: Added lore.
 - Anole Heavy Fighter Wing: Buffed these a bit to justify their cost and relative fragility compared to shielded superheavy fighters. Increased hull (700 -> 750), coilgun total DPS (~180 -> 200), fusion beam DPS (dps is technically unchanged, but it fires more often, so it procs the on-hit more), and decreased replacement time (18s -> 15s). The fighter fusion beam also now triggers the explosion instantly, instead of after a delay, since maneuvering fighters had a very hard time holding the beam on target long enough to trigger it reliably.
->>>>>>> Stashed changes
 - Alligator: Reduced flux dissipation by 25. Probably shouldn't have the same dissipation as an Eagle when it costs less.
 - Excession: Reduced base repair rate (25/s -> 15/s) and hull HP (3000 -> 2500). Increased cloak upkeep cost by 33%.
 - Mamba: System is now more likely to banish projectiles headed towards the ship. 
 - Komodo and Caiman: Greatly increased retaliatory projectile HP (200 -> 500) and EMP damage (100 -> 400).
-<<<<<<< Updated upstream
 - Caiman: Increased armor (600 -> 700). Slot layout feelt kinda weak despite its excellent dissipation, so some more durability should help.
 - Spectrum: Player colony fleets won't use the militarized cargo/fuel fits, for real this time. Had to remove the militarized autofit variants to fix this; the hullmods are unchanged.
-=======
-- Caiman: Increased armor (600 -> 700). Slot layout is kinda weak compared to its competitors (sunder and manticore), so some more durability should help.
-- Spectrum: Deleted militarized tanker and hauler variants (just the autofits, not the hullmods) since player colony fleets were STILL using them instead of the combat variants. (This matters because the refit versions have less autoresolve power.) 
->>>>>>> Stashed changes
 
 TODO:
 
