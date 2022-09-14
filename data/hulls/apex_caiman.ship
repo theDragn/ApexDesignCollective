@@ -35,8 +35,8 @@
       "mount": "TURRET",
       "arc": 194,
       "angle": 45,
-      "renderOrderMod": 200,
-      "locations": [14.5, 24]
+      "locations": [14.5, 24],
+      "renderOrderMod": 200
     },
     {
       "id": "WS0003",
@@ -45,8 +45,8 @@
       "mount": "TURRET",
       "arc": 194,
       "angle": -45,
-      "renderOrderMod": 200,
-      "locations": [14.5, -24]
+      "locations": [14.5, -24],
+      "renderOrderMod": 200
     },
     {
       "id": "WS0004",
@@ -55,7 +55,8 @@
       "mount": "TURRET",
       "arc": 194,
       "angle": 90,
-      "locations": [-6.5, 32]
+      "locations": [-6.5, 32],
+      "renderOrderMod": 99
     },
     {
       "id": "WS0005",
@@ -64,7 +65,8 @@
       "mount": "TURRET",
       "arc": 194,
       "angle": -90,
-      "locations": [-6.5, -32]
+      "locations": [-6.5, -32],
+      "renderOrderMod": 99
     },
     {
       "id": "WS0006",
