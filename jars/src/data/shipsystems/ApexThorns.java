@@ -13,6 +13,7 @@ import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
 import java.util.EnumSet;
+import java.util.HashMap;
 
 public class ApexThorns extends BaseShipSystemScript
 {
@@ -21,6 +22,15 @@ public class ApexThorns extends BaseShipSystemScript
     public static final float DAMAGE_PER_PROJ = 400f;
     public static final float SPREAD = 30f;
     public static final float VELOCITY_SPREAD = 0.3f;
+
+    public static HashMap<ShipAPI.HullSize, Float> DR_MAP = new HashMap<>();
+    static
+    {
+        DR_MAP.put(ShipAPI.HullSize.FRIGATE, 0.33f);
+        DR_MAP.put(ShipAPI.HullSize.DESTROYER, 0.33f);
+        DR_MAP.put(ShipAPI.HullSize.CRUISER, 0.5f);
+        DR_MAP.put(ShipAPI.HullSize.CAPITAL_SHIP, 0.5f);
+    }
 
     private ApexThornsListener thornsListener;
     private WeaponAPI dummyWep;
@@ -94,9 +104,7 @@ public class ApexThorns extends BaseShipSystemScript
     {
         effectLevel = 1f;
 
-        stats.getHullDamageTakenMult().modifyMult(id, 1f - (1f - DAMAGE_MULT) * effectLevel);
-        stats.getArmorDamageTakenMult().modifyMult(id, 1f - (1f - DAMAGE_MULT) * effectLevel);
-        stats.getEmpDamageTakenMult().modifyMult(id, 1f - (1f - DAMAGE_MULT) * effectLevel);
+
 
 
         ShipAPI ship;
@@ -114,6 +122,11 @@ public class ApexThorns extends BaseShipSystemScript
                 thornsListener = new ApexThornsListener();
                 ship.addListener(thornsListener);
             }
+            float damMult = DR_MAP.get(ship.getHullSize());
+
+            stats.getHullDamageTakenMult().modifyMult(id, 1f - (1f - damMult) * effectLevel);
+            stats.getArmorDamageTakenMult().modifyMult(id, 1f - (1f - damMult) * effectLevel);
+            stats.getEmpDamageTakenMult().modifyMult(id, 1f - (1f - damMult) * effectLevel);
         }
 
 

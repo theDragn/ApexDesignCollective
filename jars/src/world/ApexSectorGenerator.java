@@ -10,6 +10,7 @@ import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.shared.SharedData;
 import exerelin.campaign.SectorManager;
+import exerelin.utilities.NexConfig;
 
 import java.util.ArrayList;
 import java.util.Iterator;

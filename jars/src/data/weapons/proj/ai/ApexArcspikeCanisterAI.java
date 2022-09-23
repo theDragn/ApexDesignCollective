@@ -131,6 +131,16 @@ public class ApexArcspikeCanisterAI implements MissileAIPlugin, GuidedMissileAI
 
     private void acquireTarget()
     {
+        if (missile.getSource().isFighter() && missile.getSource().getWing().getSourceShip().getShipTarget() != null)
+        {
+            this.target = missile.getSource().getWing().getSourceShip().getShipTarget();
+            return;
+        }
+        if (missile.getSource().getShipTarget() != null)
+        {
+            this.target = missile.getSource().getShipTarget();
+            return;
+        }
         float range = (isLargeCanister) ? LARGE_MISSILE_RANGE : MED_MISSILE_RANGE;
         List<ShipAPI> targetList = AIUtils.getNearbyEnemies(missile, range);
         float targetRange = 9999 * 9999;

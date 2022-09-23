@@ -1,36 +1,12 @@
-Lots of balance fiddling and two new bounties.
-
-Weapons:
-- Taipan VLS-15K (Kinetic VLS on the Crocodile): Discovered that the weapon card was lying about the hard flux on hit (it did more than the listed amount). Oops. Buffed it anyways,, since it seemed like nobody used them. Now deals 50 hard flux on shield hit (for real this time) and 50 soft flux on armor hit. Note that this ignores damage modifiers (like armor or shields) when adding flux, just like the Arcspikes and Disruption Propagator.
-- Tachyon Drivers: Significantly reduced EMP damage. Had *way* too much EMP DPS for their range after they got bumped up to 800 (oops).
-- Sledgehammer Cluster Launcher: Increased ammo (5 -> 8 salvos) and slightly increased fire rate (25s -> 22s). Was nasty when it was useful, but a hard pick because of the ammo limitations.
-- Sledgehammer Launcher/Pod: Increased ammo (3 -> 4 shots for small, 4 -> 5 salvos for medium). The painfully slow speed on these makes them pretty situational, particularly the small. More ammo means whiffing doesn't hurt as much.
-- Nanoacid Torpedo Launcher/Pod: Improved reload time (5 -> 4 seconds), and increased ammo by 33%. Low shield damage and an inability to be ripple-fired meant that Hammers were usually a better pick.
-- Nanoacid Torpedo Repeater: Very slightly reduced spread (11 deg -> 10 deg).
-- Nanoacid Cannons: Some people ~~complained~~ mentioned that these felt weak, especially the medium. Small one just got the efficiency improved (1.4 -> 1.33), medium got ~20% more rate of fire for ~7% more flux/sec. 
-- Fusion Beams: Reduced the time on target needed to trigger the explosion (0.5s -> 0.33s)
-
-Hullmods:
-- Geodesic Shield Matrix: Frag damage that penetrates the shield remains frag damage instead of being converted to energy (since it was turning vulcans into 500dps energy guns that ignored shields). Smaller hulls now have a lower multiplier to bleedthrough damage (125% -> 66%/80%/110%/125%). Slightly increased OP cost for frigates and destroyers (3 -> 4 and 6 -> 8, respectively) since it's actually worth using on them now.
-- Limited Magazines (the missile limiting hullmod on the Python): Reworked to make it less jank. Missile weapons now cost 1/2/4 points to mount; the hull can take up to 2/4/6/8 points of missiles. Multiplies missile fire rate by 0.9x for each point above the cap.
-- Nanolaminate Plating: Now blocks Iron Shell's Vaingloria armor hullmod. Sorry.
-
-Ships and Fighters:
-- Gecko Interceptor Wing: Increased armor (100 -> 150). Kinda fragile for a 16 OP fighter. (Damn Broadswords at it again.)
-- Chameleon Support Wing: Added lore.
-- Anole Heavy Fighter Wing: Buffed these a bit to justify their cost and relative fragility compared to shielded superheavy fighters. Increased hull (700 -> 750), coilgun total DPS (~180 -> 200), fusion beam DPS (dps is technically unchanged, but it fires more often, so it procs the on-hit more), and decreased replacement time (18s -> 15s). The fighter fusion beam also now triggers the explosion instantly, instead of after a delay, since maneuvering fighters had a very hard time holding the beam on target long enough to trigger it reliably.
-- Alligator: Reduced flux dissipation by 25. Probably shouldn't have the same dissipation as an Eagle when it costs less.
-- Excession: Reduced base repair rate (25/s -> 15/s) and hull HP (3000 -> 2500). Increased cloak upkeep cost by 33%.
-- Mamba: System is now more likely to banish projectiles headed towards the ship. 
-- Komodo and Caiman: Greatly increased retaliatory projectile HP (200 -> 500) and EMP damage (100 -> 400).
-- Caiman: Increased armor (600 -> 700). Slot layout feelt kinda weak despite its excellent dissipation, so some more durability should help.
-- Spectrum: Player colony fleets won't use the militarized cargo/fuel fits, for real this time. Had to remove the militarized autofit variants to fix this; the hullmods are unchanged.
+1.0.8d: Pre-tournament Shame Patch
+Changes:
+- Entropy Consolidator (system on Caiman and Komodo): Normalized damage reduction values to match the vanilla damper. Frigates and destroyers get 66% reduction, cruisers and capitals get 50%. Previous value was 60% for all hull sizes. (The description said 70%, and was wrong. Whoops.)
+- Komodo: Tightened up weapon arcs slightly and reduced flux dissipation (750 -> 700).
 
 TODO:
 
 - touhou mod needs guns added to python system list
 - ed shipyard too
-- Kommok and Odomodo bounty (write the bounty you lazy fuck)
 
 
 NEEDS SPRITIN':
@@ -47,6 +23,6 @@ NEEDS SPRITIN':
 - Sonora-class siege carrier: Aiming for 50dp. 3 nozzles.
 	- Siege Avionics: Increases the range of all fighter weapons by 50%, and all bomber weapons by 100%. Reduces fighter engagement range by 50%.
 	- Fleet Repair Gantry: Increases fleet recovery rate by 25%. Each additional gantry provides half the benefit.
-	- Armament: fixed Ultrachromatic Beam Generator (energy HIL + debuff), 4x wings, 1x large uni, 2x med synergy, 3x med hybrid (one rear-facing), PD mounts.
-	- Ultrachromatic Beam Generator: probably 400 energy dps, 400 flux/sec, 1k range. Dealing armor/hull damage reduces the target's top speed and effective armor by up to 33%. Ramps up and decays over time. Is rainbow.
+	- Armament: 2x Ultrachromatic Pulse Cannon, 4x wings, 1x large uni, 2x med synergy, 3x med hybrid (one rear-facing), PD mounts.
+	- Ultrachromatic Pulse Cannon: 1k range, 2 barrels, 750 energy, 200 flux/sec, 7.5 reload. Poor accuracy on subsequent shots. Hits to shield heavily dampen velocity. Hits to armor reduce effective armor.
 	- System: Fleet Reinforcement. Synchronizes fleet defense routines. Allied ships in range take less shield and armor damage. Prevents hard flux dissipation while active.

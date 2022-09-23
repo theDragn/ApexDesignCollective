@@ -120,8 +120,8 @@
       "size": "LARGE",
       "type": "UNIVERSAL",
       "mount": "TURRET",
-      "arc": 125,
-      "angle": 45,
+      "arc": 90,
+      "angle": 30,
       "locations": [-26, 54]
     },
     {
@@ -129,8 +129,8 @@
       "size": "MEDIUM",
       "type": "UNIVERSAL",
       "mount": "TURRET",
-      "arc": 125,
-      "angle": -45,
+      "arc": 90,
+      "angle": -30,
       "locations": [-39, -43],
       "renderOrderMod": 50
     },
@@ -139,8 +139,8 @@
       "size": "MEDIUM",
       "type": "HYBRID",
       "mount": "TURRET",
-      "arc": 125,
-      "angle": -45,
+      "arc": 90,
+      "angle": -30,
       "locations": [-24, -71]
     },
     {
@@ -148,8 +148,8 @@
       "size": "MEDIUM",
       "type": "HYBRID",
       "mount": "TURRET",
-      "arc": 125,
-      "angle": -45,
+      "arc": 90,
+      "angle": -30,
       "locations": [-7, -44]
     },
     {

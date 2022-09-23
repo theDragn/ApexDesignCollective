@@ -30,7 +30,7 @@
 		#"job_intel_expired": "error?",
 		"job_forFaction":"independent",
 		"job_difficultyDescription": "auto",
-		"job_deadline":60,
+		"job_deadline":120,
 		"job_reputation_reward":10,
 		"job_item_reward": {
 			"weapon_bp apex_disruptor": 1,
@@ -137,7 +137,7 @@
 		#"job_intel_expired": "error?",
 		"job_forFaction":"independent",
 		"job_difficultyDescription": "auto",
-		"job_deadline":60,
+		"job_deadline":120,
 		"job_reputation_reward":10,
 		"job_item_reward": {
 			"weapon_bp apex_dartgun": 1,

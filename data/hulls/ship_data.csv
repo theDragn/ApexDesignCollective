@@ -42,5 +42,5 @@ Apotheosis (RG),apex_apotheosis_rg,Battlecruiser,Red Guards,apex_microburn,23,10
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 "# secret (I guess it's really not that secret if it's in here but I don't have that many options, y'know?)",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Excession,apex_excession,Phase Destroyer,Apex Design Collective,apex_excessionsys,150,2500,1000,5000,,400,50,,90,250,250,230,230,400,PHASE,apex_excessionphase,,,,0.03,0.08,5,10,100,60,1,60,10,2000000,10,25,360,0.25,40,40,"PHASE, HIDE_IN_CODEX",no_dealer,,0.5,2,3,,1312
-Kommok,apex_bounty_kommok,Heavy Cruiser,Apex Design Collective,temporalshell,25,10000,1150,10000,,750,195,1,45,35,35,15,15,1750,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,COMBAT,rare_bp,,0.25,2,3,,69420
-Odomodo,apex_bounty_odomodo,Heavy Cruiser,Apex Design Collective,apex_bounty_superdamper,25,10000,1150,10000,,750,195,1,45,35,35,15,15,1750,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,COMBAT,rare_bp,,0.25,2,3,,69420
+Kommok,apex_bounty_kommok,Heavy Cruiser,Apex Design Collective,temporalshell,25,10000,1150,10000,,750,195,1,45,35,35,15,15,1750,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,"COMBAT, HIDE_IN_CODEX",no_dealer,,0.25,2,3,,69420
+Odomodo,apex_bounty_odomodo,Heavy Cruiser,Apex Design Collective,apex_bounty_superdamper,25,10000,1150,10000,,750,195,1,45,35,35,15,15,1750,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,"COMBAT, HIDE_IN_CODEX",no_dealer,,0.25,2,3,,69420

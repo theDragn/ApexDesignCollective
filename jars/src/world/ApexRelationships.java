@@ -53,9 +53,7 @@ public class ApexRelationships
         // I don't remember anything about these guys other than that they're vaguely good
         relMap.put("unitedpamed", 0.15f);
 
-        // not socialist but vaguely good-aligned
-        relMap.put("dassault_mikoyan", 0.1f);
-        relMap.put("6eme_bureau", 0.1f);
+
 
         // have you ever heard of worker ownership
         // edit, kind of, they've heard of workplace democracy which is pretty cool
@@ -78,6 +76,9 @@ public class ApexRelationships
         relMap.put("diableavionics", -0.3f);
         // evil (non-union labor)
         relMap.put("hmi", -0.5f);
+        // corporate
+        relMap.put("dassault_mikoyan", -0.1f);
+        relMap.put("6eme_bureau", -0.1f);
         // mercs
         relMap.put("united_security", -0.1f);
         // tritachyon associates
@@ -86,7 +87,7 @@ public class ApexRelationships
         relMap.put("blackrock_driveyards", -0.25f);
         // dunno but it's a corporation
         relMap.put("pearson_exotronics", -0.1f);
-        // tritach associates
+        // tritach associates, but also outdated as fuck
         relMap.put("sylphon", -0.3f);
         // big corp equals bad
         relMap.put("neutrinocorp", -0.15f);
