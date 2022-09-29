@@ -7,6 +7,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Skills;
 import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
+import data.ApexUtils;
 import data.hullmods.ApexFastNozzles;
 import org.lazywizard.lazylib.combat.AIUtils;
 
@@ -52,10 +53,7 @@ public class ApexFlareSubsystem extends ApexBaseSubsystem
         if (firedFlares != 0)
         {
             firedFlares = 0;
-            setCooldownTime(ship.getMutableStats().getSystemCooldownBonus().computeEffective(20f));
-
-            if (ship.getVariant().hasHullMod("apex_fast_nozzles"))
-                setCooldownTime(ship.getMutableStats().getSystemCooldownBonus().computeEffective(BASE_COOLDOWN * ApexFastNozzles.NOZZLE_COOLDOWN_MULT));
+            setCooldownTime(ship.getMutableStats().getSystemCooldownBonus().computeEffective(BASE_COOLDOWN * ApexUtils.getNozzleCooldownMult(ship)));
         }
     }
 

@@ -11,6 +11,7 @@ import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
+import data.ApexUtils;
 import data.hullmods.ApexArmorRepairHullmod;
 import data.hullmods.ApexCryoSystemHullmod;
 import data.hullmods.ApexFastNozzles;
@@ -32,7 +33,7 @@ public class ApexCryoSubsystem extends ApexBaseSubsystem
     private boolean runOnce = false;
     private boolean didThings = false;
     private IntervalUtil updateTimer = new IntervalUtil(2f, 3f);
-    private float timeUntilNextActivation = 0f;
+    //private float timeUntilNextActivation = 0f;
 
     public static final Color JITTER_COLOR = new Color(128,255,255,75);
     public static final Color JITTER_UNDER_COLOR = new Color(128,255,255,155);
@@ -104,17 +105,11 @@ public class ApexCryoSubsystem extends ApexBaseSubsystem
                 Global.getCombatEngine().addPlugin(new ApexCryoBlobScript(blob, buffTargets.pick()));
             }
             didThings = true;
-            setCooldownTime(ship.getMutableStats().getSystemCooldownBonus().computeEffective(BASE_COOLDOWN));
+            setCooldownTime(ship.getMutableStats().getSystemCooldownBonus().computeEffective(BASE_COOLDOWN  * ApexUtils.getNozzleCooldownMult(ship)));
             //System.out.println("did repair, cooldown is 30 seconds");
             ((ShipAPI) stats.getEntity()).getFluxTracker().increaseFlux(((ShipAPI) stats.getEntity()).getMaxFlux() * ACTIVATION_FLUX_FRACTION, false);
-            timeUntilNextActivation = ship.getMutableStats().getSystemCooldownBonus().computeEffective(BASE_COOLDOWN);
+            //timeUntilNextActivation = ship.getMutableStats().getSystemCooldownBonus().computeEffective(BASE_COOLDOWN * ApexUtils.getNozzleCooldownMult(ship));
             Global.getSoundPlayer().playSound("apex_nozzle_activation",1f,1f,ship.getLocation(), ship.getVelocity());
-
-            if (ship.getVariant().hasHullMod("apex_fast_nozzles"))
-            {
-                timeUntilNextActivation = ship.getMutableStats().getSystemCooldownBonus().computeEffective(ApexArmorRepairHullmod.BASE_COOLDOWN * ApexFastNozzles.NOZZLE_COOLDOWN_MULT);
-                setCooldownTime(timeUntilNextActivation);
-            }
         }
         // if we didn't do anything, notify player why and reset cooldown
         if (!didThings)
@@ -123,7 +118,7 @@ public class ApexCryoSubsystem extends ApexBaseSubsystem
             ship.getFluxTracker().showOverloadFloatyIfNeeded("No Targets!", new Color(255, 55, 55, 255), 2f, true);
             Global.getSoundPlayer().playSound("gun_out_of_ammo", 1f, 1f, ship.getLocation(), ship.getVelocity());
             setCooldownTime(0.1f);
-            timeUntilNextActivation = 0.2f;
+            //timeUntilNextActivation = 0.2f;
         }
         // just in case?
         buffTargets.clear();
@@ -143,8 +138,8 @@ public class ApexCryoSubsystem extends ApexBaseSubsystem
     public void unapply(MutableShipStatsAPI mutableShipStatsAPI, String s)
     {
         runOnce = false;
-        if (timeUntilNextActivation > 0 && !Global.getCombatEngine().isPaused())
-            timeUntilNextActivation -= Global.getCombatEngine().getElapsedInLastFrame();
+        //if (timeUntilNextActivation > 0 && !Global.getCombatEngine().isPaused())
+        //    timeUntilNextActivation -= Global.getCombatEngine().getElapsedInLastFrame();
     }
 
     @Override
@@ -185,7 +180,7 @@ public class ApexCryoSubsystem extends ApexBaseSubsystem
     {
         updateTimer.advance(amount);
 
-        if (ship == null || !ship.isAlive() || !state.equals(SubsystemState.OFF) || timeUntilNextActivation > 0)
+        if (ship == null || !ship.isAlive() || !state.equals(SubsystemState.OFF) )//|| timeUntilNextActivation > 0)
             return;
         if (!updateTimer.intervalElapsed() || ship.getFluxLevel() > 1f - ACTIVATION_FLUX_FRACTION * 2f)
             return;

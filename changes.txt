@@ -1,13 +1,22 @@
-1.0.8d: Pre-tournament Shame Patch
+1.0.9: Yet Another Capital Battlecarrier
+New:
+- Sonora-class Siege Carrier: A heavy frontline carrier designed for bombarding stations and other heavy combatants. Has a pair of built-in Ultrachromatic Pulse Cannons and Strikecraft Targeting Uplink, which causes the ship's range bonuses to apply to its strikecraft at the expense of their engagement range. System: Defense Optimization Uplink; improves the armor and shields of nearby allies but prevents hard flux dissipation while active.
+- Tuatara-class (LRM) Missile Destroyer: Equipped with a Thundercloud LRM Launcher, which delivers a spread of high-AoE energy mines to its target. Excels at suppressing enemy formations, but lacks the focused damage needed to be effective against armor. System: Arcmine Dispenser.
+- Tuatara-class (VLS) Missile Destroyer: Equipped with a single variable-warhead Taipan-15 Vertical Launch System. System: Arcmine Dispenser.
+
 Changes:
-- Entropy Consolidator (system on Caiman and Komodo): Normalized damage reduction values to match the vanilla damper. Frigates and destroyers get 66% reduction, cruisers and capitals get 50%. Previous value was 60% for all hull sizes. (The description said 70%, and was wrong. Whoops.)
-- Komodo: Tightened up weapon arcs slightly and reduced flux dissipation (750 -> 700).
+- Crocodile: Taipan VLS pods now correctly reset their firing order if the ship vents or overloads during the firing sequence. (thanks amazigh)
+- Komodo: Reduced flux dissipation by 50 and slightly reduced primary weapon arcs.
+- Entropy Consolidator (system on Caiman and Komodo): Normalized damage taken multiplier to match the vanilla damper field. Destroyers now take 66% less damage and cruisers take 50% less damage (previous value was 60% for all hulls) and the description no longer lies about how strong the effect is.
+- Cryocoolant Projector: Now just increases flux dissipation by 25% (vs equal or smaller ships) or 12.5% (vs larger ships). A reduction to flux generation was only really useful if you intentionally overfluxed your ships a bit; dissipation is more useful across a wider variety of hulls and loadouts.
+- Bifurcation Device (system on the Python): Now properly reapplies on-fire scripting to duplicated projectiles. This should (hopefully) eliminate some odd behavior with heavily-scripted projectile weapons. Also fixed infinite recursion issues with several ED Shipyards weapons.
 
 TODO:
 
 - touhou mod needs guns added to python system list
 - ed shipyard too
-
+- make python reapply on-fire scripting (see approlight phantom ammo feeder for reference)
+- ultrachromatic pulse cannon: 900 energy, 2x burst, 0.66 eff, 6s refire. (200 flux/sec per gun)
 
 NEEDS SPRITIN':
 - Tuatara-class destroyer: Aiming for 13 DP. 2 nozzles.

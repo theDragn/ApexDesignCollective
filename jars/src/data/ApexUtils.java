@@ -5,6 +5,8 @@ import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.graphics.SpriteAPI;
 import com.fs.starfarer.api.loading.ProjectileSpawnType;
 import com.fs.starfarer.api.util.Misc;
+import data.hullmods.ApexFastNozzles;
+import data.hullmods.ApexSlowNozzles;
 import data.scripts.plugins.MagicTrailPlugin;
 import org.dark.shaders.distortion.DistortionShader;
 import org.dark.shaders.distortion.WaveDistortion;
@@ -224,6 +226,16 @@ public class ApexUtils
             }
         }
         return true;
+    }
+
+    public static float getNozzleCooldownMult(ShipAPI ship)
+    {
+        float mult = 1f;
+        if (ship.getVariant().hasHullMod("apex_fast_nozzles"))
+            mult *= ApexFastNozzles.NOZZLE_COOLDOWN_MULT;
+        if (ship.getVariant().hasHullMod("apex_slow_nozzles"))
+            mult *= ApexSlowNozzles.NOZZLE_COOLDOWN_MULT;
+        return mult;
     }
 
 }
