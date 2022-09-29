@@ -3,6 +3,7 @@ package data.shipsystems;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
+import com.fs.starfarer.api.loading.ProjectileSpecAPI;
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
@@ -146,6 +147,16 @@ public class ApexBifurcator extends BaseShipSystemScript
                 Misc.ZERO);
         newProj.getVelocity().scale(velMult);
         newProj.setDamageAmount(proj.getDamageAmount());
+        OnFireEffectPlugin onFire;
+        if (newProj instanceof MissileAPI)
+        {
+            onFire = (((MissileAPI) newProj).getSpec()).getOnFireEffect();
+        } else
+        {
+            onFire = newProj.getProjectileSpec().getOnFireEffect();
+        }
+        if (onFire != null)
+            onFire.onFire(newProj, proj.getWeapon(), Global.getCombatEngine());
     }
 
     private String getUnfuckedWeaponID(DamagingProjectileAPI proj)
