@@ -4,6 +4,9 @@ import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.WeaponBaseRangeModifier;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
+import com.fs.starfarer.api.util.Misc;
+
+import java.awt.*;
 
 public class ApexSonoraUplink extends BaseHullMod
 {
@@ -17,7 +20,7 @@ public class ApexSonoraUplink extends BaseHullMod
     @Override
     public void applyEffectsAfterShipCreation(ShipAPI ship, String id)
     {
-        ship.addListener(new ApexSonoraRangeBuff(12));
+        ship.addListener(new ApexSonoraRangeBuff(getOp(ship)));
     }
 
     @Override
@@ -41,7 +44,6 @@ public class ApexSonoraUplink extends BaseHullMod
             {
                 MutableShipStatsAPI stats = fighter.getMutableStats();
                 stats.getMissileWeaponRangeBonus().modifyPercent(ID, bonus);
-                //stats.getMissileMaxSpeedBonus().modifyPercent(ID, RANGE_BONUS);
                 stats.getBallisticWeaponRangeBonus().modifyPercent(ID, bonus);
                 stats.getEnergyWeaponRangeBonus().modifyPercent(ID, bonus);
             }
@@ -92,10 +94,26 @@ public class ApexSonoraUplink extends BaseHullMod
     @Override
     public void addPostDescriptionSection(TooltipMakerAPI tooltip, ShipAPI.HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec)
     {
+        if (ship == null)
+            return;
         float pad = 10f;
-        tooltip.addSectionHeading("Details", Alignment.MID, pad);
+        tooltip.addSectionHeading("Current Effects", Alignment.MID, pad);
+        int bonus = (int)getBonus(ship);
+        if (bonus > 0)
+        {
+            tooltip.addPara("Fighter weapon range: %s", 0f, Misc.getPositiveHighlightColor(), "+" + (int)bonus);
+            tooltip.addPara("Fighter engagement range: %s", 0f, Misc.getNegativeHighlightColor(), "-" + (int)Math.abs(bonus * ENGAGEMENT_RANGE_PENALTY_MULT));
+        } else {
+            Color highlight = bonus == 0 ? Misc.getHighlightColor() : Misc.getNegativeHighlightColor();
+            String prefix = bonus == 0 ? "" : "-";
+            tooltip.addPara("Fighter weapon range: %s", 0f, highlight, prefix + (int)bonus);
+            tooltip.addPara("Fighter engagement range: %s", 0f, Misc.getHighlightColor(), "+0%");
+        }
+        int op = getOp(ship);
+        Color highlight = op == 0 ? Misc.getHighlightColor() : Misc.getPositiveHighlightColor();
 
-
+        tooltip.addPara("Small weapon base range: %s", 0f, highlight, "+" + (int)(op * RANGE_BOOST_SMALL) + "su");
+        tooltip.addPara("Medium weapon base range: %s", 0f, highlight, "+" + (int)(op * RANGE_BOOST_MED) + "su");
     }
 
     public static float getBonus(ShipAPI ship)
@@ -109,5 +127,15 @@ public class ApexSonoraUplink extends BaseHullMod
         }
         max = max * 100f - 100f;
         return Math.min(max, RANGE_BONUS);
+    }
+
+    public static int getOp(ShipAPI ship)
+    {
+        int op = 0;
+        for (FighterWingAPI wing : ship.getAllWings())
+        {
+            op += wing.getSpec().getOpCost(ship.getMutableStats());
+        }
+        return op;
     }
 }

@@ -56,7 +56,6 @@ public class ApexArmorRepairSubsystem extends ApexBaseSubsystem
         runOnce = true;
         didThings = false;
         setCooldownTime(ship.getMutableStats().getSystemCooldownBonus().computeEffective(BASE_COOLDOWN));
-        //System.out.println("didthings is false, cooldown time set to 30 secs");
         // check to see if we have any valid repair targets in range
         WeightedRandomPicker<ShipAPI> damagedAllies = new WeightedRandomPicker<>();
         if (ship.getShipTarget() != null && ship.getShipTarget().getOwner() == ship.getOwner())
@@ -78,9 +77,6 @@ public class ApexArmorRepairSubsystem extends ApexBaseSubsystem
                     damagedAllies.add(ally, (float)Math.sqrt(weight));
 
             }
-            // no self-repair
-            //if (DefenseUtils.hasArmorDamage(ship))
-            //    damagedAllies.add(ship, getMissingArmor(ship));
         }
         // if we have valid repair targets, fire projectiles and apply projectile script
         if (!damagedAllies.isEmpty())
@@ -240,9 +236,6 @@ public class ApexArmorRepairSubsystem extends ApexBaseSubsystem
             return;
         if (!updateTimer.intervalElapsed() || ship.getFluxLevel() > 1f - ACTIVATION_FLUX_FRACTION * 2f)
             return;
-        // no self-repair
-        //if (getMissingArmor(ship) > ApexArmorRepairHullmod.regenMap.get(ship.getHullSize()))
-        //    activate();
         List<ShipAPI> allies = AIUtils.getNearbyAllies(ship, lockonRange);
         for (ShipAPI ally : allies)
         {
