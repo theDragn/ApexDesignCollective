@@ -1,12 +1,24 @@
 package data.hullmods;
 
 import com.fs.starfarer.api.combat.*;
+import com.fs.starfarer.api.combat.listeners.WeaponBaseRangeModifier;
+import com.fs.starfarer.api.ui.Alignment;
+import com.fs.starfarer.api.ui.TooltipMakerAPI;
 
 public class ApexSonoraUplink extends BaseHullMod
 {
     public static final float RANGE_BONUS = 75f;
     public static final float ENGAGEMENT_RANGE_PENALTY_MULT = -55f/75f; // engagement range capped at 55%
+    public static final float RANGE_PER_OP = 15f;
+    public static final float RANGE_BOOST_SMALL = 50f;
+    public static final float RANGE_BOOST_MED = 25f;
     public static final String ID = "apex_sonora_uplink";
+
+    @Override
+    public void applyEffectsAfterShipCreation(ShipAPI ship, String id)
+    {
+        ship.addListener(new ApexSonoraRangeBuff(12));
+    }
 
     @Override
     public void advanceInCombat(ShipAPI ship, float amount)
@@ -36,11 +48,54 @@ public class ApexSonoraUplink extends BaseHullMod
         }
     }
 
+    public static class ApexSonoraRangeBuff implements WeaponBaseRangeModifier
+    {
+        private int op = 0;
+        public ApexSonoraRangeBuff(int op)
+        {
+            this.op = op;
+        }
+
+        @Override
+        public float getWeaponBaseRangePercentMod(ShipAPI shipAPI, WeaponAPI weaponAPI)
+        {
+            return 0;
+        }
+
+        @Override
+        public float getWeaponBaseRangeMultMod(ShipAPI shipAPI, WeaponAPI weaponAPI)
+        {
+            return 1;
+        }
+
+        @Override
+        public float getWeaponBaseRangeFlatMod(ShipAPI ship, WeaponAPI weapon)
+        {
+            if (weapon.getSize().equals(WeaponAPI.WeaponSize.SMALL))
+                return op / RANGE_PER_OP * RANGE_BOOST_SMALL;
+            if (weapon.getSize().equals(WeaponAPI.WeaponSize.MEDIUM))
+                return op / RANGE_PER_OP * RANGE_BOOST_MED;
+            return 0;
+        }
+    }
+
     public String getDescriptionParam(int index, ShipAPI.HullSize hullSize)
     {
         if (index == 0) return "" + (int) (RANGE_BONUS) + "%";
         if (index == 1) return "" + (int) (-ENGAGEMENT_RANGE_PENALTY_MULT * RANGE_BONUS) + "%";
+        if (index == 2) return "" + (int) RANGE_PER_OP + " OP";
+        if (index == 3) return "" + (int) RANGE_BOOST_SMALL + "su";
+        if (index == 4) return "" + (int) RANGE_BOOST_MED + "su";
         return null;
+    }
+
+    @Override
+    public void addPostDescriptionSection(TooltipMakerAPI tooltip, ShipAPI.HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec)
+    {
+        float pad = 10f;
+        tooltip.addSectionHeading("Details", Alignment.MID, pad);
+
+
     }
 
     public static float getBonus(ShipAPI ship)
