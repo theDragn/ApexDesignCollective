@@ -89,7 +89,8 @@ public class ApexBifurcator extends BaseShipSystemScript
                     continue;
                 if (proj.getWeapon().getType().equals(WeaponAPI.WeaponType.MISSILE))
                     continue;
-                if (Misc.random.nextFloat() < Math.min(SPLIT_CHANCE_PER_INTERVAL, SPLIT_CHANCE_PER_INTERVAL * proj.getMoveSpeed() / 600f))
+                float exp = (proj.getMoveSpeed() / 600f * SPLIT_CHANCE_PER_INTERVAL)/2f + 1f;
+                if (Misc.random.nextFloat() < Math.pow(1 + SPLIT_CHANCE_PER_INTERVAL * proj.getMoveSpeed() / 600f, exp) - 1f)
                 {
                     float distFraction = MathUtils.getDistance(proj.getLocation(), proj.getSource().getLocation()) / proj.getWeapon().getRange();
                     // if projectile is outside of weapon range, run another rng check
