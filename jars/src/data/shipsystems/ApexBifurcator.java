@@ -147,16 +147,6 @@ public class ApexBifurcator extends BaseShipSystemScript
                 Misc.ZERO);
         newProj.getVelocity().scale(velMult);
         newProj.setDamageAmount(proj.getDamageAmount());
-        OnFireEffectPlugin onFire;
-        if (newProj instanceof MissileAPI)
-        {
-            onFire = (((MissileAPI) newProj).getSpec()).getOnFireEffect();
-        } else
-        {
-            onFire = newProj.getProjectileSpec().getOnFireEffect();
-        }
-        if (onFire != null)
-            onFire.onFire(newProj, proj.getWeapon(), Global.getCombatEngine());
     }
 
     private String getUnfuckedWeaponID(DamagingProjectileAPI proj)

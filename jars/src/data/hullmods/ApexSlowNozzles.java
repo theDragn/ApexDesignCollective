@@ -14,7 +14,7 @@ public class ApexSlowNozzles extends BaseHullMod
     public String getDescriptionParam(int index, ShipAPI.HullSize hullSize)
     {
         if (index == 0)
-            return  (int)(100f - 100 * NOZZLE_COOLDOWN_MULT) + "%";
+            return  (int)(100f * NOZZLE_COOLDOWN_MULT - 100f) + "%";
         return null;
     }
 }

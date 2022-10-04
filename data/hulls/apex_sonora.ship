@@ -14,7 +14,8 @@
   "builtInMods": [
     "apex_armor",
     "apex_slow_nozzles",
-    "apex_sonora_uplink"
+    "apex_sonora_uplink",
+    "apex_sonora_gantry"
   ],
   "builtInWeapons": {
     "WS0015": "apex_ultrachrome",

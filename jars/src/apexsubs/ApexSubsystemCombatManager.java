@@ -188,7 +188,7 @@ public class ApexSubsystemCombatManager extends BaseEveryFrameCombatPlugin
                     }
                 }
             }
-            System.out.println(extraIndex);
+            //System.out.println(extraIndex);
             if (showInfoText)
                 numBars++;
             Vector2f rootLoc = ApexCombatUI.getSubsystemsRootLocation(player, numBars, 13f * Global.getSettings().getScreenScaleMult());

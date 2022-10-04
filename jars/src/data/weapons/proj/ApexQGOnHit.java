@@ -17,7 +17,7 @@ public class ApexQGOnHit implements OnHitEffectPlugin
     public void onHit(DamagingProjectileAPI proj, CombatEntityAPI target, Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine)
     {
         if (proj.getSource() != null
-                && proj.getSource().getVariant().hasHullMod("apex_coherency_amplifier")
+                && (proj.getSource().getVariant().hasHullMod("apex_coherency_amplifier"))
                 && target instanceof ShipAPI
                 && !hitTargets.contains(target))
         {
@@ -34,6 +34,11 @@ public class ApexQGOnHit implements OnHitEffectPlugin
             {
                 engine.applyDamage(target, point, 1f, DamageType.ENERGY, proj.getDamageAmount() * ApexQGAmplifier.QGP_EMP_FRACTION, false, false, proj.getSource());
             }
+        }
+        // Gecko projectiles
+        else if (proj.getWeapon() != null && proj.getWeapon().getId().contains("apex_qgp_fighter") && target instanceof ShipAPI)
+        {
+            engine.applyDamage(target, point, 25f, DamageType.ENERGY, 0f, false, false, proj.getSource());
         }
     }
 }

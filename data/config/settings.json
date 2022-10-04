@@ -16,15 +16,13 @@
       "apex_nozzle": "graphics/hullmods/apex_nozzle.png",
       "apex_dartgun_indicator_circle":"graphics/fx/shields256ring.png",
       "apex_dartgun_indicator_pip":"graphics/ui/icons/16x_starburst_circle.png",
-      "apex_I_have_to_load":"graphics/ui/icons/damagetype_kinetic_20x.png",
-      "apex_these_stupid_sprites":"graphics/ui/icons/damagetype_energy_20x.png",
-      "apex_even_though_the_game":"graphics/ui/icons/damagetype_high_explosive_20x.png",
-      "apex_definitely_uses_them":"graphics/ui/icons/damagetype_fragmentation_20x.png",
       "apex_breach_core":"graphics/icons/buffs/apex_breachcore.png"
 		},
 		"fx":{
       "apex_trail_twin":"graphics/trails/fx/trails_twin.png",
-			"geodesic_spall":"graphics/effects/geodesic_spall.png"
+			"geodesic_spall":"graphics/effects/geodesic_spall.png",
+      "apex_trail_helix":"graphics/trails/fx/trails_dhelix.png",
+      "apex_trail_helix_reversed":"graphics/trails/fx/trails_dhelix_reversed.png",
 		},
     "apex_spectrum":{
       "apex_spectrum_cargo":"graphics/ships/apex_spectrum_cargo.png",
@@ -43,9 +41,6 @@
       "vls_frame5":"graphics/weapons/vls_hatch/frame5.png",
       "vls_frame6":"graphics/weapons/vls_hatch/frame6.png"
     }
-	},
-  "ruleCommandPackages": [
-        "data.campaign.missions.rulecmd"
-  ]
+	}
 }
 

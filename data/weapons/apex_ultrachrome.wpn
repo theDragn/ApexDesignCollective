@@ -1,13 +1,21 @@
 {
   "id": "apex_ultrachrome",
   "specClass": "projectile",
-  "projectileSpecId": "mjolnir_shot",
+  "projectileSpecId": "apex_ultrachrome_shot",
   "type": "ENERGY",
   "size": "LARGE",
-  "turretSprite": "",
+  # this script is easier than the tachyon shredder one, at least
+  # it's still a pain in the ass
+  # honestly just @ me on discord because it's mostly uncommented lol
+  "everyFrameEffect": "data.weapons.proj.ApexUltrachromeTrail",
+  "turretSprite": "graphics/weapons/apex_ultrachrome_base.png",
+  "turretGunSprite": "graphics/weapons/apex_ultrachrome_barrel.png",
   "hardpointSprite": "graphics/weapons/apex_ultrachrome_base.png",
   "hardpointGunSprite": "graphics/weapons/apex_ultrachrome_barrel.png",
   "renderAboveAllWeapons": 0,
+  "renderHints": [
+    RENDER_BARREL_BELOW
+  ],
   "visualRecoil": 8,
   "turretOffsets": [
     0,
