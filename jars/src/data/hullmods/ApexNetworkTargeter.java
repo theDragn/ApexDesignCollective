@@ -10,7 +10,7 @@ import org.lazywizard.lazylib.MathUtils;
 
 import java.awt.*;
 
-public class ApexSonoraUplink extends BaseHullMod
+public class ApexNetworkTargeter extends BaseHullMod
 {
     public static final float RANGE_BONUS = 75f;
     public static final float ENGAGEMENT_RANGE_PENALTY_MULT = -55f/75f; // engagement range capped at 55%
@@ -18,7 +18,7 @@ public class ApexSonoraUplink extends BaseHullMod
     public static final float RANGE_BOOST_SMALL = 50f;
     public static final float RANGE_BOOST_MED = 25f;
     public static final float MAX_RANGE_AFTER_BOOST = 900f;
-    public static final String ID = "apex_sonora_uplink";
+    public static final String ID = "apex_net_target";
 
     @Override
     public void applyEffectsAfterShipCreation(ShipAPI ship, String id)

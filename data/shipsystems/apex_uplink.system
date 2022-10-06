@@ -5,7 +5,7 @@
 	"aiType":"CUSTOM",
 	
 	"aiScript":"data.shipsystems.ai.ApexPhaseBanishAI",
-	"statsScript":"data.shipsystems.ApexUplink",
+	"statsScript":"data.shipsystems.ApexDefenseUplink",
 
 	"canUseWhileRightClickSystemOn":false,
 

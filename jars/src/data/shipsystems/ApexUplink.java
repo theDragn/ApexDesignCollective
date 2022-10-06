@@ -51,7 +51,7 @@ public class ApexUplink extends BaseShipSystemScript
             buff.lifetime += amount;
             buff.update(amount);
         }
-        drawParticleRing(ship, effectLevel, RANGE);
+        drawParticleRing(ship, effectLevel, range);
     }
 
     @Override
