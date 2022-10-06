@@ -1,10 +1,12 @@
 package data.hullmods;
 
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.WeaponBaseRangeModifier;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
+import org.lazywizard.lazylib.MathUtils;
 
 import java.awt.*;
 
@@ -15,6 +17,7 @@ public class ApexSonoraUplink extends BaseHullMod
     public static final float RANGE_PER_OP = 15f;
     public static final float RANGE_BOOST_SMALL = 50f;
     public static final float RANGE_BOOST_MED = 25f;
+    public static final float MAX_RANGE_AFTER_BOOST = 900f;
     public static final String ID = "apex_sonora_uplink";
 
     @Override
@@ -74,9 +77,9 @@ public class ApexSonoraUplink extends BaseHullMod
         public float getWeaponBaseRangeFlatMod(ShipAPI ship, WeaponAPI weapon)
         {
             if (weapon.getSize().equals(WeaponAPI.WeaponSize.SMALL))
-                return op / RANGE_PER_OP * RANGE_BOOST_SMALL;
+                return MathUtils.clamp(op / RANGE_PER_OP * RANGE_BOOST_SMALL, 0, MAX_RANGE_AFTER_BOOST - weapon.getSpec().getMaxRange());
             if (weapon.getSize().equals(WeaponAPI.WeaponSize.MEDIUM))
-                return op / RANGE_PER_OP * RANGE_BOOST_MED;
+                return MathUtils.clamp(op / RANGE_PER_OP * RANGE_BOOST_MED, 0, MAX_RANGE_AFTER_BOOST - weapon.getSpec().getMaxRange());;
             return 0;
         }
     }
@@ -88,6 +91,7 @@ public class ApexSonoraUplink extends BaseHullMod
         if (index == 2) return "" + (int) RANGE_PER_OP + " OP";
         if (index == 3) return "" + (int) RANGE_BOOST_SMALL + "su";
         if (index == 4) return "" + (int) RANGE_BOOST_MED + "su";
+        if (index == 5) return "" + (int) MAX_RANGE_AFTER_BOOST + "su";
         return null;
     }
 
@@ -101,40 +105,41 @@ public class ApexSonoraUplink extends BaseHullMod
         int bonus = (int)getBonus(ship);
         if (bonus > 0)
         {
-            tooltip.addPara("Fighter weapon range: %s", 0f, Misc.getPositiveHighlightColor(), "+" + (int)bonus);
-            tooltip.addPara("Fighter engagement range: %s", 0f, Misc.getNegativeHighlightColor(), "-" + (int)Math.abs(bonus * ENGAGEMENT_RANGE_PENALTY_MULT));
+            tooltip.addPara("Fighter weapon range: %s", 0f, Misc.getPositiveHighlightColor(), "+" + (int)bonus + "%");
+            tooltip.addPara("Fighter engagement range: %s", 0f, Misc.getNegativeHighlightColor(), "-" + (int)Math.abs(bonus * ENGAGEMENT_RANGE_PENALTY_MULT) + "%");
         } else {
             Color highlight = bonus == 0 ? Misc.getHighlightColor() : Misc.getNegativeHighlightColor();
             String prefix = bonus == 0 ? "" : "-";
-            tooltip.addPara("Fighter weapon range: %s", 0f, highlight, prefix + (int)bonus);
+            tooltip.addPara("Fighter weapon range: %s", 0f, highlight, prefix + (int)bonus + "%");
             tooltip.addPara("Fighter engagement range: %s", 0f, Misc.getHighlightColor(), "+0%");
         }
         int op = getOp(ship);
+        float bonusRangeMult = op / RANGE_PER_OP;
         Color highlight = op == 0 ? Misc.getHighlightColor() : Misc.getPositiveHighlightColor();
 
-        tooltip.addPara("Small weapon base range: %s", 0f, highlight, "+" + (int)(op * RANGE_BOOST_SMALL) + "su");
-        tooltip.addPara("Medium weapon base range: %s", 0f, highlight, "+" + (int)(op * RANGE_BOOST_MED) + "su");
+        tooltip.addPara("Small weapon base range: %s", 0f, highlight, "+" + (int)(bonusRangeMult * RANGE_BOOST_SMALL) + "su");
+        tooltip.addPara("Medium weapon base range: %s", 0f, highlight, "+" + (int)(bonusRangeMult * RANGE_BOOST_MED) + "su");
     }
 
     public static float getBonus(ShipAPI ship)
     {
-        float max = 0f;
+        float min = Float.MAX_VALUE;
         for (WeaponAPI wep : ship.getAllWeapons())
         {
             float bonus = wep.getRange() / wep.getSpec().getMaxRange();
-            if (bonus > max)
-                max = bonus;
+            if (bonus < min)
+                min = bonus;
         }
-        max = max * 100f - 100f;
-        return Math.min(max, RANGE_BONUS);
+        min = min * 100f - 100f;
+        return Math.min(min, RANGE_BONUS);
     }
 
     public static int getOp(ShipAPI ship)
     {
         int op = 0;
-        for (FighterWingAPI wing : ship.getAllWings())
+        for (String wing : ship.getVariant().getFittedWings())
         {
-            op += wing.getSpec().getOpCost(ship.getMutableStats());
+            op += Global.getSettings().getFighterWingSpec(wing).getOpCost(ship.getMutableStats());
         }
         return op;
     }

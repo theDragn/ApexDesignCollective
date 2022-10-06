@@ -27,7 +27,9 @@ Enhanced Nozzles,apex_fast_nozzles,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,da
 Overloaded Nozzles,apex_slow_nozzles,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexSlowNozzles,"The scarcity of spare internal volume for nozzle systems reduces efficiency if they are installed, increasing their cooldown time by %s.",Slower nozzle cooldown.,graphics/hullmods/apex_slow_nozzles.png
 Networked Targeting Array,apex_sonora_uplink,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexSonoraUplink,"A large supercomputing cluster and advanced avionics allow coordination between strikecraft targeting systems and and the ship's built-in sensor arrays, improving long-range performance of both fighter weapons and smaller ship-mounted weapons.
 
-This ship's strikecraft recieve a range bonus equal to the largest range bonus affecting any of the ship's weapons, up to a maximum of %s. Increasing strikecraft weapon range decreases their engagment range by up to %s. Every %s of strikecraft installed on the ship increases the base range of small weapons by %s and medium weapons by %s, up to a maximum base range of %s.",Fighter range bonuses.,graphics/hullmods/apex_sonora_uplink.png
+This ship's strikecraft recieve a range bonus equal to the smallest range bonus affecting any of the ship's weapons, up to a maximum of %s. Increasing strikecraft weapon range decreases their engagment range by up to %s. 
+
+Every %s of strikecraft installed on the ship increases the base range of small weapons by %s and medium weapons by %s, up to a maximum base range of %s.",Fighter range bonuses.,graphics/hullmods/apex_sonora_uplink.png
 Fleet Servicing Gantry,apex_sonora_gantry,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexSonoraGantry,A collection of replenishment drones and autofactories permits more efficient recovery while underway. Improves the fleet's repair rate and CR recovery rate by %s. Multiple gantries stack with diminishing returns.,Faster out-of-combat repair.,graphics/hullmods/apex_sonora_gantry.png
 ,,,,,,,,,,,,,,,,,,
 # Commission,,,,,,,,,,,,,,,,,,

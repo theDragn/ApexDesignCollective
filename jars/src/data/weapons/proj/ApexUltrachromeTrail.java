@@ -27,8 +27,8 @@ public class ApexUltrachromeTrail implements OnFireEffectPlugin, EveryFrameWeapo
     private static final float FADE_IN_DURATION = 0f;
     private static final float MAIN_DURATION = 0.05f;
     private static final float FADE_OUT_DURATION = 1f;
-    private static final float SIZE_IN = 20f; // trail width when it fades in
-    private static final float SIZE_OUT = 60f; // trail width when it fades out
+    private static final float SIZE_IN = 40f; // trail width when it fades in
+    private static final float SIZE_OUT = 80f; // trail width when it fades out
     // COLOR_IN is computed through projectile lifetime and an HSV to RGB conversion- see ~line 183
     private static final Color COLOR_OUT = new Color(108, 108, 108);
     private static final float OPACITY = 0.7f;
@@ -58,13 +58,13 @@ public class ApexUltrachromeTrail implements OnFireEffectPlugin, EveryFrameWeapo
         projectiles.add(proj);
 
         // this loop is just muzzle flash, not trails
-        for (int i = 0; i < 5 * proj.getSource().getFluxLevel(); i++)
+        for (int i = 0; i < 5; i++)
         {
             Color muzzleFlashColor = new Color(Color.HSBtoRGB(Misc.random.nextFloat(), 1.0f, 1.0f));
             Color actualColor = new Color(muzzleFlashColor.getRed(), muzzleFlashColor.getGreen(), muzzleFlashColor.getBlue(), 100);
             engine.addNebulaParticle(
                     proj.getLocation(),
-                    weapon.getShip().getVelocity(),
+                    MathUtils.getPointOnCircumference(proj.getVelocity(), 200f, proj.getFacing() + 150 + Misc.random.nextFloat() * 60),
                     MathUtils.getRandomNumberInRange(40f, 60f),
                     1.2f,
                     0.1f,
@@ -85,7 +85,16 @@ public class ApexUltrachromeTrail implements OnFireEffectPlugin, EveryFrameWeapo
             if (proj.isExpired() || proj.didDamage() || !engine.isInPlay(proj))
                 toRemove.add(proj);
             else
+            {
                 addTrailSegment(proj, (proj.getElapsed() / 2f) % 1f);
+                // do sparkly trail
+                engine.addSmoothParticle(proj.getLocation(),
+                        MathUtils.getPointOnCircumference(proj.getVelocity(), 200f, proj.getFacing() + 150 + Misc.random.nextFloat() * 60),
+                        15f,
+                        0.5f,
+                        0.66f,
+                        new Color(Color.HSBtoRGB(Misc.random.nextFloat(), 1.0f, 1.0f)));
+            }
         }
         for (DamagingProjectileAPI proj : toRemove)
         {
