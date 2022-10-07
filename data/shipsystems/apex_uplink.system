@@ -4,7 +4,7 @@
 	#"aiType":"DAMPER_FIELD",
 	"aiType":"CUSTOM",
 	
-	"aiScript":"data.shipsystems.ai.ApexPhaseBanishAI",
+	"aiScript":"data.shipsystems.ai.ApexDefenseUplinkAI",
 	"statsScript":"data.shipsystems.ApexDefenseUplink",
 
 	"canUseWhileRightClickSystemOn":false,

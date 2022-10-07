@@ -38,6 +38,7 @@ public class ApexRegenEffect extends BaseEveryFrameCombatPlugin
 
     public ApexRegenEffect(ShipAPI target, DamagingProjectileAPI proj)
     {
+        //System.out.println("Applied regen to " + target.getName() + " from " + proj.getSource().getName());
         removeMapEntry = true;
         this.target = target;
         this.source = proj.getSource();

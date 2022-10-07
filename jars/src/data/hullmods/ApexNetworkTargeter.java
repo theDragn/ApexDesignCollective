@@ -89,9 +89,9 @@ public class ApexNetworkTargeter extends BaseHullMod
         if (index == 0) return "" + (int) (RANGE_BONUS) + "%";
         if (index == 1) return "" + (int) (-ENGAGEMENT_RANGE_PENALTY_MULT * RANGE_BONUS) + "%";
         if (index == 2) return "" + (int) RANGE_PER_OP + " OP";
-        if (index == 3) return "" + (int) RANGE_BOOST_SMALL + "su";
-        if (index == 4) return "" + (int) RANGE_BOOST_MED + "su";
-        if (index == 5) return "" + (int) MAX_RANGE_AFTER_BOOST + "su";
+        if (index == 3) return "" + (int) RANGE_BOOST_SMALL + "";
+        if (index == 4) return "" + (int) RANGE_BOOST_MED + "";
+        if (index == 5) return "" + (int) MAX_RANGE_AFTER_BOOST + "";
         return null;
     }
 
@@ -117,8 +117,8 @@ public class ApexNetworkTargeter extends BaseHullMod
         float bonusRangeMult = op / RANGE_PER_OP;
         Color highlight = op == 0 ? Misc.getHighlightColor() : Misc.getPositiveHighlightColor();
 
-        tooltip.addPara("Small weapon base range: %s", 0f, highlight, "+" + (int)(bonusRangeMult * RANGE_BOOST_SMALL) + "su");
-        tooltip.addPara("Medium weapon base range: %s", 0f, highlight, "+" + (int)(bonusRangeMult * RANGE_BOOST_MED) + "su");
+        tooltip.addPara("Small weapon base range: %s", 0f, highlight, "+" + (int)(bonusRangeMult * RANGE_BOOST_SMALL) + "");
+        tooltip.addPara("Medium weapon base range: %s", 0f, highlight, "+" + (int)(bonusRangeMult * RANGE_BOOST_MED) + "");
     }
 
     public static float getBonus(ShipAPI ship)
@@ -127,10 +127,11 @@ public class ApexNetworkTargeter extends BaseHullMod
         for (WeaponAPI wep : ship.getAllWeapons())
         {
             float bonus = wep.getRange() / wep.getSpec().getMaxRange();
-            if (bonus < min)
+            if (bonus < min && bonus != 1)
                 min = bonus;
         }
         min = min * 100f - 100f;
+        //System.out.println(min);
         return Math.min(min, RANGE_BONUS);
     }
 

@@ -14,7 +14,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class ApexUplink extends BaseShipSystemScript
+public class ApexDefenseUplink extends BaseShipSystemScript
 {
     public static final float RANGE = 1600f;
     public static final float SHIELD_EFFICIENCY_MULT = 0.8f;

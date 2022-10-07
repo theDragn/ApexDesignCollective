@@ -88,7 +88,8 @@ public class ApexUltrachromeTrail implements OnFireEffectPlugin, EveryFrameWeapo
             {
                 addTrailSegment(proj, (proj.getElapsed() / 2f) % 1f);
                 // do sparkly trail
-                engine.addSmoothParticle(proj.getLocation(),
+                engine.addSmoothParticle(
+                        MathUtils.getRandomPointInCircle(proj.getLocation(), 20f),
                         MathUtils.getPointOnCircumference(proj.getVelocity(), 200f, proj.getFacing() + 150 + Misc.random.nextFloat() * 60),
                         15f,
                         0.5f,

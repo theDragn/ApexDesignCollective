@@ -2,24 +2,17 @@ package data.weapons.proj;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin;
-import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.effects.ApexCryoEffect;
-import data.effects.ApexRegenEffect;
-import org.jetbrains.annotations.NotNull;
-import org.lazywizard.lazylib.CollisionUtils;
-import org.lazywizard.lazylib.FastTrig;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
-import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
 import plugins.ApexModPlugin;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ApexCryoBlobScript extends BaseEveryFrameCombatPlugin
