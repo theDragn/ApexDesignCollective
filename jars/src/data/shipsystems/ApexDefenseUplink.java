@@ -36,7 +36,9 @@ public class ApexDefenseUplink extends BaseShipSystemScript
         float range = ship.getMutableStats().getSystemRangeBonus().computeEffective(RANGE);
         for (ShipAPI target : CombatUtils.getShipsWithinRange(ship.getLocation(), range))
         {
-            if (target.isAlive() && target.getOwner() == ship.getOwner())
+            if (ship.getHullSize().equals(ShipAPI.HullSize.FIGHTER))
+                continue;
+            if (target.isAlive() && !target.isHulk() && target.getOwner() == ship.getOwner() && !targets.contains(target))
             {
                 ApexUplinkBuff buff = new ApexUplinkBuff(ship, target);
                 targets.add(target);
