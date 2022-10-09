@@ -127,9 +127,12 @@ public class ApexNetworkTargeter extends BaseHullMod
         for (WeaponAPI wep : ship.getAllWeapons())
         {
             float bonus = wep.getRange() / wep.getSpec().getMaxRange();
+            //System.out.println(bonus);
             if (bonus < min && bonus != 1)
                 min = bonus;
         }
+        if (min == Float.MAX_VALUE)
+            min = 1.0f;
         min = min * 100f - 100f;
         //System.out.println(min);
         return Math.min(min, RANGE_BONUS);
