@@ -7,18 +7,31 @@ import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.HullModFleetEffect;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
+import org.lazywizard.lazylib.MathUtils;
 
 // this is mostly stolen from Approlight (which very much inspired the effect)
 // it's way cleaner than the "use a manager campaign plugin" method that I was going to use
 // (this also presents a clean way for hullmods to buff all sorts of other ship stats for your whole fleet)
-public class ApexSonoraGantry extends BaseHullMod implements HullModFleetEffect
+public class ApexGantry extends BaseHullMod implements HullModFleetEffect
 {
     // total multiplier = 1 + REPAIR_BONUS_MULT * x^POWER; x = number of hullmods
     public static final float REPAIR_BONUS_MULT = 0.33f;
     public static final float POWER = 0.66f;
     public static final String ID = "apex_sonora_gantry";
+    private static final float UNFOLD_MULT = 1f;
+
+    @Override
+    public void advanceInCombat(ShipAPI ship, float amount)
+    {
+        if (ship == null || !ship.isAlive() || ship.isHulk() || ship.getShield() == null)
+            return;
+        float angle = MathUtils.getShortestRotation(ship.getShield().getFacing(), ship.getFacing());
+        float bonus = (180f - angle)/180f * UNFOLD_MULT + 1f;
+        ship.getMutableStats().getShieldUnfoldRateMult().modifyMult(ID, bonus);
+    }
 
     @Override
     public void advanceInCampaign(CampaignFleetAPI fleet)
@@ -68,6 +81,7 @@ public class ApexSonoraGantry extends BaseHullMod implements HullModFleetEffect
     @Override
     public void addPostDescriptionSection(TooltipMakerAPI tooltip, ShipAPI.HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec)
     {
+        // gantry icon + description
         if (ship != null && Global.getSector() != null && Global.getSector().getPlayerFleet() != null)
         {
             //float pad = 10f;
@@ -78,6 +92,23 @@ public class ApexSonoraGantry extends BaseHullMod implements HullModFleetEffect
                     Misc.getHighlightColor(),
                     (int) (getBonus(Global.getSector().getPlayerFleet()) * 100f - 100f) + "%");
         }
+        tooltip.addSectionHeading("Other Effects", Alignment.MID, 10f);
+        TooltipMakerAPI text = tooltip.beginImageWithText("graphics/hullmods/apex_fastshields.png",40);
+        text.addPara("The support gantry requires a broad frame to effectively service an entire fleet." +
+                " To compensate, the ship is equipped with secondary shield nodes that increase shield unfolding rate" +
+                "by %s. The bonus decreases as the shield rotates away from the front of the ship.",
+                10f,
+                Misc.getHighlightColor(),
+                (int)(UNFOLD_MULT*100f) + "%");
+        tooltip.addImageWithText(10);
+
+        TooltipMakerAPI text2 = tooltip.beginImageWithText("graphics/hullmods/apex_slow_nozzles.png", 40);
+        text2.addPara("The gantry consumes large amounts of internal space that would otherwise be" +
+                " reserved for nozzle systems, increasing its cooldown time by %s if one is installed.",
+                10f,
+                Misc.getNegativeHighlightColor(),
+                (int)(ApexSlowNozzles.NOZZLE_COOLDOWN_MULT * 100f -100f) + "%");
+        tooltip.addImageWithText(10);
     }
 
     public float getBonus(CampaignFleetAPI fleet)
@@ -90,7 +121,7 @@ public class ApexSonoraGantry extends BaseHullMod implements HullModFleetEffect
         float totalBoostMult = 0;
         for (FleetMemberAPI member : fleet.getFleetData().getMembersListCopy())
         {
-            if (!member.isMothballed() && member.getVariant().hasHullMod("apex_sonora_gantry"))
+            if (!member.isMothballed() && member.getVariant().hasHullMod("apex_gantry"))
                 numBoosters++;
         }
         return REPAIR_BONUS_MULT * (float)Math.pow(numBoosters, POWER) + 1f;

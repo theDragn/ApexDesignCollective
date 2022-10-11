@@ -1,8 +1,8 @@
 {
-  "hullName": "Sonora",
-  "hullId": "apex_sonora",
+  "hullName": "Sunbeam",
+  "hullId": "apex_sunbeam",
   "hullSize": "CAPITAL_SHIP",
-  "spriteName": "graphics/ships/apex_sonora.png",
+  "spriteName": "graphics/ships/apex_sunbeam.png",
   "style": "HIGH_TECH",
   "height": 322,
   "width": 610,
@@ -13,9 +13,8 @@
   "viewOffset": 0,
   "builtInMods": [
     "apex_armor",
-    "apex_slow_nozzles",
-    "apex_sonora_uplink",
-    "apex_sonora_gantry"
+    "apex_network_targeter",
+    "apex_gantry"
   ],
   "builtInWeapons": {
     "WS0015": "apex_ultrachrome",

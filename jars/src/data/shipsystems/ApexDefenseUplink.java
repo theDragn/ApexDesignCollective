@@ -13,59 +13,40 @@ import org.lwjgl.util.vector.Vector2f;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 public class ApexDefenseUplink extends BaseShipSystemScript
 {
     public static final float RANGE = 1600f;
     public static final float SHIELD_EFFICIENCY_MULT = 0.8f;
-    public static final float ARMOR_EFFECTIVE_MULT = 1.2f;
+    public static final float ARMOR_EFFECTIVE_MULT = 1.33f;
     public static final String BUFF_ID = "apex_uplink_sys";
     public static final Color JITTER_COLOR = new Color(0, 190, 0);
     private static final int RING_PARTICLE_COUNT = 20;
 
-    private ArrayList<ApexUplinkBuff> buffs = new ArrayList<>();
-    protected HashSet<ShipAPI> targets = new HashSet<>();
+    private static boolean addedPlugin = false;
     
 
     @Override
     public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel)
     {
+
         if (stats.getEntity() == null)
             return;
+        // plugin handles the buffs
+        if (!addedPlugin)
+        {
+            Global.getCombatEngine().addPlugin(new ApexDefenseUplinkPlugin());
+            addedPlugin = true;
+        }
         ShipAPI ship = (ShipAPI) stats.getEntity();
-        float range = ship.getMutableStats().getSystemRangeBonus().computeEffective(RANGE);
-        for (ShipAPI target : CombatUtils.getShipsWithinRange(ship.getLocation(), range))
-        {
-            if (ship.getHullSize().equals(ShipAPI.HullSize.FIGHTER))
-                continue;
-            if (target.isAlive() && !target.isHulk() && target.getOwner() == ship.getOwner() && !targets.contains(target))
-            {
-                ApexUplinkBuff buff = new ApexUplinkBuff(ship, target);
-                targets.add(target);
-                buffs.add(buff);
-            }
-
-        }
-        // advance buffs
-        float amount = Global.getCombatEngine().getElapsedInLastFrame();
-        for (ApexUplinkBuff buff : buffs)
-        {
-            buff.lifetime += amount;
-            buff.update(amount);
-        }
-        drawParticleRing(ship, effectLevel, range);
+        drawParticleRing(ship, effectLevel, ship.getMutableStats().getSystemRangeBonus().computeEffective(RANGE));
     }
 
     @Override
     public void unapply(MutableShipStatsAPI stats, String id)
     {
-        if (stats.getEntity() == null)
-            return;
-        float amount = Global.getCombatEngine().getElapsedInLastFrame();
-        for (ApexUplinkBuff buff : buffs)
-        {
-            buff.update(amount);
-        }
+
     }
 
     // thanks histi
@@ -93,44 +74,6 @@ public class ApexDefenseUplink extends BaseShipSystemScript
                     1,    // brightness
                     0.25f,    // duration
                     JITTER_COLOR);
-        }
-    }
-
-    private class ApexUplinkBuff
-    {
-        private float lifetime;
-        private ShipAPI target;
-        private ShipAPI source;
-
-        public ApexUplinkBuff(ShipAPI source, ShipAPI target)
-        {
-            this.target = target;
-            this.source = source;
-            this.lifetime = 1f;
-        }
-
-        // advance()
-        public void update(float amount)
-        {
-            // should probably do graphical stuff in here too
-            MutableShipStatsAPI stats = target.getMutableStats();
-            if (!target.isAlive() || !source.isAlive() || MathUtils.getDistanceSquared(target.getLocation(), source.getLocation()) > RANGE * RANGE)
-            {
-                stats.getEffectiveArmorBonus().modifyMult(BUFF_ID, ARMOR_EFFECTIVE_MULT);
-                stats.getShieldDamageTakenMult().modifyMult(BUFF_ID, SHIELD_EFFICIENCY_MULT);
-            } else
-            {
-                stats.getEffectiveArmorBonus().unmodify(BUFF_ID);
-                stats.getShieldDamageTakenMult().unmodify(BUFF_ID);
-                lifetime -= amount;
-                if (lifetime == 0)
-                {
-                    targets.remove(target);
-                    buffs.remove(this);
-                }
-            }
-            ((ShipAPI)stats.getEntity()).setJitterUnder(BUFF_ID, JITTER_COLOR, 2f * lifetime, 3, 0f, 4f * lifetime);
-            ((ShipAPI)stats.getEntity()).setJitterShields(false);
         }
     }
 }

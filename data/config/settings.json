@@ -14,8 +14,8 @@
 		  "apex_regen": "graphics/icons/buffs/apex_regen.png",
       "apex_cryo": "graphics/icons/buffs/apex_cryo.png",
       "apex_nozzle": "graphics/hullmods/apex_nozzle.png",
-      "apex_dartgun_indicator_circle":"graphics/fx/shields256ring.png",
-      "apex_dartgun_indicator_pip":"graphics/ui/icons/16x_starburst_circle.png",
+      "apex_slow_nozzles":"graphics/hullmods/apex_slow_nozzles.png",
+      "apex_shieldaccel":"graphics/hullmods/apex_fastshields.png",
       "apex_breach_core":"graphics/icons/buffs/apex_breachcore.png"
 		},
 		"fx":{

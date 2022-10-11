@@ -235,6 +235,8 @@ public class ApexUtils
             mult *= ApexFastNozzles.NOZZLE_COOLDOWN_MULT;
         if (ship.getVariant().hasHullMod("apex_slow_nozzles"))
             mult *= ApexSlowNozzles.NOZZLE_COOLDOWN_MULT;
+        if (ship.getVariant().hasHullMod("apex_gantry"))
+            mult *= ApexSlowNozzles.NOZZLE_COOLDOWN_MULT;
         return mult;
     }
 
