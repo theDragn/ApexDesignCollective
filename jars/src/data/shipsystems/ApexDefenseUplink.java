@@ -25,6 +25,7 @@ public class ApexDefenseUplink extends BaseShipSystemScript
     private static final int RING_PARTICLE_COUNT = 20;
 
     private static boolean addedPlugin = false;
+    private static int hashCode = 0;
     
 
     @Override
@@ -34,10 +35,10 @@ public class ApexDefenseUplink extends BaseShipSystemScript
         if (stats.getEntity() == null)
             return;
         // plugin handles the buffs
-        if (!addedPlugin)
+        if (hashCode != Global.getCombatEngine().hashCode())
         {
             Global.getCombatEngine().addPlugin(new ApexDefenseUplinkPlugin());
-            addedPlugin = true;
+            hashCode = Global.getCombatEngine().hashCode();
         }
         ShipAPI ship = (ShipAPI) stats.getEntity();
         drawParticleRing(ship, effectLevel, ship.getMutableStats().getSystemRangeBonus().computeEffective(RANGE));
@@ -46,7 +47,11 @@ public class ApexDefenseUplink extends BaseShipSystemScript
     @Override
     public void unapply(MutableShipStatsAPI stats, String id)
     {
-
+        if (hashCode != Global.getCombatEngine().hashCode())
+        {
+            Global.getCombatEngine().addPlugin(new ApexDefenseUplinkPlugin());
+            hashCode = Global.getCombatEngine().hashCode();
+        }
     }
 
     // thanks histi

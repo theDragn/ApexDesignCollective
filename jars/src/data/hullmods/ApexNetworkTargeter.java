@@ -6,9 +6,12 @@ import com.fs.starfarer.api.combat.listeners.WeaponBaseRangeModifier;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
+import data.scripts.util.MagicIncompatibleHullmods;
 import org.lazywizard.lazylib.MathUtils;
 
 import java.awt.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ApexNetworkTargeter extends BaseHullMod
 {
@@ -20,9 +23,28 @@ public class ApexNetworkTargeter extends BaseHullMod
     public static final float MAX_RANGE_AFTER_BOOST = 900f;
     public static final String ID = "apex_net_target";
 
+    private static final Set<String> BLOCKED_HULLMODS = new HashSet<>();
+
+    static
+    {
+        BLOCKED_HULLMODS.add("ballistic_rangefinder");
+        // TODO: any others that need to be blocked?
+    }
+
     @Override
     public void applyEffectsAfterShipCreation(ShipAPI ship, String id)
     {
+        for (String hullmod : BLOCKED_HULLMODS)
+        {
+            if (ship.getVariant().getHullMods().contains(hullmod))
+            {
+                MagicIncompatibleHullmods.removeHullmodWithWarning(
+                        ship.getVariant(),
+                        hullmod,
+                        "apex_network_targeter"
+                );
+            }
+        }
         ship.addListener(new ApexSonoraRangeBuff(getOp(ship)));
     }
 
@@ -141,7 +163,7 @@ public class ApexNetworkTargeter extends BaseHullMod
     public static int getOp(ShipAPI ship)
     {
         int op = 0;
-        for (String wing : ship.getVariant().getFittedWings())
+        for (String wing : ship.getVariant().getNonBuiltInWings())
         {
             op += Global.getSettings().getFighterWingSpec(wing).getOpCost(ship.getMutableStats());
         }

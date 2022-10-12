@@ -34,22 +34,22 @@ public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin
     @Override
     public void advance(float amount, List<InputEventAPI> events)
     {
+        // committing O(n^2) sins
         for (ShipAPI ship : engine.getShips())
         {
-            if (ship.isFighter())
+            if (ship.getHullSize().equals(ShipAPI.HullSize.FIGHTER))
                 continue;
             // we've got a ship with a buffer system
             // apply buffs to ships in range
-            if (ship.getSystem() != null && ship.getSystem().getId().equals("apex_uplink") && ship.getSystem().isActive())
+            if (ship.getSystem() != null && ship.getSystem().getSpecAPI().getId().equals("apex_uplink") && ship.getSystem().isOn())
             {
                 float range = ship.getMutableStats().getSystemRangeBonus().computeEffective(ApexDefenseUplink.RANGE);
                 for (ShipAPI shipToBuff : CombatUtils.getShipsWithinRange(ship.getLocation(), range))
                 {
-                    if (ship.isFighter() || !shipToBuff.isAlive() || ship.getOwner() == shipToBuff.getOwner())
+                    if (shipToBuff.getHullSize().equals(ShipAPI.HullSize.FIGHTER) || !shipToBuff.isAlive() || ship.getOwner() != shipToBuff.getOwner())
                         continue;
                     targets.put(shipToBuff, 1f);
                 }
-
             }
         }
         List<ShipAPI> toRemove = new ArrayList<>();
@@ -66,7 +66,7 @@ public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin
                             "Armor and shield performance improved",
                             false
                     );
-                ship.setJitterUnder(BUFF_ID, JITTER_COLOR, 2f * lifetime, 3, 2f * lifetime + 1, 4f * lifetime);
+                ship.setJitterUnder(BUFF_ID, JITTER_COLOR, 1f * lifetime, 3, 2f * lifetime, 3f * lifetime);
                 ship.setJitterShields(false);
                 ship.getMutableStats().getEffectiveArmorBonus().modifyMult(BUFF_ID, ARMOR_EFFECTIVE_MULT);
                 ship.getMutableStats().getShieldDamageTakenMult().modifyMult(BUFF_ID, SHIELD_EFFICIENCY_MULT);

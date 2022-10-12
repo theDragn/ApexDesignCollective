@@ -12,7 +12,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import org.lazywizard.lazylib.MathUtils;
 
-// this is mostly stolen from Approlight (which very much inspired the effect)
+// the fleet buff code is mostly stolen from Approlight (which very much inspired the effect)
 // it's way cleaner than the "use a manager campaign plugin" method that I was going to use
 // (this also presents a clean way for hullmods to buff all sorts of other ship stats for your whole fleet)
 public class ApexGantry extends BaseHullMod implements HullModFleetEffect
@@ -28,8 +28,9 @@ public class ApexGantry extends BaseHullMod implements HullModFleetEffect
     {
         if (ship == null || !ship.isAlive() || ship.isHulk() || ship.getShield() == null)
             return;
-        float angle = MathUtils.getShortestRotation(ship.getShield().getFacing(), ship.getFacing());
-        float bonus = (180f - angle)/180f * UNFOLD_MULT + 1f;
+        float angle = Math.abs(MathUtils.getShortestRotation(ship.getShield().getFacing(), ship.getFacing()));
+        float bonus = ((180f - angle)/180f * UNFOLD_MULT) + 1f;
+        //System.out.println(bonus);
         ship.getMutableStats().getShieldUnfoldRateMult().modifyMult(ID, bonus);
     }
 
@@ -95,7 +96,7 @@ public class ApexGantry extends BaseHullMod implements HullModFleetEffect
         tooltip.addSectionHeading("Other Effects", Alignment.MID, 10f);
         TooltipMakerAPI text = tooltip.beginImageWithText("graphics/hullmods/apex_fastshields.png",40);
         text.addPara("The support gantry requires a broad frame to effectively service an entire fleet." +
-                " To compensate, the ship is equipped with secondary shield nodes that increase shield unfolding rate" +
+                " To compensate, the ship is equipped with secondary shield nodes that increase shield unfolding rate " +
                 "by %s. The bonus decreases as the shield rotates away from the front of the ship.",
                 10f,
                 Misc.getHighlightColor(),
@@ -104,7 +105,7 @@ public class ApexGantry extends BaseHullMod implements HullModFleetEffect
 
         TooltipMakerAPI text2 = tooltip.beginImageWithText("graphics/hullmods/apex_slow_nozzles.png", 40);
         text2.addPara("The gantry consumes large amounts of internal space that would otherwise be" +
-                " reserved for nozzle systems, increasing its cooldown time by %s if one is installed.",
+                " reserved for nozzle systems, increasing the cooldown time by %s one is installed.",
                 10f,
                 Misc.getNegativeHighlightColor(),
                 (int)(ApexSlowNozzles.NOZZLE_COOLDOWN_MULT * 100f -100f) + "%");
