@@ -95,8 +95,7 @@ public class ApexGantry extends BaseHullMod implements HullModFleetEffect
         }
         tooltip.addSectionHeading("Other Effects", Alignment.MID, 10f);
         TooltipMakerAPI text = tooltip.beginImageWithText("graphics/hullmods/apex_fastshields.png",40);
-        text.addPara("The support gantry requires a broad frame to effectively service an entire fleet." +
-                " To compensate, the ship is equipped with secondary shield nodes that increase shield unfolding rate " +
+        text.addPara("To compensate for its wide frame, the ship is equipped with secondary shield nodes that increase shield unfolding rate " +
                 "by %s. The bonus decreases as the shield rotates away from the front of the ship.",
                 10f,
                 Misc.getHighlightColor(),
@@ -105,7 +104,7 @@ public class ApexGantry extends BaseHullMod implements HullModFleetEffect
 
         TooltipMakerAPI text2 = tooltip.beginImageWithText("graphics/hullmods/apex_slow_nozzles.png", 40);
         text2.addPara("The gantry consumes large amounts of internal space that would otherwise be" +
-                " reserved for nozzle systems, increasing the cooldown time by %s one is installed.",
+                " reserved for nozzle systems, increasing cooldown time by %s if one is installed.",
                 10f,
                 Misc.getNegativeHighlightColor(),
                 (int)(ApexSlowNozzles.NOZZLE_COOLDOWN_MULT * 100f -100f) + "%");

@@ -3,29 +3,25 @@
 this one's different, I promise
 
 New:
-- Sonora-class Siege Carrier: A heavy frontline carrier designed for bombarding stations and other heavy combatants. Has a pair of built-in Ultrachromatic Pulse Cannons and Networked Targeting Array, which boosts the range of strikecraft weapons. System: Defense Optimization Uplink; improves the armor and shields of nearby allies but prevents hard flux dissipation while active.
+Ships:
+- Sonora-class Siege Carrier: A heavy frontline carrier designed for bombarding stations and other heavy combatants. Has a pair of built-in Ultrachromatic Pulse Cannons for anti-station duties. Comes with Networked Targeting Array and Fleet Support Gantry as built-in hullmods. System: Defense Optimization Uplink; improves the armor and shields of nearby allies but prevents hard flux dissipation while active.
 - Tuatara-class (LRM) Missile Destroyer: Equipped with a Thundercloud LRM Launcher, which delivers a spread of high-AoE energy mines to its target. Excels at suppressing enemy formations, but lacks the focused damage needed to be effective against armor. System: Arcmine Dispenser.
-- Tuatara-class (VLS) Missile Destroyer: Equipped with a single variable-warhead Taipan-15 Vertical Launch System. System: Arcmine Dispenser.
 
+Hullmods: 
+- Networked Targeting Array: Shares the ship's range bonuses with its strikecraft, but decreases their engagement range. Increases the base range of the ship's small and medium weapons based on how much OP was spent on fighters. Great for larger battlecarriers, but can be very OP-expensive to take full advantage of.
 
-Thundercloud LRM: Splits into 3x500 energy damage mines. Mines detonate when approached or after a short timer, dealing their damage over a large area. The total damage is divided over up to 10 hits, with closer targets taking larger and fewer hits.
+Weapons:
+- Toroid Mortar: Medium energy. Fires a low-velocity unstable ring of plasma that explodes violently on contact or after reaching maximum range. Excellent damage potential, good efficiency, and relatively low sustained flux cost, but very poor projectile velocity.
 
-Networked Targeting Array: 
-A large supercomputing cluster and advanced avionics allow coordination between strikecraft targeting systems and and the ship's built-in sensor arrays, improving long-range performance of both fighter weapons and smaller ship-mounted weapons.
-
-This ship's strikecraft recieve a range bonus equal to the largest range bonus affecting any of the ship's weapons, up to a maximum of 75%. Increasing strikecraft weapon range decreases their engagment range, up to a maximum penalty of -55%. Every 15 OP of fighters installed on the ship increases the base range of small weapons by 50su and medium weapons by 25su, up to a maximum base range of 900.
-
-Secondary Emitter Nodes: 
-To compensate for its wide frame, the Sonora makes use of a number of secondary shield emitter nodes. Shield extension rate is increased by up to 100%, decreasing the further the shield is rotated away from the front of the ship. The internal volume consumed by the secondary emitters impinges on the ship's magnetic projector nozzles, increasing the cooldown time of any nozzle systems by 25%.
-
+Thundercloud LRM: Splits into 6x250 energy damage mines. Mines detonate when approached or after a short timer, dealing their damage over a large area. The total damage from each mine is divided over up to 5 hits, with closer targets taking larger and fewer hits.
 
 Changes:
 - Crocodile: Taipan VLS pods now correctly reset their firing order if the ship vents or overloads during the firing sequence. (thanks amazigh)
 - Komodo: Reduced flux dissipation by 50 and slightly reduced primary weapon arcs.
 - Entropy Consolidator (system on Caiman and Komodo): Normalized damage taken multiplier to match the vanilla damper field. Destroyers now take 66% less damage and cruisers take 50% less damage (previous value was 60% for all hulls) and the description no longer lies about how strong the effect is.
 - Cryocoolant Projector: Now just increases flux dissipation by 25% (vs equal or smaller ships) or 12.5% (vs larger ships). A reduction to flux generation was only really useful if you intentionally overfluxed your ships a bit; dissipation is more useful across a wider variety of hulls and loadouts.
-- Bifurcation Device (system on the Python): Now properly reapplies on-fire scripting to duplicated projectiles. This should (hopefully) eliminate some odd behavior with heavily-scripted projectile weapons. Also fixed infinite recursion issues with several ED Shipyards weapons.
-- Gecko: Weapons now behave as if Coherency Amplifier is installed, making them deal some energy damage on hits against ships and fighters.
+- Bifurcation Device (system on the Python): Fixed infinite recursion issues with several ED Shipyards weapons.
+- Gecko: Weapons now deal 25 extra energy damage on hit, helping out with shielded or armored targets that could shrug off the frag damage.
 
 TODO:
 

@@ -1,0 +1,167 @@
+{
+  "hullName": "Tuatara",
+  "hullId": "apex_tuatara",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/ships/apex_tuatara.png",
+  "style": "HIGH_TECH",
+  "height": 206,
+  "width": 132,
+  "center": [66, 103],
+  "collisionRadius": 103,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 115,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor"
+  ],
+  "builtInWeapons": {
+    "WS0005": "apex_thundercloud"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 215,
+      "angle": 90,
+      "locations": [4, 42]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 215,
+      "angle": -90,
+      "locations": [4, -42]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": -45,
+      "locations": [80, -21]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 140,
+      "angle": 45,
+      "locations": [80, 21]
+    },
+    {
+      "id": "WS0005",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [70, -0]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 180,
+      "locations": [-13.5, 38.5]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -180,
+      "locations": [-13.5, -38.5]
+    },
+    {
+      "id": "WS3MINE",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 90,
+      "locations": [-56, 33.5]
+    },
+    {
+      "id": "WS4MINE",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -90,
+      "locations": [-56, -33.5]
+    },
+    {
+      "id": "WS1MINE",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 90,
+      "locations": [62, 26]
+    },
+    {
+      "id": "WS2MINE",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -90,
+      "locations": [62, -26]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-95, 16.5],
+      "length": 34,
+      "width": 14,
+      "angle": 180,
+      "contrailSize": 14,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-95, -16.5],
+      "length": 34,
+      "width": 14,
+      "angle": -180,
+      "contrailSize": 14,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-95, -0],
+      "length": 34,
+      "width": 14,
+      "angle": 180,
+      "contrailSize": 14,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -101, 20.5,
+    -82.5, 35,
+    -16.5, 31.5,
+    -7.5, 65,
+    14.5, 65,
+    26.5, 26.5,
+    71.5, 26.5,
+    81.5, 30.5,
+    100, 21,
+    100, -21,
+    81.5, -30.5,
+    71.5, -26.5,
+    26.5, -26.5,
+    14.5, -65,
+    -7.5, -65,
+    -16.5, -31.5,
+    -82.5, -35,
+    -101, -20.5
+  ]
+}

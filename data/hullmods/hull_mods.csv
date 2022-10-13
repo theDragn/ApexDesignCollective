@@ -10,6 +10,11 @@ Coherency Amplifier,apex_coherency_amplifier,1,,Apex Design Collective,offensive
 %s: Projectiles gain %s equal to %s of their base damage.
 
 %s: Projectiles deal an extra %s damage to ships and fighters.",Improve quark-gluon weapons.,graphics/hullmods/apex_coherency_amplifier.png
+Networked Targeting Array,apex_network_targeter,2,,Apex Design Collective,offensive,"Weapons, Fighters",10000,,FALSE,,3,6,12,25,data.hullmods.ApexNetworkTargeter,"A large supercomputing cluster and advanced avionics allow coordination between strikecraft targeting systems and the ship's built-in sensor arrays, improving long-range performance of both fighter weapons and smaller ship-mounted weapons.
+
+This ship's strikecraft recieve a range bonus equal to the smallest range bonus affecting any of the ship's weapons, up to a maximum of %s. Increasing strikecraft weapon range decreases their engagment range by up to %s. 
+
+Every %s of strikecraft installed on the ship increases the base range of small weapons by %s and medium weapons by %s, up to a maximum base range of %s.",Fighter range bonuses.,graphics/hullmods/apex_network_targeter.png
 ,,,,,,,,,,,,,,,,,,
 # Subsystems,,,,,,,,,,,,,,,,,,
 Cryocoolant Projector,apex_cryo_projector,2,,Apex Design Collective,"defensive, special, req_spaceport","Defenses, Special",10000,,FALSE,,4,6,8,10,data.hullmods.ApexCryoSystemHullmod,"Installs a Cryocoolant Projector subsystem. Maintaining the system is a complex and expensive affair, increasing deployment and monthly supply cost by %s/%s/%s/%s.",Remote flux buff.,graphics/hullmods/apex_cryo_projector.png
@@ -25,11 +30,6 @@ Reduces the timeflow bonus from phase to %s. In exchange, phase cloak cooldown a
 Limited Magazines,apex_cramped_mags,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexCrampedMags,A relative lack of large internal volumes %s. Each missile weapon requires %s/%s/%s units of internal space to mount without penalty. Mounting more than %s/%s/%s/%s units of missile weapons will reduce missile fire rate by %s (multiplicative) for each unit above the cap.,Limits missile installation.,graphics/hullmods/apex_cramped_mags.png
 Enhanced Nozzles,apex_fast_nozzles,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexFastNozzles,Upgraded nozzle projection systems and larger internal volumes allow for more rapid activations of nozzle subsystems. Reduces nozzle subsystem cooldown by %s.,Faster nozzle cooldown.,graphics/hullmods/apex_fast_nozzles.png
 Overloaded Nozzles,apex_slow_nozzles,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexSlowNozzles,"The scarcity of spare internal volume for nozzle systems reduces efficiency if they are installed, increasing their cooldown time by %s.",Slower nozzle cooldown.,graphics/hullmods/apex_slow_nozzles.png
-Networked Targeting Array,apex_network_targeter,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexNetworkTargeter,"A large supercomputing cluster and advanced avionics allow coordination between strikecraft targeting systems and the ship's built-in sensor arrays, improving long-range performance of both fighter weapons and smaller ship-mounted weapons.
-
-This ship's strikecraft recieve a range bonus equal to the smallest range bonus affecting any of the ship's weapons, up to a maximum of %s. Increasing strikecraft weapon range decreases their engagment range by up to %s. 
-
-Every %s of strikecraft installed on the ship increases the base range of small weapons by %s and medium weapons by %s, up to a maximum base range of %s.",Fighter range bonuses.,graphics/hullmods/apex_network_targeter.png
 Fleet Servicing Gantry,apex_gantry,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexGantry,A large collection of replenishment drones and autofactories permits more efficient recovery while underway. Improves the fleet's repair rate and CR recovery rate by %s. Multiple gantries stack with diminishing returns.,Faster out-of-combat repair.,graphics/hullmods/apex_gantry.png
 ,,,,,,,,,,,,,,,,,,
 # Commission,,,,,,,,,,,,,,,,,,

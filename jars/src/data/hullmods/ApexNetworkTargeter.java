@@ -169,4 +169,36 @@ public class ApexNetworkTargeter extends BaseHullMod
         }
         return op;
     }
+
+    @Override
+    public boolean isApplicableToShip(ShipAPI ship)
+    {
+        if (ship == null || ship.getNumFighterBays() == 0)
+            return false;
+        for (String hullmod : BLOCKED_HULLMODS)
+        {
+            if (ship.getVariant().getHullMods().contains(hullmod))
+                return false;
+        }
+        return true;
+    }
+
+    public String getUnapplicableReason(ShipAPI ship)
+    {
+        if (ship == null)
+        {
+            return "Ship does not exist, what the fuck";
+        }
+        if (ship.getNumFighterBays() == 0)
+            return "Ship must have fighter bays.";
+        for (String hullmod : BLOCKED_HULLMODS)
+        {
+            if (ship.getVariant().getHullMods().contains(hullmod))
+            {
+                return "Incompatible with " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
+            }
+        }
+
+        return null;
+    }
 }

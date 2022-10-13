@@ -36,7 +36,7 @@ public class ApexFlareSubsystem extends ApexBaseSubsystem
         {
             for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
             {
-                if (slot.isSystemSlot())
+                if (slot.isSystemSlot() && !slot.getId().contains("MINE"))
                 {
                     // N O Z Z L E
                     Global.getCombatEngine().spawnProjectile(ship, null, "flarelauncher3", slot.computePosition(ship), slot.computeMidArcAngle(ship) + 30f * (Misc.random.nextFloat() - 0.5f), null);

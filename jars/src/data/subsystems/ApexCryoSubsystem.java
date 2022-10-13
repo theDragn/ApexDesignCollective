@@ -87,7 +87,7 @@ public class ApexCryoSubsystem extends ApexBaseSubsystem
             List<DamagingProjectileAPI> blobs = new ArrayList<DamagingProjectileAPI>();
             for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
             {
-                if (slot.isSystemSlot())
+                if (slot.isSystemSlot() && !slot.getId().contains("MINE"))
                 {
                     // N O Z Z L E
                     DamagingProjectileAPI blob = (DamagingProjectileAPI) Global.getCombatEngine().spawnProjectile(ship,

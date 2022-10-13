@@ -1,8 +1,9 @@
 {
 	"id":"apex_arc_mine",
-	"type":"WEAPON",
+	"type":"STAT_MOD",
 	"aiType":"CUSTOM",
-	
+
+	"statsScript":"data.shipsystems.ApexArcMineSystem",
 	"aiScript":"data.shipsystems.ai.ApexArcMineDispenserAI",
 	
 	"weaponDataId":"apex_arc_mine",

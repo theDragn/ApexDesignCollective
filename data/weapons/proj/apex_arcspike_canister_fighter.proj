@@ -10,7 +10,7 @@
 	"glowColor":[125,175,255,75],
 	"glowRadius":50,
 	"collisionRadius":10,
-	"collisionClass":"MISSILE_FF",
+	"collisionClass":"MISSILE_NO_FF",
 	"explosionColor":[100,155,255,255],  # purely visual, will get a white additively blended core on top of this color
 	"explosionRadius":100, # purely visual
 	"armingTime":0.1,	

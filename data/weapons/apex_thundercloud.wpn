@@ -1,0 +1,37 @@
+{
+  "id": "apex_thundercloud",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_thundercloud_missile",
+  "type": "MISSILE",
+  "size": "LARGE",
+  # the scripting for this is done through the missile AI plugin and a dummy weapon for the mines, you can basically ignore the .proj files
+  "everyFrameEffect": "data.weapons.ApexThundercloudEffects",
+  # okay just kidding this everyframe is used to control the damage dealt to various targets
+  "turretSprite": "",
+  "turretGunSprite": "",
+  "hardpointSprite": "",
+  "hardpointGunSprite": "",
+  "renderHints": [
+    RENDER_LOADED_MISSILES
+  ],
+  "renderAboveAllWeapons": 0,
+  "turretOffsets": [
+    0,
+    0
+  ],
+  "turretAngleOffsets": [
+    0
+  ],
+  "hardpointOffsets": [
+    0,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "barrelMode": "ALTERNATING",
+  "animationType": "NONE",
+  "autocharge": true,
+  "textureType": ROUGH,
+  "fireSoundTwo": "apex_sledgehammer_fire"
+}

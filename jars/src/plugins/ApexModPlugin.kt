@@ -88,6 +88,7 @@ class ApexModPlugin : BaseModPlugin() {
             "apex_vls_acid_missile" -> return PluginPick(ApexVLSMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_vls_kin_missile" -> return PluginPick(ApexVLSMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_vls_tachyon_missile" -> return PluginPick(ApexVLSMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_thundercloud_missile" -> return PluginPick(ApexThundercloudAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             else -> {
             }
         }

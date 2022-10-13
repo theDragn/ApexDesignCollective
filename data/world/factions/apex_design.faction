@@ -137,6 +137,7 @@
 			"apex_flare_system",
 			"apex_cryo_projector",
 			"apex_coherency_amplifier",
+			"apex_network_targeter",
 			"phase_anchor",
 			"adaptive_coils"
 		],
