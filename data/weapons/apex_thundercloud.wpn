@@ -5,8 +5,7 @@
   "type": "MISSILE",
   "size": "LARGE",
   # the scripting for this is done through the missile AI plugin and a dummy weapon for the mines, you can basically ignore the .proj files
-  "everyFrameEffect": "data.weapons.ApexThundercloudEffects",
-  # okay just kidding this everyframe is used to control the damage dealt to various targets
+  # there's also an onhit for the mines that does the disruptor effects.
   "turretSprite": "",
   "turretGunSprite": "",
   "hardpointSprite": "",
