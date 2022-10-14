@@ -22,7 +22,7 @@ public class ApexArcMineSystem extends BaseShipSystemScript
         ShipAPI ship = (ShipAPI)stats.getEntity();
         for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
         {
-            if (ship.getHullSpec().getBaseHullId().contains("lacerta") || slot.getId().contains("MINE"))
+            if ((ship.getHullSpec().getBaseHullId().contains("lacerta") || slot.getId().contains("MINE")) && slot.isSystemSlot())
             {
                 MissileAPI mine = (MissileAPI) Global.getCombatEngine().spawnProjectile(ship, null, "apex_arc_mine", slot.computePosition(ship), slot.computeMidArcAngle(ship) + 30f * (Misc.random.nextFloat() - 0.5f), null);
                 Global.getCombatEngine().addPlugin(new ApexArcMineScript(ship, mine));
