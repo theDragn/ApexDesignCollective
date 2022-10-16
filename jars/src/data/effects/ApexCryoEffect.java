@@ -78,22 +78,26 @@ public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
             return;
         }
         remainingDuration -= amount;
+        /*
         target.getMutableStats().getBallisticWeaponFluxCostMod().modifyMult("apexCryo", effect);
         target.getMutableStats().getEnergyWeaponFluxCostMod().modifyMult("apexCryo", effect);
         target.getMutableStats().getMissileWeaponFluxCostMod().modifyMult("apexCryo", effect);
-        target.getMutableStats().getShieldUpkeepMult().modifyMult("apexCryo", effect);
+        target.getMutableStats().getShieldUpkeepMult().modifyMult("apexCryo", effect);*/
+        target.getMutableStats().getFluxDissipation().modifyMult("apexCryo", effect);
 
         if (engine.getPlayerShip() == target && remainingDuration > 0f)
         {
-            engine.maintainStatusForPlayerShip("apex_cryo", "graphics/icons/buffs/apex_cryo.png", "-" + (int)(100f-effect*100f) + "% weapon and shield flux generation." , "Remaining duration: " + Misc.getRoundedValue(remainingDuration), false);
+            engine.maintainStatusForPlayerShip("apex_cryo", "graphics/icons/buffs/apex_cryo.png", (int)(100f-effect*100f) + "% flux dissipation." , "Remaining duration: " + Misc.getRoundedValue(remainingDuration), false);
         }
     }
 
     private void unmodify(ShipAPI target)
     {
+        /*
         target.getMutableStats().getBallisticWeaponFluxCostMod().unmodify("apexCryo");
         target.getMutableStats().getEnergyWeaponFluxCostMod().unmodify("apexCryo");
         target.getMutableStats().getMissileWeaponFluxCostMod().unmodify("apexCryo");
-        target.getMutableStats().getShieldUpkeepMult().unmodify("apexCryo");
+        target.getMutableStats().getShieldUpkeepMult().unmodify("apexCryo");*/
+        target.getMutableStats().getFluxDissipation().modifyMult("apexCryo", effect);
     }
 }

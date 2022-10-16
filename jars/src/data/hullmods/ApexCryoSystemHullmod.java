@@ -22,7 +22,7 @@ import java.util.Set;
 public class ApexCryoSystemHullmod extends BaseHullMod
 {
 
-    public static final float CRYO_GENERATION_MULT = 0.7f;
+    public static final float CRYO_GENERATION_MULT = 1.3f;
     public static final float CRYO_BUFF_DURATION = 10f;
     public static final float CRYO_BUFF_EFFECTIVENESS_VS_LARGER = 0.5f;
     public static final float MAX_COOLANT_LOCKON_RANGE = 1500f; // distance at which a repair target is considered in range
@@ -48,14 +48,14 @@ public class ApexCryoSystemHullmod extends BaseHullMod
     }
 
 
-    public static final String line1 = "\n• Fires magnetically-guided blobs of cryogenic coolant that decrease flux generation. " +
+    public static final String line1 = "\n• Fires magnetically-guided blobs of cryogenic coolant that increase flux dissipation. " +
             "\n• Has a " + (int)BASE_COOLDOWN + " second cooldown and generates soft flux on use. " +
             "\n• Targets the selected ally, if in range. If no allied target is selected, targets allies with non-zero flux within range.";
-    public static final String line2 = "• Projectiles decrease weapon and shield soft flux generation by %s for %s seconds.";
+    public static final String line2 = "• Projectiles increase flux dissipation by %s for %s seconds.";
     public static final String line3 = "• Hitting an ally with multiple projectiles increases the duration of the buff, with diminishing returns.";
     public static final String line4 = "• Projectiles from smaller ships are %s less effective on larger ships.";
     public static final String[] line2sub = {
-            (int)(100f- CRYO_GENERATION_MULT *100f) + "%",
+            (int)(100f*CRYO_GENERATION_MULT - 100f) + "%",
             (int) CRYO_BUFF_DURATION + ""
     };
     public static final String[] line4sub = {
