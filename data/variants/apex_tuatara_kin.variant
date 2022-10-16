@@ -1,0 +1,37 @@
+{
+    "displayName": "Anti-Shield",
+    "fluxCapacitors": 6,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "apex_tuatara",
+    "hullMods": [
+        "apex_cryo_projector",
+        "apex_lrm_emp"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_tuatara_kin",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_nanogun_medium",
+                "WS0002": "apex_nanogun_medium"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "apex_thundercloud_emp"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_coilgun_small",
+                "WS0004": "apex_coilgun_small"
+            }
+        }
+    ]
+}

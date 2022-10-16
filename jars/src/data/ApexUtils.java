@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.graphics.SpriteAPI;
 import com.fs.starfarer.api.loading.ProjectileSpawnType;
+import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.hullmods.ApexFastNozzles;
 import data.hullmods.ApexSlowNozzles;
@@ -240,4 +241,14 @@ public class ApexUtils
         return mult;
     }
 
+    public static int getNumNozzles(ShipAPI ship)
+    {
+        int nozzles = 0;
+        for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
+        {
+            if (slot.isSystemSlot() && !slot.getId().contains("MINE"))
+                nozzles++;
+        }
+        return nozzles;
+    }
 }

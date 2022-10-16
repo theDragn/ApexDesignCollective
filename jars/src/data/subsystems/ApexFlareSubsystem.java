@@ -32,7 +32,7 @@ public class ApexFlareSubsystem extends ApexBaseSubsystem
     public void apply(MutableShipStatsAPI stats, String id, SubsystemState state, float effectLevel)
     {
         frameTracker.advance(Global.getCombatEngine().getElapsedInLastFrame());
-        if (firedFlares != NUM_FLARES && frameTracker.intervalElapsed())
+        if (firedFlares != NUM_FLARES.get(ship.getHullSize()) && frameTracker.intervalElapsed())
         {
             for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
             {

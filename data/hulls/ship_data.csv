@@ -18,7 +18,7 @@ Caiman,apex_caiman,Destroyer,Apex Design Collective,apex_thorns,10,5000,500,4200
 Gharial,apex_gharial,Destroyer,Apex Design Collective,apex_microburn,9,4000,400,4200,,400,95,,120,100,100,45,90,400,OMNI,,180,0.3,0.9,,,50,75,100,60,2,30,10,40000,10,25,360,0.25,9,9,,apex_hulls,,0.5,2,3,,1312
 Backscatter,apex_backscatter,Carrier,Apex Design Collective,apex_remote_damper,10,4000,400,2500,,200,70,2,75,60,40,30,45,400,OMNI,,180,0.3,0.9,,,50,100,100,50,2,25,10,45000,10,25,360,0.25,12,12,CARRIER,apex_hulls,,0.5,2,3,,1312
 Najash,apex_najash,Dropship,Apex Design Collective,apex_microburn,6,3500,400,2250,,100,40,,80,60,60,30,45,400,OMNI,,180,0.3,0.9,,,10,250,50,80,2,40,10,35000,10,25,360,0.25,8,8,"CIVILIAN, TRANSPORT",apex_hulls,,0.5,2,3,,7
-Tuatara,apex_tuatara,Minelayer Destroyer,Apex Design Collective,apex_arc_mine,12,4000,400,4000,,400,80,,75,60,40,30,45,350,OMNI,,180,0.3,0.9,,,50,75,100,60,2,30,10,45000,10,25,360,0.25,10,10,,apex_hulls,,0.5,2,3,,1312
+Tuatara,apex_tuatara,Minelayer Destroyer,Apex Design Collective,apex_arc_mine,12,4000,400,4000,,250,70,,75,60,40,30,45,350,OMNI,,180,0.3,0.9,,,50,75,100,60,2,30,10,45000,10,25,360,0.25,10,10,,apex_hulls,,0.5,2,3,,1312
 # Boa,,Phase Destroyer,,apex_temporal_siphon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Frigates,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -1,11 +1,11 @@
 {
-	"id":"apex_thundercloud_mine",
+	"id":"apex_thundercloud_mine_frag",
 	"specClass":"missile",	
 	"missileType":"PHASE_MINE",
-	"onHitEffect":"data.weapons.ApexThundercloudEffects",
+	"onHitEffect":"data.weapons.proj.ApexThundercloudFragEffects",
 	"sprite":"graphics/missiles/apex_thundercloud_mine.png",
 	"glowSprite":"graphics/missiles/apex_thundercloud_mine_glow.png",
-	"glowColor":[158,41,246, 255],
+	"glowColor":[75, 255, 84, 255],
 	"size":[22,22],	
 	"center":[11,11],	
 	"collisionRadius":7,
@@ -13,7 +13,7 @@
 	"flameoutTime":1.0f, # total time from flameout to full fadeout
 	"fadeTime":0.1, # fadeout duration
 	"noEngineGlowTime":0.05, # time spent without the engine glow being rendered
-	"explosionColor":[158,41,246, 128],  # purely visual, will get a white additively blended core on top of this color
+	"explosionColor":[75, 255, 84, 128],  # purely visual, will get a white additively blended core on top of this color
 	"explosionRadius":60, # purely visual	
 	"engineSpec":{"turnAcc":500,
 				  "turnRate":500,
@@ -25,7 +25,7 @@
 			"style":"CUSTOM",
 			"styleSpec":{
                             "mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
-                            "engineColor":[255,75,165,255],
+                            "engineColor":[75, 255, 84,255],
                             "contrailDuration":0,
                             "contrailWidthMult":0,
                             "contrailWidthAddedFractionAtEnd":-0.5f,  # can be negative. makes trail spread out/narrow at the end
@@ -40,18 +40,18 @@
 			"length":0,
 			"angle":180.0}],
 	"behaviorSpec":{"behavior":"PROXIMITY_FUSE",
-					"onHitEffect":"data.weapons.ApexThundercloudEffects",
+					"onHitEffect":"data.weapons.proj.ApexThundercloudFragEffects",
 					"range":80,
 					"slowToMaxSpeed":true,
 					"delay":1.4,
 					"pingSound":"mine_ping",
-					"pingColor":[158,41,246,255],
+					"pingColor":[75, 255, 84,255],
 					"pingRadius":100,
 					"pingDuration":0.15,
 					"windupSound":"apex_mine_windup",
 					"windupDelay":0.5,
 					"explosionSpec":{"duration":0.1f,
-									 "radius":150,
+									 "radius":180,
 									 "coreRadius":150, # full damage within core radius
 									 "collisionClass":MISSILE_FF,
 									 "collisionClassByFighter":PROJECTILE_FIGHTER,
@@ -59,8 +59,8 @@
 									 "particleSizeRange":8.0,
 									 "particleDuration":2,
 									 "particleCount":10,
-									 "particleColor":[158,41,246, 128],
-									 "explosionColor":[158,41,246, 128],
+									 "particleColor":[75, 255, 84, 128],
+									 "explosionColor":[75, 255, 84, 128],
 									 "useDetailedExplosion":true,
 									 "sound":"devastator_explosion"},
 					}	

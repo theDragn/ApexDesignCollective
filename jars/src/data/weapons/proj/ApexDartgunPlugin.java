@@ -18,9 +18,9 @@ import static plugins.ApexModPlugin.POTATO_MODE;
 // plugin determines if ship needs a listener, and keeps track of debuffs
 public class ApexDartgunPlugin extends BaseCombatLayeredRenderingPlugin
 {
-    public static final float DEBUFF_DURATION = 4f;
-    public static final float BONUS_PER_DEBUFF = 0.075f;
-    public static final int MAX_NUM_DEBUFFS = 10;
+    public static final float DEBUFF_DURATION = 5f;
+    public static final float BONUS_PER_DEBUFF = 0.08f;
+    public static final int MAX_NUM_DEBUFFS = 13;
     //public static final String RING_SPRITE = "graphics/fx/shields256ring.png";
     //public static final String PIP_SPRITE = "graphics/ui/icons/16x_starburst_circle.png";
     private static final Color LOW_STACKS_COLOR = Color.YELLOW;
@@ -47,6 +47,11 @@ public class ApexDartgunPlugin extends BaseCombatLayeredRenderingPlugin
     private ApexDartgunListener listener;
     private int activeTimers;
 
+
+    // consists of two parts: controller plugin and damage listener
+    // controller plugin does graphics and timer updates
+    // damage listener links back to the controller and modifies damage
+
     public ApexDartgunPlugin(ShipAPI target)
     {
         this.target = target;
@@ -55,7 +60,8 @@ public class ApexDartgunPlugin extends BaseCombatLayeredRenderingPlugin
 
         timers[0] = DEBUFF_DURATION;
         activeTimers = 0;
-
+        // you can't easily check for an instance of the plugin from the engine
+        // instead, it checks the ship for the listener, and then gets the controller plugin through that
         if (!target.hasListenerOfClass(ApexDartgunListener.class))
         {
             listener = new ApexDartgunListener(this);
@@ -92,7 +98,7 @@ public class ApexDartgunPlugin extends BaseCombatLayeredRenderingPlugin
             if (timers[i] > 0f)
                 activeTimers++;
         }
-        damageMult = 1f + activeTimers * BONUS_PER_DEBUFF;
+        damageMult = Math.min(1f + activeTimers * BONUS_PER_DEBUFF, 2f);
 
         if (activeTimers == 0)
         {
@@ -100,7 +106,7 @@ public class ApexDartgunPlugin extends BaseCombatLayeredRenderingPlugin
             target.removeListener(listener);
         }
 
-        float effectLevel = activeTimers / 10f;
+        float effectLevel = activeTimers / 13f;
 
         if (!POTATO_MODE)
         {
@@ -160,10 +166,19 @@ public class ApexDartgunPlugin extends BaseCombatLayeredRenderingPlugin
             if (param instanceof DamagingProjectileAPI && !shieldHit)
             {
                 DamagingProjectileAPI proj = (DamagingProjectileAPI) param;
-                if (proj.getWeapon() != null && proj.getWeapon().getId() != null && proj.getWeapon().getId().equals("apex_dartgun"))
+                if (proj.getWeapon() != null && proj.getWeapon().getId() != null && (proj.getWeapon().getId().equals("apex_dartgun") || proj.getWeapon().getId().equals("apex_thundercloud_mine_he")))
                 {
                     damage.getModifier().modifyMult("apexDartgun", controller.damageMult);
-                    System.out.println("damage mult was " + controller.damageMult);
+                    //System.out.println("damage mult was " + controller.damageMult);
+                    return "apexDartgun";
+                }
+                // ready for some jank?
+                // explosions are instanceof DamagingProjectileAPI
+                // but the (obfuscated) DamagingExplosion class returns null for basically everything
+                // instead, we detect specific explosions by giving them specific damage values
+                if (proj.getWeapon() == null && proj.getBaseDamageAmount() == 249f)
+                {
+                    damage.getModifier().modifyMult("apexDartgun", controller.damageMult);
                     return "apexDartgun";
                 }
             }

@@ -12,11 +12,9 @@
   "shieldRadius": 115,
   "viewOffset": 0,
   "builtInMods": [
-    "apex_armor"
+    "apex_armor",
+    "apex_variable_lrm"
   ],
-  "builtInWeapons": {
-    "WS0005": "apex_thundercloud"
-  },
   "weaponSlots": [
     {
       "id": "WS0001",

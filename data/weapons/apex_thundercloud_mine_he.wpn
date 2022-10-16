@@ -1,6 +1,6 @@
 {
 	# scripting is applied through the carrier missile's AI plugin
-	"id":"apex_thundercloud_mine",
+	"id":"apex_thundercloud_mine_he",
 	"specClass":"projectile",
 	"type":"SYSTEM",
 	"size":"SMALL",
@@ -23,6 +23,6 @@
 				 "blowbackLength":30.0,
 				 "blowbackSpread":10.0,
 				 "particleColor":[100,100,100,150]},
-	"projectileSpecId":"apex_thundercloud_mine",
+	"projectileSpecId":"apex_thundercloud_mine_he",
 	"fireSoundTwo":"launch_flare_1",
 }

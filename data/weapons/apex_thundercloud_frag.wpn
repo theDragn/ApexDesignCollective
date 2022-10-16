@@ -1,7 +1,7 @@
 {
-  "id": "apex_thundercloud",
+  "id": "apex_thundercloud_frag",
   "specClass": "projectile",
-  "projectileSpecId": "apex_thundercloud_missile",
+  "projectileSpecId": "apex_thundercloud_missile_frag",
   "type": "MISSILE",
   "size": "LARGE",
   # the scripting for this is done through the missile AI plugin and a dummy weapon for the mines, you can basically ignore the .proj files

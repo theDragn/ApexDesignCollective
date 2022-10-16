@@ -9,6 +9,7 @@ import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
+import data.ApexUtils;
 import data.scripts.util.MagicIncompatibleHullmods;
 import data.subsystems.ApexArmorRepairSubsystem;
 
@@ -133,12 +134,7 @@ public class ApexArmorRepairHullmod extends BaseHullMod
         if (ship != null)
         {
             float pad = 10f;
-            int nozzles = 0;
-            for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
-            {
-                if (slot.isSystemSlot())
-                    nozzles++;
-            }
+            int nozzles = ApexUtils.getNumNozzles(ship);
             if (!ship.getHullSpec().getHullId().contains("apex_"))
                 nozzles = 0;
             tooltip.addSectionHeading("Details", Alignment.MID, pad);

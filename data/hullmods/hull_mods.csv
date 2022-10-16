@@ -37,8 +37,8 @@ Collective Armor Engineering,CHM_apex,,,Apex Design Collective,,,,,TRUE,,0,0,0,0
 
 ""He was more than a hero. He was a union man.""",Improves armor performance.,graphics/hullmods/apex_comm.png
 ,,,,,,,,,,,,,,,,,,
-# VLS hullmods,,,,,,,,,,,,,,,,,,
-Variable Warheads,apex_variable_warheads,,,Apex Design Collective,,,,,TRUE,TRUE,0,0,0,0,data.hullmods.ApexVariableWarheads,"Taipan VLS systems incorporate an advanced internal autoforge, allowing a variety of warheads to be produced with a simple reconfiguration. Switching missile payloads can be done %s for changing hullmods.",Variable missile ammo selection.,graphics/hullmods/apex_variable_warheads.png
+# ammo swap hullmods,,,,,,,,,,,,,,,,,,
+Variable Warheads,apex_variable_warheads,,,Apex Design Collective,,,,,TRUE,TRUE,0,0,0,0,data.hullmods.ApexVariableWarheads,"Taipan VLS systems incorporate an advanced internal autoforge, allowing a variety of warheads to be produced with a simple reconfiguration. Switching missile payloads can be done %s for changing hullmods.",Variable missile ammo selection. You shouldn't see this in-game.,graphics/hullmods/apex_variable_warheads.png
 Nanoacid Warheads,apex_warheads_acid,,,Apex Design Collective,no_build_in,,,,TRUE,,0,0,0,0,data.hullmods.ApexVariableAcid,"Sets the integrated missile autoforge to produce %s warheads for the ship's Taipan VLS.
 
 Remove this hullmod to switch to %s warheads. Changing this hullmod in space has %s.",Nanoacid warheads.,graphics/hullmods/apex_warheads_acid.png
@@ -48,6 +48,17 @@ Remove this hullmod to switch to %s warheads. Changing this hullmod in space has
 Tachyon Warheads,apex_warheads_tachyon,,,Apex Design Collective,no_build_in,,,,TRUE,,0,0,0,0,data.hullmods.ApexVariableEmp,"Sets the integrated missile autoforge to produce %s warheads for the ship's Taipan VLS.
 
 Remove this hullmod to switch to %s warheads. Changing this hullmod in space has %s.",EMP warheads.,graphics/hullmods/apex_warheads_emp.png
+,,,,,,,,,,,,,,,,,,
+Variable Warheads,apex_variable_lrm,,,Apex Design Collective,,,,,TRUE,TRUE,0,0,0,0,data.hullmods.ApexVariableLRM,Ammo swap control hullmod for Thunderstorm SLRM. You shouldn't see this in-game.,Variable missile ammo selection.,graphics/hullmods/apex_variable_warheads.png
+Disruptor Payload,apex_lrm_frag,,,Apex Design Collective,no_build_in,,,,TRUE,,0,0,0,0,data.hullmods.ApexVariableLrmFrag,"Sets the integrated missile autoforge to produce a %s payload for the ship's Thunderstorm SLRM launcher.
+
+Remove this hullmod to switch to a %s payload. Changing this hullmod in space has %s.",Frag mines.,graphics/hullmods/apex_lrm_frag.png
+Graviton Payload,apex_lrm_emp,,,Apex Design Collective,no_build_in,,,,TRUE,,0,0,0,0,data.hullmods.ApexVariableLrmEmp,"Sets the integrated missile autoforge to produce a %s payload for the ship's Thunderstorm SLRM launcher.
+
+Remove this hullmod to switch to a %s payload. Changing this hullmod in space has %s.","EMP (now kinetic, too much work to change the IDs) mines",graphics/hullmods/apex_lrm_emp.png
+Harmonic Payload,apex_lrm_he,,,Apex Design Collective,no_build_in,,,,TRUE,,0,0,0,0,data.hullmods.ApexVariableLrmHe,"Sets the integrated missile autoforge to produce a %s payload for the ship's Thunderstorm SLRM launcher.
+
+Remove this hullmod to switch to a %s payload. Changing this hullmod in space has %s.",HE mines,graphics/hullmods/apex_lrm_he.png
 ,,,,,,,,,,,,,,,,,,
 # Conversion hullmods,,,,,,,,,,,,,,,,,,
 Refit: Hauler,apex_spectrum_cargo,,,Apex Design Collective,req_spaceport,Logistics,,TRUE,,,0,30,30,0,data.hullmods.ApexSpectrumCargo,"Replaces the hangar modules with cargo pods, increasing cargo capacity by %s. Without the need to support fighters, deployment and maintenance costs are decreased by %s, and crew requirements are decreased by %s.",Cargo refit.,graphics/hullmods/apex_spectrum_cargo.png

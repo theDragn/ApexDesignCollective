@@ -1,12 +1,11 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 6,
+    "fluxCapacitors": 9,
     "fluxVents": 10,
     "goalVariant": true,
     "hullId": "apex_agama",
     "hullMods": [
-        "apex_flare_system",
-        "magazines"
+        "apex_flare_system"
     ],
     "permaMods": [],
     "sMods": [],

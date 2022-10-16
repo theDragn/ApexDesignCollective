@@ -147,9 +147,9 @@
 		"carriers":2,
 		"phaseShips":1, # until I have more phase ships to add
 		
-		"officerQuality":2,
+		"officerQuality":3,
 		"shipQuality":2,
-		"numShips":5,
+		"numShips":4,
 		
 		"shipSize":4,
 		

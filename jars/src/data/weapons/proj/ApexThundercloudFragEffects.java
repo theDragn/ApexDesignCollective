@@ -1,31 +1,27 @@
-package data.weapons;
+package data.weapons.proj;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
-import com.fs.starfarer.api.combat.listeners.DamageDealtModifier;
 import com.fs.starfarer.api.util.Misc;
 import data.ApexUtils;
-import data.scripts.util.MagicRender;
-import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
 import java.util.HashSet;
 import java.util.List;
 
-public class ApexThundercloudEffects implements OnHitEffectPlugin
+public class ApexThundercloudFragEffects implements OnHitEffectPlugin
 {
 
-    private static final float DAMAGE_FRACTION_SHIELD = 100f/500f;
-    private static final float DAMAGE_FRACTION_ARMOR = 50f/500f;
+    private static final float DAMAGE_FRACTION_SHIELD = 100f/600f;
+    private static final float DAMAGE_FRACTION_ARMOR = 50f/600f;
 
     private HashSet<CombatEntityAPI> hitTargets = new HashSet<>();
 
     @Override
     public void onHit(DamagingProjectileAPI proj, CombatEntityAPI target, Vector2f point, boolean shieldHit, ApplyDamageResultAPI damage, CombatEngineAPI engine)
     {
-        // base damage ratio * damage * damage multiplier against target ship size
         if (hitTargets.contains(target))
             return;
         else

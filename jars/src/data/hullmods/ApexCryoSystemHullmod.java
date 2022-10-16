@@ -9,6 +9,7 @@ import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
+import data.ApexUtils;
 import data.scripts.util.MagicIncompatibleHullmods;
 import data.subsystems.ApexCryoSubsystem;
 
@@ -151,12 +152,7 @@ public class ApexCryoSystemHullmod extends BaseHullMod
     {
         if(ship == null)
             return false;
-        int nozzles = 0;
-        for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
-        {
-            if (slot.isSystemSlot())
-                nozzles++;
-        }
+        int nozzles = ApexUtils.getNumNozzles(ship);
         for (String hullmod : BLOCKED_HULLMODS)
         {
             if (ship.getVariant().getHullMods().contains(hullmod))

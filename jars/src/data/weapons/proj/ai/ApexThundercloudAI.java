@@ -20,9 +20,15 @@ public class ApexThundercloudAI implements MissileAIPlugin, GuidedMissileAI
     private static final float AI_DELAY = 0.25f;
     private static final float OVERSTEER_ANGLE = 45f; // turns off engine to turn if angle is >this
 
+    public static final Color FRAG_COLOR = new Color(75, 255, 84, 150);
+    public static final Color EMP_COLOR = new Color(75, 192, 255, 150);
+    public static final Color HE_COLOR = new Color(255, 75, 75, 150);
+
     private CombatEngineAPI engine;
     private final MissileAPI missile;
     private CombatEntityAPI target;
+    private String subWeapon = "_frag";
+    private Color subColor = FRAG_COLOR;
 
     private float undershoot = 0.5f;
 
@@ -33,6 +39,16 @@ public class ApexThundercloudAI implements MissileAIPlugin, GuidedMissileAI
         if (missile.getSource().getVariant().getHullMods().contains("eccm"))
         {
             undershoot = 0.75f;
+        }
+        if (missile.getProjectileSpecId().equals("apex_thundercloud_missile_emp"))
+        {
+            subWeapon = "_emp";
+            subColor = EMP_COLOR;
+        }
+        else if (missile.getProjectileSpecId().equals("apex_thundercloud_missile_he"))
+        {
+            subWeapon = "_he";
+            subColor = HE_COLOR;
         }
     }
 
@@ -100,7 +116,7 @@ public class ApexThundercloudAI implements MissileAIPlugin, GuidedMissileAI
 
         float aimAngle = MathUtils.getShortestRotation(missile.getFacing(), targetAngle);
 
-        if (aimAngle < OVERSTEER_ANGLE)
+        if (Math.abs(aimAngle) < OVERSTEER_ANGLE)
             missile.giveCommand(ShipCommand.ACCELERATE);
         if (aimAngle < 0)
             missile.giveCommand(ShipCommand.TURN_RIGHT);
@@ -121,7 +137,7 @@ public class ApexThundercloudAI implements MissileAIPlugin, GuidedMissileAI
         engine.spawnExplosion(
                 missile.getLocation(),
                 new Vector2f(),
-                new Color(255, 75, 160, 150),
+                subColor,
                 300,
                 Misc.random.nextFloat() + 3f
         );
@@ -156,7 +172,7 @@ public class ApexThundercloudAI implements MissileAIPlugin, GuidedMissileAI
             engine.spawnProjectile(
                     missile.getSource(),
                     missile.getWeapon(),
-                    "apex_thundercloud_mine",
+                    "apex_thundercloud_mine" + subWeapon,
                     missile.getLocation(),
                     Misc.random.nextFloat() * 360,
                     MathUtils.getRandomPointInCone(new Vector2f(), 400, missile.getFacing() - 70f, missile.getFacing() + 70f) // random starting velocity to spice things up
@@ -164,7 +180,6 @@ public class ApexThundercloudAI implements MissileAIPlugin, GuidedMissileAI
         }
 
         //sound effect
-
         Global.getSoundPlayer().playSound(
                 SPLIT_SOUND,
                 1,
