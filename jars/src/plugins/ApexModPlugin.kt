@@ -121,6 +121,9 @@ class ApexModPlugin : BaseModPlugin() {
         @JvmField
         var EUROBEAT_MODE = false;
 
+        @JvmField
+        var EXCESSION_ID = true;
+
         @Throws(IOException::class, JSONException::class)
         private fun loadApexSettings() {
             val settings = Global.getSettings().loadJSON(SETTINGS_FILE)
@@ -130,6 +133,7 @@ class ApexModPlugin : BaseModPlugin() {
             GENERATE_RELICS = settings.getBoolean("generateRelics")
             SHOW_DARTGUN_OVERLAY = settings.getBoolean("showDartgunOverlay")
             EUROBEAT_MODE = settings.getBoolean("eurobeatMode")
+            EXCESSION_ID = settings.getBoolean("excessionID")
             try {
                 // die mad, fash
                 Global.getSettings().scriptClassLoader.loadClass(xd("ZGF0YS5zY3JpcHRzLk1hZ2ljX21vZFBsdWdpbg=="))

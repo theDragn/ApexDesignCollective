@@ -9,7 +9,7 @@
 
 	"canUseWhileRightClickSystemOn":false,
 
-	"useSound":"system_interdictor",
+	"useSound":"system_targeting_feed",
 	"outOfUsesSound":"gun_out_of_ammo",
 	
 	"aiHints":{

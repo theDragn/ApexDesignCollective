@@ -15,6 +15,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithBarEvent;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
+import plugins.ApexModPlugin;
 
 import java.util.List;
 import java.util.Map;
@@ -78,7 +79,8 @@ public class ApexExcession extends HubMissionWithBarEvent
 
         // create excession to give to the player
         ShipVariantAPI variant = Global.getSettings().getVariant("apex_excession_Hull").clone();
-        variant.addTag(Tags.SHIP_UNIQUE_SIGNATURE);
+        if (ApexModPlugin.EXCESSION_ID)
+            variant.addTag(Tags.SHIP_UNIQUE_SIGNATURE);
         excession = Global.getFactory().createFleetMember(FleetMemberType.SHIP, variant);
         assignShipName(excession, "apex_design");
         // TODO: small chance of funny names

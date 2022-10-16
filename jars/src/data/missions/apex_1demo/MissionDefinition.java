@@ -33,6 +33,7 @@ public class MissionDefinition implements MissionDefinitionPlugin
         // Set up the player's fleet.  Variant names come from the
         // files in data/variants and data/variants/fighters
         api.addToFleet(FleetSide.PLAYER, "apex_apex_strike", FleetMemberType.SHIP, "CDFS Blair Mountain", true);
+        api.addToFleet(FleetSide.PLAYER, "apex_sunbeam_strike", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_eidolon_standard", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_komodo_standard", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_python_strike", FleetMemberType.SHIP, false);
@@ -40,6 +41,7 @@ public class MissionDefinition implements MissionDefinitionPlugin
         api.addToFleet(FleetSide.PLAYER, "apex_alligator_torpedo", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_spectrum_fighter", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_backscatter_bomber", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "apex_tuatara_frag", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_caiman_line", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_gharial_strike", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_lacerta_attack", FleetMemberType.SHIP, false);

@@ -122,12 +122,7 @@ public class ApexCryoSystemHullmod extends BaseHullMod
         if (ship != null)
         {
             float pad = 10f;
-            int nozzles = 0;
-            for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
-            {
-                if (slot.isSystemSlot())
-                    nozzles++;
-            }
+            int nozzles = ApexUtils.getNumNozzles(ship);
             if (!ship.getHullSpec().getHullId().contains("apex_"))
                 nozzles = 0;
             tooltip.addSectionHeading("Details", Alignment.MID, pad);

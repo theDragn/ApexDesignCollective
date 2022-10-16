@@ -68,7 +68,7 @@ public class ApexFlareSystemHullmod extends BaseHullMod
                 nozzles = 0;
             tooltip.addSectionHeading("Details", Alignment.MID, pad);
             tooltip.addPara(
-                    "\n• Fires guided flares from the ship's nozzles, with a %s second cooldown.",
+                    "\n• Fires guided flares from the ship's nozzles, with a %s cooldown.",
                     0f,
                     Misc.getHighlightColor(),
                     (int)BASE_COOLDOWN + " second");

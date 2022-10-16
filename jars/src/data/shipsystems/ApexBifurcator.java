@@ -49,6 +49,13 @@ public class ApexBifurcator extends BaseShipSystemScript
         projToWep.put("KT_blunderbuss_debris1", null);
         projToWep.put("KT_blunderbuss_debris2", null);
         projToWep.put("tahlan_tousle_split_shot","tahlan_tousle_split");
+        projToWep.put("edshipyard_Fragmine_m", "edshipyard_Fragbomb");
+        projToWep.put("edshipyard_sc_p", "edshipyard_SC0");
+        projToWep.put("AL_spiderpulse_shard", "AL_fake_spidershard");
+        projToWep.put("AL_fake_spiderlaser_shot", "AL_fake_spiderlaser");
+        projToWep.put("FM_Blade_ac_shell", "FM_Blade_ac");
+        projToWep.put("FM_ice_shell", "FM_ice_weapon_m");
+        projToWep.put("FM_star_shot_s", "FM_star_weapon");
     }
     // turns weapon spec ID's into appropriate weapon spec ID's. Used for guns with too many sub-weapons
     // not perfectly accurate but generally good enough that it's hard to tell that it's cheating
@@ -148,6 +155,11 @@ public class ApexBifurcator extends BaseShipSystemScript
                 Misc.ZERO);
         newProj.getVelocity().scale(velMult);
         newProj.setDamageAmount(proj.getDamageAmount());
+        if (newProj.getProjectileSpec().getOnFireEffect() != null)
+        {
+            OnFireEffectPlugin onFire = newProj.getProjectileSpec().getOnFireEffect();
+            onFire.onFire(newProj, proj.getWeapon(), Global.getCombatEngine());
+        }
     }
 
     private String getUnfuckedWeaponID(DamagingProjectileAPI proj)

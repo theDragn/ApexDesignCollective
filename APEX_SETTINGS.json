@@ -26,4 +26,7 @@
     # added due to a request
     # causes AI ships with the Travel Drive system to turn it on at the earliest possible moment, and never turn it off.
     "eurobeatMode":false,
+
+    # causes the Excession to ID your fleet like the Ziggurat. Only takes effect when the ship is first given to you; changing it later will have no effect.
+    "excessionID":true,
 }

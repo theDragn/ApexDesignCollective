@@ -1,50 +1,31 @@
 1.0.9: Yet Another Capital Battlecarrier
 
-this one's different, I promise
+this one's different, I promise (by "different" I mean "probably overpowered")
 
 New:
 Ships:
 - Sonora-class Siege Carrier: A heavy frontline carrier designed for bombarding stations and other heavy combatants. Has a pair of built-in Ultrachromatic Pulse Cannons for anti-station duties. Comes with Networked Targeting Array and Fleet Support Gantry as built-in hullmods. System: Defense Optimization Uplink; improves the armor and shields of nearby allies but prevents hard flux dissipation while active.
-- Tuatara-class (LRM) Missile Destroyer: Equipped with a Thundercloud SLRM Launcher, which delivers a large spread of mines. Ammo types are swappable between disruptor (frag+emp), graviton (kinetic+flux), and harmonic (HE) through a hullmod, like the Crocodile. System: Arcmine Dispenser.
+- Tuatara-class (LRM) Missile Destroyer: Equipped with a Thundercloud SLRM Launcher, which delivers a large spread of mines. Ammo types are swappable between frag, HE, and kinetic through a hullmod, like the Crocodile. System: Arcmine Dispenser.
 
 Hullmods: 
 - Networked Targeting Array: Shares the ship's range bonuses with its strikecraft, but decreases their engagement range. Increases the base range of the ship's small and medium weapons based on how much OP was spent on fighters. Great for larger battlecarriers, but can be very OP-expensive to take full advantage of.
 
-Weapons:
-- Toroid Mortar: Medium energy. Fires a low-velocity unstable ring of plasma that explodes violently on contact or after reaching maximum range. Excellent damage potential, good efficiency, and relatively low sustained flux cost, but very poor projectile velocity.
-
 Changes:
+- Faction: Reduced fleet size (5 -> 4)- they had one point too many in faction doctrine settings.
 - Crocodile: Taipan VLS pods now correctly reset if the ship vents or overloads during the firing sequence. (thanks amazigh)
+- Python: Fixed recursive splitting issues with ED Shipyards, Gensoukyou, and Approlight weapons when using the ship's system.
+- Gecko: Weapons now deal 25 extra energy damage on hit, helping out against shielded or armored fighters that could shrug off the frag damage.
 - Cryocoolant Projector: Now just increases flux dissipation by 30% (vs equal or smaller ships) or 15% (vs larger ships). A reduction to flux generation was only really useful if you intentionally overfluxed your ships a bit; dissipation is more useful across a wider variety of hulls and loadouts.
 - Active Flare Projector: Now fires 2/3/4/5 flares per nozzle per activation instead of 3 for all ship sizes. Was too anemic on larger ships, and a little too good on smaller ships.
-- Bifurcation Device (system on the Python): Fixed infinite recursion issues with several ED Shipyards weapons.
-- Gecko: Weapons now deal 25 extra energy damage on hit, helping out against shielded or armored fighters that could shrug off the frag damage.
-- Faction: Reduced fleet size (5 -> 4)- they had one point too many in faction doctrine settings.
 - Harmonic Dart Cannon: Increased debuff strength (7.5% -> 8%), duration (4s -> 5s) and maximum (75% -> 100%). Reduced rate of fire by ~20%. Slightly reduced projectile velocity (900 -> 800), spread per shot (3 -> 2), and maximum spread (9 -> 8). Kind of outcompeted by the large Fusion Beam, so it can use some tweaks.
 - Disruption Propagator: Increased range (700 -> 800) and slightly reduced velocity (550 -> 500). Often outcompeted by other large energies due to poor shield DPS for its flux cost, so some more range should help make it spicy.
 - Tachyon Inverter: Increased range (700 -> 800). Reduced efficiency (1.0 -> 1.1) and projectile speed (1000 -> 900). I won't lie, I just want this one to rangematch. It could stand to get an efficiency nerf too, particularly if the range is going up.
-
-TODO:
-
-- touhou mod needs guns added to python system list
-- ed shipyard too
-- make python reapply on-fire scripting (see approlight phantom ammo feeder for reference)
-- ultrachromatic pulse cannon: 900 energy, 2x burst, 0.66 eff, 6s refire. (200 flux/sec per gun)
+- Added a settings toggle to let you stop having the Excession ID your fleet. Only applies when first receiving the ship.
+- Added the Komodo to the simulator. Not either of the new ships though, lol.
 
 NEEDS SPRITIN':
-- Tuatara-class destroyer: Aiming for 13 DP. 2 nozzles.
-	- Same rapid nozzle hullmod as komodo.
-	- Equipped with (1? 2?) Thundercloud SLRM tubes. Thundercloud Strategic Long-Range Missiles deploy a cluster of mines at their targets. Mines produce a large but relatively weak shockwave. (250 energy[?], no falloff)
-	- System is Arcmine Dispenser.
-	- slots depend on missile firepower. low on PD because of arcmine system.
 - Anaconda-class phase battlecruiser.
 	- cryocooled armor
 	- limited magazines
 	- System: Temporal Siphon. Steals 20% of the timeflow from each hostile ship within range. 
 	- Armament: 6x medium uni, 1x large uni, 4x small uni.
-- Sonora-class siege carrier: Aiming for 50dp. 3 nozzles.
-	- Siege Avionics: Increases the range of all fighter weapons by 50%, and all bomber weapons by 100%. Reduces fighter engagement range by 50%.
-	- Fleet Repair Gantry: Increases fleet recovery rate by 25%. Each additional gantry provides half the benefit.
-	- Armament: 2x Ultrachromatic Pulse Cannon, 4x wings, 1x large uni, 2x med synergy, 3x med hybrid (one rear-facing), PD mounts.
-	- Ultrachromatic Pulse Cannon: 1k range, 2 barrels, 750 energy, 200 flux/sec, 7.5 reload. Poor accuracy on subsequent shots. Hits to shield heavily dampen velocity. Hits to armor reduce effective armor.
-	- System: Fleet Reinforcement. Synchronizes fleet defense routines. Allied ships in range take less shield and armor damage. Prevents hard flux dissipation while active.
