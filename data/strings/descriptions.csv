@@ -101,7 +101,7 @@ apex_bifurcator,SHIP_SYSTEM,Causes projectiles to occasionally summon a duplicat
 apex_thorns,SHIP_SYSTEM,An exotic distortion field reduces incoming damage and generates homing energy projectiles when hit. Disables weapons and shields while active.,,,
 apex_excessionsys,SHIP_SYSTEM,"Shunts a large amount of flux into the breach core, expanding the captured hyperspace tear. Massively increases core charge generation, but prevents phasing while active.",,,
 apex_bounty_superdamper,SHIP_SYSTEM,Reduces incoming damage by 95%. Disables weapons and shields while active.,,,
-apex_uplink,SHIP_SYSTEM,"Improves the defenses of allies within 1600su, reducing shield damage taken by 20% and increasing armor effectiveness by 25%. Prevents hard flux dissipation while active.",,,
+apex_uplink,SHIP_SYSTEM,"Improves the defenses of allies within 1600su, reducing shield damage taken by 20% and increasing armor effectiveness by 33%. Prevents hard flux dissipation while active.",,,
 ,,,,,
 # Weapons,,,,,
 apex_qgp_small,WEAPON,"Fires a small pulse of decoherent quark-gluon plasma at targets. The plasma is mostly ineffective against shields or armor, but devastating to less resilient internal compartments. In the interest of flexibility, it can accept both standard high-energy power linkages and mechanically-fed power cells.
