@@ -14,7 +14,7 @@
 	"fadeTime":0.1, # fadeout duration
 	"noEngineGlowTime":0.05, # time spent without the engine glow being rendered
 	"explosionColor":[75, 255, 84, 128],  # purely visual, will get a white additively blended core on top of this color
-	"explosionRadius":60, # purely visual	
+	"explosionRadius":30, # purely visual	
 	"engineSpec":{"turnAcc":500,
 				  "turnRate":500,
 				  "acc":40,

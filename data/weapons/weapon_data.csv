@@ -48,9 +48,9 @@ Heavy Quark-Gluon PD,apex_qgpd_m_flak,0,,1200,500,,120,,,120,9,,,,FRAGMENTATION,
 HQGPD nonflak,apex_qgpd_m_nonflak,,,,500,,120,,,,,,,,FRAGMENTATION,,,,,,,,,,,,550,,,,,,SYSTEM,,,Apex Design Collective,,Point Defense,,,,,,,,,,1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # ENERGY LORGE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Disruption Propagator,apex_disruptor,3,,6500,800,,1200,,,10,30,,,,FRAGMENTATION,480,,,0.75,1,,0,4,1,4,,550,,,,,,"STRIKE, USE_VS_FRIGATES","energy21, rare_bp",,Apex Design Collective,,General,,,,,"Shield hits increase the target's hard flux by %s. Armor hits remove an additional %s armor, ignoring armor damage reduction.",100 | 50,,,,1
+Disruption Propagator,apex_disruptor,3,,6500,800,,1200,,,10,30,,,,FRAGMENTATION,480,,,0.75,1,,0,4,1,4,,500,,,,,,"STRIKE, USE_VS_FRIGATES","energy21, rare_bp",,Apex Design Collective,,General,,,,,"Shield hits increase the target's hard flux by %s. Armor hits remove an additional %s armor, ignoring armor damage reduction.",100 | 50,,,,1
 Superheavy Fusion Beam,apex_fusion_large,2,,5000,1000,800,,,,7,25,,,,HIGH_EXPLOSIVE,,1133,0.5,0.5,2.5,5,0,0,0,0,1800,,,,,,,"STRIKE, USE_VS_FRIGATES, DANGEROUS","he15, beam15, LR, rare_bp",,Apex Design Collective,,Anti Armor,,,,,"On contact with hull or armor, each beam triggers an explosion that deals %s of the target's armor rating as %s damage.",20% | high explosive,,,,1
-Tachyon Inverter,apex_tachyon,1,,5000,800,,300,300,10,10,25,20,1.2,5,ENERGY,330,,0.5,1.1666,1,0,0,0,0,0,,1000,,,,,,,"energy20, apex_weapons",,Apex Design Collective,,Strike,,,,Fixed Spread,Hits to hull or armor have a %s chance to arc to weapons or engines for %s damage.,50% | 75%,,,,
+Tachyon Inverter,apex_tachyon,1,,5000,800,,300,300,10,10,25,20,1.2,5,ENERGY,330,,0.5,1.1666,1,0,0,0,0,0,,900,,,,,,,"energy20, apex_weapons",,Apex Design Collective,,Strike,,,,Fixed Spread,Hits to hull or armor have a %s chance to arc to weapons or engines for %s damage.,50% | 75%,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # BALLISTIC SMOL,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Light Burst Coilgun,apex_coilgun_small,0,0.5,800,700,,50,0,0,60,6,6,2,,KINETIC,40,,,0.25,,,0,4,0.66,4,,1200,,,,,,,"kinetic8, apex_weapons",,Apex Design Collective,,Anti Shield,,,,,,,,,,1

@@ -175,11 +175,7 @@ public class ApexCryoSystemHullmod extends BaseHullMod
             return "Can only be installed on Apex Design Collective ships.";
         }
         int nozzles = 0;
-        for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
-        {
-            if (slot.isSystemSlot())
-                nozzles++;
-        }
+        ApexUtils.getNumNozzles(ship);
         if (nozzles == 0)
             return "Cannot be installed on ships without projector nozzles.";
         for (String hullmod : BLOCKED_HULLMODS)
