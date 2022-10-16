@@ -36,6 +36,7 @@ public class ApexFakeOpenMarket extends BaseSubmarketPlugin
         hullmodPicker.add("apex_flare_system");
         hullmodPicker.add("apex_cryo_projector");
         hullmodPicker.add("apex_coherency_amplifier");
+        hullmodPicker.add("apex_network_targeter");
     }
 
     public void updateCargoPrePlayerInteraction()

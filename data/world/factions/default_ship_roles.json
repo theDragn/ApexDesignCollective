@@ -60,6 +60,10 @@
 		"apex_python_strike":6,
 		"apex_python_standard":6
 	},
+	"carrierLarge":{
+		"apex_sunbeam_line":3,
+		"apex_sunbeam_strike":3
+	},
 	"carrierMedium":{
 		"apex_spectrum_fighter":3,
 		"apex_spectrum_bomber":3
@@ -75,10 +79,6 @@
 		#"apex_spectrum_miltanker":2, 
 		"apex_backscatter_civtanker":5,
 		#"apex_backscatter_miltanker":2,
-	},
-	"carrierLarge":{
-		"apex_sunbeam_strike":3,
-		"apex_sunbeam_line":3
 	},
 	"tankerSmall":{
 		"apex_photon_fuel":10
