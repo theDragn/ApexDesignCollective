@@ -76,6 +76,10 @@
 		"apex_backscatter_civtanker":5,
 		#"apex_backscatter_miltanker":2,
 	},
+	"carrierLarge":{
+		"apex_sunbeam_strike":3,
+		"apex_sunbeam_line":3
+	},
 	"tankerSmall":{
 		"apex_photon_fuel":10
 	},
