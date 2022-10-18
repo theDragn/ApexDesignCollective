@@ -12,20 +12,10 @@
 	"fringeColor":[41,41,255,175],
 	"coreColor":[255,255,255,200],
 	"glowColor":[41,41,255,105],
-	"glowRadius":10,
+	"glowRadius":0,
 	"textureScrollSpeed":64.0,
 	"pixelsPerTexel":5.0,
 	"bulletSprite":"graphics/missiles/apex_toroid_shot.png",
 	"explosionColor":[100,100,255,255],  # purely visual, will get a white additively blended core on top of this color
 	"explosionRadius":350, # purely visual
-	"explosionSpec":{"duration":0.1f, # not visual
-					 "radius":175,
-					 "coreRadius":75, # full damage within core radius
-					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
-					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS,
-					 "particleSizeMin":5.0,
-					 "particleSizeRange":3.0,
-					 "particleDuration":1,
-					 "particleCount":200,
-					 "particleColor":[155,155,255,255]},
 }

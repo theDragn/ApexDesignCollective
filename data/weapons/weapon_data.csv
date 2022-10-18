@@ -41,7 +41,7 @@ Quark-Gluon PD,apex_qgpd_s_flak,0,,600,400,,120,0,0,120,4,,,,FRAGMENTATION,50,,,
 QGPD nonflak,apex_qgpd_s_nonflak,,,,400,,120,,,,,,,,FRAGMENTATION,,,,,,,,,,,,550,,,,,,SYSTEM,,,,,,,,,,,,,,,1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # ENERGY MEDIUM,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Toroid Mortar,apex_toroid_mortar,1,,1500,800,,800,,25,40,13,2,0.1,,ENERGY,1000,,0.5,0.5,1,,0,0,0,0,,400,,,,,,SYSTEM,"energy11, apex_weapons",,Apex Design Collective,,Strike,,,,,%s: Explodes violently on impact.,Metastable Toroid,,,,1
+Toroid Mortar,apex_toroid_mortar,1,,1500,800,,800,,25,40,13,2,0.125,,ENERGY,1200,,0.5,0.5,1,,0,0,0,0,,350,,,,,,,"energy11, apex_weapons",,Apex Design Collective,,Strike,,,,,"%s: Explodes violently on impact, dealing %s energy damage in a large area.",Metastable Toroid | 400,,,,1
 Quark-Gluon Pulser,apex_qgp_med,0,,1400,600,,300,0,0,40,10,,,,FRAGMENTATION,75,,,0.5,1,,0,7,2,4,,1400,,,,,,,"energy10, apex_weapons",,Apex Design Collective,,General,,,,,%s: Energy mounts increase damage and flux cost by %s. Ballistic and hybrid mounts increase base range by %s. Universal mounts provide %s bonuses.,Adaptive Mount | 33% | 200 | both,,,,1
 Twin Fusion Beam,apex_fusion_medium,1,,1500,700,550,,,,20,11,,,,HIGH_EXPLOSIVE,,777,0.5,0.5,2.5,5,0,0,0,0,1800,,,,,,,"STRIKE, USE_VS_FRIGATES","he10, beam10, apex_weapons",,Apex Design Collective,,Anti Armor,,,,,"On contact with hull or armor, each beam triggers an explosion that deals %s of the target's armor rating as %s damage.",10% | high explosive,,,,1
 Tachyon Driver,apex_tachyondriver_m,1,,1500,800,,60,20,10,30,11,,,,ENERGY,48,,0.5,1,1,,,,,,,600,,,,,,,"energy11, apex_weapons",,Apex Design Collective,,General,,,,,,,,,,
