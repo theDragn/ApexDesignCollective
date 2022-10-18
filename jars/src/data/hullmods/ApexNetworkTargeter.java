@@ -15,12 +15,15 @@ import java.util.Set;
 
 public class ApexNetworkTargeter extends BaseHullMod
 {
-    public static final float RANGE_BONUS = 75f;
+    public static final float FTR_RANGE_PERCENT_MAX = 75f;
     public static final float ENGAGEMENT_RANGE_PENALTY_MULT = -55f/75f; // engagement range capped at 55%
+    public static final float FTR_RANGE_CAP = 2000f;
+
     public static final float RANGE_PER_OP = 15f;
     public static final float RANGE_BOOST_SMALL = 50f;
     public static final float RANGE_BOOST_MED = 25f;
     public static final float MAX_RANGE_AFTER_BOOST = 900f;
+
     public static final String ID = "apex_net_target";
 
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<>();
@@ -61,7 +64,7 @@ public class ApexNetworkTargeter extends BaseHullMod
         //System.out.println(bonus);
         // reduce engagement range, if it's getting penalized
         if (bonus > 0f)
-            ship.getMutableStats().getFighterWingRange().modifyPercent(ID, ENGAGEMENT_RANGE_PENALTY_MULT * RANGE_BONUS);
+            ship.getMutableStats().getFighterWingRange().modifyPercent(ID, ENGAGEMENT_RANGE_PENALTY_MULT * FTR_RANGE_PERCENT_MAX);
         // increase/decrease fighter range as necessary
         for (FighterWingAPI wing : ship.getAllWings())
         {
@@ -108,12 +111,13 @@ public class ApexNetworkTargeter extends BaseHullMod
 
     public String getDescriptionParam(int index, ShipAPI.HullSize hullSize)
     {
-        if (index == 0) return "" + (int) (RANGE_BONUS) + "%";
-        if (index == 1) return "" + (int) (-ENGAGEMENT_RANGE_PENALTY_MULT * RANGE_BONUS) + "%";
-        if (index == 2) return "" + (int) RANGE_PER_OP + " OP";
-        if (index == 3) return "" + (int) RANGE_BOOST_SMALL + "";
-        if (index == 4) return "" + (int) RANGE_BOOST_MED + "";
-        if (index == 5) return "" + (int) MAX_RANGE_AFTER_BOOST + "";
+        if (index == 0) return "" + (int) (FTR_RANGE_PERCENT_MAX) + "%";
+        if (index == 1) return "" + (int) (FTR_RANGE_CAP);
+        if (index == 2) return "" + (int) (-ENGAGEMENT_RANGE_PENALTY_MULT * FTR_RANGE_PERCENT_MAX) + "%";
+        if (index == 3) return "" + (int) RANGE_PER_OP + " OP";
+        if (index == 4) return "" + (int) RANGE_BOOST_SMALL + "";
+        if (index == 5) return "" + (int) RANGE_BOOST_MED + "";
+        if (index == 6) return "" + (int) MAX_RANGE_AFTER_BOOST + "";
         return null;
     }
 
@@ -131,8 +135,8 @@ public class ApexNetworkTargeter extends BaseHullMod
             tooltip.addPara("Fighter engagement range: %s", 0f, Misc.getNegativeHighlightColor(), "-" + (int)Math.abs(bonus * ENGAGEMENT_RANGE_PENALTY_MULT) + "%");
         } else {
             Color highlight = bonus == 0 ? Misc.getHighlightColor() : Misc.getNegativeHighlightColor();
-            String prefix = bonus == 0 ? "" : "-";
-            tooltip.addPara("Fighter weapon range: %s", 0f, highlight, prefix + (int)bonus + "%");
+            String prefix = bonus == 0 ? "+" : "-";
+            tooltip.addPara("Fighter weapon range: %s", 0f, highlight, prefix + (int)Math.abs(bonus) + "%");
             tooltip.addPara("Fighter engagement range: %s", 0f, Misc.getHighlightColor(), "+0%");
         }
         int op = getOp(ship);
@@ -157,7 +161,7 @@ public class ApexNetworkTargeter extends BaseHullMod
             min = 1.0f;
         min = min * 100f - 100f;
         //System.out.println(min);
-        return Math.min(min, RANGE_BONUS);
+        return Math.min(min, FTR_RANGE_PERCENT_MAX);
     }
 
     public static int getOp(ShipAPI ship)

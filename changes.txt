@@ -1,6 +1,6 @@
-1.0.9: Yet Another Capital Battlecarrier
+1.0.9: Tell Me If You've Heard This One Before
 
-this one's different, I promise (by "different" I mean "probably overpowered")
+hey look, another capital battlecarrier and a funky LRM ship. these ones are different, I promise (by "different" I mean "probably overpowered")
 
 New:
 Ships:
@@ -13,7 +13,7 @@ Hullmods:
 Changes:
 - Faction: Reduced fleet size (5 -> 4)- they had one point too many in faction doctrine settings.
 - Crocodile: Taipan VLS pods now correctly reset if the ship vents or overloads during the firing sequence. (thanks amazigh)
-- Python: Fixed recursive splitting issues with ED Shipyards, Gensoukyou, and Approlight weapons when using the ship's system.
+- Python: Increased system uptime by 0.5 seconds and redid the math to ensure that fast projectiles get the proper benefit from the system. Fixed recursive splitting issues with ED Shipyards, Gensoukyou, and ApproLight weapons when using the ship's system.
 - Gecko: Weapons now deal 25 extra energy damage on hit, helping out against shielded or armored fighters that could shrug off the frag damage.
 - Cryocoolant Projector: Now just increases flux dissipation by 30% (vs equal or smaller ships) or 15% (vs larger ships). A reduction to flux generation was only really useful if you intentionally overfluxed your ships a bit; dissipation is more useful across a wider variety of hulls and loadouts.
 - Active Flare Projector: Now fires 2/3/4/5 flares per nozzle per activation instead of 3 for all ship sizes. Was too anemic on larger ships, and a little too good on smaller ships.

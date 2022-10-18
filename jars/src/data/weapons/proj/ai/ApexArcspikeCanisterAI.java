@@ -36,6 +36,7 @@ public class ApexArcspikeCanisterAI implements MissileAIPlugin, GuidedMissileAI
     private IntervalUtil updateTimer;
     private IntervalUtil firingTimer;
     private String weaponID;
+    private float splitRange;
     public static CombatEngineAPI engine;
 
     public ApexArcspikeCanisterAI(MissileAPI missile, ShipAPI launchingShip)

@@ -9,7 +9,7 @@ Phase Cloak,apex_phasecloak,,,,,,,,,,0.5,,0.5,2,TRUE,,TRUE,TRUE,TRUE,,,,TRUE,,TR
 Phase Banish,apex_phasebanish,,,,,,0.1,,2,0.075,0,0,0.5,0,,,,,,,,,,,,,graphics/icons/hullsys/phase_cloak.png
 Rapid Loader,apex_rapid_loader,,,,,,0.1,,,,,0.25,,30,,,,,,,,,,,,,graphics/icons/hullsys/ammo_feeder.png
 Heavy Inertial Skimmer,apex_heavy_skimmer,,,,,,,,3,0.1,0.4,0.5,0.4,1,,,,,,,,,,,,,graphics/icons/hullsys/burn_drive.png
-Bifurcation Device,apex_bifurcator,,,,,,,,,,0.25,2,0.25,12,,,,,,,,,,,,,graphics/icons/hullsys/ammo_feeder.png
+Bifurcation Device,apex_bifurcator,,,,,,,,,,0.25,2.5,0.25,12,,,,,,,,,,,,,graphics/icons/hullsys/ammo_feeder.png
 Entropy Consolidator,apex_thorns,,,,,,,,2,0.05,0.1,5,0.1,,,,,,TRUE,,,,TRUE,,,,graphics/icons/hullsys/damper_field.png
 Defense Uplink,apex_uplink,,,,,,,,,,0.5,,0.5,,TRUE,,TRUE,,,,,,,,,,graphics/icons/hullsys/damper_field.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,

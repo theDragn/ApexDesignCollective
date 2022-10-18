@@ -73,7 +73,7 @@ public class ApexArcspikeAI implements MissileAIPlugin, GuidedMissileAI
     private final int SEARCH_CONE = 360;
 
     //range in which the missile seek a target in game units.
-    private final int MAX_SEARCH_RANGE = 1500;
+    private final int MAX_SEARCH_RANGE = 2000;
 
     //should the missile fall back to the closest enemy when no target is found within the search parameters
     //only used with limited search cones
