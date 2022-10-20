@@ -6,8 +6,8 @@ import com.fs.starfarer.api.combat.EveryFrameCombatPlugin;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ViewportAPI;
 import com.fs.starfarer.api.input.InputEventAPI;
-import org.lazywizard.lazylib.combat.AIUtils;
-import org.lazywizard.lazylib.combat.CombatUtils;
+import com.fs.starfarer.api.util.IntervalUtil;
+import org.lazywizard.lazylib.MathUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +19,8 @@ public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin
 {
     public HashMap<ShipAPI, Float> targets = new HashMap<>();
     private CombatEngineAPI engine;
+    private IntervalUtil update = new IntervalUtil(0.25f, 0.75f);
+    private List<ShipAPI> shipsWithSystem = new ArrayList<>();
 
     public ApexDefenseUplinkPlugin()
     {
@@ -29,29 +31,39 @@ public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin
     public void init(CombatEngineAPI engine)
     {
         this.engine = engine;
+        for (ShipAPI ship : engine.getShips())
+        {
+            if (ship.getSystem() != null && ship.getSystem().getSpecAPI().getId().equals("apex_uplink"))
+                shipsWithSystem.add(ship);
+        }
     }
 
     @Override
     public void advance(float amount, List<InputEventAPI> events)
     {
-        // committing O(n^2) sins
-        for (ShipAPI ship : engine.getShips())
+        // check list of ships that we know have the system every frame
+        // this is still O(n^2) but it's a lot better than checking all ships for the system presence/activation every frame
+        for (ShipAPI ship : shipsWithSystem)
         {
             if (ship.getHullSize().equals(ShipAPI.HullSize.FIGHTER))
                 continue;
             // we've got a ship with a buffer system
             // apply buffs to ships in range
-            if (ship.getSystem() != null && ship.getSystem().getSpecAPI().getId().equals("apex_uplink") && ship.getSystem().isOn())
+            if (ship.getSystem() != null && ship.getSystem().isOn())
             {
                 float range = ship.getMutableStats().getSystemRangeBonus().computeEffective(ApexDefenseUplink.RANGE);
-                for (ShipAPI shipToBuff : CombatUtils.getShipsWithinRange(ship.getLocation(), range))
+                for (ShipAPI shipToBuff : engine.getShips())
                 {
-                    if (shipToBuff.getHullSize().equals(ShipAPI.HullSize.FIGHTER) || !shipToBuff.isAlive() || ship.getOwner() != shipToBuff.getOwner())
+                    if (shipToBuff.getHullSize().equals(ShipAPI.HullSize.FIGHTER)
+                            || MathUtils.getDistanceSquared(shipToBuff.getLocation(), ship.getLocation()) > range * range
+                            || !shipToBuff.isAlive()
+                            || ship.getOwner() != shipToBuff.getOwner())
                         continue;
                     targets.put(shipToBuff, 1f);
                 }
             }
         }
+        // update buffs every frame
         List<ShipAPI> toRemove = new ArrayList<>();
         for (ShipAPI ship : targets.keySet())
         {
@@ -78,6 +90,16 @@ public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin
         }
         for (ShipAPI ship : toRemove)
             targets.remove(ship);
+
+        // update list of ships with system every ~0.5 sec.
+        if (!update.intervalElapsed())
+            return;
+        shipsWithSystem.clear();
+        for (ShipAPI ship : engine.getShips())
+        {
+            if (ship.getSystem() != null && ship.getSystem().getSpecAPI().getId().equals("apex_uplink"))
+                shipsWithSystem.add(ship);
+        }
     }
 
     @Override

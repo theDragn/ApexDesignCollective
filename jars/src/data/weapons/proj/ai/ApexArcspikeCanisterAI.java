@@ -12,6 +12,16 @@ import java.util.List;
 
 public class ApexArcspikeCanisterAI implements MissileAIPlugin, GuidedMissileAI
 {
+    /* pseudocode for rewrite
+        on init: determine type of canister, initial target, engagement range, and submunitions/fire rate
+        every frame:
+        - wait for initial timer to elapse
+        - if initial target is in engage range, mirv
+        - if initial target is closer this update than it was last update, wait
+        - if initial target is further away this update than it was last update, and it's after a certain grace period
+            - then reacquire a valid target in a 60deg(?) search cone forwards
+    */
+
     public static final int MED_CANISTER_REPS = 5;
     public static final int MED_SHOTS_PER_REP = 2;
     public static final float MED_CANISTER_SEPARATION = 0.05f;

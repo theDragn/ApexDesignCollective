@@ -187,7 +187,7 @@ public class ApexThundercloudAI implements MissileAIPlugin, GuidedMissileAI
                 1,
                 1,
                 missile.getLocation(),
-                new Vector2f()
+                Misc.ZERO
         );
 
         // make it go away

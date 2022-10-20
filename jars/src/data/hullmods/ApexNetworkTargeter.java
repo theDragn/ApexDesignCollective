@@ -5,6 +5,7 @@ import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.WeaponBaseRangeModifier;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
+import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
 import data.scripts.util.MagicIncompatibleHullmods;
 import org.lazywizard.lazylib.MathUtils;
@@ -34,6 +35,8 @@ public class ApexNetworkTargeter extends BaseHullMod
         // TODO: any others that need to be blocked?
     }
 
+    private IntervalUtil update = new IntervalUtil(0.1f, 0.2f);
+
     @Override
     public void applyEffectsAfterShipCreation(ShipAPI ship, String id)
     {
@@ -54,6 +57,9 @@ public class ApexNetworkTargeter extends BaseHullMod
     @Override
     public void advanceInCombat(ShipAPI ship, float amount)
     {
+        update.advance(amount);
+        if (!update.intervalElapsed())
+            return;
         if (ship.getAllWings().isEmpty())
             return;
         // only run the computation once
@@ -71,9 +77,25 @@ public class ApexNetworkTargeter extends BaseHullMod
             for (ShipAPI fighter : wing.getWingMembers())
             {
                 MutableShipStatsAPI stats = fighter.getMutableStats();
-                stats.getMissileWeaponRangeBonus().modifyPercent(ID, bonus);
                 stats.getBallisticWeaponRangeBonus().modifyPercent(ID, bonus);
                 stats.getEnergyWeaponRangeBonus().modifyPercent(ID, bonus);
+                stats.getWeaponRangeMultPastThreshold().modifyMult(ID, 0f);
+                stats.getWeaponRangeThreshold().modifyFlat(ID, FTR_RANGE_CAP);
+
+                stats.getMissileWeaponRangeBonus().modifyPercent(ID, bonus);
+                float maxRange = 0;
+                for (WeaponAPI wep : fighter.getAllWeapons())
+                {
+                    if (!wep.getType().equals(WeaponAPI.WeaponType.MISSILE))
+                        continue;
+                    float range = wep.getRange();
+                    if (range > maxRange)
+                        maxRange = range;
+                }
+                if (maxRange > FTR_RANGE_CAP)
+                {
+                    stats.getMissileWeaponRangeBonus().modifyMult(ID+"_cap", FTR_RANGE_CAP / maxRange);
+                }
             }
         }
     }
