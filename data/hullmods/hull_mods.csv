@@ -12,7 +12,7 @@ Coherency Amplifier,apex_coherency_amplifier,1,,Apex Design Collective,offensive
 %s: Projectiles deal an extra %s damage to ships and fighters.",Improve quark-gluon weapons.,graphics/hullmods/apex_coherency_amplifier.png
 Networked Targeting Array,apex_network_targeter,2,,Apex Design Collective,offensive,"Weapons, Fighters",10000,,FALSE,,3,6,12,25,data.hullmods.ApexNetworkTargeter,"A large supercomputing cluster and advanced avionics allow coordination between strikecraft targeting systems and the ship's built-in sensor arrays, improving long-range performance of both fighter weapons and smaller ship-mounted weapons.
 
-This ship's strikecraft recieve a range bonus equal to the smallest range bonus affecting any of the ship's weapons, up to a maximum of %s or %s total, whichever is lower. Increasing strikecraft weapon range decreases their engagment range by up to %s. 
+This ship's strikecraft recieve a range bonus equal to the smallest range bonus affecting any of the ship's weapons, up to a maximum of a %s bonus or %s total range, whichever is lower. Increasing strikecraft weapon range decreases their engagment range by up to %s. 
 
 Every %s of strikecraft installed on the ship increases the base range of small weapons by %s and medium weapons by %s, up to a maximum base range of %s.",Fighter range bonuses.,graphics/hullmods/apex_network_targeter.png
 ,,,,,,,,,,,,,,,,,,

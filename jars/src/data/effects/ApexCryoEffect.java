@@ -87,7 +87,7 @@ public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
 
         if (engine.getPlayerShip() == target && remainingDuration > 0f)
         {
-            engine.maintainStatusForPlayerShip("apex_cryo", "graphics/icons/buffs/apex_cryo.png", (int)(effect*100f-100f) + "% flux dissipation." , "Remaining duration: " + Misc.getRoundedValue(remainingDuration), false);
+            engine.maintainStatusForPlayerShip("apex_cryo", "graphics/icons/buffs/apex_cryo.png", "+" + (int)(effect*100f-100f) + "% flux dissipation." , "Remaining duration: " + Misc.getRoundedValue(remainingDuration), false);
         }
     }
 

@@ -45,7 +45,7 @@
 					"slowToMaxSpeed":true,
 					"delay":1.4,
 					"pingSound":"mine_ping",
-					"pingColor":[255, 75, 75,255],
+					"pingColor":[255, 75, 75,128],
 					"pingRadius":100,
 					"pingDuration":0.15,
 					"windupSound":"apex_mine_windup",
@@ -58,10 +58,10 @@
 									 "particleSizeMin":3.0,
 									 "particleSizeRange":8.0,
 									 "particleDuration":2,
-									 "particleCount":10,
+									 "particleCount":0,
 									 "particleColor":[255, 75, 75, 128],
 									 "explosionColor":[255, 75, 75, 128],
-									 "useDetailedExplosion":true,
+									 "useDetailedExplosion":false,
 									 "sound":"devastator_explosion"},
 					}	
 }

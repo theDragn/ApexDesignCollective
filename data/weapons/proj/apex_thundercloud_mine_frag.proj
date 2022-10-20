@@ -13,7 +13,7 @@
 	"flameoutTime":1.0f, # total time from flameout to full fadeout
 	"fadeTime":0.1, # fadeout duration
 	"noEngineGlowTime":0.05, # time spent without the engine glow being rendered
-	"explosionColor":[75, 255, 84, 128],  # purely visual, will get a white additively blended core on top of this color
+	"explosionColor":[75, 255, 84, 64],  # purely visual, will get a white additively blended core on top of this color
 	"explosionRadius":30, # purely visual	
 	"engineSpec":{"turnAcc":500,
 				  "turnRate":500,
@@ -45,7 +45,7 @@
 					"slowToMaxSpeed":true,
 					"delay":1.4,
 					"pingSound":"mine_ping",
-					"pingColor":[75, 255, 84,255],
+					"pingColor":[75, 255, 84,128],
 					"pingRadius":100,
 					"pingDuration":0.15,
 					"windupSound":"apex_mine_windup",
@@ -58,10 +58,10 @@
 									 "particleSizeMin":3.0,
 									 "particleSizeRange":8.0,
 									 "particleDuration":2,
-									 "particleCount":10,
+									 "particleCount":0,
 									 "particleColor":[75, 255, 84, 128],
-									 "explosionColor":[75, 255, 84, 128],
-									 "useDetailedExplosion":true,
+									 "explosionColor":[75, 255, 84, 64],
+									 "useDetailedExplosion":false,
 									 "sound":"devastator_explosion"},
 					}	
 }

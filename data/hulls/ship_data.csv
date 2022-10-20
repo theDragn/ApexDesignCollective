@@ -3,7 +3,7 @@ name,id,designation,tech/manufacturer,system id,fleet pts,hitpoints,armor rating
 Summit,apex_apex,Battleship,Apex Design Collective,apex_damper,29,20000,1300,22000,,1300,340,,35,12,12,8,8,3000,OMNI,,180,0.3,0.9,,,500,650,300,360,12,30,7,500000,10,25,720,0.25,60,60,,rare_bp,,0.33,2,3,,1312
 Apotheosis,apex_apotheosis,Battlecruiser,Apex Design Collective,apex_microburn,23,10000,900,13500,,950,225,,50,25,25,15,15,2000,OMNI,,180,0.3,0.9,,,350,500,300,240,8,30,8,250000,10,25,720,0.25,37,37,,rare_bp,,0.33,2,3,,1312
 Eidolon,apex_eidolon,Battlecruiser,Apex Design Collective,apex_heavy_skimmer,24,11500,1000,15000,,1000,265,,50,30,30,15,15,2200,OMNI,,180,0.3,0.9,,,350,500,300,270,9,30,8,275000,10,25,720,0.25,45,45,,rare_bp,,0.33,2,3,,1312
-Sunbeam,apex_sunbeam,Siege Carrier,Apex Design Collective,apex_uplink,25,15000,1200,18000,,1000,300,4,40,12,12,10,10,2500,OMNI,,180,0.3,0.9,,,500,650,450,400,10,40,7,350000,10,25,720,0.25,50,50,"COMBAT, CARRIER",rare_bp,,0.33,2,3,,6969
+Sunbeam,apex_sunbeam,Siege Carrier,Apex Design Collective,apex_uplink,25,15000,1200,18000,,1000,300,4,40,12,12,10,10,2500,OMNI,,180,0.3,0.9,,,500,650,450,400,10,40,7,350000,10,25,720,0.25,55,55,"COMBAT, CARRIER",rare_bp,,0.33,2,3,,6969
 # Anaconda,,Phase Battlecruiser,,apex_phase_suppressor,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Cruisers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

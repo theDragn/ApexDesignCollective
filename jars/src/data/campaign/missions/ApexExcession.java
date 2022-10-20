@@ -76,7 +76,6 @@ public class ApexExcession extends HubMissionWithBarEvent
         }
 
         setGiverIsPotentialContactOnSuccess();
-
         // create excession to give to the player
         ShipVariantAPI variant = Global.getSettings().getVariant("apex_excession_Hull").clone();
         if (ApexModPlugin.EXCESSION_ID)

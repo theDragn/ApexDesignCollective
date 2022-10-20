@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.util.Misc;
 import data.scripts.util.MagicTargeting;
+import data.weapons.proj.ApexThundercloudMineExpScript;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
@@ -169,7 +170,7 @@ public class ApexThundercloudAI implements MissileAIPlugin, GuidedMissileAI
         // now we're spawning mines
         for (int i = 0; i < missile.getMirvNumWarheads(); i++)
         {
-            engine.spawnProjectile(
+            MissileAPI mine = (MissileAPI)engine.spawnProjectile(
                     missile.getSource(),
                     missile.getWeapon(),
                     "apex_thundercloud_mine" + subWeapon,
@@ -177,6 +178,7 @@ public class ApexThundercloudAI implements MissileAIPlugin, GuidedMissileAI
                     Misc.random.nextFloat() * 360,
                     MathUtils.getRandomPointInCone(new Vector2f(), 400, missile.getFacing() - 70f, missile.getFacing() + 70f) // random starting velocity to spice things up
             );
+            engine.addPlugin(new ApexThundercloudMineExpScript(mine));
         }
 
         //sound effect

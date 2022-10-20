@@ -1,3 +1,10 @@
+Changes:
+- Networked Targeting Array: now caps fighter weapon range at 2000 units.
+- Cryocoolant now says +X% dissipation instead of -X% (effect was correct, though)
+- Sunbeam: Bumped up to 55 DP. Fixed a mount that was pointed in the wrong direction. Significantly improved computational performance.
+- Thunderstorm SLRM Missiles: Reworked mine explosion effects; sunglasses no longer required.
+
+
 1.0.9: Tell Me If You've Heard This One Before
 
 hey look, another capital battlecarrier and a funky LRM ship. these ones are different, I promise (by "different" I mean "probably overpowered")

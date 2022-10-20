@@ -90,7 +90,7 @@
       "type": "HYBRID",
       "mount": "TURRET",
       "arc": 130,
-      "angle": -0,
+      "angle": -25,
       "locations": [107, -205]
     },
     {
