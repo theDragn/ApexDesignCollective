@@ -72,7 +72,7 @@ public class ApexCryoSubsystem extends ApexBaseSubsystem
             {
                 if (ally.getHullSize().equals(ShipAPI.HullSize.FIGHTER))
                     continue;
-                float weight = Math.min(ally.getFluxLevel(), 0.1f);
+                float weight = Math.min(ally.getFluxLevel(), 0.2f);
                 if (shouldReduceBonus(ally.getHullSize(), ship.getHullSize()))
                     weight *= 0.75f;
                 buffTargets.add(ally, weight);
@@ -97,14 +97,12 @@ public class ApexCryoSubsystem extends ApexBaseSubsystem
                     blob.getVelocity().scale(ship.getMutableStats().getSystemRangeBonus().computeEffective(1f));
                 }
             }
-            int i = 0;
             for (DamagingProjectileAPI blob : blobs)
             {
-                if (i <= blobs.size() / 2)
+                if (buffTargets.getItems().size() == 1)
                     Global.getCombatEngine().addPlugin(new ApexCryoBlobScript(blob, buffTargets.pick()));
                 else
                     Global.getCombatEngine().addPlugin(new ApexCryoBlobScript(blob, buffTargets.pickAndRemove()));
-                i++;
             }
             didThings = true;
             setCooldownTime(ship.getMutableStats().getSystemCooldownBonus().computeEffective(BASE_COOLDOWN  * ApexUtils.getNozzleCooldownMult(ship)));

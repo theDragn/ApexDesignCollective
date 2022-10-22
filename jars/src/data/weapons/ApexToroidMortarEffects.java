@@ -17,6 +17,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static plugins.ApexModPlugin.POTATO_MODE;
+
 public class ApexToroidMortarEffects implements OnFireEffectPlugin, OnHitEffectPlugin, EveryFrameWeaponEffectPlugin
 {
     public static final int MIN_ARCS = 2;
@@ -79,14 +81,17 @@ public class ApexToroidMortarEffects implements OnFireEffectPlugin, OnHitEffectP
         // decorative arcs
         ApexUtils.plasmaEffects(projectile, projectile.getProjectileSpec().getCoreColor(), 100f);
         // shockwave
-        ApexUtils.addWaveDistortion(projectile.getLocation(), 30f, 100f, 0.25f);
-        engine.spawnExplosion(
-                projectile.getLocation(),
-                Misc.ZERO,
-                projectile.getProjectileSpec().getFringeColor(),
-                150,
-                1.0f
-        );
+        if (!POTATO_MODE)
+        {
+            ApexUtils.addWaveDistortion(projectile.getLocation(), 30f, 100f, 0.25f);
+            engine.spawnExplosion(
+                    projectile.getLocation(),
+                    Misc.ZERO,
+                    projectile.getProjectileSpec().getFringeColor(),
+                    150,
+                    1.0f
+            );
+        }
         Global.getSoundPlayer().playSound("hit_heavy", 1f, 1f, point, Misc.ZERO);
 
         // damaging arc targeting logic

@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import static plugins.ApexModPlugin.POTATO_MODE;
+
 public class ApexDefenseUplink extends BaseShipSystemScript
 {
     public static final float RANGE = 1600f;
@@ -41,7 +43,8 @@ public class ApexDefenseUplink extends BaseShipSystemScript
             hashCode = Global.getCombatEngine().hashCode();
         }
         ShipAPI ship = (ShipAPI) stats.getEntity();
-        drawParticleRing(ship, effectLevel, ship.getMutableStats().getSystemRangeBonus().computeEffective(RANGE));
+        if (!POTATO_MODE)
+            drawParticleRing(ship, effectLevel, ship.getMutableStats().getSystemRangeBonus().computeEffective(RANGE));
     }
 
     @Override
