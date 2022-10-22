@@ -81,9 +81,9 @@ class ApexModPlugin : BaseModPlugin() {
         when (missile.projectileSpecId) {
             "apex_nanoacid_torp_guided" -> return PluginPick(ApexGuidedTorpAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_arcspike" -> return PluginPick(ApexArcspikeAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_arcspike_canister" -> return PluginPick(ApexArcspikeCanisterAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_arcspike_canister_fighter" -> return PluginPick(ApexArcspikeCanisterAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_arcstorm_canister" -> return PluginPick(ApexArcspikeCanisterAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_arcspike_canister" -> return PluginPick(ApexArcspikeCanisterAI2(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_arcspike_canister_fighter" -> return PluginPick(ApexArcspikeCanisterAI2(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_arcstorm_canister" -> return PluginPick(ApexArcspikeCanisterAI2(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_sledgehammer_missile" -> return PluginPick(ApexSledgehammerAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_vls_acid_missile" -> return PluginPick(ApexVLSMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_vls_kin_missile" -> return PluginPick(ApexVLSMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)

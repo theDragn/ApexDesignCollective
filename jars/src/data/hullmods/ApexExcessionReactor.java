@@ -185,18 +185,10 @@ public class ApexExcessionReactor extends BaseHullMod
         // trigger killswitch, if necessary
         // no, they're not giving you a supership without some precautions
         // triggers if enemy fleet has more than a few apex ships
-        if (!Global.getCombatEngine().isSimulation()
-                && Global.getCombatEngine().getFleetManager(1) != null
-                && Misc.random.nextFloat() < 0.005 // every 200 frames, on average
-                && ship.getOwner() == 0)
+        BattleCreationContext context = Global.getCombatEngine().getContext();
+        if (!Global.getCombatEngine().isSimulation() && context != null && context.getOtherFleet() != null && context.getOtherFleet().getFaction() != null)
         {
-            int numApexShips = 0;
-            for (FleetMemberAPI member : Global.getCombatEngine().getFleetManager(1).getDeployedCopy())
-            {
-                if (member.getHullId().contains("apex_"))
-                    numApexShips++;
-            }
-            if (numApexShips > 4)
+            if (context.getOtherFleet().getFaction().getId().equals("apex_design"))
             {
                 Global.getCombatEngine().addFloatingText(
                         ship.getLocation(),

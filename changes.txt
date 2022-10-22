@@ -3,32 +3,10 @@ Changes:
 - Cryocoolant now says +X% dissipation instead of -X% (effect was correct, though)
 - Sunbeam: Bumped up to 55 DP. Fixed a mount that was pointed in the wrong direction. Significantly improved computational performance.
 - Thunderstorm SLRM Missiles: Reworked mine explosion effects; sunglasses no longer required.
-
-
-1.0.9: Tell Me If You've Heard This One Before
-
-hey look, another capital battlecarrier and a funky LRM ship. these ones are different, I promise (by "different" I mean "probably overpowered")
-
-New:
-Ships:
-- Sonora-class Siege Carrier: A heavy frontline carrier designed for bombarding stations and other heavy combatants. Has a pair of built-in Ultrachromatic Pulse Cannons for anti-station duties. Comes with Networked Targeting Array and Fleet Support Gantry as built-in hullmods. System: Defense Optimization Uplink; improves the armor and shields of nearby allies but prevents hard flux dissipation while active.
-- Tuatara-class (LRM) Missile Destroyer: Equipped with a Thundercloud SLRM Launcher, which delivers a large spread of mines. Ammo types are swappable between frag, HE, and kinetic through a hullmod, like the Crocodile. System: Arcmine Dispenser.
-
-Hullmods: 
-- Networked Targeting Array: Shares the ship's range bonuses with its strikecraft, but decreases their engagement range. Increases the base range of the ship's small and medium weapons based on how much OP was spent on fighters. Great for larger battlecarriers, but can be very OP-expensive to take full advantage of.
-
-Changes:
-- Faction: Reduced fleet size (5 -> 4)- they had one point too many in faction doctrine settings.
-- Crocodile: Taipan VLS pods now correctly reset if the ship vents or overloads during the firing sequence. (thanks amazigh)
-- Python: Increased system uptime by 0.5 seconds and redid the math to ensure that fast projectiles get the proper benefit from the system. Fixed recursive splitting issues with ED Shipyards, Gensoukyou, and ApproLight weapons when using the ship's system.
-- Gecko: Weapons now deal 25 extra energy damage on hit, helping out against shielded or armored fighters that could shrug off the frag damage.
-- Cryocoolant Projector: Now just increases flux dissipation by 30% (vs equal or smaller ships) or 15% (vs larger ships). A reduction to flux generation was only really useful if you intentionally overfluxed your ships a bit; dissipation is more useful across a wider variety of hulls and loadouts.
-- Active Flare Projector: Now fires 2/3/4/5 flares per nozzle per activation instead of 3 for all ship sizes. Was too anemic on larger ships, and a little too good on smaller ships.
-- Harmonic Dart Cannon: Increased debuff strength (7.5% -> 8%), duration (4s -> 5s) and maximum (75% -> 100%). Reduced rate of fire by ~20%. Slightly reduced projectile velocity (900 -> 800), spread per shot (3 -> 2), and maximum spread (9 -> 8). Kind of outcompeted by the large Fusion Beam, so it can use some tweaks.
-- Disruption Propagator: Increased range (700 -> 800) and slightly reduced velocity (550 -> 500). Often outcompeted by other large energies due to poor shield DPS for its flux cost, so some more range should help make it spicy.
-- Tachyon Inverter: Increased range (700 -> 800). Reduced efficiency (1.0 -> 1.1) and projectile speed (1000 -> 900). I won't lie, I just want this one to rangematch. It could stand to get an efficiency nerf too, particularly if the range is going up.
-- Added a settings toggle to let you stop having the Excession ID your fleet. Only applies when first receiving the ship.
-- Added the Komodo to the simulator. Not either of the new ships though, lol.
+- Added Exiled Space config. 
+- Excession: Reworked [redacted], now actually looks at the enemy faction.
+- Cryocoolant projector: Autotargeting will now try to spread coolant on to all nearby targets instead of focusing the highest-flux one.
+- Toroid Mortar: Fires an explosive ring of plasma. Somewhere between a torpedo and an energy weapon. Has a low rate of fire, high damage, and good range. Gains weak homing in synergy or universal slots.
 
 NEEDS SPRITIN':
 - Anaconda-class phase battlecruiser.

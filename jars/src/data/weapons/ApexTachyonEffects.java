@@ -63,7 +63,7 @@ public class ApexTachyonEffects implements OnHitEffectPlugin, EveryFrameWeaponEf
 
         if (charge > 0 && !firedThisCycle && !weapon.getShip().getFluxTracker().isOverloadedOrVenting() && weapon.getAmmo() >= 5)//&& weapon.getAmmo() >= 10)
         {
-            //Global.getSoundPlayer().playLoop("apex_tachyon_charge", weapon, (0.85f + weapon.getChargeLevel()*2f), (0.6f + (weapon.getChargeLevel() * 0.4f)), weapon.getLocation(), new Vector2f(0f, 0f));
+            //Global.getSoundPlayer().playLoop("apex_inverter_charge", weapon, (0.25f + weapon.getChargeLevel()), (0.6f + (weapon.getChargeLevel() * 0.4f)), weapon.getLocation(), new Vector2f(0f, 0f));
             zapInterval.advance(engine.getElapsedInLastFrame());
             if (zapInterval.intervalElapsed())
             {
