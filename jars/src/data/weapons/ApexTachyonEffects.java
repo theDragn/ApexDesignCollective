@@ -22,6 +22,7 @@ public class ApexTachyonEffects implements OnHitEffectPlugin, EveryFrameWeaponEf
     public static final Color ARC_COLOR = new Color(150, 100, 255);
     private IntervalUtil zapInterval = new IntervalUtil(0.05f, 0.1f);
     private boolean firedThisCycle = false;
+    private boolean playedCharge = false;
 
     @Override
     public void onHit(DamagingProjectileAPI proj, CombatEntityAPI target, Vector2f point, boolean shieldhit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine)
@@ -61,9 +62,14 @@ public class ApexTachyonEffects implements OnHitEffectPlugin, EveryFrameWeaponEf
         if (weapon.getAmmo() < 5 && weapon.getCooldownRemaining() <= 0.01f)
             weapon.setRemainingCooldownTo(0.01f);
 
+        if (!playedCharge && charge > 0)
+        {
+            Global.getSoundPlayer().playSound("apex_inverter_charge", 1f, 1f, weapon.getLocation(), new Vector2f(0f, 0f));
+            playedCharge = true;
+        }
+
         if (charge > 0 && !firedThisCycle && !weapon.getShip().getFluxTracker().isOverloadedOrVenting() && weapon.getAmmo() >= 5)//&& weapon.getAmmo() >= 10)
         {
-            //Global.getSoundPlayer().playLoop("apex_inverter_charge", weapon, (0.25f + weapon.getChargeLevel()), (0.6f + (weapon.getChargeLevel() * 0.4f)), weapon.getLocation(), new Vector2f(0f, 0f));
             zapInterval.advance(engine.getElapsedInLastFrame());
             if (zapInterval.intervalElapsed())
             {
@@ -94,6 +100,10 @@ public class ApexTachyonEffects implements OnHitEffectPlugin, EveryFrameWeaponEf
             firedThisCycle = true;
         }
         if (firedThisCycle && (charge <= 0f || !weapon.isFiring()))
+        {
             firedThisCycle = false;
+        }
+        if (charge == 0f)
+            playedCharge = false;
     }
 }

@@ -2,7 +2,8 @@ Credits
 Gwyvern: Sprites
 Tomatopaste: dronelib code
 Mayu: A few hullmod sprites
-Harmful Mechanic: Assets used for blueprint packs
+Mesotronik: a lot of the good sounds and none of the bad ones
+Harmful Mechanic: Assets used for blueprint pack icons.
 Farlarzia, Ruddygreat, Cjuicy, Silverlight, Avanitia: Loyal beta testers, may their names live on in glory
 
 Source code is available at https://github.com/theDragn/ApexDesignCollective
