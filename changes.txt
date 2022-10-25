@@ -8,7 +8,7 @@ Changes:
 - Chameleon Wing: Removed Advanced Targeting Core and doubled weapon base range so it can benefit properly from Networked Targeting Array. Also added Nanolaminate Plating, since it was missing it.
 - Tachyon Inverter: Reduced magazine size to 3 shots. 
 - Excession: Reworked [redacted], now actually looks at the enemy faction.
-- Tachyon Driver: Increased OP cost (11 -> 12).
+- Tachyon Driver: Increased OP cost (11 -> 12). Small version is unchanged.
 - Thunderstorm SLRM Missiles: Reworked mine explosion effects; sunglasses no longer required.
 - Added Exiled Space config. 
 - Cryocoolant projector: Autotargeting will now try to fire one projectile at the highest-flux ship and spread remaining projectiles over other nearby ships. The effect now says +X% dissipation instead of -X% (just a display error; it was working correctly).

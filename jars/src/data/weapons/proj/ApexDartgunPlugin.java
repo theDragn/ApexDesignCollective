@@ -124,11 +124,11 @@ public class ApexDartgunPlugin extends BaseCombatLayeredRenderingPlugin
             {
                 ring.location = target.getLocation();
                 ring.vertexRadius = target.getCollisionRadius() * 0.9f;
-                ring.color = ApexUtils.blendColors(LOW_STACKS_COLOR, HIGH_STACKS_COLOR, (activeTimers - 1) / 9f);
+                ring.color = ApexUtils.blendColors(LOW_STACKS_COLOR, HIGH_STACKS_COLOR, (activeTimers - 1) / (float)(MAX_NUM_DEBUFFS - 1));
                 ring.lineWidth = 2 * activeTimers;
                 ring.render(Global.getCombatEngine());
                 Vector2f textLoc = MathUtils.getPointOnCircumference(target.getLocation(), target.getCollisionRadius(), 30f);
-                ApexPolygonRenderer.drawText(textLoc, "x" + activeTimers + " Harmonized", ApexUtils.blendColors(LOW_STACKS_COLOR, HIGH_STACKS_COLOR, (activeTimers - 1) / 9f), 20f);
+                ApexPolygonRenderer.drawText(textLoc, "x" + activeTimers + " Harmonized", ApexUtils.blendColors(LOW_STACKS_COLOR, HIGH_STACKS_COLOR, (activeTimers - 1) /(float)(MAX_NUM_DEBUFFS - 1)), 20f);
             }
         }
     }
