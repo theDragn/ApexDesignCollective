@@ -73,13 +73,13 @@ public class ApexTachyonEffects implements OnHitEffectPlugin, EveryFrameWeaponEf
             zapInterval.advance(engine.getElapsedInLastFrame());
             if (zapInterval.intervalElapsed())
             {
-                /*engine.spawnEmpArcVisual(barrelLoc, weapon.getShip(),
+                engine.spawnEmpArcVisual(barrelLoc, weapon.getShip(),
                         MathUtils.getRandomPointInCircle(barrelLoc, 80f * charge),
                         weapon.getShip(),
                         5f + 10f * charge,
                         ARC_COLOR,
                         Color.WHITE
-                );*/
+                );/*
                 engine.spawnEmpArcPierceShields(weapon.getShip(), barrelLoc, weapon.getShip(),
                         new SimpleEntity(MathUtils.getRandomPointInCircle(barrelLoc, 80f * charge)),
                         DamageType.FRAGMENTATION,
@@ -90,7 +90,7 @@ public class ApexTachyonEffects implements OnHitEffectPlugin, EveryFrameWeaponEf
                         5f+10f*charge,
                         ARC_COLOR,
                         Color.WHITE
-                );
+                );*/
             }
         }
         if (charge >= 1f && !firedThisCycle )

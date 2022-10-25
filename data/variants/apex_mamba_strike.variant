@@ -1,11 +1,10 @@
 {
     "displayName": "Strike",
     "fluxCapacitors": 7,
-    "fluxVents": 5,
+    "fluxVents": 8,
     "goalVariant": true,
     "hullId": "apex_mamba",
     "hullMods": [
-        "magazines",
         "missleracks",
         "adaptive_coils"
     ],

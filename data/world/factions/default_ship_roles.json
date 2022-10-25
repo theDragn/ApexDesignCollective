@@ -16,10 +16,11 @@
 	},
 	
 	"combatLarge":{
-		"apex_alligator_line":3,
-		"apex_alligator_torpedo":3,
-		"apex_alligator_standard":3,
-		"apex_alligator_beam":3,
+		"apex_alligator_line":2.4,
+		"apex_alligator_torpedo":2.4,
+		"apex_alligator_standard":2.4,
+		"apex_alligator_beam":2.4,
+		"apex_alligator_strike":2.4,
 		"apex_crocodile_antiarmor":3,
 		"apex_crocodile_antishield":3,
 		"apex_crocodile_suppression":3,
@@ -58,7 +59,8 @@
 	"phaseLarge":{
 		"apex_python_assault":6,
 		"apex_python_strike":6,
-		"apex_python_standard":6
+		"apex_python_standard":6,
+		"apex_python_blaster":6
 	},
 	"carrierLarge":{
 		"apex_sunbeam_line":3,

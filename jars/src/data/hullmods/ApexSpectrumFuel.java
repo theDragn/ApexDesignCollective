@@ -60,7 +60,7 @@ public class ApexSpectrumFuel extends BaseHullMod
     public void applyEffectsAfterShipCreation(ShipAPI ship, String id)
     {
         // just in case
-        if (!ship.getHullSpec().getBaseHullId().equals("apex_spectrum") || !ship.getHullSpec().getBaseHullId().equals("apex_backscatter"))
+        if (!ship.getHullSpec().getBaseHullId().equals("apex_spectrum") && !ship.getHullSpec().getBaseHullId().equals("apex_backscatter"))
             return;
         SpriteAPI sprite;
         String spriteId = ship.getHullSpec().getBaseHullId() + "_fuel";

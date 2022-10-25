@@ -1,7 +1,7 @@
 {
     "displayName": "Anti-Shield",
-    "fluxCapacitors": 5,
-    "fluxVents": 15,
+    "fluxCapacitors": 0,
+    "fluxVents": 20,
     "goalVariant": true,
     "hullId": "apex_crocodile",
     "hullMods": [
@@ -31,19 +31,19 @@
             }
         },
         {
-            "autofire": true,
-            "mode": "LINKED",
+            "autofire": false,
+            "mode": "ALTERNATING",
             "weapons": {
-                "WS0001": "apex_coilgun_medium",
-                "WS0002": "apex_coilgun_medium"
+                "WS0001": "apex_toroid_mortar",
+                "WS0002": "apex_toroid_mortar"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS0003": "apex_nanogun_medium",
-                "WS0004": "apex_nanogun_medium"
+                "WS0003": "apex_tachyondriver_m",
+                "WS0004": "apex_tachyondriver_m"
             }
         },
         {

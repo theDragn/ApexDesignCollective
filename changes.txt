@@ -1,12 +1,17 @@
+New:
+- Toroid Mortar: Fires a slow-moving explosive ring of plasma. The projectile arcs to nearby targets while in flight, and explodes instead of dissipating at the end of its range. Good burst damage, hit strength, and range, but very low sustained DPS.
+- New SFX for Tachyon Inverter, QGPD, and QG Pulsers.
+
 Changes:
-- Networked Targeting Array: now caps fighter weapon range at 2000 units.
-- Cryocoolant now says +X% dissipation instead of -X% (effect was correct, though)
-- Sunbeam: Bumped up to 55 DP. Fixed a mount that was pointed in the wrong direction. Significantly improved computational performance.
+- Sunbeam: Increased DP (50 -> 55), reduced nozzle cooldown penalty (25% -> 15%). Fixed a mount that was pointed in the wrong direction. Significantly reduced the ship system's performance impact. Enabling potato mode in the settings will now disable the system's indicator ring.
+- Networked Targeting Array: Now caps fighter weapon range at 2000 units to avoid issues with support fighters and bombers with very large base weapon ranges.
+- Chameleon Wing: Removed Advanced Targeting Core and doubled weapon base range so it can benefit properly from Networked Targeting Array. Also added Nanolaminate Plating, since it was missing it.
+- Tachyon Inverter: Reduced magazine size to 3 shots. 
+- Excession: Reworked [redacted], now actually looks at the enemy faction.
+- Tachyon Driver: Increased OP cost (11 -> 12).
 - Thunderstorm SLRM Missiles: Reworked mine explosion effects; sunglasses no longer required.
 - Added Exiled Space config. 
-- Excession: Reworked [redacted], now actually looks at the enemy faction.
-- Cryocoolant projector: Autotargeting will now try to spread coolant on to all nearby targets instead of focusing the highest-flux one.
-- Toroid Mortar: Fires an explosive ring of plasma. Somewhere between a torpedo and an energy weapon. Has a low rate of fire, high damage, and good range. Gains weak homing in synergy or universal slots.
+- Cryocoolant projector: Autotargeting will now try to fire one projectile at the highest-flux ship and spread remaining projectiles over other nearby ships. The effect now says +X% dissipation instead of -X% (just a display error; it was working correctly).
 
 NEEDS SPRITIN':
 - Anaconda-class phase battlecruiser.

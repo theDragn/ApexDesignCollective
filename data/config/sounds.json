@@ -109,4 +109,10 @@
 		{"file":"sounds/weapon/apex_inverter_charge.ogg","pitch":1.1,"volume":1},
 		{"file":"sounds/weapon/apex_inverter_charge.ogg","pitch":1,"volume":1}
 	],
+	"apex_toroid_fire":
+	[
+		{"file":"sounds/weapon/apex_toroid_fire.ogg","pitch":0.9,"volume":1.35},
+		{"file":"sounds/weapon/apex_toroid_fire.ogg","pitch":1,"volume":1.35},
+		{"file":"sounds/weapon/apex_toroid_fire.ogg","pitch":0.8,"volume":1.35}
+	],
 }

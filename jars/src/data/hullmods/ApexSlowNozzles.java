@@ -6,7 +6,7 @@ import com.fs.starfarer.api.combat.ShipAPI;
 
 public class ApexSlowNozzles extends BaseHullMod
 {
-    public static final float NOZZLE_COOLDOWN_MULT = 1.25f;
+    public static final float NOZZLE_COOLDOWN_MULT = 1.15f;
 
     // effects are handled by the nozzle subsystems
 

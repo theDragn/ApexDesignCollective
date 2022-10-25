@@ -1,6 +1,6 @@
 {
     "displayName": "Overdriven",
-    "fluxCapacitors": 5,
+    "fluxCapacitors": 2,
     "fluxVents": 18,
     "goalVariant": true,
     "hullId": "apex_komodo",

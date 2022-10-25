@@ -57,11 +57,12 @@ public class ApexSpectrumCargo extends BaseHullMod
     public void applyEffectsAfterShipCreation(ShipAPI ship, String id)
     {
         // just in case
-        if (!ship.getHullSpec().getBaseHullId().equals("apex_spectrum") || !ship.getHullSpec().getBaseHullId().equals("apex_backscatter"))
+        if (!ship.getHullSpec().getBaseHullId().equals("apex_spectrum") && !ship.getHullSpec().getBaseHullId().equals("apex_backscatter"))
             return;
         SpriteAPI sprite;
         String spriteId = ship.getHullSpec().getBaseHullId() + "_cargo";
         sprite = Global.getSettings().getSprite(ship.getHullSpec().getBaseHullId(), spriteId, false);
+
         if (sprite != null)
         {
             float x = ship.getSpriteAPI().getCenterX();
