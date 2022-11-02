@@ -1,3 +1,11 @@
+todo
+- komodo/caiman damper: fire projectiles at end of cycle, not during
+- steal tilt's dash AI
+- fix up travel drive deactivation range (maybe other AI improvements?)
+
+
+
+========
 New:
 - Toroid Mortar: Fires a slow-moving explosive ring of plasma. The projectile arcs to nearby targets while in flight, and explodes instead of dissipating at the end of its range. Good burst damage, hit strength, and range, but very low sustained DPS.
 - New SFX for Tachyon Inverter, QGPD, and QG Pulsers.
