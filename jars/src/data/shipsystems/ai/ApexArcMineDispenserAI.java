@@ -34,11 +34,11 @@ public class ApexArcMineDispenserAI implements ShipSystemAIScript
         timeSinceActivation += amount;
         if (timer.intervalElapsed() && system.getAmmo() > 0)
         {
-            if (!AIUtils.getNearbyEnemies(ship, 400).isEmpty())
+            if (!AIUtils.getNearbyEnemies(ship, 300).isEmpty() && timeSinceActivation > 2.5f)
             {
                 ship.useSystem();
                 timeSinceActivation = 0f;
-            } else if (!AIUtils.getNearbyEnemyMissiles(ship, 400).isEmpty() && timeSinceActivation > 1.2f)
+            } else if (!AIUtils.getNearbyEnemyMissiles(ship, 300).isEmpty() && timeSinceActivation > 4.5f)
             {
                 ship.useSystem();
                 timeSinceActivation = 0f;

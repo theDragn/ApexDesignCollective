@@ -4,7 +4,7 @@ Temporal Damper,apex_damper,,,,,,0.05,,2,0.05,0.5,5,0.5,,,,TRUE,,,,,,TRUE,,,,gra
 Remote Temporal Damper,apex_remote_damper,,,,,,0.2,,,,0.25,5,0.25,15,,,,,,,,,,,,,graphics/icons/hullsys/damper_field.png
 Inertial Skimmer,apex_inertial_skimmer,,,,,,,,4,0.167,0.2,0.2,0.2,0.25,,,,,,,,,,,,,graphics/icons/hullsys/burn_drive.png
 Travel Drive,apex_cruisemode,,,,,,,,,,3,,2,,TRUE,,,,TRUE,,TRUE,TRUE,TRUE,,,,graphics/icons/hullsys/burn_drive.png
-Arcmine Dispenser,apex_arc_mine,,,,,,0.05,,2,0.1,0.25,,0.25,,,,,,,,,,,,,,graphics/icons/hullsys/interdictor_array.png
+Arcmine Dispenser,apex_arc_mine,,,,,,0.05,,2,0.083333,0.25,,0.25,,,,,,,,,,,,,,graphics/icons/hullsys/interdictor_array.png
 Phase Cloak,apex_phasecloak,,,,,,,,,,0.5,,0.5,2,TRUE,,TRUE,TRUE,TRUE,,,,TRUE,,TRUE,,graphics/icons/hullsys/phase_cloak.png
 Phase Banish,apex_phasebanish,,,,,,0.1,,2,0.075,0,0,0.5,0,,,,,,,,,,,,,graphics/icons/hullsys/phase_cloak.png
 Rapid Loader,apex_rapid_loader,,,,,,0.1,,,,,0.25,,30,,,,,,,,,,,,,graphics/icons/hullsys/ammo_feeder.png

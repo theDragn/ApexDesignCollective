@@ -4,6 +4,11 @@ todo
 - fix up travel drive deactivation range (maybe other AI improvements?)
 
 
+mid-tourney balance patch (I have done it again)
+- Thunderstorm SLRM: Removed hard flux on shield hit from frag mines. Reduced mine attraction speed (60 -> 30), frag mine armor strip (50 -> 25), frag mine damage (600 -> 500), and missile HP (450 -> 400).
+- Arcspikes/Arcstorm: reduced damage (125 -> 110), EMP (200 -> 175) and top speed (700 -> 550). Reduced Canister Pod range (1500 -> 1200).
+- Arcmine Dispenser: Reduced mine arc radius (400 -> 300). Reduced charge regen (10s -> 12s). AI is now slightly more hesitant to spend all its charges at once.
+- Toroid Mortar: Fixed a minor graphical bug.
 
 ========
 New:

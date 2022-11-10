@@ -162,9 +162,11 @@ public class ApexToroidMortarEffects implements OnFireEffectPlugin, OnHitEffectP
 
         float damageMult = Misc.random.nextFloat() * (MAX_ARC_DAMAGE - MIN_ARC_DAMAGE) + MIN_ARC_DAMAGE;
         CombatEntityAPI arcTarget = targets.pick();
+        Vector2f adjustedPos = VectorUtils.rotate(new Vector2f(18f, 0f), projectile.getFacing());
+        Vector2f.add(adjustedPos, projectile.getLocation(), adjustedPos);
         engine.spawnEmpArc(
                 projectile.getSource(),
-                projectile.getLocation(),
+                adjustedPos,
                 projectile,
                 arcTarget,
                 projectile.getDamageType(),

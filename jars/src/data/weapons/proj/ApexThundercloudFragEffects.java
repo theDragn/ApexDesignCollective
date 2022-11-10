@@ -14,8 +14,8 @@ import java.util.List;
 public class ApexThundercloudFragEffects implements OnHitEffectPlugin
 {
 
-    private static final float DAMAGE_FRACTION_SHIELD = 100f/600f;
-    private static final float DAMAGE_FRACTION_ARMOR = 50f/600f;
+    private static final float DAMAGE_FRACTION_SHIELD = 0f/500f;
+    private static final float DAMAGE_FRACTION_ARMOR = 25f/500f;
 
     private HashSet<CombatEntityAPI> hitTargets = new HashSet<>();
 

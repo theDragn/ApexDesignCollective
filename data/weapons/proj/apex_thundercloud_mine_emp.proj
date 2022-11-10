@@ -52,7 +52,7 @@
 					"windupDelay":0.5,
 					"explosionSpec":{"duration":0.1f,
 									 "radius":180,
-									 "coreRadius":60, # full damage within core radius
+									 "coreRadius":120, # full damage within core radius
 									 "collisionClass":MISSILE_FF,
 									 "collisionClassByFighter":PROJECTILE_FIGHTER,
 									 "particleSizeMin":3.0,

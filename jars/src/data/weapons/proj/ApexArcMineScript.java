@@ -22,7 +22,7 @@ public class ApexArcMineScript extends BaseEveryFrameCombatPlugin
     public static final int MAX_ARCS = 3;
     public static final float ARC_DAMAGE = 100f;
     public static final float ARC_EMP = 200f;
-    public static final float ARC_RANGE = 400f;
+    public static final float ARC_RANGE = 300f;
     public static final float ARMING_TIME = 0.66f;
     public static final Color ARC_COLOR = new Color(128, 128, 255);
 
