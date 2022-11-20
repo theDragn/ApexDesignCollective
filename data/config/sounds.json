@@ -115,4 +115,46 @@
 		{"file":"sounds/weapon/apex_toroid_fire.ogg","pitch":1,"volume":1.35},
 		{"file":"sounds/weapon/apex_toroid_fire.ogg","pitch":0.8,"volume":1.35}
 	],
+	"apex_fusion_s_fire":
+	[
+		{"file":"sounds/weapon/apex_fusion_s_fire.ogg","pitch":0.9,"volume":1.0},
+		{"file":"sounds/weapon/apex_fusion_s_fire.ogg","pitch":1,"volume":1.0},
+		{"file":"sounds/weapon/apex_fusion_s_fire.ogg","pitch":1.1,"volume":1.0}
+	],
+	"apex_fusion_m_fire":
+	[
+		{"file":"sounds/weapon/apex_fusion_m_fire.ogg","pitch":0.9,"volume":1.0},
+		{"file":"sounds/weapon/apex_fusion_m_fire.ogg","pitch":1,"volume":1.0},
+		{"file":"sounds/weapon/apex_fusion_m_fire.ogg","pitch":1.1,"volume":1.0}
+	],
+	"apex_fusion_l_fire":
+	[
+		{"file":"sounds/weapon/apex_fusion_l_fire.ogg","pitch":0.9,"volume":1.0},
+		{"file":"sounds/weapon/apex_fusion_l_fire.ogg","pitch":1,"volume":1.0},
+		{"file":"sounds/weapon/apex_fusion_l_fire.ogg","pitch":1.1,"volume":1.0}
+	],
+	"apex_fusion_s_loop":
+	[
+		{"file":"sounds/weapon/apex_fusion_s_loop.ogg","pitch":1,"volume":0.7}
+	],
+	"apex_fusion_m_loop":
+	[
+		{"file":"sounds/weapon/apex_fusion_m_loop.ogg","pitch":1,"volume":0.7}
+	],
+	"apex_fusion_l_loop":
+	[
+		{"file":"sounds/weapon/apex_fusion_l_loop.ogg","pitch":1,"volume":0.7}
+	],
+	"apex_fusion_heavy_proc":
+	[
+		{"file":"sounds/weapon/apex_fusion_l_proc.ogg","pitch":0.9,"volume":1.0},
+		{"file":"sounds/weapon/apex_fusion_l_proc.ogg","pitch":1,"volume":1.0},
+		{"file":"sounds/weapon/apex_fusion_l_proc.ogg","pitch":1.1,"volume":1.0}
+	],
+	"apex_fusion_light_proc":
+	[
+		{"file":"sounds/weapon/apex_fusion_s_proc.ogg","pitch":0.9,"volume":1.0},
+		{"file":"sounds/weapon/apex_fusion_s_proc.ogg","pitch":1,"volume":1.0},
+		{"file":"sounds/weapon/apex_fusion_s_proc.ogg","pitch":1.1,"volume":1.0}
+	],
 }

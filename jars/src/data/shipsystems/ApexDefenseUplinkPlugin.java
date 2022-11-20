@@ -22,6 +22,7 @@ public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin
     private IntervalUtil update = new IntervalUtil(0.25f, 0.75f);
     private List<ShipAPI> shipsWithSystem = new ArrayList<>();
 
+
     public ApexDefenseUplinkPlugin()
     {
 
@@ -43,21 +44,23 @@ public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin
     {
         // check list of ships that we know have the system every frame
         // this is still O(n^2) but it's a lot better than checking all ships for the system presence/activation every frame
-        for (ShipAPI ship : shipsWithSystem)
+        update.advance(amount);
+        for (ShipAPI bufferShip : shipsWithSystem)
         {
-            if (ship.getHullSize().equals(ShipAPI.HullSize.FIGHTER))
+            if (bufferShip.getHullSize().equals(ShipAPI.HullSize.FIGHTER))
                 continue;
             // we've got a ship with a buffer system
             // apply buffs to ships in range
-            if (ship.getSystem() != null && ship.getSystem().isOn())
+            if (bufferShip.getSystem() != null && bufferShip.getSystem().isOn())
             {
-                float range = ship.getMutableStats().getSystemRangeBonus().computeEffective(ApexDefenseUplink.RANGE);
+                float range = bufferShip.getMutableStats().getSystemRangeBonus().computeEffective(ApexDefenseUplink.RANGE);
+                range = range * range;
                 for (ShipAPI shipToBuff : engine.getShips())
                 {
                     if (shipToBuff.getHullSize().equals(ShipAPI.HullSize.FIGHTER)
-                            || MathUtils.getDistanceSquared(shipToBuff.getLocation(), ship.getLocation()) > range * range
+                            || MathUtils.getDistanceSquared(shipToBuff.getLocation(), bufferShip.getLocation()) > range
                             || !shipToBuff.isAlive()
-                            || ship.getOwner() != shipToBuff.getOwner())
+                            || bufferShip.getOwner() != shipToBuff.getOwner())
                         continue;
                     targets.put(shipToBuff, 1f);
                 }

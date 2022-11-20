@@ -26,7 +26,7 @@ public class ApexDefenseUplink extends BaseShipSystemScript
     public static final Color JITTER_COLOR = new Color(0, 190, 0);
     private static final int RING_PARTICLE_COUNT = 20;
 
-    private static boolean addedPlugin = false;
+    private static boolean runOnce = false;
     private static int hashCode = 0;
     
 
@@ -37,7 +37,7 @@ public class ApexDefenseUplink extends BaseShipSystemScript
         if (stats.getEntity() == null)
             return;
         // plugin handles the buffs
-        if (hashCode != Global.getCombatEngine().hashCode())
+        if (hashCode != Global.getCombatEngine().hashCode() && !runOnce)
         {
             Global.getCombatEngine().addPlugin(new ApexDefenseUplinkPlugin());
             hashCode = Global.getCombatEngine().hashCode();
@@ -50,7 +50,7 @@ public class ApexDefenseUplink extends BaseShipSystemScript
     @Override
     public void unapply(MutableShipStatsAPI stats, String id)
     {
-        if (hashCode != Global.getCombatEngine().hashCode())
+        if (hashCode != Global.getCombatEngine().hashCode() && !runOnce)
         {
             Global.getCombatEngine().addPlugin(new ApexDefenseUplinkPlugin());
             hashCode = Global.getCombatEngine().hashCode();

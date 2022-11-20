@@ -58,6 +58,6 @@
     MISSILE_FF,
     MISSILE_NO_FF
   ],
-  "fireSoundOne": "laser_intro",
-  "fireSoundTwo": "phase_beam_loop"
+  "fireSoundOne": "apex_fusion_s_fire",
+  "fireSoundTwo": "apex_fusion_s_loop"
 }

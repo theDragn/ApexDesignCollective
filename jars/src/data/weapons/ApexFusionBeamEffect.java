@@ -28,6 +28,9 @@ public class ApexFusionBeamEffect implements BeamEffectPlugin
     public static final float BONUS_DAMAGE_FRACTION_LARGE = 0.20f;
     public static final float TIME_FOR_EXPLOSION = 0.33f;
 
+    public static final String LIGHT_PROC_SOUND = "apex_fusion_light_proc";
+    public static final String HEAVY_PROC_SOUND = "apex_fusion_heavy_proc";
+
     private IntervalUtil flashInterval = new IntervalUtil(0.1f, 0.2f);
     private float timeOnTarget = 0f;
 
@@ -95,12 +98,13 @@ public class ApexFusionBeamEffect implements BeamEffectPlugin
                     spec.setShowGraphic(false);
                     engine.spawnDamagingExplosion(spec, beam.getSource(), point, false);
                     // maybe spawn some fusiony nebula effects?
-                    Global.getSoundPlayer().playSound("hit_heavy", 1f, 1f, point, target.getVelocity());
+                    String sound = damage > 200 ? HEAVY_PROC_SOUND : LIGHT_PROC_SOUND;
+                    Global.getSoundPlayer().playSound(sound, 1f, 1f, point, target.getVelocity());
                     if (!POTATO_MODE) {
                         damage = Math.min(damage, 375);
                         ApexUtils.addWaveDistortion(point, Math.min(damage * 0.25f, 150f), damage * 0.25f, 0.2f + damage * 0.002f);
-                        engine.addSmoothParticle(point, new Vector2f(), radius, 1.0F, 0.05F, Color.WHITE);
-                        engine.addSmoothParticle(point, new Vector2f(), radius, 1.0F, 0.1F, Color.WHITE);
+                        engine.addSmoothParticle(point, new Vector2f(), radius * 2f, 1.0F, 0.05F, Color.WHITE);
+                        engine.addSmoothParticle(point, new Vector2f(), radius * 2f, 1.0F, 0.1F, Color.WHITE);
                         //ApexUtils.addLight(point, damage*0.025f, damage*0.025f, 0.2f*0.002f, Color.RED);
                     }
                 }
