@@ -2,10 +2,10 @@
 	"combatCapital":{
 		"apex_apex_line":3,
 		"apex_apex_strike":3,
-		"apex_apotheosis_pursuit":0.1,
-		"apex_apotheosis_strike":0.1,
-		"apex_apotheosis_standard":0.1,
-		"apex_apotheosis_brawler":0.1,
+		"apex_apotheosis_pursuit":0.5,
+		"apex_apotheosis_strike":0.5,
+		"apex_apotheosis_standard":0.5,
+		"apex_apotheosis_brawler":0.5,
 		"apex_eidolon_standard":4,
 		"apex_eidolon_strike":4,
 		"apex_eidolon_assault":4,
@@ -25,9 +25,13 @@
 		"apex_crocodile_antishield":3,
 		"apex_crocodile_suppression":3,
 		"apex_komodo_assault":3,
-		"apex_komodo_overdriven":3,
+		"apex_komodo_overdriven":1,
 		"apex_komodo_standard":3,
 		"apex_komodo_strike":3,
+		"apex_goanna_assault":3,
+		"apex_goanna_attack":3,
+		"apex_goanna_beam":3,
+		"apex_goanna_overdriven":1
 	},
 	"combatMedium":{
 		"apex_caiman_line":3,
@@ -41,10 +45,13 @@
 		"apex_tuatara_frag":4
 	},
 	"combatSmall":{
-		"apex_lacerta_attack":2,
-		"apex_lacerta_strike":2,
-		"apex_agama_picket":6,
-		"apex_agama_attack":6
+		"apex_lacerta_attack":4,
+		"apex_lacerta_strike":4,
+		"apex_agama_picket":4,
+		"apex_agama_attack":4,
+		"apex_iguana_attack":3,
+		"apex_iguana_support":3,
+		"apex_iguana_picket":2
 	},
 	"combatSmallForSmallFleet":{
 		"apex_lacerta_attack":2,

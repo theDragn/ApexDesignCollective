@@ -1,12 +1,13 @@
 New:
 - Iguana-class Frigate: A medium frigate with four Taipain VLS tubes. System is Rapid Loader, which instantly reloads 20 seconds worth of ammo regeneration.
-- Goanna-class Heavy Cruiser: A familiar-looking cruiser design. System is Pursuit Jets, which significantly improves forward speed and acceleration for a moderate duration.
+- Goanna-class Heavy Cruiser: A familiar-looking cruiser design. System is Pursuit Mode, which improves damage output, forward speed, and maneuverability for a short duration.
 - [REDACTED]. A very difficult late-game bounty. Check the bounty boards at Collective markets if you're at least level 10. It's not player-acquirable, before you get your hopes up.
 
 Changes:
 - Translation: Externalized all strings to /data/strings.json to support translation.
 - Komodo: Actually reduced dissipation (750 -> 700). Had this in a previous changelog but somehow didn't actually do it. Whoops.
-- Spectrum: Upgraded its two front small energy mounts to synergies.
+- Spectrum: Upgraded its two front small energy mounts to universals.
+- Apotheosis: Increased spawn weight to about 1/8 of the Eidolon's (from 1/40).
 - Light Burst Coilgun: Reduced burst DPS (200 -> 150), and slightly reduced projectile velocity (1200 -> 1100) to reflect its shorter barrel.
 - Entropy Consolidator (Caiman, Komodo): Now fires retaliatory projectiles at the end of the active period instead of during it. Reduced damage/EMP/projectile HP (200/400/400 -> 150/300/300) and capped the number of projectiles the system can fire.
 - Damper Systems (Summit, Caiman, Komodo): Shieldless ships should now be more aggressive with system use.

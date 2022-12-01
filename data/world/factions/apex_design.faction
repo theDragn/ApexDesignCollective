@@ -54,7 +54,8 @@
 			"apex_crocodile",
 			"apex_python",
 			"apex_komodo",
-			"apex_sunbeam"
+			"apex_sunbeam",
+			"apex_goanna"
 		],
 	},
 	"priorityShips":{
@@ -67,7 +68,8 @@
 			"apex_crocodile",
 			"apex_python",
 			"apex_komodo",
-			"apex_sunbeam"
+			"apex_sunbeam",
+			"apex_goanna"
 		],
 	},
 	"knownFighters":{

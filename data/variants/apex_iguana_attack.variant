@@ -1,0 +1,42 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "apex_iguana",
+    "hullMods": [
+        "apex_warheads_acid",
+        "eccm",
+        "apex_flare_system"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_iguana_attack",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0006": "apex_coilgun_medium"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0015": "apex_vls_small_acid_left",
+                "WS0016": "apex_vls_small_acid_right"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_qgp_small",
+                "WS0002": "apex_qgp_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "apex_qgpd_s_flak"}
+        }
+    ]
+}

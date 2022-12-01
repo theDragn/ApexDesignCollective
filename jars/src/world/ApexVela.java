@@ -25,7 +25,7 @@ public class ApexVela implements SectorGeneratorPlugin
         if (!GENERATE_SYSTEMS)
             return;
         StarSystemAPI system = sector.createStarSystem("apex_vela");
-        system.setBaseName(text("Vela"));
+        system.setBaseName(text("vela"));
 
         system.getLocation().set(-6275,	-13800);
         system.setBackgroundTextureFilename("graphics/backgrounds/background_galatia.jpg");

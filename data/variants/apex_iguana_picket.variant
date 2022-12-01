@@ -1,0 +1,42 @@
+{
+    "displayName": "Picket",
+    "fluxCapacitors": 8,
+    "fluxVents": 10,
+    "hullId": "apex_iguana",
+    "hullMods": [
+        "eccm",
+        "apex_cryo_projector",
+        "apex_warheads_kin"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_iguana_picket",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0006": "apex_qgp_med"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0015": "apex_vls_small_kin_left",
+                "WS0016": "apex_vls_small_kin_right"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_tachyondriver_s",
+                "WS0002": "apex_tachyondriver_s"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "apex_qgpd_s_flak"}
+        }
+    ]
+}

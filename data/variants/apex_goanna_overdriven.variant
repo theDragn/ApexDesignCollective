@@ -1,0 +1,51 @@
+{
+    "displayName": "Overdriven",
+    "fluxCapacitors": 18,
+    "fluxVents": 10,
+    "hullId": "apex_goanna",
+    "hullMods": ["safetyoverrides"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_goanna_overdriven",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "apex_disruptor"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0004": "apex_nanoacid_torp_pod",
+                "WS0005": "apex_nanoacid_torp_pod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0006": "apex_coilgun_small",
+                "WS0007": "apex_coilgun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "apex_tachyondriver_m",
+                "WS0003": "apex_tachyondriver_m"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0008": "apex_qgpd_s_flak",
+                "WS0009": "apex_qgpd_s_flak",
+                "WS0010": "apex_qgpd_s_flak",
+                "WS0011": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}
