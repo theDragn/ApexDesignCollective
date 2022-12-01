@@ -59,7 +59,7 @@ Superheavy Fusion Beam,apex_fusion_large,2,,5000,1000,800,,,,7,25,,,,HIGH_EXPLOS
 Tachyon Inverter,apex_tachyon,1,,5000,800,,300,300,10,10,25,20,1.2,5,ENERGY,330,,0.5,1.1666,1,0,0,0,0,0,,900,,,,,,,"energy20, apex_weapons",,Apex Design Collective,,Strike,,,,Fixed Spread,Hits to hull or armor have a %s chance to arc to weapons or engines for %s damage.,50% | 75%,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # BALLISTIC SMOL,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Light Burst Coilgun,apex_coilgun_small,0,0.5,800,700,,50,0,0,60,6,6,2,,KINETIC,40,,,0.25,,,0,4,0.66,4,,1200,,,,,,,"kinetic8, apex_weapons",,Apex Design Collective,,Anti Shield,,,,,,,,,,1
+Light Burst Coilgun,apex_coilgun_small,0,0.5,800,700,,50,0,0,60,6,6,2,,KINETIC,40,,,0.3333,,,0,4,0.66,4,,1100,,,,,,,"kinetic8, apex_weapons",,Apex Design Collective,,Anti Shield,,,,,,,,,,1
 Nanoacid Cannon,apex_nanogun_small,1,,900,700,,100,0,5,30,7,,,,HIGH_EXPLOSIVE,133,,,1,,,0,5,2,2,,1100,,,,,,,"he7, apex_weapons",,Apex Design Collective,,Anti Armor,,,,,"%s: Hits to hull or armor deal an extra %s damage over %s seconds, ignoring armor damage reduction.",Nanoacid Shell | 33 | 5,,,,1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # BALLISTIC MEDIUM,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

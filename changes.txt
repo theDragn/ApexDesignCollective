@@ -1,14 +1,16 @@
 New:
-- Iguana-class Frigate: A medium frigate with four Taipain VLS tubes. System is Rapid Loader.
-- Goanna-class Heavy Cruiser: A familiar-looking cruiser design. System is Pursuit Mode, which significantly improves forward speed and acceleration for a moderate duration.
-- [REDACTED]. A very difficult late-game bounty. Check the bounty boards at Collective markets if you're at least level 10. Not player-acquirable, before you get your hopes up.
+- Iguana-class Frigate: A medium frigate with four Taipain VLS tubes. System is Rapid Loader, which instantly reloads 20 seconds worth of ammo regeneration.
+- Goanna-class Heavy Cruiser: A familiar-looking cruiser design. System is Pursuit Jets, which significantly improves forward speed and acceleration for a moderate duration.
+- [REDACTED]. A very difficult late-game bounty. Check the bounty boards at Collective markets if you're at least level 10. It's not player-acquirable, before you get your hopes up.
 
 Changes:
 - Translation: Externalized all strings to /data/strings.json to support translation.
 - Komodo: Actually reduced dissipation (750 -> 700). Had this in a previous changelog but somehow didn't actually do it. Whoops.
-- Entropy Consolidator (Caiman, Komodo): Now fires retaliatory projectiles at the end of the active period instead of during it. Reduced damage/EMP/projectile HP (200/400/400 -> 150/300/300).
-- Damper Systems (Temporal Damper, Entropy Consolidator): Shieldless ships should now be more aggressive with system use.
-TODO- Inertial Skimmers (Alligator, Eidolon): Rewrote AI; ships should now be more intelligent with system use.
+- Spectrum: Upgraded its two front small energy mounts to synergies.
+- Light Burst Coilgun: Reduced burst DPS (200 -> 150), and slightly reduced projectile velocity (1200 -> 1100) to reflect its shorter barrel.
+- Entropy Consolidator (Caiman, Komodo): Now fires retaliatory projectiles at the end of the active period instead of during it. Reduced damage/EMP/projectile HP (200/400/400 -> 150/300/300) and capped the number of projectiles the system can fire.
+- Damper Systems (Summit, Caiman, Komodo): Shieldless ships should now be more aggressive with system use.
+- Inertial Skimmers (Alligator, Eidolon): Rewrote AI (and by "rewrote" I mean "stole code"); ships should now be more intelligent with system use.
 - Rapid Loader (Iguana, Crocodile): Reduced flux cost to activate (10% -> 7.5%).
 - Travel Drive (Photon, Agama): Significantly reduced chargeup time. AI should be much less cautious with system use.
 

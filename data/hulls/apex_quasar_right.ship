@@ -13,7 +13,9 @@
   "viewOffset": 0,
   "builtInMods": [
     "apex_cryo_armor",
-    "advancedcore"
+    "advancedcore",
+    "apex_quasar_bricker",
+    "automated"
   ],
   "weaponSlots": [
     {
