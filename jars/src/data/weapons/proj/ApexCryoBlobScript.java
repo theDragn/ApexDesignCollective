@@ -83,14 +83,14 @@ public class ApexCryoBlobScript extends BaseEveryFrameCombatPlugin
         }
 
         aliveTime += amount;
-
+        if (aliveTime < actualDelay)
+            return;
         if (target != null
                 && MathUtils.getDistanceSquared(proj.getLocation(), target.getLocation()) < target.getCollisionRadius() * target.getCollisionRadius()
                 && !target.isPhased())
             applyCryoEffect(target, proj);
 
-        if (aliveTime < actualDelay)
-            return;
+
 
         float turnRate = TURN_RATE;
         if (proj.getSource().getHullSize() == ShipAPI.HullSize.FRIGATE || proj.getSource().getHullSize() == ShipAPI.HullSize.DESTROYER)

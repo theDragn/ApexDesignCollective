@@ -1,7 +1,8 @@
 {
 	"id":"apex_heavy_skimmer",
 	"type":"ENGINE_MOD",
-	"aiType":"MANEUVERING_JETS",
+	"aiType":"CUSTOM",
+	"aiScript":"data.shipsystems.ai.ApexSkimmerAI",
 	
 	"statsScript":"data.shipsystems.ApexInertialSkimmer",
 	

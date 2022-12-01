@@ -6,6 +6,8 @@ import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
 
+import static data.ApexUtils.text;
+
 public class ApexManeuveringPulse extends BaseShipSystemScript
 {
 
@@ -36,7 +38,7 @@ public class ApexManeuveringPulse extends BaseShipSystemScript
     {
         if (index == 0)
         {
-            return new StatusData("increased engine power", false);
+            return new StatusData(text("moveburst"), false);
         }
         return null;
     }

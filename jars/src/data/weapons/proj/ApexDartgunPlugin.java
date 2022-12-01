@@ -13,6 +13,7 @@ import plugins.ApexModPlugin;
 
 import java.awt.*;
 
+import static data.ApexUtils.text;
 import static plugins.ApexModPlugin.POTATO_MODE;
 
 // plugin determines if ship needs a listener, and keeps track of debuffs
@@ -68,7 +69,7 @@ public class ApexDartgunPlugin extends BaseCombatLayeredRenderingPlugin
             target.addListener(listener);
             removeThisPlugin = false;
             if (target.getFluxTracker().showFloaty() || target == Global.getCombatEngine().getPlayerShip()) {
-                target.getFluxTracker().showOverloadFloatyIfNeeded("Harmonized!", new Color(255,155,155), 4f, true);
+                target.getFluxTracker().showOverloadFloatyIfNeeded(text("harmonic1"), new Color(255,155,155), 4f, true);
             }
         } else
         {
@@ -128,7 +129,7 @@ public class ApexDartgunPlugin extends BaseCombatLayeredRenderingPlugin
                 ring.lineWidth = 2 * activeTimers;
                 ring.render(Global.getCombatEngine());
                 Vector2f textLoc = MathUtils.getPointOnCircumference(target.getLocation(), target.getCollisionRadius(), 30f);
-                ApexPolygonRenderer.drawText(textLoc, "x" + activeTimers + " Harmonized", ApexUtils.blendColors(LOW_STACKS_COLOR, HIGH_STACKS_COLOR, (activeTimers - 1) /(float)(MAX_NUM_DEBUFFS - 1)), 20f);
+                ApexPolygonRenderer.drawText(textLoc, "x" + activeTimers + " " + text("harmonic2"), ApexUtils.blendColors(LOW_STACKS_COLOR, HIGH_STACKS_COLOR, (activeTimers - 1) /(float)(MAX_NUM_DEBUFFS - 1)), 20f);
             }
         }
     }

@@ -64,7 +64,7 @@ public class ApexDamperAI implements ShipSystemAIScript
         if (ship.getFluxLevel() > 0.9f && ship.getAIFlags().hasFlag(ShipwideAIFlags.AIFlags.HAS_INCOMING_DAMAGE))
             return true;
         // if our flux is low, don't bother using the system, since we're out of danger and there's not much sense in wasting it on a target that isn't threatening us
-        if (ship.getFluxLevel() < 0.2f)
+        if (ship.getFluxLevel() < 0.2f && !(ship.getShield() == null || ship.getShield().getType().equals(ShieldAPI.ShieldType.NONE)))
             return false;
         // if we have a target, the target is at high flux, and we're chasing em, use the system to finish them off
         if (ship.getShipTarget() != null && ship.getShipTarget().getFluxLevel() > 0.9 && ship.getAIFlags().hasFlag(ShipwideAIFlags.AIFlags.PURSUING))
@@ -98,6 +98,9 @@ public class ApexDamperAI implements ShipSystemAIScript
             // figure out how much damage we'd take if it hit shields
             totalIncomingShieldDamage += proj.getDamageAmount() * shieldDamageTypeMult.get(proj.getDamageType());
         }
+        // be generous about activation on shieldless ships
+        if ((ship.getShield() == null || ship.getShield().getType().equals(ShieldAPI.ShieldType.NONE)) && totalIncomingArmorDamage > 100)
+            return true;
         // if the incoming damage that we can't safely take on armor (with the system) would overload us, activate system anyway- better to take damage than overload
         if (totalIncomingShieldDamage * ship.getMutableStats().getShieldDamageTakenMult().computeMultMod() > ship.getMaxFlux() * (1f - ship.getFluxLevel()))
             return true;

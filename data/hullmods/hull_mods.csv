@@ -69,3 +69,6 @@ Civilian Refit,apex_civwhenrefit,,,Apex Design Collective,,,,,TRUE,TRUE,0,0,0,0,
 Gravitic Phase Cluster,apex_excession_coils,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexExcessionCoils,"Designed to run off of the breach core's gravitic flux output, these exotic phase coils produce rapid transitions into p-space.",,graphics/hullmods/apex_excession_coils.png
 Cryonic Nanolattice,apex_excession_armor,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexExcessionArmor,An ultra-hard nanoscale lattice cooled to near absolute zero. Converts nearly all incoming damage to heat and then dissipates it through ablation.,,graphics/hullmods/apex_excession_armor.png
 Breach Core,apex_excession_reactor,,,Apex Design Collective,,,,,TRUE,,0,0,0,0,data.hullmods.ApexExcessionReactor,"A dozen capital-grade shield emitters wrapped around a barely-contained hyperspace breach, this exotic reactor provides fantastic amounts of power, primarily in the form of gravitic flux.",,graphics/hullmods/apex_excession_reactor.png
+,,,,,,,,,,,,,,,,,,
+# Bounty,,,,,,,,,,,,,,,,,,
+Bricker,apex_quasar_bricker,,,Apex Design Collective,,,,,TRUE,TRUE,0,0,0,0,data.hullmods.ApexQuasarBricker,Causes the Quasar to suffer extreme malfunctions in player hands.,,graphics/hullmods/apex_excession_reactor.png

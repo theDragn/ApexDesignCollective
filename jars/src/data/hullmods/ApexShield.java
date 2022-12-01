@@ -22,6 +22,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import static data.ApexUtils.text;
+
 public class ApexShield extends BaseHullMod
 {
     private Map<ShipAPI, ApexShieldTracker> trackerMap = new HashMap<>(); // stores the base shield arc for each ship when deployed
@@ -104,12 +106,12 @@ public class ApexShield extends BaseHullMod
             return "Ship does not exist, what the fuck";
         }
         if (ship.getShield() == null)
-            return "Ship must have a shield.";
+            return text("geo1");
         for (String hullmod : BLOCKED_HULLMODS)
         {
             if (ship.getVariant().getHullMods().contains(hullmod))
             {
-                return "Incompatible with " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
+                return text("hmoderror1") + " " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
             }
         }
 
@@ -281,12 +283,12 @@ public class ApexShield extends BaseHullMod
             float pad = 10f;
             tooltip.addSectionHeading("Details", Alignment.MID, pad);
 
-            tooltip.addPara("\n• Shields take %s less flat damage from projectile hits. \n• Shields take %s less flat damage per second from beams. \n• The flat reduction occurs before damage type and shield bonuses.",
+            tooltip.addPara("\n• " + text("geo2") +"\n• " + text("geo3") + "\n• " + text("geo4"),
                     0,
                     Misc.getHighlightColor(),
                     (int) (DAMAGE_REDUCTION) + "", (int) (DAMAGE_REDUCTION) + "");
             Color[] colors = {ENG_COLOR, Misc.getHighlightColor(), Misc.getHighlightColor(), Misc.getHighlightColor(), Misc.getHighlightColor()};
-            tooltip.addPara("• Each time this prevents damage, the ship's armor takes %s damage equal to %s/%s/%s/%s of the prevented damage.",
+            tooltip.addPara("• " + text("geo5"),
                     0,
                     colors,
                     "energy",
@@ -294,15 +296,15 @@ public class ApexShield extends BaseHullMod
                     (int) (MULT_MAP.get(ShipAPI.HullSize.DESTROYER) * 100) + "%",
                     (int) (MULT_MAP.get(ShipAPI.HullSize.CRUISER) * 100) + "%",
                     (int) (MULT_MAP.get(ShipAPI.HullSize.CAPITAL_SHIP) * 100) + "%");
-            tooltip.addPara("• The damage reduction decreases proportionally with the ship's armor, becoming ineffective at %s armor.",
+            tooltip.addPara("• " + text("geo6"),
                     0,
                     Misc.getHighlightColor(),
                     (int) (CUTOFF_FRACTION * 100f) + "%");
-            tooltip.addPara("• Increases shield unfolding rate by %s.",
+            tooltip.addPara("• " + text("geo7"),
                     0f,
                     Misc.getHighlightColor(),
                     (int) (UNFOLD_BONUS) + "%");
-            tooltip.addPara("• Prevents the shield arc from being reduced while the shield is active.", 0);
+            tooltip.addPara("• " + text("geo8"), 0);
             Color incompatTextColor = Misc.getTextColor();
             for (String hullmod : BLOCKED_HULLMODS)
             {
@@ -311,18 +313,18 @@ public class ApexShield extends BaseHullMod
                     incompatTextColor = Misc.getNegativeHighlightColor();
                 }
             }
-            tooltip.addPara("%s", 0, incompatTextColor, "• Incompatible with hardened shields and other shield conversions.");
+            tooltip.addPara("%s", 0, incompatTextColor, "• " + text("geo9"));
 
             if (ship.getVariant().getSMods().contains("apex_geodesic_shield"))
             {
-                tooltip.addPara("S-mod Bonus: Shield arc is increased by %s degrees",
+                tooltip.addPara(text("geo10"),
                         10f,
                         Misc.getPositiveHighlightColor(),
                         Misc.getHighlightColor(),
                         (int) (SMOD_ARC_BONUS) + "");
             } else
             {
-                tooltip.addPara("If this hullmod is built in, it will increase shield arc by %s degrees",
+                tooltip.addPara(text("geo11"),
                         10f,
                         Misc.getHighlightColor(),
                         (int) (SMOD_ARC_BONUS) + "", (int) (UNFOLD_BONUS) + "%");

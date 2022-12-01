@@ -12,6 +12,8 @@ import data.weapons.ApexQGeffects;
 import java.util.HashSet;
 import java.util.Set;
 
+import static data.ApexUtils.text;
+
 public class ApexSuperRangeSync extends BaseHullMod
 {
     // averages weapon ranges for each weapon size class, ignoring
@@ -74,7 +76,7 @@ public class ApexSuperRangeSync extends BaseHullMod
         {
             if (ship.getVariant().getHullMods().contains(hullmod))
             {
-                return "Incompatible with " + Global.getSettings().getHullModSpec(hullmod).getDisplayName();
+                return text("hmerror1") + " " + Global.getSettings().getHullModSpec(hullmod).getDisplayName();
             }
         }
         return null;

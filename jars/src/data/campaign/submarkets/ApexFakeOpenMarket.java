@@ -18,6 +18,8 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import static data.ApexUtils.text;
+
 public class ApexFakeOpenMarket extends BaseSubmarketPlugin
 {
     public void init(SubmarketAPI submarket)
@@ -213,7 +215,7 @@ public class ApexFakeOpenMarket extends BaseSubmarketPlugin
     {
         if (ui.getTradeMode() == CampaignUIAPI.CoreUITradeMode.SNEAK)
         {
-            return "Requires: proper docking authorization (transponder on)";
+            return text("markauth");
         }
         return super.getTooltipAppendix(ui);
     }

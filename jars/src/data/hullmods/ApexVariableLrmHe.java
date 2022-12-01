@@ -3,6 +3,8 @@ package data.hullmods;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.ShipAPI;
 
+import static data.ApexUtils.text;
+
 public class ApexVariableLrmHe extends BaseHullMod
 {
     @Override
@@ -21,11 +23,11 @@ public class ApexVariableLrmHe extends BaseHullMod
     public String getDescriptionParam(int index, ShipAPI.HullSize hullSize)
     {
         if (index == 0)
-            return "high-explosive";
+            return text("vlrm1");
         if (index == 1)
-            return "fragmentation";
+            return text("vlrm2");
         if (index == 2)
-            return "no CR penalty";
+            return text("vw3");
         return null;
     }
 }

@@ -1,0 +1,95 @@
+{
+    "displayName": "Unknown",
+    "fluxCapacitors": 17,
+    "fluxVents": 50,
+    "goalVariant": true,
+    "hullId": "apex_quasar",
+    "hullMods": [
+        "apex_armor_repairer",
+        "apex_geodesic_shield"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_quasar_bounty",
+    "modules": [
+		# gun batteries
+		{"Q_LEFT": "apex_quasar_module_left"},
+		{"Q_RIGHT": "apex_quasar_module_right"},
+		{"Q_FRONT": "apex_quasar_module_front"},
+		
+    ],
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0023": "apex_ultrachrome",
+                "WS0024": "apex_ultrachrome",
+                "WS0025": "apex_ultrachrome",
+                "WS0026": "apex_ultrachrome"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "disintegrator",
+                "WS0002": "disintegrator",
+                "WS0013": "apex_emp_laser",
+                "WS0014": "apex_emp_laser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0011": "apex_coilgun_small",
+                "WS0012": "apex_coilgun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "cryoblaster",
+                "WS0004": "cryoblaster"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0015": "apex_coilgun_small",
+                "WS0016": "apex_coilgun_small",
+                "WS0019": "apex_coilgun_small",
+                "WS0020": "apex_coilgun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_fusion_medium",
+                "WS0006": "apex_fusion_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "apex_qgpd_m_flak",
+                "WS0009": "shockrepeater",
+                "WS0010": "shockrepeater",
+                "WS0018": "shockrepeater",
+                "WS0021": "shockrepeater",
+                "WS0022": "shockrepeater"
+            }
+        }
+    ],
+    "wings": [
+        "apex_tegu_wing",
+        "apex_tegu_wing",
+        "apex_whiptail_wing",
+        "apex_whiptail_wing"
+    ]
+}

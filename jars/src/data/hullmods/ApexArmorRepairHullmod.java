@@ -18,6 +18,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import static data.ApexUtils.text;
+
 
 public class ApexArmorRepairHullmod extends BaseHullMod
 {
@@ -54,12 +56,12 @@ public class ApexArmorRepairHullmod extends BaseHullMod
     public static final float MAX_REGEN_FRACTION = 0.75f; // can't regen armor to more than this fraction of the base amount
     public static final float BASE_COOLDOWN = 30f; // cooldown time
 
-    public static final String line1 = "\n• Fires magnetically-guided blobs of molten armor material that can repair allies. " +
-            "\n• Has a " + (int)BASE_COOLDOWN + " second cooldown and generates soft flux on use. " +
-            "\n• Targets the selected ally, if they are in range and can be repaired. If no allied target is selected, targets repairable allies within range.";
-    public static final String line2 = "• Projectiles repair %s/%s/%s/%s armor over %s seconds, depending on the size of the source ship.";
-    public static final String line3 = "• Cannot repair above %s of initial armor strength.\n• Multiple repair effects stack with diminishing returns.";
-    public static final String line4 = "• Cannot repair %s without Cryocooled Armor Lattice, as shields are used to cool the molten material.";
+    public static final String line1 = "\n• " + text("repper1") +
+            "\n• " + text("repper2") +
+            "\n• " + text("repper4");
+    public static final String line2 = "• " + text("repper5");
+    public static final String line3 = "• " + text("repper6") + "\n• " + text("repper7");
+    public static final String line4 = "• " + text("repper8");
     public static final String[] line2sub = {
             regenMap.get(HullSize.FRIGATE).intValue()+ "",
             regenMap.get(HullSize.DESTROYER).intValue() + "",
@@ -71,7 +73,7 @@ public class ApexArmorRepairHullmod extends BaseHullMod
             (int)(MAX_REGEN_FRACTION * 100f) + "%"
     };
     public static final String[] line4sub = {
-            "shieldless targets"
+            text("repper9")
     };
 
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<>();
@@ -137,20 +139,20 @@ public class ApexArmorRepairHullmod extends BaseHullMod
             int nozzles = ApexUtils.getNumNozzles(ship);
             if (!ship.getHullSpec().getHullId().contains("apex_"))
                 nozzles = 0;
-            tooltip.addSectionHeading("Details", Alignment.MID, pad);
-            tooltip.addPara(line1, 0f, Misc.getHighlightColor(), (int)BASE_COOLDOWN + " second");
+            tooltip.addSectionHeading(text("Details"), Alignment.MID, pad);
+            tooltip.addPara(line1, 0f, Misc.getHighlightColor(), (int)BASE_COOLDOWN + " " + text("nozz8"));
             tooltip.addPara(line2, 0f, Misc.getHighlightColor(), line2sub);
             tooltip.addPara(line3, 0f, Misc.getHighlightColor(), line3sub);
             tooltip.addPara(line4, 0f, Misc.getHighlightColor(), line4sub);
             TooltipMakerAPI text = tooltip.beginImageWithText("graphics/hullmods/apex_nozzle.png", 40);
-            text.addPara("The number of projectiles fired by the system depends on the number of nozzles built into the hull. This hull has " + nozzles + " nozzles, and the system fires one projectile per nozzle.", 0, Misc.getHighlightColor(), nozzles + "", "one");
+            text.addPara(text("nozz1") + " " + nozzles + " " + text("nozz2"), 0, Misc.getHighlightColor(), nozzles + "", text("nozzOne"));
             tooltip.addImageWithText(pad);
             if (ship.getVariant().getSMods().contains("apex_armor_repairer"))
             {
-                tooltip.addPara("S-mod Bonus: The deployment and maintenance cost increase is reduced to %s.", 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
+                tooltip.addPara(text("nozz3") + " %s.", 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
             } else
             {
-                tooltip.addPara("If this hullmod is built in, the deployment and maintenance cost increase will be reduced to %s.",10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
+                tooltip.addPara(text("nozz4") + " %s.",10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
             }
         }
     }
@@ -179,7 +181,7 @@ public class ApexArmorRepairHullmod extends BaseHullMod
 
         if (!ship.getHullSpec().getHullId().contains("apex_"))
         {
-            return "Can only be installed on Apex Design Collective ships.";
+            return text("nozz5");
         }
         int nozzles = 0;
         for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
@@ -188,12 +190,12 @@ public class ApexArmorRepairHullmod extends BaseHullMod
                 nozzles++;
         }
         if (nozzles == 0)
-            return "Cannot be installed on ships without projector nozzles.";
+            return text("nozz6");
         for (String hullmod : BLOCKED_HULLMODS)
         {
             if (ship.getVariant().getHullMods().contains(hullmod))
             {
-                return "Incompatible with other nozzle-based subsystems.";
+                return text("nozz7");
             }
         }
         return null;

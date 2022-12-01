@@ -25,6 +25,17 @@ import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
 public class ApexUtils
 {
     /**
+     * Used for externalizing strings for translation
+     * @param id text id
+     * @return string
+     */
+    public static String text(String id)
+    {
+        return Global.getSettings().getString("apex", id);
+    }
+
+
+    /**
      * Draws an arc explosion thingy.
      *
      * @param source projectile to draw arcs from

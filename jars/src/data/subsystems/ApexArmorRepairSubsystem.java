@@ -18,6 +18,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static data.ApexUtils.text;
 import static data.hullmods.ApexArmorRepairHullmod.MAX_REGEN_LOCKON_RANGE;
 import static data.hullmods.ApexArmorRepairHullmod.BASE_COOLDOWN;
 
@@ -113,7 +114,7 @@ public class ApexArmorRepairSubsystem extends ApexBaseSubsystem
         if (!didThings)
         {
             //System.out.println("didn't do anything, resetting cooldown");
-            ship.getFluxTracker().showOverloadFloatyIfNeeded("No Repair Targets!", new Color(255, 55, 55, 255), 2f, true);
+            ship.getFluxTracker().showOverloadFloatyIfNeeded(text("repair1"), new Color(255, 55, 55, 255), 2f, true);
             Global.getSoundPlayer().playSound("gun_out_of_ammo", 1f, 1f, ship.getLocation(), ship.getVelocity());
             setCooldownTime(0.1f);
             //timeUntilNextActivation = 0.2f;
@@ -198,16 +199,16 @@ public class ApexArmorRepairSubsystem extends ApexBaseSubsystem
     @Override
     public String getInfoString()
     {
-        if (isOn()) return "FIRING";
-        else if (isCooldown()) return "RECHARGING";
-        else if (isOff()) return "READY";
+        if (isOn()) return text("repair2");
+        else if (isCooldown()) return text("repair3");
+        else if (isOff()) return text("repair4");
         else return "";
     }
 
     @Override
     public String getFlavourString()
     {
-        return "REMOTE ARMOR REPAIR";
+        return text("repair5");
     }
 
     @Override

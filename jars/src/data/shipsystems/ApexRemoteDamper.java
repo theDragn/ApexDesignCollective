@@ -11,6 +11,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static data.ApexUtils.text;
+
 public class ApexRemoteDamper extends BaseShipSystemScript
 {
     public static Object KEY_SHIP = new Object();
@@ -72,7 +74,7 @@ public class ApexRemoteDamper extends BaseShipSystemScript
                         KEY_SHIP,
                         ship.getSystem().getSpecAPI().getIconSpriteName(),
                         ship.getSystem().getDisplayName(),
-                        "Remote damper active",
+                        text("rdamper"),
                         false
                 );
             }

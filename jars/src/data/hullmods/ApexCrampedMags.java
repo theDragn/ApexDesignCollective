@@ -9,6 +9,8 @@ import com.fs.starfarer.api.util.Misc;
 import java.awt.*;
 import java.util.HashMap;
 
+import static data.ApexUtils.text;
+
 public class ApexCrampedMags extends BaseHullMod
 {
     public static final float PENALTY = 0.9f;
@@ -41,7 +43,7 @@ public class ApexCrampedMags extends BaseHullMod
     public String getDescriptionParam(int index, ShipAPI.HullSize hullSize)
     {
         if (index == 0)
-            return "prevents the installation of a full missile suite without compromises";
+            return text("cmag1");
         // costs to mount
         if (index == 1)
             return "" + COST_MAP.get(WeaponAPI.WeaponSize.SMALL);
@@ -72,7 +74,7 @@ public class ApexCrampedMags extends BaseHullMod
             float penalty = getPenalty(ship);
             if (penalty < 1f)
                 incompatTextColor = Misc.getNegativeHighlightColor();
-            tooltip.addPara("\nThe current penalty is %s.", 0, incompatTextColor,  (int)(100f - 100f * getPenalty(ship)) + "%");
+            tooltip.addPara("\n" + text("cmag2"), 0, incompatTextColor,  (int)(100f - 100f * getPenalty(ship)) + "%");
         }
     }
 

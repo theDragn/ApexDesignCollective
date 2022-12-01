@@ -12,6 +12,8 @@ import data.scripts.util.MagicIncompatibleHullmods;
 import java.util.HashSet;
 import java.util.Set;
 
+import static data.ApexUtils.text;
+
 public class ApexExcessionArmor extends BaseHullMod
 {
     public static final float MAX_DAMAGE_REDUCTION_MULT = 0.5f;
@@ -70,8 +72,8 @@ public class ApexExcessionArmor extends BaseHullMod
             Global.getCombatEngine().maintainStatusForPlayerShip(
                     "apex_excession_armor",
                     "graphics/icons/hullsys/damper_field.png",
-                    "Cryonic Nanolattice",
-                    (int) (100f - armorMult * 100f ) + "% less armor damage taken",
+                    Global.getSettings().getHullModSpec("apex_excession_armor").getDisplayName(),
+                    (int) (100f - armorMult * 100f ) + text("exca7"),
                     false
             );
 
@@ -86,25 +88,25 @@ public class ApexExcessionArmor extends BaseHullMod
             float pad = 10f;
             tooltip.addSectionHeading("Details", Alignment.MID, pad);
 
-            tooltip.addPara("\n• Maximum armor damage reduction is %s.",
+            tooltip.addPara("\n• " + text("exca1"),
                     0,
                     Misc.getHighlightColor(),
                     (int) (ARMOR_ABSORPTION) + "%");
 
-            tooltip.addPara("• %s minimum armor rating.",
+            tooltip.addPara("• " + text("exca2"),
                     0,
                     Misc.getHighlightColor(),
-                    "Doubles");
+                    text("exca3"));
 
-            tooltip.addPara("• Armor takes less damage as flux level decreases, up to %s less at %s flux.",
+            tooltip.addPara("• " + text("exca4"),
                     0,
                     Misc.getHighlightColor(),
                     (int)(100f - 100f * MAX_DAMAGE_REDUCTION_MULT) + "%", "0%");
 
-            tooltip.addPara("• Incompatible with most armor modifications.",
+            tooltip.addPara("• " + text("exca5"),
                     0,
                     Misc.getNegativeHighlightColor(),
-                    "Incompatible");
+                    text("exca6"));
         }
     }
 }

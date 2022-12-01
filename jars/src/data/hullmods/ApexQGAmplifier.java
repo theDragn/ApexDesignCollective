@@ -7,6 +7,8 @@ import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
 
+import static data.ApexUtils.text;
+
 public class ApexQGAmplifier extends BaseHullMod
 {
     public static final float QGP_EMP_FRACTION = 0.5f;
@@ -18,15 +20,15 @@ public class ApexQGAmplifier extends BaseHullMod
     public String getDescriptionParam(int index, ShipAPI.HullSize hullSize)
     {
         if (index == 0)
-            return "Quark-Gluon Pulse weapons";
+            return text("coamp1");
         if (index == 1)
-            return "EMP damage";
+            return text("coamp2");
         if (index == 2)
             return (int)(QGP_EMP_FRACTION * 100f) + "%";
         if (index == 3)
-            return "Quark-Gluon PD weapons";
+            return text("coamp3");
         if (index == 4)
-            return (int)(QGPD_EXTRA_ENERGY) + " energy";
+            return (int)(QGPD_EXTRA_ENERGY) + " " + text("coamp4");
         return null;
     }
 }

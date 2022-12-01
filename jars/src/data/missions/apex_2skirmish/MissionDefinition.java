@@ -6,6 +6,8 @@ import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 
+import static data.ApexUtils.text;
+
 public class MissionDefinition implements MissionDefinitionPlugin
 {
 
@@ -17,19 +19,19 @@ public class MissionDefinition implements MissionDefinitionPlugin
         // Set up the fleets so we can add ships and fighter wings to them.
         // In this scenario, the fleets are attacking each other, but
         // in other scenarios, a fleet may be defending or trying to escape
-        api.initFleet(FleetSide.PLAYER, "CDFS", FleetGoal.ATTACK, false);
-        api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.ATTACK, true);
+        api.initFleet(FleetSide.PLAYER, text("mis1-1"), FleetGoal.ATTACK, false);
+        api.initFleet(FleetSide.ENEMY, text("mis1-2"), FleetGoal.ATTACK, true);
 
         // Set a small blurb for each fleet that shows up on the mission detail and
         // mission results screens to identify each side.
-        api.setFleetTagline(FleetSide.PLAYER, "CDF Patrol Squadron 17");
-        api.setFleetTagline(FleetSide.ENEMY, "Tri-Tachyon HK Flotilla Scouting Party");
+        api.setFleetTagline(FleetSide.PLAYER, text("mis3-1"));
+        api.setFleetTagline(FleetSide.ENEMY, text("mis3-2"));
 
         // These show up as items in the bulleted list under
         // "Tactical Objectives" on the mission detail screen
-        api.addBriefingItem("Collective ships are slower and tougher, but will die if isolated.");
-        api.addBriefingItem("Mambas have a potent anti-fighter system.");
-        api.addBriefingItem("CDFS Harlan must survive.");
+        api.addBriefingItem(text("mis3-3"));
+        api.addBriefingItem(text("mis3-4"));
+        api.addBriefingItem(text("mis3-5"));
 
         // Set up the player's fleet.  Variant names come from the
         // files in data/variants and data/variants/fighters

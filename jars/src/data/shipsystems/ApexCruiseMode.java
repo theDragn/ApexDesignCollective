@@ -13,6 +13,8 @@ import org.lazywizard.lazylib.MathUtils;
 
 import java.awt.*;
 
+import static data.ApexUtils.text;
+
 public class ApexCruiseMode extends BaseShipSystemScript
 {
     boolean runOnce = false;
@@ -35,7 +37,7 @@ public class ApexCruiseMode extends BaseShipSystemScript
             stats.getMaxSpeed().modifyMult(id, 3f);
             stats.getAcceleration().modifyMult(id, 3f);
             stats.getMaxTurnRate().modifyMult(id, 0.25f);
-            float extendMult = ship.getVelocity().length() / ship.getMaxSpeed();
+            float extendMult = 1;//ship.getVelocity().length() / ship.getMaxSpeed();
             ship.getEngineController().extendFlame(this, 2f * extendMult * effectLevel, 0f * effectLevel, 0f * effectLevel);
             if (!runOnce)
             {
@@ -75,11 +77,11 @@ public class ApexCruiseMode extends BaseShipSystemScript
         if (index == 0)
         {
             if (state == State.IN)
-                return new StatusData("charging travel drive", false);
+                return new StatusData(text("travel1"), false);
             if (state == State.OUT)
-                return new StatusData("deactivating travel drive", false);
+                return new StatusData(text("travel2"), false);
             if (state == State.ACTIVE)
-                return new StatusData("travel drive active", false);
+                return new StatusData(text("travel3"), false);
         }
         return null;
     }

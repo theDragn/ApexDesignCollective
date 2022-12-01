@@ -6,6 +6,7 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipVariantAPI;
 
+import static data.ApexUtils.text;
 import static data.hullmods.ApexVariableWarheads.LEFT_SLOT;
 import static data.hullmods.ApexVariableWarheads.RIGHT_SLOT;
 
@@ -27,11 +28,11 @@ public class ApexVariableAcid extends BaseHullMod
     public String getDescriptionParam(int index, ShipAPI.HullSize hullSize)
     {
         if (index == 0)
-            return "nanoacid";
+            return text("vw1");
         if (index == 1)
-            return "kinetic";
+            return text("vw2");
         if (index == 2)
-            return "no CR penalty";
+            return text("vw3");
         return null;
     }
 }

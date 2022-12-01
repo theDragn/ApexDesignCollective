@@ -64,7 +64,7 @@ public class ApexThornsAI implements ShipSystemAIScript
         if (ship.getFluxLevel() > 0.9f && ship.getAIFlags().hasFlag(ShipwideAIFlags.AIFlags.HAS_INCOMING_DAMAGE))
             return true;
         // if our flux is low, don't bother using the system, since we're out of danger and there's not much sense in wasting it on a target that isn't threatening us
-        if (ship.getFluxLevel() < 0.2f)
+        if (ship.getFluxLevel() < 0.2f && !(ship.getShield() == null || ship.getShield().getType().equals(ShieldAPI.ShieldType.NONE)))
             return false;
         // damage with armor damage below this number can be safely tanked with damper
         float dangerThreshold = ship.getArmorGrid().getArmorRating()*0.33f;
@@ -95,6 +95,10 @@ public class ApexThornsAI implements ShipSystemAIScript
             // figure out how much damage we'd take if it hit shields
             totalIncomingShieldDamage += proj.getDamageAmount() * shieldDamageTypeMult.get(proj.getDamageType());
         }
+        // be generous about activation on shieldless ships
+        if ((ship.getShield() == null || ship.getShield().getType().equals(ShieldAPI.ShieldType.NONE)) && totalIncomingArmorDamage > 300)
+            return true;
+
         // if the incoming damage that we can't safely take on armor (with the system) would overload us, activate system anyway- better to take damage than overload
         if (totalIncomingShieldDamage * ship.getMutableStats().getShieldDamageTakenMult().computeMultMod() > ship.getMaxFlux() * (1f - ship.getFluxLevel()))
             return true;

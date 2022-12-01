@@ -14,6 +14,8 @@ import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
 
+import static data.ApexUtils.text;
+
 public class ApexNetworkTargeter extends BaseHullMod
 {
     public static final float FTR_RANGE_PERCENT_MAX = 75f;
@@ -149,24 +151,24 @@ public class ApexNetworkTargeter extends BaseHullMod
         if (ship == null)
             return;
         float pad = 10f;
-        tooltip.addSectionHeading("Current Effects", Alignment.MID, pad);
+        tooltip.addSectionHeading(text("nett1"), Alignment.MID, pad);
         int bonus = (int)getBonus(ship);
         if (bonus > 0)
         {
-            tooltip.addPara("Fighter weapon range: %s", 0f, Misc.getPositiveHighlightColor(), "+" + (int)bonus + "%");
-            tooltip.addPara("Fighter engagement range: %s", 0f, Misc.getNegativeHighlightColor(), "-" + (int)Math.abs(bonus * ENGAGEMENT_RANGE_PENALTY_MULT) + "%");
+            tooltip.addPara(text("nett2"), 0f, Misc.getPositiveHighlightColor(), "+" + (int)bonus + "%");
+            tooltip.addPara(text("nett3"), 0f, Misc.getNegativeHighlightColor(), "-" + (int)Math.abs(bonus * ENGAGEMENT_RANGE_PENALTY_MULT) + "%");
         } else {
             Color highlight = bonus == 0 ? Misc.getHighlightColor() : Misc.getNegativeHighlightColor();
             String prefix = bonus == 0 ? "+" : "-";
-            tooltip.addPara("Fighter weapon range: %s", 0f, highlight, prefix + (int)Math.abs(bonus) + "%");
-            tooltip.addPara("Fighter engagement range: %s", 0f, Misc.getHighlightColor(), "+0%");
+            tooltip.addPara(text("nett2"), 0f, highlight, prefix + (int)Math.abs(bonus) + "%");
+            tooltip.addPara(text("nett3"), 0f, Misc.getHighlightColor(), "+0%");
         }
         int op = getOp(ship);
         float bonusRangeMult = op / RANGE_PER_OP;
         Color highlight = op == 0 ? Misc.getHighlightColor() : Misc.getPositiveHighlightColor();
 
-        tooltip.addPara("Small weapon base range: %s", 0f, highlight, "+" + (int)(bonusRangeMult * RANGE_BOOST_SMALL) + "");
-        tooltip.addPara("Medium weapon base range: %s", 0f, highlight, "+" + (int)(bonusRangeMult * RANGE_BOOST_MED) + "");
+        tooltip.addPara(text("nett4"), 0f, highlight, "+" + (int)(bonusRangeMult * RANGE_BOOST_SMALL) + "");
+        tooltip.addPara(text("nett5"), 0f, highlight, "+" + (int)(bonusRangeMult * RANGE_BOOST_MED) + "");
     }
 
     public static float getBonus(ShipAPI ship)
@@ -174,6 +176,8 @@ public class ApexNetworkTargeter extends BaseHullMod
         float min = Float.MAX_VALUE;
         for (WeaponAPI wep : ship.getAllWeapons())
         {
+            if (wep.isDecorative())
+                continue;
             float bonus = wep.getRange() / wep.getSpec().getMaxRange();
             //System.out.println(bonus);
             if (bonus < min && bonus != 1)
@@ -216,12 +220,12 @@ public class ApexNetworkTargeter extends BaseHullMod
             return "Ship does not exist, what the fuck";
         }
         if (ship.getNumFighterBays() == 0)
-            return "Ship must have fighter bays.";
+            return text("nett6");
         for (String hullmod : BLOCKED_HULLMODS)
         {
             if (ship.getVariant().getHullMods().contains(hullmod))
             {
-                return "Incompatible with " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
+                return text("hmerror1") + " " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
             }
         }
 

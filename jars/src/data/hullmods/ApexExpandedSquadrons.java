@@ -3,6 +3,8 @@ package data.hullmods;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.util.Misc;
 
+import static data.ApexUtils.text;
+
 public class ApexExpandedSquadrons extends BaseHullMod
 {
 
@@ -50,11 +52,11 @@ public class ApexExpandedSquadrons extends BaseHullMod
     public String getDescriptionParam(int index, ShipAPI.HullSize hullSize)
     {
         if (index == 0)
-            return "doubling";
+            return text("exps1");
         if (index == 1)
             return Misc.getRoundedValue(100f - REFIT_TIME_MULT * 100f) + "%";
         if (index == 2)
-            return "reduced";
+            return text("exps2");
         if (index == 3)
             return (int) CREW_PER_DECK + "";
         return null;

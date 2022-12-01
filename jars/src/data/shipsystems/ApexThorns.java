@@ -18,10 +18,8 @@ import java.util.HashMap;
 public class ApexThorns extends BaseShipSystemScript
 {
     public static Object KEY_SHIP = new Object();
-    public static final float DAMAGE_MULT = 0.4f;
+    public static final int MAX_PROJS = 20;
     public static final float DAMAGE_PER_PROJ = 400f;
-    public static final float SPREAD = 30f;
-    public static final float VELOCITY_SPREAD = 0.3f;
 
     public static HashMap<ShipAPI.HullSize, Float> DR_MAP = new HashMap<>();
     static
@@ -34,10 +32,10 @@ public class ApexThorns extends BaseShipSystemScript
 
     private ApexThornsListener thornsListener;
     private WeaponAPI dummyWep;
+    private float damageStored = 0;
 
     public class ApexThornsListener implements DamageTakenModifier
     {
-        public float damageStored = 0;
 
         @Override
         public String modifyDamageTaken(Object param, CombatEntityAPI target, DamageAPI damage, Vector2f point, boolean shieldHit)
@@ -74,28 +72,6 @@ public class ApexThorns extends BaseShipSystemScript
                 angle = VectorUtils.getAngle(point, source.getLocation());
             else
                 angle = VectorUtils.getAngle(target.getLocation(), point);
-
-            while (damageStored > DAMAGE_PER_PROJ)
-            {
-                Vector2f spawnLoc = MathUtils.getRandomPointInCircle(point, 100f);
-                DamagingProjectileAPI newProj = (DamagingProjectileAPI) Global.getCombatEngine().spawnProjectile(
-                        (ShipAPI)target,
-                        dummyWep,
-                        "apex_thorn_wpn",
-                        spawnLoc,
-                        angle + (Misc.random.nextFloat() - 0.5f) * SPREAD,
-                        Misc.ZERO);
-                MagicLensFlare.createSharpFlare(Global.getCombatEngine(),
-                        (ShipAPI)target,
-                        spawnLoc,
-                        5f,
-                        50f,
-                        0f,
-                        new Color(165, 88, 255),
-                        new Color(165, 88, 255));
-                newProj.getVelocity().scale((Misc.random.nextFloat() - 0.5f) * VELOCITY_SPREAD);
-                damageStored -= DAMAGE_PER_PROJ;
-            }
             return null;
         }
     }
@@ -137,6 +113,30 @@ public class ApexThorns extends BaseShipSystemScript
         stats.getHullDamageTakenMult().unmodify(id);
         stats.getArmorDamageTakenMult().unmodify(id);
         stats.getEmpDamageTakenMult().unmodify(id);
+
+        while (damageStored > DAMAGE_PER_PROJ)
+        {
+            Vector2f spawnLoc = MathUtils.getRandomPointInCircle(stats.getEntity().getLocation(), stats.getEntity().getCollisionRadius());
+            DamagingProjectileAPI newProj = (DamagingProjectileAPI) Global.getCombatEngine().spawnProjectile(
+                    (ShipAPI)(stats.getEntity()),
+                    dummyWep,
+                    "apex_thorn_wpn",
+                    spawnLoc,
+                    Misc.random.nextFloat() * 360,
+                    Misc.ZERO);
+            MagicLensFlare.createSharpFlare(Global.getCombatEngine(),
+                    (ShipAPI)(stats.getEntity()),
+                    spawnLoc,
+                    5f,
+                    50f,
+                    0f,
+                    new Color(165, 88, 255),
+                    new Color(165, 88, 255));
+            //newProj.getVelocity().scale((Misc.random.nextFloat() - 0.5f) * VELOCITY_SPREAD);
+            damageStored -= DAMAGE_PER_PROJ;
+        }
+
+        damageStored = 0;
         // listener just turns off if the system isn't on
     }
 }

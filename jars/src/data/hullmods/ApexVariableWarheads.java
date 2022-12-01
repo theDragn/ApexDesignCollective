@@ -17,6 +17,7 @@ public class ApexVariableWarheads extends BaseHullMod
     public static final String RIGHT_SLOT = "WS0016";
     public static final String WEAPON_PREFIX_LEFT = "apex_vls_left_";
     public static final String WEAPON_PREFIX_RIGHT = "apex_vls_right_";
+    public static final String WEAPON_PREFIX_SMALL = "apex_vls_small_";
 
     // points to the next weapon/hullmod suffix
     public static final Map<String, String> LOADOUT_CYCLE = new HashMap<>();
@@ -69,8 +70,14 @@ public class ApexVariableWarheads extends BaseHullMod
             stats.getVariant().clearSlot(LEFT_SLOT);
             stats.getVariant().clearSlot(RIGHT_SLOT);
             // add guns
-            stats.getVariant().addWeapon(LEFT_SLOT, WEAPON_PREFIX_LEFT + newWeawpon);
-            stats.getVariant().addWeapon(RIGHT_SLOT, WEAPON_PREFIX_RIGHT + newWeawpon);
+            if (hullSize.equals(ShipAPI.HullSize.CRUISER))
+            {
+                stats.getVariant().addWeapon(LEFT_SLOT, WEAPON_PREFIX_LEFT + newWeawpon);
+                stats.getVariant().addWeapon(RIGHT_SLOT, WEAPON_PREFIX_RIGHT + newWeawpon);
+            } else {
+                stats.getVariant().addWeapon(LEFT_SLOT, WEAPON_PREFIX_SMALL + newWeawpon + "_left");
+                stats.getVariant().addWeapon(RIGHT_SLOT, WEAPON_PREFIX_SMALL + newWeawpon + "_right");
+            }
         }
     }
 

@@ -1,0 +1,126 @@
+{
+  "hullName": "Iguana",
+  "hullId": "apex_iguana",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/apex_iguana.png",
+  "style": "HIGH_TECH",
+  "height": 120,
+  "width": 62,
+  "center": [31, 60],
+  "collisionRadius": 60.5,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 73.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor",
+    "apex_variable_warheads"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": -65,
+      "locations": [-2, -13]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": 65,
+      "locations": [-2, 13]
+    },
+    {
+      "id": "WS0015",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 0,
+      "angle": 0,
+      "locations": [-21, 21]
+    },
+    {
+      "id": "WS0016",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 0,
+      "angle": -0,
+      "locations": [-21, -21]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": 0,
+      "locations": [16, -0]
+    },
+    {
+      "id": "WS0006",
+      "size": "MEDIUM",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [45, -0]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 180,
+      "locations": [-50, 20]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -180,
+      "locations": [-50, -20]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-41.5, 5.5],
+      "length": 40,
+      "width": 11,
+      "angle": 180,
+      "contrailSize": 11,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-41.5, -5.5],
+      "length": 40,
+      "width": 11,
+      "angle": -180,
+      "contrailSize": 11,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    -47, 11,
+    -57, 16,
+    -37, 29,
+    -8.5, 28.5,
+    5, 20,
+    15, 26.5,
+    58, 14,
+    58, -14,
+    15, -26.5,
+    5, -20,
+    -8.5, -28.5,
+    -37, -29,
+    -57, -16,
+    -47, -11
+  ]
+}

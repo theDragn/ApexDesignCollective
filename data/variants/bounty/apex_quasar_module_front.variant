@@ -1,0 +1,22 @@
+{
+    "displayName": "Unknown",
+    "fluxCapacitors": 9,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "apex_quasar_front",
+    "hullMods": [
+        "solar_shielding",
+        "reinforcedhull",
+        "blast_doors",
+        "armoredweapons",
+        "ecm"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_quasar_module_front",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {"WS0001": "apex_qgpd_m_flak"}
+    }]
+}

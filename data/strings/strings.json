@@ -1,0 +1,235 @@
+{
+    "apex": {
+        # strings for translation
+        # general note: do NOT remove any "%s"- these are replaced with numbers/text in code, if they're missing it'll crash.
+        # You can move them around within the same string, as long as the number of them stays the same. The order cannot be changed without modifying the code.
+
+        # OTHER
+
+        # collective defense (planet condition)
+        "cdtooltip":"Collective Defense",
+        "cdl1":"stability",
+        "cdl2":"fleet size. This bonus increases the more the Collective is outnumbered by enemies.",
+        "cdl3":"ground defense strength. This bonus increases the more the Collective is outnumbered by enemies.",
+
+        # rng names for Excession
+        "excn1":"CDFS Inside Context",
+        "excn2":"CDFS Irregular Apocalypse",
+        "excn3":"CDFS Gunboat Diplomat",
+        "excn4":"CDFS Big Stick",
+        # translation note: this is a joke name with a ~0.001% chance
+        # also a reference to an identical joke in Vayra's Sector
+        "excn5":"CDFS Coldsteel the Hedgehog", 
+        "excmen":"men",
+        "excwomen":"women",
+
+        # market details
+        # apex uses a custom market plugin to ensure their hullmods are sold
+        # and also offers finer control over what ships/weapons show up for sale
+        "markauth":"Requires: proper docking authorization (transponder on)",
+
+        # cryocoolant effect text
+        "cryo1":"flux dissipation.",
+        "cryo2":"Remaining duration",
+
+        # regeneration effect text
+        "regen1":"Applying Remote Armor Patch",
+        "regen2":"Remaining repair strength",
+
+        # HULLMODS
+        "hmerror1":"Incompatible with",
+        "Details":"Details",
+        # Nanolaminate
+        "nanolam":"Incompatible with Cryocooled Armor Lattice, Heavy Armor, and other hullmods that provide significant bonuses to armor rating.",
+        # nozzle hullmod text
+        "nozz1":"The number of projectiles fired by the system depends on the number of nozzles built into the hull. This hull has",
+        "nozz2":"nozzles, and the system fires one projectile per nozzle.",
+        "nozzOne":"one",
+        "nozz3":"S-mod Bonus: The deployment and maintenance cost increase is reduced to",
+        "nozz4":"If this hullmod is built in, the deployment and maintenance cost increase will be reduced to",
+        "nozz5":"Can only be installed on Apex Design Collective ships.",
+        "nozz6":"Cannot be installed on ships without projector nozzles.",
+        "nozz7":"Incompatible with other nozzle-based subsystems.",
+        "nozz8":"second", # second as in the unit of time, not first/second/etc. needs to match whatever word you use for "second" in the repper3 text
+        # remote repair hullmod
+        "repper1":"Fires magnetically-guided blobs of molten armor material that can repair allies. ",
+        "repper2":"Has a %s cooldown and generates soft flux on use. ", # "has a ## second cooldown and generates...."
+        #"repper3":"second", unused
+        "repper4":"Targets the selected ally, if they are in range and can be repaired. If no allied target is selected, targets repairable allies within range.",
+        "repper5":"Projectiles repair %s/%s/%s/%s armor over %s seconds, depending on the size of the source ship.",
+        "repper6":"Cannot repair above %s of initial armor strength.",
+        "repper7":"Multiple repair effects stack with diminishing returns.",
+        "repper8":"Cannot repair %s without Cryocooled Armor Lattice, as shields are used to cool the molten material.", # %s is replaced with the next string
+        "repper9":"shieldless targets",
+        # limited magazines
+        "cmag1":"prevents the installation of a full missile suite without compromises",
+        "cmag2":"The current penalty is %s.",
+        # cryocooled armor
+        "cryoarmor1":"Incomaptible with Nanolaminate Plating, Heavy Armor, and other hullmods that provide significant bonuses to armor rating.",
+        # cryocoolant projector
+        "cryop1":"Fires magnetically-guided blobs of cryogenic coolant that increase flux dissipation.",
+        "cryop2":"Targets the selected ally, if in range. If no allied target is selected, targets allies with non-zero flux within range.",
+        "cryop3":"Projectiles increase flux dissipation by %s for %s seconds.",
+        "cryop4":"Hitting an ally with multiple projectiles increases the duration of the buff, with diminishing returns.",
+        "cryop5":"Projectiles from smaller ships are %s less effective on larger ships.",
+        # excession armor hullmod
+        "exca1":"Maximum armor damage reduction is %s.",
+        "exca2":"%s minimum armor rating.",
+        "exca3":"Doubles",
+        "exca4":"Armor takes less damage as flux level decreases, up to %s less at %s flux.",
+        "exca5":"%s with most armor modifications.",
+        "exca6":"Incompatible",
+        "exca7":"% less armor damage taken",
+        # excession phase coil hullmod
+        "excc1":"Reduces the base timeflow bonus from phasing to %s.",
+        "excc2":"%s less phase activation cost and cooldown duration.",
+        "excc3":"Phase timeflow increases with flux level, up to %s at %s flux.",
+        "excc4":"%s by phase coil stress.",
+        "excc5":"Unaffected",
+        # excession breach core hullmod
+        "excb1":"The core %s slowly while phased.",
+        "excb2":"charges", # does chinese have verb forms of nouns? like "charges" = "gains charge" (but also "charges" = "plural of charge", because english is fucked)
+        "excb3":"Damaging targets generates %s.",
+        "excb4":"charge", # the power generated by the core used to destroy projectiles. this word gets reused.
+        "excb5":"Automatically expends %s to destroy enemy projectiles and fighters, storing mass and energy. Ignores weaker projectiles unless charge level is high.",
+        "excb6":"%s dissipates stored %s and mass.",
+        "excb7":"Venting or overloading",
+        "excb8":"While phased, expends stored mass to repair %s armor per second.",
+        "excb9":"Armor repair rate is %s.",
+        "excb10":"multiplied by timeflow increases",
+        "excb11":"Peak performance time %s.",
+        "excb12":"ignores timeflow changes",
+        "excb13":"Stored Repair",
+        # expanded squarons
+        "exps1":"doubling",
+        "exps2":"reduced",
+        # flare system hullmod
+        "flare1":"Fires guided flares from the ship's nozzles, with a %s cooldown.",
+        "flare2":"The number of projectiles fired by the system depends on the number of nozzles built into the hull. This hull has %s nozzles, and the system fires %s projectiles per nozzle.",
+        # fleet support gantry
+        "supg1":"The current recovery rate bonus is %s.",
+        "supg2":"Other Effects",
+        "supg3":"To compensate for its wide frame, the ship is equipped with secondary shield nodes that increase shield unfolding rate by %s. The bonus decreases as the shield rotates away from the front of the ship.",
+        "supg4":"The gantry consumes large amounts of internal space that would otherwise be reserved for nozzle systems, increasing cooldown time by %s if one is installed.",
+        # network targeter
+        "nett1":"Current Effects",
+        "nett2":"Fighter weapon range: %s",
+        "nett3":"Fighter engagement range: %s",
+        "nett4":"Small weapon base range: %s",
+        "nett5":"Medium weapon base range: %s",
+        "nett6":"Ship must have fighter bays.",
+        # coherency amplifier
+        "coamp1":"Quark-Gluon Pulse weapons",
+        "coamp2":"EMP damage",
+        "coamp3":"Quark-Gluon PD weapons",
+        "coamp4":"energy", # as in the damage type
+        # range synchronizer
+        "rngsync1":"Incompatible with hullmods that provide variable range bonuses.",
+        "rngsync2":"S-mod Bonus: The maximum range bonus that can be given by this hullmod is increased to %s.",
+        "rngsync3":"If this hullmod is built in, the maximum range bonus that can be given by this hullmod will be increased to %s.",
+        # geodesic shield
+        "geo1":"Ship must have a shield.",
+        "geo2":"Shields take %s less flat damage from projectile hits. ", # a 120 damage projectile will do 120 - 20 = 100 damage
+        "geo3":"Shields take %s less flat damage per second from beams.", # a 75 dps beam will do 75 - 20 = 55 dps
+        "geo4":"The flat reduction occurs before damage type and shield bonuses.", # shield efficiency/damage types have no effect on this reduction- they happen after the reduction is applied
+        "geo5":"Each time this prevents damage, the ship's armor takes %s damage equal to %s/%s/%s/%s of the prevented damage.",
+        "geo6":"The damage reduction decreases proportionally with the ship's armor, becoming ineffective at %s armor.", # ie, if the ship's armor is at 50%, it only reduces damage by 50% of 20
+        "geo7":"Increases shield unfolding rate by %s.",
+        "geo8":"Prevents the shield arc from being reduced while the shield is active.",
+        "geo9":"Incompatible with hardened shields and other shield conversions.",
+        "geo10":"S-mod Bonus: Shield arc is increased by %s degrees",
+        "geo11":"If this hullmod is built in, it will increase shield arc by %s degrees",
+        # hauler/tanker conversions
+        "conv1":"Only one conversion can be installed at a time.",
+        "conv2":"Can only be installed on Spectrum- and Backscatter-class carriers.",
+        # variable warheads 
+        "vw1":"nanoacid",
+        "vw2":"kinetic",
+        "vw3":"no CR penalty",
+        "vw4":"tachyon",
+        # variable LRM
+        "vlrm1":"high-explosive",
+        "vlrm2":"fragmentation",
+
+        # MISSIONS
+        # mission 1: fleet simulator
+        "mis1-1":"CDFS", # Collective Defense Force Ship (do acronyms get translated?)
+        "mis1-2":"TTS",  # Tri-Tachyon Ship
+        "mis1-3":"Fleet combat demonstrator",
+        "mis1-4":"Unfortunately Tritach Pixels",
+        "mis1-5":"Geodesic Shield Matrix vastly improves shield performance while armor holds.",
+        "mis1-6":"Most Collective ships mount a utility remote-support subsystem.",
+        "mis1-7":"CDFS Blair Mountain must survive.",
+        "mis1-8":"CDFS Blair Mountain", 
+        # mission 2: heavy frigate fight
+        "mis2-1":"ISS",
+        "mis2-2":"CDF 3rd Test Squadron",
+        "mis2-3":"Strikebreakers",
+        "mis2-4":"Object 181 must survive",
+        "mis2-5":"Object", # "object" as in "test object ###"
+        "mis2-6":"Object 181",
+        # mission 3: skirmish
+        "mis3-1":"CDF Patrol Squadron 17",
+        "mis3-2":"Tri-Tachyon HK Flotilla Scouting Party",
+        "mis3-3":"Collective ships are slower and tougher, but will die if isolated.",
+        "mis3-4":"Mambas have a potent anti-fighter system.",
+        "mis3-5":"CDFS Harlan must survive.",
+        # mission 4: HK
+        "mis4-1":"CDF 2nd Fleet Group",
+        "mis4-2":"Tri-Tachyon HK Flotilla",
+        "mis4-3":"Eidolons excel at punching down and flanking, but cannot survive a Paragon head-on.",
+        "mis4-4":"Make sure your ships survive long enough to take advantage of repairs from their allies.",
+        "mis4-5":"CDFS Pinkerton's Demise must survive.",
+
+        # SYSTEMS
+        "damper":"% less damage taken",
+        "travel1":"charging travel drive",
+        "travel2":"deactivating travel drive",
+        "travel3":"travel drive active",
+        "uplink":"Armor and shield performance improved",
+        "excphase":"timeflow multiplier",
+        "excsys":"Charge Generation Increased",
+        "moveburst":"increased engine power",
+        "phase1":"time flow altered",
+        "phase2":"phase coils stable",
+        "phase3":"top speed at 100%",
+        "phase4":"phase coil stress",
+        "phase5":"top speed at", # top speed at x%
+        "rdamper":"Remote damper active",
+
+        # SUBSYSTEMS
+        "repair1":"No Repair Targets!",
+        "cryosys1":"No Targets!",
+        # these next entries are rendered through openGL, not the game's normal text system
+        # I'm unsure if they'll work with non-english characters
+        # there are also some length limitations due to the UI- more characters might overlap
+        "repair2":"FIRING",
+        "repair3":"RECHARGING",
+        "repair4":"READY",
+        "repair5":"REMOTE ARMOR REPAIR",
+        "cryosys2":"CRYOCOOLANT PROJECTOR",
+        "flaresys1":"FLARE LAUNCHER",
+
+        # WEAPONS
+        "harmonic1":"Harmonized!", # dartgun debuff text
+        "harmonic2":"Harmonized",
+
+        # WORLD GENERATION
+        "serpens":"Serpens",
+        "serpensStation":"Serpens Station",
+        "commrel":"Comm Relay",
+        "sapphire":"Sapphire",
+        "topaz":"Topaz",
+        "vela":"Vela",
+        "glass":"Glass",
+        "granite":"Granite",
+        "emerald":"Emerald",
+        "onyx":"Onyx",
+        "onyxStation":"Onyx Station",
+        "navrel":"Nav Relay",
+        "belt":"Vela Asteroid Belt",
+        "jp1":"Vela, Fringe Jump Point",
+        "jp2":"Vela, Inner Jump Point",
+        
+    }
+}

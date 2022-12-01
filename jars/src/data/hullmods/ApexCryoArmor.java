@@ -15,6 +15,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import static data.ApexUtils.text;
+
 public class ApexCryoArmor extends BaseHullMod
 {
 
@@ -97,7 +99,7 @@ public class ApexCryoArmor extends BaseHullMod
         {
             if (ship.getVariant().getHullMods().contains(hullmod))
             {
-                return "Incompatible with " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
+                return text("hmerror1") + " " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
             }
         }
         return null;
@@ -116,7 +118,7 @@ public class ApexCryoArmor extends BaseHullMod
                     incompatTextColor = Misc.getNegativeHighlightColor();
                 }
             }
-            tooltip.addPara("\n%s", 0, incompatTextColor,"Incomaptible with Nanolaminate Plating, Heavy Armor, and other hullmods that provide significant bonuses to armor rating.");
+            tooltip.addPara("\n%s", 0, incompatTextColor,text("cryoarmor1"));
         }
     }
 

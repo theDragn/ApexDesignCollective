@@ -12,8 +12,11 @@ import org.lwjgl.util.vector.Vector2f;
 public class ApexVLSEffects implements OnFireEffectPlugin, EveryFrameWeaponEffectPlugin
 {
     public static final Vector2f SPRITE_SIZE = new Vector2f(12f, 12f);
-    public static final Vector2f OFFSET = new Vector2f(-0.5f, -0.5f);
-    public static final int[] FRAMES = {1, 2, 3, 4, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 4, 3, 2, 1};
+    public static final Vector2f OFFSET_LARGE = new Vector2f(-0.5f, -0.5f);
+    public static final Vector2f OFFSET_SMALL_1 = new Vector2f(-0.5f, -1.5f);
+    public static final Vector2f OFFSET_SMALL_2 = new Vector2f(-0.5f, 0.5f);
+    public static final int[] FRAMES_LARGE = {1, 2, 3, 4, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 4, 3, 2, 1};
+    public static final int[] FRAMES_SMALL = {1, 2, 3, 4, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 4, 3, 2, 1};
     public static final float FRAMES_PER_SECOND = 15f;
     public static final float DELAY_BETWEEN_TUBES = 0.1f;
     private float animTimer = 0f;
@@ -35,19 +38,31 @@ public class ApexVLSEffects implements OnFireEffectPlugin, EveryFrameWeaponEffec
 
         if (animTimer > 0)
         {
+            Vector2f offset = OFFSET_LARGE;
+            int[] frames = FRAMES_LARGE;
+            // idk why it needs this but I'm not figuring out this script again
+            // just fucking with it until it works
+            if (weapon.getSize().equals(WeaponAPI.WeaponSize.SMALL))
+            {
+                frames = FRAMES_SMALL;
+                if (weapon.getId().contains("left"))
+                    offset = OFFSET_SMALL_2;
+                else
+                    offset = OFFSET_SMALL_1;
+            }
             // would normally have to check hardpoint/turret, but this will always be a turret
             // or at least they'll always have the same offsets
             for (int i = 0; i < weapon.getSpec().getTurretFireOffsets().size(); i++)
             {
                 int frame = (int) ((animTimer - (DELAY_BETWEEN_TUBES / missileRofMult) * i) * FRAMES_PER_SECOND);
-                if (frame >= FRAMES.length || frame < 0)
+                if (frame >= frames.length || frame < 0)
                     continue;
                 Vector2f barrelLoc = new Vector2f(weapon.getSpec().getTurretFireOffsets().get(i));
-                Vector2f.add(barrelLoc, OFFSET, barrelLoc);
+                Vector2f.add(barrelLoc, offset, barrelLoc);
                 Vector2f renderPoint = VectorUtils.rotate(barrelLoc, weapon.getCurrAngle());
                 Vector2f.add(renderPoint, weapon.getLocation(), renderPoint);
 
-                SpriteAPI hatchFrame = Global.getSettings().getSprite("apex_vls", "vls_frame" + FRAMES[frame]);
+                SpriteAPI hatchFrame = Global.getSettings().getSprite("apex_vls", "vls_frame" + frames[frame]);
                 MagicRender.singleframe(
                         hatchFrame,
                         renderPoint,
@@ -58,8 +73,8 @@ public class ApexVLSEffects implements OnFireEffectPlugin, EveryFrameWeaponEffec
                 );
             }
         }
-
-        if (chargeLevel == 0 && animTimer >= 5f / missileRofMult)
+        float cutoff = weapon.getSize().equals(WeaponAPI.WeaponSize.SMALL) ? 3f : 5f;
+        if (chargeLevel == 0 && animTimer >= cutoff / missileRofMult)
             animTimer = 0;
     }
 

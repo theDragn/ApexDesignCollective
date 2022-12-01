@@ -14,6 +14,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static data.ApexUtils.text;
 import static plugins.ApexModPlugin.GENERATE_SYSTEMS;
 
 public class ApexVela implements SectorGeneratorPlugin
@@ -24,19 +25,19 @@ public class ApexVela implements SectorGeneratorPlugin
         if (!GENERATE_SYSTEMS)
             return;
         StarSystemAPI system = sector.createStarSystem("apex_vela");
-        system.setBaseName("Vela");
+        system.setBaseName(text("Vela"));
 
         system.getLocation().set(-6275,	-13800);
         system.setBackgroundTextureFilename("graphics/backgrounds/background_galatia.jpg");
         // make star
         PlanetAPI star = system.initStar("apex_vela_star", StarTypes.ORANGE, 1000f, 500f);
         // make planets
-        PlanetAPI glass = system.addPlanet("apex_glass", star,"Glass", "desert", 69f, 125f,4300f, 225f);
-        PlanetAPI granite = system.addPlanet("apex_granite", star,"Granite", "rocky_metallic", 420f, 90f,3000f, 290f);
-        PlanetAPI emerald = system.addPlanet("apex_emerald", star,"Emerald", "jungle", 0f, 115f,5150f, 365f);
-        PlanetAPI onyx = system.addPlanet("apex_onyx", star,"Onyx", "barren", 180f, 65f,6000f, 600f);
+        PlanetAPI glass = system.addPlanet("apex_glass", star,text("glass"), "desert", 69f, 125f,4300f, 225f);
+        PlanetAPI granite = system.addPlanet("apex_granite", star,text("granite"), "rocky_metallic", 420f, 90f,3000f, 290f);
+        PlanetAPI emerald = system.addPlanet("apex_emerald", star,text("emerald"), "jungle", 0f, 115f,5150f, 365f);
+        PlanetAPI onyx = system.addPlanet("apex_onyx", star,text("onyx"), "barren", 180f, 65f,6000f, 600f);
         // make station for Onyx
-        SectorEntityToken onyxStation = system.addCustomEntity("apex_onyx_station","Onyx Station", "station_hightech2", "apex_design");
+        SectorEntityToken onyxStation = system.addCustomEntity("apex_onyx_station",text("onyxStation"), "station_hightech2", "apex_design");
 
         // add some nebula clouds around the outer system
         // supposedly you can do this with pure code, but a png is really easy
@@ -49,7 +50,7 @@ public class ApexVela implements SectorGeneratorPlugin
         // add comm relay for stability
         SectorEntityToken commRelay = system.addCustomEntity(
                 "apex_vela_comm",
-                "Comm Relay",
+                text("commrel"),
                 Entities.COMM_RELAY,
                 "apex_design"
         );
@@ -58,7 +59,7 @@ public class ApexVela implements SectorGeneratorPlugin
         // nav relay for nyoom
         SectorEntityToken navRelay = system.addCustomEntity(
                 "apex_vela_nav",
-                "Nav Relay",
+                text("navrel"),
                 Entities.NAV_BUOY,
                 "apex_design"
         );
@@ -73,7 +74,7 @@ public class ApexVela implements SectorGeneratorPlugin
                 190, //minimum and maximum visual orbit speeds of asteroids
                 220,
                 Terrain.ASTEROID_BELT, //ID of the terrain type that appears in the section above the abilities bar
-                "Vela Asteroid Belt" //display name
+                text("belt") //display name
         );
 
         //add a ring texture. it will go under the asteroid entities generated above
@@ -92,14 +93,14 @@ public class ApexVela implements SectorGeneratorPlugin
 
         // added these jump points manually because it wasn't autogenerating them
         // outer jump point
-        JumpPointAPI jumpPoint1 = Global.getFactory().createJumpPoint("apex_vela_jp1", "Vela, Fringe Jump Point");
+        JumpPointAPI jumpPoint1 = Global.getFactory().createJumpPoint("apex_vela_jp1", text("jp1"));
         jumpPoint1.setOrbit(Global.getFactory().createCircularOrbit(star, 180, 6500, 600));
         jumpPoint1.setRelatedPlanet(onyx);
         jumpPoint1.setStandardWormholeToHyperspaceVisual();
         system.addEntity(jumpPoint1);
 
         // inner jump point
-        JumpPointAPI jumpPoint2 = Global.getFactory().createJumpPoint("apex_vela_jp2", "Vela, Inner Jump Point");
+        JumpPointAPI jumpPoint2 = Global.getFactory().createJumpPoint("apex_vela_jp2", text("jp2"));
         jumpPoint2.setOrbit(Global.getFactory().createCircularOrbit(star, 0, 2000, 270));
         jumpPoint2.setRelatedPlanet(granite);
         jumpPoint2.setStandardWormholeToHyperspaceVisual();

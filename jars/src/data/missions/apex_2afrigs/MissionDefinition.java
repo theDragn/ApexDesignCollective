@@ -6,6 +6,8 @@ import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 
+import static data.ApexUtils.text;
+
 public class MissionDefinition implements MissionDefinitionPlugin
 {
 
@@ -17,30 +19,29 @@ public class MissionDefinition implements MissionDefinitionPlugin
         // Set up the fleets so we can add ships and fighter wings to them.
         // In this scenario, the fleets are attacking each other, but
         // in other scenarios, a fleet may be defending or trying to escape
-        api.initFleet(FleetSide.PLAYER, "CDFS", FleetGoal.ATTACK, false);
-        api.initFleet(FleetSide.ENEMY, "ISS", FleetGoal.ATTACK, true);
+        api.initFleet(FleetSide.PLAYER, text("mis1-1"), FleetGoal.ATTACK, false);
+        api.initFleet(FleetSide.ENEMY, text("mis2-1"), FleetGoal.ATTACK, true);
 
         // Set a small blurb for each fleet that shows up on the mission detail and
         // mission results screens to identify each side.
-        api.setFleetTagline(FleetSide.PLAYER, "CDF 3rd Test Squadron");
-        api.setFleetTagline(FleetSide.ENEMY, "Strikebreakers");
+        api.setFleetTagline(FleetSide.PLAYER, text("mis2-2"));
+        api.setFleetTagline(FleetSide.ENEMY, text("mis2-3"));
 
         // These show up as items in the bulleted list under
         // "Tactical Objectives" on the mission detail screen
-        api.addBriefingItem("Object 181 must survive.");
+        api.addBriefingItem(text("mis2-4"));
 
         // Set up the player's fleet.  Variant names come from the
         // files in data/variants and data/variants/fighters
-        api.addToFleet(FleetSide.PLAYER, "apex_lacerta_attack", FleetMemberType.SHIP, "Object 181", true);
-        api.addToFleet(FleetSide.PLAYER, "apex_lacerta_attack", FleetMemberType.SHIP, "Object 182", false);
-        api.addToFleet(FleetSide.PLAYER, "apex_lacerta_attack", FleetMemberType.SHIP, "Object 183", false);
-        api.addToFleet(FleetSide.PLAYER, "apex_lacerta_strike", FleetMemberType.SHIP, "Object 184", false);
-        api.addToFleet(FleetSide.PLAYER, "apex_lacerta_strike", FleetMemberType.SHIP, "Object 185", false);
 
+        for (int i = 0; i < 5; i++)
+        {
+            api.addToFleet(FleetSide.PLAYER, "apex_lacerta_attack", FleetMemberType.SHIP, text("mis2-5") + " " + (i + 181), i == 0);
+        }
         // Mark both ships as essential - losing either one results
         // in mission failure. Could also be set on an enemy ship,
         // in which case destroying it would result in a win.
-        api.defeatOnShipLoss("Object 181");
+        api.defeatOnShipLoss(text("mis2-6"));
 
         // Set up the enemy fleet.
         api.addToFleet(FleetSide.ENEMY, "enforcer_Elite", FleetMemberType.SHIP, false);

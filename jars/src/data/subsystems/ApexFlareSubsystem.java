@@ -11,6 +11,7 @@ import data.ApexUtils;
 import data.hullmods.ApexFastNozzles;
 import org.lazywizard.lazylib.combat.AIUtils;
 
+import static data.ApexUtils.text;
 import static data.hullmods.ApexFlareSystemHullmod.BASE_COOLDOWN;
 import static data.hullmods.ApexFlareSystemHullmod.NUM_FLARES;
 
@@ -71,16 +72,16 @@ public class ApexFlareSubsystem extends ApexBaseSubsystem
     @Override
     public String getInfoString()
     {
-        if (isOn()) return "FIRING";
-        else if (isCooldown()) return "RECHARGING";
-        else if (isOff()) return "READY";
+        if (isOn()) return text("repair2");
+        else if (isCooldown()) return text("repair3");
+        else if (isOff()) return text("repair4");
         else return "";
     }
 
     @Override
     public String getFlavourString()
     {
-        return "FLARE LAUNCHER";
+        return text("flaresys1");
     }
 
     @Override

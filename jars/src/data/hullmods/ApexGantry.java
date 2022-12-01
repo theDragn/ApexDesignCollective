@@ -12,6 +12,8 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import org.lazywizard.lazylib.MathUtils;
 
+import static data.ApexUtils.text;
+
 // the fleet buff code is mostly stolen from Approlight (which very much inspired the effect)
 // it's way cleaner than the "use a manager campaign plugin" method that I was going to use
 // (this also presents a clean way for hullmods to buff all sorts of other ship stats for your whole fleet)
@@ -88,23 +90,21 @@ public class ApexGantry extends BaseHullMod implements HullModFleetEffect
             //float pad = 10f;
             //tooltip.addSectionHeading("Details", Alignment.MID, pad);
 
-            tooltip.addPara("\nThe current recovery rate bonus is %s.",
+            tooltip.addPara("\n" + text("supg1"),
                     0,
                     Misc.getHighlightColor(),
                     (int) (getBonus(Global.getSector().getPlayerFleet()) * 100f - 100f) + "%");
         }
-        tooltip.addSectionHeading("Other Effects", Alignment.MID, 10f);
+        tooltip.addSectionHeading(text("supg2"), Alignment.MID, 10f);
         TooltipMakerAPI text = tooltip.beginImageWithText("graphics/hullmods/apex_fastshields.png",40);
-        text.addPara("To compensate for its wide frame, the ship is equipped with secondary shield nodes that increase shield unfolding rate " +
-                "by %s. The bonus decreases as the shield rotates away from the front of the ship.",
+        text.addPara(text("supg3"),
                 10f,
                 Misc.getHighlightColor(),
                 (int)(UNFOLD_MULT*100f) + "%");
         tooltip.addImageWithText(10);
 
         TooltipMakerAPI text2 = tooltip.beginImageWithText("graphics/hullmods/apex_slow_nozzles.png", 40);
-        text2.addPara("The gantry consumes large amounts of internal space that would otherwise be" +
-                " reserved for nozzle systems, increasing cooldown time by %s if one is installed.",
+        text2.addPara(text("supg4"),
                 10f,
                 Misc.getNegativeHighlightColor(),
                 (int)(ApexSlowNozzles.NOZZLE_COOLDOWN_MULT * 100f -100f) + "%");

@@ -6,6 +6,8 @@ import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 
+import static data.ApexUtils.text;
+
 public class MissionDefinition implements MissionDefinitionPlugin
 {
     @Override
@@ -16,26 +18,27 @@ public class MissionDefinition implements MissionDefinitionPlugin
         // Set up the fleets so we can add ships and fighter wings to them.
         // In this scenario, the fleets are attacking each other, but
         // in other scenarios, a fleet may be defending or trying to escape
-        api.initFleet(FleetSide.PLAYER, "CDFS", FleetGoal.ATTACK, false);
-        api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.ATTACK, true);
+        api.initFleet(FleetSide.PLAYER, text("mis1-1"), FleetGoal.ATTACK, false);
+        api.initFleet(FleetSide.ENEMY, text("mis1-2"), FleetGoal.ATTACK, true);
 
         // Set a small blurb for each fleet that shows up on the mission detail and
         // mission results screens to identify each side.
-        api.setFleetTagline(FleetSide.PLAYER, "Fleet combat demonstrator");
-        api.setFleetTagline(FleetSide.ENEMY, "Unfortunate Tritach Pixels");
+        api.setFleetTagline(FleetSide.PLAYER, text("mis1-3"));
+        api.setFleetTagline(FleetSide.ENEMY, text("mis1-4"));
 
         // These show up as items in the bulleted list under
         // "Tactical Objectives" on the mission detail screen
-        api.addBriefingItem("Geodesic Shield Matrix vastly improves shield performance while armor holds.");
-        api.addBriefingItem("Most Collective ships mount a utility remote-support subsystem.");
-        api.addBriefingItem("CDFS Blair Mountain must survive.");
+        api.addBriefingItem(text("mis1-5"));
+        api.addBriefingItem(text("mis1-6"));
+        api.addBriefingItem(text("mis1-7"));
 
         // Set up the player's fleet.  Variant names come from the
         // files in data/variants and data/variants/fighters
-        api.addToFleet(FleetSide.PLAYER, "apex_apex_strike", FleetMemberType.SHIP, "CDFS Blair Mountain", true);
+        api.addToFleet(FleetSide.PLAYER, "apex_apex_strike", FleetMemberType.SHIP, text("mis1-8"), true);
         api.addToFleet(FleetSide.PLAYER, "apex_sunbeam_strike", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_eidolon_standard", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_komodo_standard", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "apex_goanna_hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_python_strike", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_crocodile_antishield", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_alligator_torpedo", FleetMemberType.SHIP, false);
@@ -47,11 +50,12 @@ public class MissionDefinition implements MissionDefinitionPlugin
         api.addToFleet(FleetSide.PLAYER, "apex_lacerta_attack", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_agama_picket", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_mamba_gunner", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "apex_iguana_hull", FleetMemberType.SHIP, false);
 
         // Mark both ships as essential - losing either one results
         // in mission failure. Could also be set on an enemy ship,
         // in which case destroying it would result in a win.
-        api.defeatOnShipLoss("CDFS Blair Mountain");
+        api.defeatOnShipLoss(text("mis1-8"));
 
         // Set up the enemy fleet.
         api.addToFleet(FleetSide.ENEMY, "paragon_Raider", FleetMemberType.SHIP, false);

@@ -1,0 +1,53 @@
+{
+  "id": "apex_vls_small_tachyon_left",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_vls_tachyon_missile",
+  "type": "MISSILE",
+  "size": "SMALL",
+  "everyFrameEffect": "data.weapons.ApexVLSEffects",
+  "turretSprite": "graphics/weapons/apex_vls_small_1.png",
+  "hardpointSprite": "graphics/weapons/apex_vls_small.png",
+  "renderAboveAllWeapons": 0,
+  "turretOffsets": [
+    4.5,
+    -0.5,
+    -4.5,
+    -0.5
+  ],
+  "turretAngleOffsets": [
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    9.5,
+    0.5,
+    0.5,
+    0.5
+  ],
+  "hardpointAngleOffsets": [
+    0,
+    0
+  ],
+  "barrelMode": "ALTERNATING",
+  "animationType": "SMOKE",
+  "autocharge": true,
+  "smokeSpec": {
+    "particleSizeMin": 10,
+    "particleSizeRange": 10,
+    "cloudParticleCount": 3,
+    "cloudDuration": 0.5,
+    "cloudRadius": 10,
+    "blowbackParticleCount": 3,
+    "blowbackDuration": 1,
+    "blowbackLength": 0,
+    "blowbackSpread": 10,
+    "particleColor": [
+      100,
+      100,
+      100,
+      200
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "apex_vls_fire"
+}

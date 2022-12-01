@@ -6,6 +6,8 @@ import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 
+import static data.ApexUtils.text;
+
 public class MissionDefinition implements MissionDefinitionPlugin
 {
 
@@ -17,19 +19,19 @@ public class MissionDefinition implements MissionDefinitionPlugin
         // Set up the fleets so we can add ships and fighter wings to them.
         // In this scenario, the fleets are attacking each other, but
         // in other scenarios, a fleet may be defending or trying to escape
-        api.initFleet(FleetSide.PLAYER, "CDFS", FleetGoal.ATTACK, false);
-        api.initFleet(FleetSide.ENEMY, "TTS", FleetGoal.ATTACK, true);
+        api.initFleet(FleetSide.PLAYER, text("mis1-1"), FleetGoal.ATTACK, false);
+        api.initFleet(FleetSide.ENEMY, text("mis1-2"), FleetGoal.ATTACK, true);
 
         // Set a small blurb for each fleet that shows up on the mission detail and
         // mission results screens to identify each side.
-        api.setFleetTagline(FleetSide.PLAYER, "CDF 2nd Fleet Group");
-        api.setFleetTagline(FleetSide.ENEMY, "Tri-Tachyon HK Flotilla");
+        api.setFleetTagline(FleetSide.PLAYER, text("mis4-1"));
+        api.setFleetTagline(FleetSide.ENEMY, text("mis4-2"));
 
         // These show up as items in the bulleted list under
         // "Tactical Objectives" on the mission detail screen
-        api.addBriefingItem("Eidolons excel at punching down and flanking, but cannot survive a Paragon head-on.");
-        api.addBriefingItem("Make sure your ships survive long enough to take advantage of repairs from their allies.");
-        api.addBriefingItem("CDFS Pinkerton's Demise must survive.");
+        api.addBriefingItem(text("mis4-3"));
+        api.addBriefingItem(text("mis4-4"));
+        api.addBriefingItem(text("mis4-5"));
 
         // Set up the player's fleet.  Variant names come from the
         // files in data/variants and data/variants/fighters
@@ -45,7 +47,7 @@ public class MissionDefinition implements MissionDefinitionPlugin
         api.addToFleet(FleetSide.PLAYER, "apex_gharial_pursuit", FleetMemberType.SHIP, "CDFS Hilo",false);
         api.addToFleet(FleetSide.PLAYER, "apex_lacerta_strike", FleetMemberType.SHIP, "CDFS Tibicena Local 55", false);
         api.addToFleet(FleetSide.PLAYER, "apex_lacerta_strike", FleetMemberType.SHIP, "CDFS Culann Local 19", false);
-        api.addToFleet(FleetSide.PLAYER, "apex_lacerta_strike", FleetMemberType.SHIP, "CDFS Culann Local 19", false);
+        api.addToFleet(FleetSide.PLAYER, "apex_lacerta_strike", FleetMemberType.SHIP, "CDFS Culann Local 42", false);
 
         // Patrol Squadron 17
 
@@ -59,7 +61,7 @@ public class MissionDefinition implements MissionDefinitionPlugin
         // Mark both ships as essential - losing either one results
         // in mission failure. Could also be set on an enemy ship,
         // in which case destroying it would result in a win.
-        api.defeatOnShipLoss("CDFS Blair Mountain");
+        api.defeatOnShipLoss("CDFS Pinkerton's Demise");
 
         // Set up the enemy fleet.
         api.addToFleet(FleetSide.ENEMY, "paragon_Elite", FleetMemberType.SHIP, false);

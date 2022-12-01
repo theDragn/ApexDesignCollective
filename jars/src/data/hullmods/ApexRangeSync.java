@@ -17,6 +17,8 @@ import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
 
+import static data.ApexUtils.text;
+
 public class ApexRangeSync extends BaseHullMod
 {
     // averages weapon ranges for each weapon size class
@@ -84,7 +86,7 @@ public class ApexRangeSync extends BaseHullMod
         {
             if (ship.getVariant().getHullMods().contains(hullmod))
             {
-                return "Incompatible with " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
+                return text("hmerror1") + " " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
             }
         }
         return null;
@@ -102,13 +104,13 @@ public class ApexRangeSync extends BaseHullMod
                 incompatTextColor = Misc.getNegativeHighlightColor();
             }
         }
-        tooltip.addPara("\n%s", 0, incompatTextColor, "Incompatible with hullmods that provide variable range bonuses.");
+        tooltip.addPara("\n%s", 0, incompatTextColor, text("rngsync1"));
         if (ship.getVariant().getSMods().contains("apex_range_sync"))
         {
-            tooltip.addPara("S-mod Bonus: The maximum range bonus that can be given by this hullmod is increased to %s.", 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), (int) (SMOD_MAX_RANGE_BOOST * 100f - 100f) + "%");
+            tooltip.addPara(text("rngsync2"), 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), (int) (SMOD_MAX_RANGE_BOOST * 100f - 100f) + "%");
         } else
         {
-            tooltip.addPara("If this hullmod is built in, the maximum range bonus that can be given by this hullmod will be increased to %s.", 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), (int) (SMOD_MAX_RANGE_BOOST * 100f - 100f) + "%");
+            tooltip.addPara(text("rngsync3"), 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), (int) (SMOD_MAX_RANGE_BOOST * 100f - 100f) + "%");
         }
     }
 

@@ -8,11 +8,13 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 
+import static data.ApexUtils.text;
+
 public class ApexCollectiveDefense extends BaseMarketConditionPlugin
 {
     public static float DEF_BONUS_PER_ENEMY = 50f;
     public static float STAB_BONUS = 1f;
-    public static String tooltip = "Collective Defense";
+    public static String tooltip = text("cdtooltip");
 
     @Override
     public void apply(String id)
@@ -50,9 +52,9 @@ public class ApexCollectiveDefense extends BaseMarketConditionPlugin
             return;
         }
 
-        tooltip.addPara("%s stability", 10f, Misc.getHighlightColor(), "+" + (int)STAB_BONUS);
-        tooltip.addPara("%s fleet size. This bonus increases the more the Collective is outnumbered by enemies.", 10f, Misc.getHighlightColor(), "+" + (int)(10f * (getDefBonus() / 50f)) + "%");
-        tooltip.addPara("%s ground defense strength. This bonus increases the more the Collective is outnumbered by enemies.", 10f, Misc.getHighlightColor(), "+" + (int)(getDefBonus()));
+        tooltip.addPara("%s " + text("cdl1"), 10f, Misc.getHighlightColor(), "+" + (int)STAB_BONUS);
+        tooltip.addPara("%s " + text("cdl2"), 10f, Misc.getHighlightColor(), "+" + (int)(10f * (getDefBonus() / 50f)) + "%");
+        tooltip.addPara("%s " + text("cdl3"), 10f, Misc.getHighlightColor(), "+" + (int)(getDefBonus()));
     }
 
     private float getDefBonus()

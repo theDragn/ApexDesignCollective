@@ -9,6 +9,8 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 
+import static data.ApexUtils.text;
+
 // mostly a copy of vanilla phase cloak
 // just needs a different max speed/time mult
 public class ApexPhaseCloak extends BaseShipSystemScript
@@ -64,7 +66,7 @@ public class ApexPhaseCloak extends BaseShipSystemScript
         if (level > f)
         {
             Global.getCombatEngine().maintainStatusForPlayerShip(STATUSKEY2,
-                    cloak.getSpecAPI().getIconSpriteName(), cloak.getDisplayName(), "time flow altered", false);
+                    cloak.getSpecAPI().getIconSpriteName(), cloak.getDisplayName(), text("phase1"), false);
         }
 
         if (FLUX_LEVEL_AFFECTS_SPEED)
@@ -74,15 +76,15 @@ public class ApexPhaseCloak extends BaseShipSystemScript
                 if (getDisruptionLevel(playerShip) <= 0f)
                 {
                     Global.getCombatEngine().maintainStatusForPlayerShip(STATUSKEY3,
-                            cloak.getSpecAPI().getIconSpriteName(), "phase coils stable", "top speed at 100%", false);
+                            cloak.getSpecAPI().getIconSpriteName(), text("phase2"), text("phase3"), false);
                 } else
                 {
                     String speedPercentStr = (int) Math.round(getSpeedMult(playerShip, effectLevel) * 100f) + "%";
                     Global.getCombatEngine().maintainStatusForPlayerShip(STATUSKEY3,
                             cloak.getSpecAPI().getIconSpriteName(),
                             //"phase coils at " + disruptPercent,
-                            "phase coil stress",
-                            "top speed at " + speedPercentStr, true);
+                            text("phase4"),
+                            text("phase5") + " " + speedPercentStr, true);
                 }
             }
         }

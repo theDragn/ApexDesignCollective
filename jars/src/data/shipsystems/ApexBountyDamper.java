@@ -11,6 +11,8 @@ import com.fs.starfarer.api.combat.ShipSystemAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 
+import static data.ApexUtils.text;
+
 public class ApexBountyDamper extends BaseShipSystemScript
 {
 
@@ -52,7 +54,7 @@ public class ApexBountyDamper extends BaseShipSystemScript
                 float percent = (1f - mult) * effectLevel * 100;
                 Global.getCombatEngine().maintainStatusForPlayerShip(STATUSKEY1,
                         system.getSpecAPI().getIconSpriteName(), system.getDisplayName(),
-                        (int) Math.round(percent) + "% less damage taken", false);
+                        (int) Math.round(percent) + text("damper"), false);
             }
         }
     }

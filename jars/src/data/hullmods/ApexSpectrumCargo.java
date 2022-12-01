@@ -11,6 +11,8 @@ import com.fs.starfarer.api.util.Misc;
 import java.awt.*;
 import java.util.HashMap;
 
+import static data.ApexUtils.text;
+
 public class ApexSpectrumCargo extends BaseHullMod
 {
 
@@ -106,7 +108,7 @@ public class ApexSpectrumCargo extends BaseHullMod
         if (ship == null)
             return "Ship does not exist, what the fuck";
         if (ship.getVariant().hasHullMod("apex_spectrum_fuel"))
-            return "Only one conversion can be installed at a time.";
-        return "Can only be installed on Spectrum- and Backscatter-class carriers.";
+            return text("conv1");
+        return text("conv2");
     }
 }

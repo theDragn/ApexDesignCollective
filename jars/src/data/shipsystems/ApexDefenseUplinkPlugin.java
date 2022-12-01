@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static data.ApexUtils.text;
 import static data.shipsystems.ApexDefenseUplink.*;
 
 public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin
@@ -78,7 +79,7 @@ public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin
                     Global.getCombatEngine().maintainStatusForPlayerShip(BUFF_ID,
                             Global.getSettings().getShipSystemSpec("apex_uplink").getIconSpriteName(),
                             Global.getSettings().getShipSystemSpec("apex_uplink").getName(),
-                            "Armor and shield performance improved",
+                            text("uplink"),
                             false
                     );
                 ship.setJitterUnder(BUFF_ID, JITTER_COLOR, 1f * lifetime, 3, 2f * lifetime, 3f * lifetime);

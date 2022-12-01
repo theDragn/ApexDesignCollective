@@ -49,7 +49,7 @@ public class ApexCruiseModeAI implements ShipSystemAIScript
             if (assInfo != null && assInfo.getTarget() != null)
                 destination = assInfo.getTarget().getLocation();
             // if we can activate system, and we don't have flux (easy check to make sure we're not being pursued by missiles or something)
-            boolean hasNearbyEnemies = !AIUtils.getNearbyEnemies(ship, 2500f).isEmpty();
+            boolean hasNearbyEnemies = !AIUtils.getNearbyEnemies(ship, 1000f).isEmpty();
             if (system.getState().equals(ShipSystemAPI.SystemState.IDLE) && ship.getFluxLevel() == 0f && !isTooCloseToAlly())
             {
                 // if we've got a destination from the fleet manager, use that to determine if we should engage system

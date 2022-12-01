@@ -10,6 +10,8 @@ import com.fs.starfarer.api.util.Misc;
 
 import java.awt.*;
 
+import static data.ApexUtils.text;
+
 public class ApexExcessionCoils extends BaseHullMod
 {
     public static final float BASE_TIMEFLOW_MULT = 2f; // read by phase script
@@ -36,27 +38,27 @@ public class ApexExcessionCoils extends BaseHullMod
         if (ship != null)
         {
             float pad = 10f;
-            tooltip.addSectionHeading("Details", Alignment.MID, pad);
+            tooltip.addSectionHeading(text("Details"), Alignment.MID, pad);
 
-            tooltip.addPara("\n• Reduces the base timeflow bonus from phasing to %s.",
+            tooltip.addPara("\n• " + text("excc1"),
                     0,
                     Misc.getHighlightColor(),
                     (int) (BASE_TIMEFLOW_MULT) + "x");
 
-            tooltip.addPara("• %s less phase activation cost and cooldown duration.",
+            tooltip.addPara("• " + text("excc2"),
                     0,
                     Misc.getHighlightColor(),
                     (int) (PHASE_COOLDOWN_REDUCTION) + "%");
 
-            tooltip.addPara("• Phase timeflow increases with flux level, up to %s at %s flux.",
+            tooltip.addPara("• " + text("excc3"),
                     0f,
                     Misc.getHighlightColor(),
                     (int) (MAXIMUM_TIMEFLOW_MULT * BASE_TIMEFLOW_MULT) + "x", "100%");
 
-            tooltip.addPara("• %s by phase coil stress.",
+            tooltip.addPara("• " + text("excc4"),
                     0f,
                     Misc.getHighlightColor(),
-                    "Unaffected");
+                    text("excc5"));
         }
     }
 }

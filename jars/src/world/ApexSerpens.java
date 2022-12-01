@@ -9,6 +9,7 @@ import com.fs.starfarer.api.impl.campaign.procgen.NebulaEditor;
 import com.fs.starfarer.api.impl.campaign.terrain.HyperspaceTerrainPlugin;
 import com.fs.starfarer.api.util.Misc;
 
+import static data.ApexUtils.text;
 import static plugins.ApexModPlugin.GENERATE_SYSTEMS;
 
 public class ApexSerpens implements SectorGeneratorPlugin
@@ -20,19 +21,19 @@ public class ApexSerpens implements SectorGeneratorPlugin
             return;
         // TODO: blue giant star, green corona, station + market, Sapphire planet, Topaz planet, asteroid belt
         StarSystemAPI system = sector.createStarSystem("apex_serpens");
-        system.setBaseName("Serpens");
+        system.setBaseName(text("serpens"));
 
         system.getLocation().set(-5800, -16000);
         system.setBackgroundTextureFilename("graphics/backgrounds/background6.jpg");
         PlanetAPI star = system.initStar("apex_serpens", StarTypes.BLUE_GIANT, 1000f, 1000f);
-        PlanetAPI sapphire = system.addPlanet("apex_sapphire", star, "Sapphire", "water", 69f, 150f, 4000f, 365f);
-        PlanetAPI topaz = system.addPlanet("apex_topaz", star, "Topaz", "gas_giant", 270f, 350f, 6000f, 490f);
-        SectorEntityToken serpensStation = system.addCustomEntity("apex_serpens_station","Serpens Station", "station_hightech1", "apex_design");
+        PlanetAPI sapphire = system.addPlanet("apex_sapphire", star, text("sapphire"), "water", 69f, 150f, 4000f, 365f);
+        PlanetAPI topaz = system.addPlanet("apex_topaz", star, text("topaz"), "gas_giant", 270f, 350f, 6000f, 490f);
+        SectorEntityToken serpensStation = system.addCustomEntity("apex_serpens_station",text("serpensStation"), "station_hightech1", "apex_design");
 
         // add comm relay for stability
         SectorEntityToken commRelay = system.addCustomEntity(
                 "apex_serpens_comm",
-                "Comm Relay",
+                text("commrel"),
                 Entities.COMM_RELAY,
                 "apex_design"
         );

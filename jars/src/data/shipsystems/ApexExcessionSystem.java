@@ -13,6 +13,8 @@ import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
 
+import static data.ApexUtils.text;
+
 public class ApexExcessionSystem extends BaseShipSystemScript
 {
     public static final float INSTANT_DISS = 3f; // yo momma so fat, she can instantly dissipate this many seconds of flux dissipation
@@ -73,7 +75,7 @@ public class ApexExcessionSystem extends BaseShipSystemScript
     {
         if (index == 0)
         {
-            return new StatusData("Charge Generation Increased", false);
+            return new StatusData(text("excsys"), false);
 		} /*else if (index == 1)
         {
         // I have no clue where this is coming from, help

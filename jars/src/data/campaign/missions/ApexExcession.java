@@ -20,6 +20,8 @@ import plugins.ApexModPlugin;
 import java.util.List;
 import java.util.Map;
 
+import static data.ApexUtils.text;
+
 // this is mostly a modification of the "surplus hull" mission
 // dear future me: good luck figuring this one out, asshole
 public class ApexExcession extends HubMissionWithBarEvent
@@ -30,11 +32,11 @@ public class ApexExcession extends HubMissionWithBarEvent
 
     static
     {
-        NAMES.add("CDFS Inside Context", 1000);
-        NAMES.add("CDFS Irregular Apocalypse", 100);
-        NAMES.add("CDFS Gunboat Diplomat", 100);
-        NAMES.add("CDFS Big Stick", 100);
-        NAMES.add("CDFS Coldsteel the Hedgehog", 0.1f);
+        NAMES.add(text("excn1"), 1000);
+        NAMES.add(text("excn2"), 100);
+        NAMES.add(text("excn3"), 100);
+        NAMES.add(text("excn4"), 100);
+        NAMES.add(text("excn5"), 0.1f);
     }
 
 
@@ -117,7 +119,7 @@ public class ApexExcession extends HubMissionWithBarEvent
         // TODO: make them randomly prefer enbies? idk maybe that's chaser-ish
         // are enbies common enough that it would be justified to list that as a preference?
         //
-        set("$apexPrototype_menOrWomen", (Misc.random.nextBoolean() ? "men" : "women")); // your contact's sexuality is randomized
+        set("$apexPrototype_menOrWomen", (Misc.random.nextBoolean() ? text("excmen") : text("excwomen"))); // your contact's sexuality is randomized
     }
 
     @Override

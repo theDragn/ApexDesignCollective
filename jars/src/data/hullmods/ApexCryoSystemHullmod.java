@@ -18,6 +18,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import static data.ApexUtils.text;
+
 
 public class ApexCryoSystemHullmod extends BaseHullMod
 {
@@ -48,12 +50,12 @@ public class ApexCryoSystemHullmod extends BaseHullMod
     }
 
 
-    public static final String line1 = "\n• Fires magnetically-guided blobs of cryogenic coolant that increase flux dissipation. " +
-            "\n• Has a " + (int)BASE_COOLDOWN + " second cooldown and generates soft flux on use. " +
-            "\n• Targets the selected ally, if in range. If no allied target is selected, targets allies with non-zero flux within range.";
-    public static final String line2 = "• Projectiles increase flux dissipation by %s for %s seconds.";
-    public static final String line3 = "• Hitting an ally with multiple projectiles increases the duration of the buff, with diminishing returns.";
-    public static final String line4 = "• Projectiles from smaller ships are %s less effective on larger ships.";
+    public static final String line1 = "\n• " + text("cryop1")+
+            "\n• " + text("repper2") +
+            "\n• " + text("cryop2");
+    public static final String line2 = "• " + text("cryop3");
+    public static final String line3 = "• " + text("cryop4");
+    public static final String line4 = "• " + text("cryop5");
     public static final String[] line2sub = {
             (int)(100f*CRYO_GENERATION_MULT - 100f) + "%",
             (int) CRYO_BUFF_DURATION + ""
@@ -125,20 +127,20 @@ public class ApexCryoSystemHullmod extends BaseHullMod
             int nozzles = ApexUtils.getNumNozzles(ship);
             if (!ship.getHullSpec().getHullId().contains("apex_"))
                 nozzles = 0;
-            tooltip.addSectionHeading("Details", Alignment.MID, pad);
-            tooltip.addPara(line1, 0f, Misc.getHighlightColor(), (int)BASE_COOLDOWN + " second");
+            tooltip.addSectionHeading(text("Details"), Alignment.MID, pad);
+            tooltip.addPara(line1, 0f, Misc.getHighlightColor(), (int)BASE_COOLDOWN + " " + text("nozz8"));
             tooltip.addPara(line2, 0f, Misc.getHighlightColor(), line2sub);
             tooltip.addPara(line3, 0f);
             tooltip.addPara(line4, 0f, Misc.getHighlightColor(), line4sub);
             TooltipMakerAPI text = tooltip.beginImageWithText("graphics/hullmods/apex_nozzle.png", 40);
-            text.addPara("The number of projectiles fired by the system depends on the number of nozzles built into the hull. This hull has " + nozzles + " nozzles, and the system fires one projectile per nozzle.", 0, Misc.getHighlightColor(), nozzles + "", "one");
+            text.addPara(text("nozz1") + " " + nozzles + " " + text("nozz2"), 0, Misc.getHighlightColor(), nozzles + "", text("nozzOne"));
             tooltip.addImageWithText(pad);
             if (ship.getVariant().getSMods().contains("apex_cryo_projector"))
             {
-                tooltip.addPara("S-mod Bonus: The deployment and maintenance cost increase is reduced to %s.", 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
+                tooltip.addPara(text("nozz3") + " %s.", 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
             } else
             {
-                tooltip.addPara("If this hullmod is built in, the deployment and maintenance cost increase will be reduced to %s.",10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
+                tooltip.addPara(text("nozz4") + " %s.",10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
             }
         }
     }
@@ -167,17 +169,17 @@ public class ApexCryoSystemHullmod extends BaseHullMod
 
         if (!ship.getHullSpec().getHullId().contains("apex_"))
         {
-            return "Can only be installed on Apex Design Collective ships.";
+            return text("nozz5");
         }
         int nozzles = 0;
         ApexUtils.getNumNozzles(ship);
         if (nozzles == 0)
-            return "Cannot be installed on ships without projector nozzles.";
+            return text("nozz6");
         for (String hullmod : BLOCKED_HULLMODS)
         {
             if (ship.getVariant().getHullMods().contains(hullmod))
             {
-                return "Incompatible with other nozzle-based subsystems.";
+                return text("nozz7");
             }
         }
         return null;

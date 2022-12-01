@@ -1,0 +1,55 @@
+{
+    "displayName": "Unknown",
+    "fluxCapacitors": 7,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "apex_quasar_right",
+    "hullMods": [
+        "apex_armor_repairer",
+        "solar_shielding",
+        "fluxbreakers",
+        "autorepair"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_quasar_module_right",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "apex_coilgun_medium",
+                "WS0007": "apex_coilgun_medium"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "resonatormrm"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_nanogun_small",
+                "WS0004": "apex_nanogun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0008": "apex_emp_laser",
+                "WS0009": "apex_emp_laser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "shockrepeater",
+                "WS0006": "shockrepeater"
+            }
+        }
+    ]
+}

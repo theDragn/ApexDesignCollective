@@ -21,8 +21,10 @@
 	#"deactivateSound":"system_burn_drive_deactivate",
 	#"outOfUsesSound":"engine_disabled",
 	
-	"useSound":"system_plasma_burn",
-	"loopSound":"system_plasma_burn_loop",
+
+	"useSound":"system_burn_drive_activate",
+	"loopSound":"system_burn_drive_loop",
+	"deactivateSound":"system_burn_drive_deactivate",
 	"outOfUsesSound":"engine_disabled",
 
     "aiHints":{

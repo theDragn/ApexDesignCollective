@@ -15,6 +15,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+import static data.ApexUtils.text;
+
 public class ApexFlareSystemHullmod extends BaseHullMod
 {
     public static final HashMap<ShipAPI.HullSize, Integer> NUM_FLARES = new HashMap<>();
@@ -66,15 +68,15 @@ public class ApexFlareSystemHullmod extends BaseHullMod
             int nozzles = ApexUtils.getNumNozzles(ship);
             if (!ship.getHullSpec().getHullId().contains("apex_"))
                 nozzles = 0;
-            tooltip.addSectionHeading("Details", Alignment.MID, pad);
+            tooltip.addSectionHeading(text("Details"), Alignment.MID, pad);
             tooltip.addPara(
-                    "\n• Fires guided flares from the ship's nozzles, with a %s cooldown.",
+                    "\n• " + text("flare1"),
                     0f,
                     Misc.getHighlightColor(),
-                    (int)BASE_COOLDOWN + " second");
+                    (int)BASE_COOLDOWN + " " + text("nozz8"));
             TooltipMakerAPI text = tooltip.beginImageWithText("graphics/hullmods/apex_nozzle.png", 40);
             text.addPara(
-                    "The number of projectiles fired by the system depends on the number of nozzles built into the hull. This hull has %s nozzles, and the system fires %s projectiles per nozzle.",
+                    text("flare2"),
                     0, Misc.getHighlightColor(),
                     nozzles + "", "" + NUM_FLARES.get(ship.getHullSize()));
             tooltip.addImageWithText(pad);
@@ -110,7 +112,7 @@ public class ApexFlareSystemHullmod extends BaseHullMod
 
         if (!ship.getHullSpec().getHullId().contains("apex_"))
         {
-            return "Can only be installed on Apex Design Collective ships.";
+            return text("nozz5");
         }
         int nozzles = 0;
         for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
@@ -119,12 +121,12 @@ public class ApexFlareSystemHullmod extends BaseHullMod
                 nozzles++;
         }
         if (nozzles == 0)
-            return "Cannot be installed on ships without projector nozzles.";
+            return text("nozz6");
         for (String hullmod : BLOCKED_HULLMODS)
         {
             if (ship.getVariant().getHullMods().contains(hullmod))
             {
-                return "Incompatible with other nozzle-based subsystems.";
+                return text("nozz7");
             }
         }
         return null;

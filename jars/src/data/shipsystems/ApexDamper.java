@@ -9,6 +9,8 @@ import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 import java.awt.*;
 import java.util.EnumSet;
 
+import static data.ApexUtils.text;
+
 public class ApexDamper extends BaseShipSystemScript
 {
     public static Object KEY_SHIP = new Object();
@@ -45,7 +47,7 @@ public class ApexDamper extends BaseShipSystemScript
                         KEY_SHIP,
                         ship.getSystem().getSpecAPI().getIconSpriteName(),
                         ship.getSystem().getDisplayName(),
-                        (int) Math.round((1f - DAMAGE_MULT) * effectLevel * 100) + "% less damage taken",
+                        (int) Math.round((1f - DAMAGE_MULT) * effectLevel * 100) + text("damper"),
                         false
                 );
             }

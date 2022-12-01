@@ -19,6 +19,8 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
+import static data.ApexUtils.text;
+
 // this creates the glow and armor regen effects
 public class ApexRegenEffect extends BaseEveryFrameCombatPlugin
 {
@@ -95,7 +97,7 @@ public class ApexRegenEffect extends BaseEveryFrameCombatPlugin
         }
         if (engine.getPlayerShip() == target && regenAmount > 0f && ticks < maxTicks)
         {
-            engine.maintainStatusForPlayerShip("apex_regen", "graphics/icons/buffs/apex_regen.png", "Applying Remote Armor Patch", "Remaining repair strength: " + (int) regenAmount, false);
+            engine.maintainStatusForPlayerShip("apex_regen", "graphics/icons/buffs/apex_regen.png", text("regen1"), text("regen2") + ": " + (int) regenAmount, false);
         }
     }
 

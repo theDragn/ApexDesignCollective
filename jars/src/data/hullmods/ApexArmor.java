@@ -14,6 +14,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import static data.ApexUtils.text;
+
 public class ApexArmor extends BaseHullMod
 {
     private static final Map<HullSize, Float> bonusMap = new HashMap<HullSize, Float>();
@@ -85,13 +87,13 @@ public class ApexArmor extends BaseHullMod
     {
         if (ship == null)
         {
-            return "Ship does not exist, what the fuck";
+            return "ship doesn't exist, what the fuck";
         }
         for (String hullmod : BLOCKED_HULLMODS)
         {
             if (ship.getVariant().getHullMods().contains(hullmod))
             {
-                return "Incompatible with " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
+                return text("hmerror1") + " " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
             }
         }
         return null;
@@ -110,7 +112,7 @@ public class ApexArmor extends BaseHullMod
                     incompatTextColor = Misc.getNegativeHighlightColor();
                 }
             }
-            tooltip.addPara("\n%s", 0, incompatTextColor, "Incompatible with Cryocooled Armor Lattice, Heavy Armor, and other hullmods that provide significant bonuses to armor rating.");
+            tooltip.addPara("\n%s", 0, incompatTextColor, text("nanolam"));
         }
     }
 

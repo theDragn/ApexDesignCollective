@@ -9,6 +9,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 
+import static data.ApexUtils.text;
 import static data.hullmods.ApexExcessionCoils.BASE_TIMEFLOW_MULT;
 import static data.hullmods.ApexExcessionCoils.MAXIMUM_TIMEFLOW_MULT;
 
@@ -44,7 +45,7 @@ public class ApexExcessionPhaseCloak extends BaseShipSystemScript
                 STATUSKEY2,
                 cloak.getSpecAPI().getIconSpriteName(),
                 cloak.getDisplayName(),
-                "timeflow multiplier: " + (Math.round(getMaxTimeMult(playerShip.getMutableStats()) * 10f) / 10f) + "x",
+                text("excphase") + ": " + (Math.round(getMaxTimeMult(playerShip.getMutableStats()) * 10f) / 10f) + "x",
                 false);
 
     }

@@ -19,6 +19,7 @@ import plugins.ApexModPlugin;
 import java.awt.*;
 import java.util.*;
 
+import static data.ApexUtils.text;
 import static data.shipsystems.ApexExcessionSystem.CHARGE_MULT;
 import static plugins.ApexModPlugin.POTATO_MODE;
 
@@ -109,20 +110,20 @@ public class ApexExcessionReactor extends BaseHullMod
         if (ship != null)
         {
             float pad = 10f;
-            tooltip.addSectionHeading("Details", Alignment.MID, pad);
-            tooltip.addPara("\n• The core %s slowly while phased.", 0,
+            tooltip.addSectionHeading(text("Details"), Alignment.MID, pad);
+            tooltip.addPara("\n• " + text("excb1"), 0,
                     CHARGE_COLOR,
-                    "charges");
-            tooltip.addPara("• Damaging targets generates %s.", 0, CHARGE_COLOR, "charge");
-            tooltip.addPara("• Automatically expends %s to destroy enemy projectiles and fighters, storing mass and energy. Ignores weaker projectiles unless charge level is high.", 0, CHARGE_COLOR, "charge");
+                    text("excb2"));
+            tooltip.addPara("• " + text("excb3"), 0, CHARGE_COLOR, text("excb4"));
+            tooltip.addPara("• " + text("excb5"), 0, CHARGE_COLOR, text("excb4"));
             Color[] colors = {Misc.getHighlightColor(), CHARGE_COLOR};
-            tooltip.addPara("• %s dissipates stored %s and mass.", 0, colors, "Venting or overloading","charge");
-            tooltip.addPara("• While phased, expends stored mass to repair %s armor per second.",
+            tooltip.addPara("• " + text("excb6"), 0, colors, text("excb7"),text("excb4"));
+            tooltip.addPara("• " + text("excb8"),
                     0,
                     Misc.getHighlightColor(),
                     (int) (REPAIR_RATE) + "");
-            tooltip.addPara("• Armor repair rate is %s.", 0, Misc.getHighlightColor(), "multiplied by timeflow increases");
-            tooltip.addPara("• Peak performance time %s.", 0, Misc.getHighlightColor(), "ignores timeflow changes");
+            tooltip.addPara("• " + text("excb9"), 0, Misc.getHighlightColor(), text("excb10"));
+            tooltip.addPara("• " + text("excb11"), 0, Misc.getHighlightColor(), text("excb12"));
         }
     }
 
@@ -175,8 +176,8 @@ public class ApexExcessionReactor extends BaseHullMod
             Global.getCombatEngine().maintainStatusForPlayerShip(
                     "apex_excession_reactor",
                     "graphics/icons/buffs/apex_breachcore.png",
-                    "Breach Core",
-                    "Charge: " + (int) (storedDamage / MAX_STORED_CHARGE * 100f) + "%" + " / Stored Repair: " + (int) storedRepair,
+                    Global.getSettings().getHullModSpec("apex_excession_reactor").getDisplayName(),
+                    text("excb4") + ": " + (int) (storedDamage / MAX_STORED_CHARGE * 100f) + "%" + " / " + text("excb13") +": " + (int) storedRepair,
                     false
             );
 
