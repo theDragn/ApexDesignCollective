@@ -1,5 +1,5 @@
 New:
-- Iguana-class Frigate: A medium frigate with four Taipain VLS tubes. System is Rapid Loader, which instantly reloads 20 seconds worth of ammo regeneration.
+- Iguana-class Frigate: A medium frigate with four Taipan VLS tubes. System is Rapid Loader, which instantly reloads 20 seconds worth of ammo regeneration.
 - Goanna-class Heavy Cruiser: A familiar-looking cruiser design. System is Pursuit Mode, which improves damage output, forward speed, and maneuverability for a short duration.
 - [REDACTED]. A very difficult late-game bounty. Check the bounty boards at Collective markets if you're at least level 10. It's not player-acquirable, before you get your hopes up.
 
