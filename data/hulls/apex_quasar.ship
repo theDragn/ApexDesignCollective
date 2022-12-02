@@ -7,9 +7,9 @@
   "height": 486,
   "width": 556,
   "center": [278, 243],
-  "collisionRadius": 500,
+  "collisionRadius": 510,
   "shieldCenter": [0, -0],
-  "shieldRadius": 500,
+  "shieldRadius": 510,
   "viewOffset": 0,
   "builtInMods": [
     "apex_expanded_squadrons",

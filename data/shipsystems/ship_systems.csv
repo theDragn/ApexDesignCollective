@@ -12,7 +12,7 @@ Heavy Inertial Skimmer,apex_heavy_skimmer,,,,,,,,3,0.1,0.4,0.5,0.4,1,,,,,,,,,,,,
 Bifurcation Device,apex_bifurcator,,,,,,,,,,0.25,2.5,0.25,12,,,,,,,,,,,,,graphics/icons/hullsys/ammo_feeder.png
 Entropy Consolidator,apex_thorns,,,,,,,,2,0.05,0.1,5,0.1,,,,,,TRUE,,,,TRUE,,,,graphics/icons/hullsys/damper_field.png
 Defense Uplink,apex_uplink,,,,,,,,,,0.5,,0.5,,TRUE,,TRUE,,,,,,,,,,graphics/icons/hullsys/damper_field.png
-Pursuit Jets,apex_pursuit_jets,,,,,,,,,,0.5,5,0.5,6,,,,,,,,,,,,,graphics/icons/hullsys/burn_drive.png
+Pursuit Mode,apex_pursuit_jets,,,,,,,,,,0.5,4,0.5,8,,,,,,,,,,,,,graphics/icons/hullsys/burn_drive.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Hyperdamper,apex_bounty_superdamper,,,,,,,,2,0.05,0.1,5,0.1,,,,,,TRUE,,,,TRUE,,,,graphics/icons/hullsys/damper_field.png
 Gravitic Phase Cloak,apex_excessionphase,,,,,,,,,,0.5,,0.5,2,TRUE,,TRUE,TRUE,TRUE,,,,TRUE,,TRUE,,graphics/icons/hullsys/phase_cloak.png

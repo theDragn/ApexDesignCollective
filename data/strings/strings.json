@@ -196,7 +196,7 @@
         "phase4":"phase coil stress",
         "phase5":"top speed at", # top speed at x%
         "rdamper":"Remote damper active",
-        "pursuitjets":" top speed",
+        "pursuitjets":"Increased engine power and weapon damage",
 
         # SUBSYSTEMS
         "repair1":"No Repair Targets!",

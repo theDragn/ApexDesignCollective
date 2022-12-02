@@ -38,7 +38,7 @@ public class MissionDefinition implements MissionDefinitionPlugin
         api.addToFleet(FleetSide.PLAYER, "apex_sunbeam_strike", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_eidolon_standard", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_komodo_standard", FleetMemberType.SHIP, false);
-        api.addToFleet(FleetSide.PLAYER, "apex_goanna_hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "apex_goanna_attack", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_python_strike", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_crocodile_antishield", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_alligator_torpedo", FleetMemberType.SHIP, false);
@@ -50,7 +50,7 @@ public class MissionDefinition implements MissionDefinitionPlugin
         api.addToFleet(FleetSide.PLAYER, "apex_lacerta_attack", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_agama_picket", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_mamba_gunner", FleetMemberType.SHIP, false);
-        api.addToFleet(FleetSide.PLAYER, "apex_iguana_hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "apex_iguana_attack", FleetMemberType.SHIP, false);
 
         // Mark both ships as essential - losing either one results
         // in mission failure. Could also be set on an enemy ship,

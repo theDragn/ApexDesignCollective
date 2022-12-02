@@ -4,7 +4,7 @@ Summit,apex_apex,Battleship,Apex Design Collective,apex_damper,29,20000,1300,220
 Apotheosis,apex_apotheosis,Battlecruiser,Apex Design Collective,apex_microburn,23,10000,900,13500,,950,225,,50,25,25,15,15,2000,OMNI,,180,0.3,0.9,,,350,500,300,240,8,30,8,250000,10,25,720,0.25,37,37,,rare_bp,,0.33,2,3,,1312
 Eidolon,apex_eidolon,Battlecruiser,Apex Design Collective,apex_heavy_skimmer,24,11500,1000,15000,,1000,265,,50,30,30,15,15,2200,OMNI,,180,0.3,0.9,,,350,500,300,270,9,30,8,275000,10,25,720,0.25,45,45,,rare_bp,,0.33,2,3,,1312
 Sunbeam,apex_sunbeam,Siege Carrier,Apex Design Collective,apex_uplink,25,15000,1200,18000,,1000,300,4,40,12,12,10,10,2500,OMNI,,180,0.3,0.9,,,500,650,450,400,10,40,7,350000,10,25,720,0.25,55,55,"COMBAT, CARRIER",rare_bp,,0.33,2,3,,6969
-# Anaconda,,Phase Battlecruiser,,apex_phase_suppressor,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+# Anaconda,,Phase Battlecruiser,,apex_gravitic_diverter,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Cruisers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Spectrum,apex_spectrum,Carrier,Apex Design Collective,apex_remote_damper,16,6500,600,6000,,350,100,2,55,50,40,20,20,900,OMNI,,180,0.3,0.9,,,100,200,100,60,3,20,8,150000,10,25,480,0.25,28,28,CARRIER,apex_hulls,,0.33,2,3,,1312
@@ -12,7 +12,7 @@ Alligator,apex_alligator,Cruiser,Apex Design Collective,apex_inertial_skimmer,14
 Komodo,apex_komodo,Heavy Cruiser,Apex Design Collective,apex_thorns,19,10000,1150,10000,,700,185,1,45,35,35,15,15,1750,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,COMBAT,rare_bp,,0.25,2,3,,69420
 Crocodile,apex_crocodile,Missile Cruiser,Apex Design Collective,apex_rapid_loader,15,8000,950,10000,,600,140,,50,40,35,15,15,1500,OMNI,,180,0.3,0.9,,,125,250,200,100,3,33,8,140000,10,25,480,0.25,26,26,,apex_hulls,,0.33,2,3,,1312
 Python,apex_python,Phase Cruiser,Apex Design Collective,apex_bifurcator,22,8000,1300,10000,,850,145,,70,55,40,30,40,1500,PHASE,apex_phasecloak,,,,0.05,0.04,50,100,120,150,3,50,8,250000,7.5,25,420,0.25,35,35,PHASE,rare_bp,,0.5,2,3,,111111
-Goanna,apex_goanna,Heavy Cruiser,Apex Design Collective,apex_pursuit_jets,19,9000,950,10000,,700,175,,65,50,40,25,30,1500,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,COMBAT,rare_bp,,0.25,2,3,,69420
+Goanna,apex_goanna,Heavy Cruiser,Apex Design Collective,apex_pursuit_jets,19,9000,1000,11000,,700,175,,65,50,40,25,30,1500,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,COMBAT,rare_bp,,0.25,2,3,,69420
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Destroyers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Caiman,apex_caiman,Destroyer,Apex Design Collective,apex_thorns,10,5000,500,4200,,425,95,,85,60,40,30,60,400,OMNI,,180,0.3,0.9,,,50,75,100,60,2,30,9,40000,10,25,360,0.25,10,10,,apex_hulls,,0.5,2,3,,1312

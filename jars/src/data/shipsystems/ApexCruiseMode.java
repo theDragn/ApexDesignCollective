@@ -31,7 +31,7 @@ public class ApexCruiseMode extends BaseShipSystemScript
         {
             stats.getMaxSpeed().modifyMult(id, 0.25f);
             stats.getMaxTurnRate().modifyMult(id, 0.25f);
-            ship.getEngineController().extendFlame(this, 0.25f * effectLevel, 0f * effectLevel, 0f * effectLevel);
+            ship.getEngineController().extendFlame(this, 2f * effectLevel, 0f * effectLevel, 0f * effectLevel);
         } else
         {
             stats.getMaxSpeed().modifyMult(id, 3f);
