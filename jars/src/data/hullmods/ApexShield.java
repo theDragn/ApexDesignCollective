@@ -291,7 +291,7 @@ public class ApexShield extends BaseHullMod
             tooltip.addPara("• " + text("geo5"),
                     0,
                     colors,
-                    "energy",
+                    text("coamp4"),
                     (int) (MULT_MAP.get(ShipAPI.HullSize.FRIGATE) * 100) + "%",
                     (int) (MULT_MAP.get(ShipAPI.HullSize.DESTROYER) * 100) + "%",
                     (int) (MULT_MAP.get(ShipAPI.HullSize.CRUISER) * 100) + "%",
