@@ -45,7 +45,7 @@ public class ApexPursuitJets extends BaseShipSystemScript
         stats.getBallisticWeaponDamageMult().modifyMult(id, DAMAGE_MULT);
         stats.getEnergyWeaponDamageMult().modifyMult(id, DAMAGE_MULT);
 
-        ship.setWeaponGlow(effectLevel, Color.MAGENTA, EnumSet.of(WeaponAPI.WeaponType.BALLISTIC, WeaponAPI.WeaponType.ENERGY));
+        ship.setWeaponGlow(effectLevel * 0.5f, Color.MAGENTA, EnumSet.of(WeaponAPI.WeaponType.BALLISTIC, WeaponAPI.WeaponType.ENERGY));
     }
 
     public void unapply(MutableShipStatsAPI stats, String id)
