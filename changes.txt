@@ -1,19 +1,13 @@
 New:
-- Iguana-class Frigate: A medium frigate with four Taipan VLS tubes. System is Rapid Loader, which instantly reloads 20 seconds worth of ammo regeneration.
-- Goanna-class Heavy Cruiser: A familiar-looking cruiser design. System is Pursuit Mode, which improves damage output, forward speed, and maneuverability for a short duration.
-- [REDACTED]. A very difficult late-game bounty. Check the bounty boards at Collective markets if you're at least level 10. It's not player-acquirable, before you get your hopes up.
+- Anaconda-class phase battlecruiser: A heavily-armored phase capital equipped with quadruple heavy torpedo tubes. System is Gravitic Shield, which repels incoming projectiles and redshifts incoming beam fire while active. (phase coils, range sync, limited magazines, apex phase mod)
+- Boa-class phase destroyer: A . System is Temporal Siphon, which temporarily steals a small amount of timeflow from all nearby enemy ships, and grants it to the Boa instead.
 
 Changes:
-- Translation: Externalized all strings to /data/strings.json to support translation.
-- Komodo: Actually reduced dissipation (750 -> 700). Had this in a previous changelog but somehow didn't actually do it. Whoops.
-- Spectrum: Upgraded its two front small energy mounts to universals.
-- Apotheosis: Increased spawn weight to about 1/8 of the Eidolon's (from 1/40).
-- Light Burst Coilgun: Reduced burst DPS (200 -> 150), and slightly reduced projectile velocity (1200 -> 1100) to reflect its shorter barrel.
-- Entropy Consolidator (Caiman, Komodo): Now fires retaliatory projectiles at the end of the active period instead of during it. Reduced damage/EMP/projectile HP (200/400/400 -> 150/300/300) and capped the number of projectiles the system can fire.
-- Damper Systems (Summit, Caiman, Komodo): Shieldless ships should now be more aggressive with system use.
-- Inertial Skimmers (Alligator, Eidolon): Rewrote AI (and by "rewrote" I mean "stole code"); ships should now be more intelligent with system use.
-- Rapid Loader (Iguana, Crocodile): Reduced flux cost to activate (10% -> 7.5%).
-- Travel Drive (Photon, Agama): Significantly reduced chargeup time. AI should be much less cautious with system use.
+- Eliminated some speed creep that had seeped into the mod over a number of patches. Reduced top speed on several ships: Lacerta (150 -> 130), Mamba (155 -> 120), Caiman (85 -> 80), Alligator (65 -> 55), and Sunbeam (40 -> 35).
+- Arcspike Pods: Reduced range (1500 -> 1200). Dunno why these had more range than sabots.
+- Fixed an issue where the Iguana and Goanna didn't have any visible variants for autofit and players were forced to git gud when fitting their ships.
 
-Bugfix
-- Fixed an issue where Networked Targeting Array didn't ignore deco weapons.
+TODO:
+- fix rust belt shard drivers on python
+- fix kyeltziv guns on python
+- make missile AI ignore phased ships if it doesn't have ECCM

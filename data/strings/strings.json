@@ -197,6 +197,7 @@
         "phase5":"top speed at", # top speed at x%
         "rdamper":"Remote damper active",
         "pursuitjets":"Increased engine power and weapon damage",
+        "gravityshield":"% less beam damage taken",
 
         # SUBSYSTEMS
         "repair1":"No Repair Targets!",

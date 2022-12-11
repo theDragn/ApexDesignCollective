@@ -22,6 +22,11 @@ public class ApexBifurcator extends BaseShipSystemScript
     // turns projectile spec ID's into appropriate weapon ID's, if something isn't present, it's fine
     private static final HashMap<String, String> projToWep = new HashMap<>();
 
+
+    // why the fuck did I make this thing
+    // "what if I make a system that turns every gun into the templar fractal laser"
+    // fucking idiot
+    // and yet, here we are
     static
     {
         projToWep.put("istl_scatterlaser_sub_shot", "istl_scatterlaser_sub");

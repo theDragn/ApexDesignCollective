@@ -1,0 +1,54 @@
+{
+    "displayName": "Strike",
+    "fluxCapacitors": 23,
+    "fluxVents": 50,
+    "goalVariant": true,
+    "hullId": "apex_anaconda",
+    "hullMods": [
+        "targetingunit",
+        "apex_coherency_amplifier",
+        "magazines"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_anaconda_strike",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0011": "apex_tachyon"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0012": "apex_nanoacid_torp_heavy",
+                "WS0013": "apex_nanoacid_torp_heavy",
+                "WS0014": "apex_nanoacid_torp_heavy",
+                "WS0015": "apex_nanoacid_torp_heavy"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0001": "apex_toroid_mortar",
+                "WS0002": "apex_toroid_mortar",
+                "WS0003": "apex_toroid_mortar",
+                "WS0004": "apex_toroid_mortar"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_qgpd_s_flak",
+                "WS0006": "apex_qgpd_s_flak",
+                "WS0007": "apex_qgpd_s_flak",
+                "WS0008": "apex_qgpd_s_flak",
+                "WS0009": "apex_qgpd_s_flak",
+                "WS0010": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

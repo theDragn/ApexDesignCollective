@@ -37,6 +37,8 @@ public class MissionDefinition implements MissionDefinitionPlugin
         api.addToFleet(FleetSide.PLAYER, "apex_apex_strike", FleetMemberType.SHIP, text("mis1-8"), true);
         api.addToFleet(FleetSide.PLAYER, "apex_sunbeam_strike", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_eidolon_standard", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "apex_anaconda_strike", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "apex_apotheosis_standard", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_komodo_standard", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_goanna_attack", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "apex_python_strike", FleetMemberType.SHIP, false);

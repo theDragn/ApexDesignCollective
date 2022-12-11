@@ -69,6 +69,11 @@
 		"apex_python_standard":6,
 		"apex_python_blaster":6
 	},
+	"phaseCapital":{
+		"apex_anaconda_assault":5,
+		"apex_anaconda_attack":5,
+		"apex_anaconda_strike":5
+	},
 	"carrierLarge":{
 		"apex_sunbeam_line":3,
 		"apex_sunbeam_strike":3

@@ -1,0 +1,61 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 39,
+    "fluxVents": 50,
+    "goalVariant": true,
+    "hullId": "apex_anaconda",
+    "hullMods": [
+        "targetingunit",
+        "armoredweapons",
+        "fluxbreakers",
+        "solar_shielding"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_anaconda_attack",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0011": "apex_haymarket"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0012": "apex_nanoacid_torp_heavy",
+                "WS0013": "apex_nanoacid_torp_heavy",
+                "WS0014": "apex_nanoacid_torp_heavy",
+                "WS0015": "apex_nanoacid_torp_heavy"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_fusion_medium",
+                "WS0002": "apex_fusion_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_qgp_med",
+                "WS0004": "apex_qgp_med"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_qgpd_s_flak",
+                "WS0006": "apex_qgpd_s_flak",
+                "WS0007": "apex_qgpd_s_flak",
+                "WS0008": "apex_qgpd_s_flak",
+                "WS0009": "apex_qgpd_s_flak",
+                "WS0010": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

@@ -1,5 +1,6 @@
 package data.shipsystems;
 
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
@@ -45,7 +46,7 @@ public class ApexPursuitJets extends BaseShipSystemScript
         stats.getBallisticWeaponDamageMult().modifyMult(id, DAMAGE_MULT);
         stats.getEnergyWeaponDamageMult().modifyMult(id, DAMAGE_MULT);
 
-        ship.setWeaponGlow(effectLevel * 0.5f, Color.MAGENTA, EnumSet.of(WeaponAPI.WeaponType.BALLISTIC, WeaponAPI.WeaponType.ENERGY));
+        ship.setWeaponGlow(effectLevel * 0.6f, Color.MAGENTA, EnumSet.of(WeaponAPI.WeaponType.BALLISTIC, WeaponAPI.WeaponType.ENERGY));
     }
 
     public void unapply(MutableShipStatsAPI stats, String id)

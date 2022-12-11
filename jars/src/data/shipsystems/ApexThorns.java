@@ -113,8 +113,8 @@ public class ApexThorns extends BaseShipSystemScript
         stats.getHullDamageTakenMult().unmodify(id);
         stats.getArmorDamageTakenMult().unmodify(id);
         stats.getEmpDamageTakenMult().unmodify(id);
-
-        while (damageStored > DAMAGE_PER_PROJ)
+        int projFired = 0;
+        while (damageStored > DAMAGE_PER_PROJ && projFired < MAX_PROJS)
         {
             Vector2f spawnLoc = MathUtils.getRandomPointInCircle(stats.getEntity().getLocation(), stats.getEntity().getCollisionRadius());
             DamagingProjectileAPI newProj = (DamagingProjectileAPI) Global.getCombatEngine().spawnProjectile(
@@ -134,6 +134,7 @@ public class ApexThorns extends BaseShipSystemScript
                     new Color(165, 88, 255));
             //newProj.getVelocity().scale((Misc.random.nextFloat() - 0.5f) * VELOCITY_SPREAD);
             damageStored -= DAMAGE_PER_PROJ;
+            projFired++;
         }
 
         damageStored = 0;

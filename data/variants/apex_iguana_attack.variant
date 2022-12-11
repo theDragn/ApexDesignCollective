@@ -2,6 +2,7 @@
     "displayName": "Attack",
     "fluxCapacitors": 10,
     "fluxVents": 10,
+    "goalVariant": true,
     "hullId": "apex_iguana",
     "hullMods": [
         "apex_warheads_acid",

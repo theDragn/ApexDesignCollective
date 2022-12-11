@@ -47,6 +47,7 @@
 	"knownShips":{
 		"tags":["apex_hulls"],
 		"hulls":[
+			"apex_anaconda",
 			"apex_apotheosis",
 			"apex_apex",
 			"apex_eidolon",
@@ -61,6 +62,7 @@
 	"priorityShips":{
 		"tags":["apex_hulls"],
 		"hulls":[
+			"apex_anaconda",
 			"apex_apotheosis",
 			"apex_apex",
 			"apex_eidolon",

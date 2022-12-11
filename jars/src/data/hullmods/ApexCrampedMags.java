@@ -84,7 +84,7 @@ public class ApexCrampedMags extends BaseHullMod
         int cap = CAP_MAP.get(ship.getHullSize());
         for (WeaponAPI wep : ship.getAllWeapons())
         {
-            if (wep.getType().equals(WeaponAPI.WeaponType.MISSILE))
+            if (wep.getType().equals(WeaponAPI.WeaponType.MISSILE) && !wep.getSlot().isBuiltIn())
             {
                 totalPoints += COST_MAP.get(wep.getSize());
             }
