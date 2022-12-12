@@ -2,7 +2,7 @@
 	"id":"apex_design",
 	"name":"Apex Design Collective",
 	"author":"theDragn",
-	"version":"1.0.11c",
+	"version":"1.0.12",
 	"description":"A collectivist faction that focuses on ultra-modern, high-performance ships and remote support systems.",
 	"gameVersion":"0.95.1a-RC6",
 	"jars":["jars/ADC.jar"],

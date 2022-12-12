@@ -15,7 +15,7 @@
     "apex_cryo_armor",
     "apex_phase_coils",
     "phasefield",
-    "apex_super_range_sync"
+    "apex_cramped_mags"
   ],
   "builtInWeapons": {
     "WS0012": "apex_nanoacid_torp_heavy",

@@ -250,7 +250,8 @@ public class ApexGuidedTorpAI implements MissileAIPlugin, GuidedMissileAI
         float aimAngle = MathUtils.getShortestRotation(MISSILE.getFacing(), correctAngle);
 
         MISSILE.giveCommand(ShipCommand.ACCELERATE);
-
+        if (target instanceof ShipAPI && ((ShipAPI) target).isPhased() && ECCM > 1)
+            return;
         if (aimAngle < 0)
         {
             MISSILE.giveCommand(ShipCommand.TURN_RIGHT);

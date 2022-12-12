@@ -117,7 +117,7 @@ public class ApexRangeSync extends BaseHullMod
     // they call me Janky Kang
     public static class ApexSyncListener implements WeaponBaseRangeModifier
     {
-        private float sAve = 0f;
+        private float average = 0f;
         private float mAve = 0f;
         private float lAve = 0f;
 
@@ -125,20 +125,22 @@ public class ApexRangeSync extends BaseHullMod
 
         // no clue how computationally expensive this is, but it's O(n) to get the average, so O(n^2) to get the average if everything is firing
         // so we should be conservative on computing the average
-        private boolean didSmallAverage = false;
-        private boolean didMedAverage = false;
-        private boolean didLargeAverage = false;
+        private boolean didAve = false;
 
         @Override
         public float getWeaponBaseRangeFlatMod(ShipAPI ship, WeaponAPI weapon)
         {
-            if (weapon.isBeam() || weapon.getType() == WeaponAPI.WeaponType.MISSILE || weapon.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || weapon.getSlot() == null)
+            if (weapon.isBeam() || weapon.getType() == WeaponAPI.WeaponType.MISSILE || weapon.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || weapon.getSlot() == null || weapon.getSlot().isBuiltIn())
                 return 0f;
             if (weapon.getId().contains("apex_repair") || weapon.getId().contains("apex_cryo"))
                 return 0f;
             if (weapon.getSpec().getMaxRange() == 0f)
                 return 1f;
-            float average = getAverageForWeaponSize(ship, weapon);
+            if (!didAve)
+            {
+                average = getAverageRange(ship);
+                didAve = true;
+            }
             if (average == 0)
                 return 0;
             if (ship.getVariant().getSMods().contains("apex_range_sync"))
@@ -159,14 +161,14 @@ public class ApexRangeSync extends BaseHullMod
             return 1;
         }
 
-        private float getAverageRange(ShipAPI ship, WeaponAPI.WeaponSize size)
+        private float getAverageRange(ShipAPI ship)
         {
             int numWeps = 0;
             float total = 0f;
             for (int i = 0; i < ship.getAllWeapons().size(); i++)
             {
                 WeaponAPI wep = ship.getAllWeapons().get(i);
-                if (wep.isBeam() || wep.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || wep.getType() == WeaponAPI.WeaponType.MISSILE || wep.getSize() != size || wep.getSlot().isBuiltIn())
+                if (wep.isBeam() || wep.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || wep.getType() == WeaponAPI.WeaponType.MISSILE || wep.getSlot().isBuiltIn())
                     continue;
                 numWeps++;
                 total += getAdjustedBaseRange(ship, wep);
@@ -189,36 +191,6 @@ public class ApexRangeSync extends BaseHullMod
                 }
             }
             return range;
-        }
-
-        private float getAverageForWeaponSize(ShipAPI ship, WeaponAPI weapon)
-        {
-            switch (weapon.getSize())
-            {
-                case SMALL:
-                    if (!didSmallAverage)
-                    {
-                        didSmallAverage = true;
-                        sAve = getAverageRange(ship, WeaponAPI.WeaponSize.SMALL);
-                    }
-                    return sAve;
-                case MEDIUM:
-                    if (!didMedAverage)
-                    {
-                        didMedAverage = true;
-                        mAve = getAverageRange(ship, WeaponAPI.WeaponSize.MEDIUM);
-                    }
-                    return mAve;
-                case LARGE:
-                    if (!didLargeAverage)
-                    {
-                        didLargeAverage = true;
-                        lAve = getAverageRange(ship, WeaponAPI.WeaponSize.LARGE);
-                    }
-                    return lAve;
-                default:
-                    return sAve;
-            }
         }
     }
 }

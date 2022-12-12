@@ -1,13 +1,21 @@
 New:
-- Anaconda-class phase battlecruiser: A heavily-armored phase capital equipped with quadruple heavy torpedo tubes. System is Gravitic Shield, which repels incoming projectiles and redshifts incoming beam fire while active. (phase coils, range sync, limited magazines, apex phase mod)
-- Boa-class phase destroyer: A . System is Temporal Siphon, which temporarily steals a small amount of timeflow from all nearby enemy ships, and grants it to the Boa instead.
+- Anaconda-class phase battlecruiser: Phase capital. It's pretty fast and has very heavy armor. System is Gravitic Shield, which decelerates or diverts incoming projectiles, and reduces incoming beam damage for a short duration.
 
 Changes:
-- Eliminated some speed creep that had seeped into the mod over a number of patches. Reduced top speed on several ships: Lacerta (150 -> 130), Mamba (155 -> 120), Caiman (85 -> 80), Alligator (65 -> 55), and Sunbeam (40 -> 35).
-- Arcspike Pods: Reduced range (1500 -> 1200). Dunno why these had more range than sabots.
-- Fixed an issue where the Iguana and Goanna didn't have any visible variants for autofit and players were forced to git gud when fitting their ships.
-
-TODO:
-- fix rust belt shard drivers on python
-- fix kyeltziv guns on python
-- make missile AI ignore phased ships if it doesn't have ECCM
+- Reduced some stat creep that had snuck in over time:
+-- Gharial: Reduced dissipation (400 -> 375).
+-- Caiman: Reduced dissipation (425 -> 400) and speed (85 -> 80).
+-- Mamba: Reduced dissipation (350 -> 300) and speed (155 -> 120).
+-- Lacerta: Reduced speed (150 -> 130).
+-- Alligator: Reduced speed (65 -> 55).
+-- Apotheosis: Reduced dissipation (950 -> 900).
+-- Sunbeam: Reduced speed (40 -> 35).
+- Entropy Consolidator (System on Caiman/Komodo): Further reduced projectile damage (150 -> 100), EMP (300 -> 250), and HP (300 -> 200). Turns out firing all the retaliation projectiles at once is a major upgrade.
+- Fixed an issue where the Iguana and Goanna didn't have any visible variants for autofit.
+- Arcspike Pod: Reduced range (1500 -> 1200). Dunno why these had more range than sabots.
+- Toroid Mortar: Projectiles no longer arc to phased targets. Halved turn rate.
+- Tachyon Inverter: Reduced sustained dps (360 -> 300), burst DPS (990 -> 800), and magazine size (4 shots -> 3 shots).
+- Missiles no longer track phased targets unless ECCM is installed.
+- Fixed a number of weapons that would create fork bombs when used on the Python.
+- Phase ships (Anaconda, Python, Mamba) now have 50% increased CR degradation after PPT runs out to match vanilla phase ships.
+- Range Synchronizer: Was a bit too niche (especially with Apex's generally rangematched guns), so now it works across all weapon sizes.

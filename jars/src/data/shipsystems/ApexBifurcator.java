@@ -3,6 +3,7 @@ package data.shipsystems;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
+import com.fs.starfarer.api.loading.MissileSpecAPI;
 import com.fs.starfarer.api.loading.ProjectileSpecAPI;
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
 import com.fs.starfarer.api.util.IntervalUtil;
@@ -61,6 +62,14 @@ public class ApexBifurcator extends BaseShipSystemScript
         projToWep.put("FM_Blade_ac_shell", "FM_Blade_ac");
         projToWep.put("FM_ice_shell", "FM_ice_weapon_m");
         projToWep.put("FM_star_shot_s", "FM_star_weapon");
+        // god damn amazigh, got enough of these things?
+        projToWep.put("kyeltziv_killcloud_frag","kyeltziv_lightKillCloud_Scatter");
+        projToWep.put("kyeltziv_killcloud_warhead_f","kyeltziv_lightKillCloud_Burst");
+        projToWep.put("kyeltziv_killcloud_warhead","kyeltziv_heavyKillCloud_Burst");
+        projToWep.put("kyeltziv_lorentz_frag","kyeltziv_lorentz_fragment");
+        projToWep.put("kyeltziv_fougasse_pellet","kyeltziv_shockFougasse_pellet");
+        projToWep.put("kyeltziv_shrap_driver_pellet","kyeltziv_driver_shrap_pellet");
+        projToWep.put("prv_massdriver_1_shot","prv_massdriver_1");
     }
     // turns weapon spec ID's into appropriate weapon spec ID's. Used for guns with too many sub-weapons
     // not perfectly accurate but generally good enough that it's hard to tell that it's cheating
@@ -75,6 +84,9 @@ public class ApexBifurcator extends BaseShipSystemScript
         wepToWep.put("KT_magmablaster", "KT_magma25");
         wepToWep.put("KT_magmahose", "KT_hose25");
         wepToWep.put("KT_bigrockchucker","KT_rockchucker_dummy1");
+        wepToWep.put("kyeltziv_discharger_lrg","kyeltziv_heavy_discharger_jet_3");
+        wepToWep.put("kyeltziv_discharger_sml","kyeltziv_light_discharger_jet_2");
+        wepToWep.put("neutrino_unstable_photon","neutrino_unstable_photon3");
     }
 
     private IntervalUtil splitTimer = new IntervalUtil(0.075f, 0.125f); // 0.1s average
@@ -147,7 +159,19 @@ public class ApexBifurcator extends BaseShipSystemScript
 
     private void spawnSplitProj(DamagingProjectileAPI proj, float velMult)
     {
-        String weaponID = getUnfuckedWeaponID(proj);
+        // unfuck weapon ID
+        String weaponID = proj.getWeapon().getId();//getUnfuckedWeaponID(proj);
+        String spec = proj.getProjectileSpecId();
+        boolean didSwap = false;
+        if (projToWep.containsKey(spec))
+        {
+            weaponID = projToWep.get(spec);
+            didSwap = true;
+        } else if (wepToWep.containsKey(weaponID))
+        {
+            weaponID = wepToWep.get(weaponID);
+            didSwap = true;
+        }
         if (weaponID == null)
             return;
         float facing = proj.getFacing() + Misc.random.nextFloat() * MAX_SPLIT_ANGLE - MAX_SPLIT_ANGLE / 2f;
@@ -161,8 +185,13 @@ public class ApexBifurcator extends BaseShipSystemScript
         newProj.getVelocity().scale(velMult);
         newProj.setDamageAmount(proj.getDamageAmount());
 
+        // don't do on-fire if we had to unfuck the gun
+        if (didSwap)
+            return;
         OnFireEffectPlugin onFire;
-        if (newProj instanceof MissileAPI)
+        System.out.println(newProj.getProjectileSpecId());
+
+        if (proj instanceof MissileAPI)
         {
             onFire = ((MissileAPI)proj).getSpec().getOnFireEffect();
         } else {
@@ -170,21 +199,6 @@ public class ApexBifurcator extends BaseShipSystemScript
         }
         if (onFire != null)
             onFire.onFire(newProj, proj.getWeapon(), Global.getCombatEngine());
+
     }
-
-    private String getUnfuckedWeaponID(DamagingProjectileAPI proj)
-    {
-        String weaponID = proj.getWeapon().getId();
-        String spec = proj.getProjectileSpecId();
-
-        // hard-coded exceptions for guns that use a dummy weapon to do a projectile swap
-        if (projToWep.containsKey(spec))
-            return projToWep.get(spec);
-        if (wepToWep.containsKey(weaponID))
-            return wepToWep.get(weaponID);
-
-        // if we don't need to swap, leave weaponID alone
-        return weaponID;
-    }
-
 }

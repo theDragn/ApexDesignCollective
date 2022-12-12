@@ -296,7 +296,8 @@ public class ApexSledgehammerAI implements MissileAIPlugin, GuidedMissileAI
         {
             MISSILE.giveCommand(ShipCommand.ACCELERATE);
         }
-
+        if (target instanceof ShipAPI && ((ShipAPI) target).isPhased() && ECCM > 1)
+            return;
         if (aimAngle < 0)
         {
             MISSILE.giveCommand(ShipCommand.TURN_RIGHT);

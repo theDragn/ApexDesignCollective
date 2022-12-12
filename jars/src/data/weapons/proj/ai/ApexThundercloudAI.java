@@ -119,6 +119,8 @@ public class ApexThundercloudAI implements MissileAIPlugin, GuidedMissileAI
 
         if (Math.abs(aimAngle) < OVERSTEER_ANGLE)
             missile.giveCommand(ShipCommand.ACCELERATE);
+        if (target instanceof ShipAPI && ((ShipAPI) target).isPhased() && undershoot > 0.5f)
+            return;
         if (aimAngle < 0)
             missile.giveCommand(ShipCommand.TURN_RIGHT);
         else

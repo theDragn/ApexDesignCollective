@@ -54,7 +54,7 @@ public class ApexPhaseBanish extends BaseShipSystemScript
             }
             for (ShipAPI otherShip : engine.getShips())
             {
-                if (!otherShip.getHullSize().equals(ShipAPI.HullSize.FIGHTER) || otherShip.getOwner() == ship.getOwner())
+                if (!otherShip.getHullSize().equals(ShipAPI.HullSize.FIGHTER) || otherShip.getOwner() == ship.getOwner() || otherShip.isPhased())
                     continue;
                 if (MathUtils.getDistanceSquared(otherShip.getLocation(), ship.getLocation()) < rangeSquared)
                     banishTargets.add(otherShip, 28000);

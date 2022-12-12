@@ -150,6 +150,8 @@ public class ApexToroidMortarEffects implements OnFireEffectPlugin, OnHitEffectP
         {
             if (possibleTarget.getOwner() == projectile.getOwner())
                 continue;
+            if (possibleTarget instanceof ShipAPI && ((ShipAPI) possibleTarget).isPhased())
+                continue;
             if (possibleTarget instanceof MissileAPI)
                 targets.add(possibleTarget, 0.5f);
             if (possibleTarget instanceof ShipAPI)
