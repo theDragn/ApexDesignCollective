@@ -85,18 +85,18 @@ public class ApexSuperRangeSync extends BaseHullMod
     // they call me Janky Kang
     public static class ApexSuperSyncListener implements WeaponBaseRangeModifier
     {
-        private float average = 0;
-        boolean didAve = false;
+        private float average = 0f;
 
         public float maxBoost = MAX_RANGE_BOOST;
 
         // no clue how computationally expensive this is, but it's O(n) to get the average, so O(n^2) to get the average if everything is firing
         // so we should be conservative on computing the average
+        private boolean didAve = false;
 
         @Override
         public float getWeaponBaseRangeFlatMod(ShipAPI ship, WeaponAPI weapon)
         {
-            if (weapon.getType() == WeaponAPI.WeaponType.MISSILE || weapon.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || weapon.getSlot() == null)
+            if (weapon.getType() == WeaponAPI.WeaponType.MISSILE || weapon.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || weapon.getSlot() == null || weapon.getSlot().isBuiltIn() || weapon.isDecorative() || weapon.getSpec().getMaxRange() == 0)
                 return 0f;
             if (weapon.getId().contains("apex_repair") || weapon.getId().contains("apex_cryo"))
                 return 0f;
@@ -110,7 +110,7 @@ public class ApexSuperRangeSync extends BaseHullMod
             if (average == 0)
                 return 0;
             float adjustedRange = getAdjustedBaseRange(ship, weapon);
-            return Math.min(average - adjustedRange, adjustedRange);
+            return Math.min(average - adjustedRange, adjustedRange * (maxBoost - 1f));
         }
 
         @Override
@@ -132,7 +132,7 @@ public class ApexSuperRangeSync extends BaseHullMod
             for (int i = 0; i < ship.getAllWeapons().size(); i++)
             {
                 WeaponAPI wep = ship.getAllWeapons().get(i);
-                if (wep.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || wep.getType() == WeaponAPI.WeaponType.MISSILE || wep.getSlot().isBuiltIn())
+                if (wep.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || wep.getType() == WeaponAPI.WeaponType.MISSILE || wep.getSlot().isBuiltIn() || wep.isDecorative() || wep.getSpec().getMaxRange() == 0)
                     continue;
                 numWeps++;
                 total += getAdjustedBaseRange(ship, wep);

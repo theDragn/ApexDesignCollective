@@ -118,8 +118,6 @@ public class ApexRangeSync extends BaseHullMod
     public static class ApexSyncListener implements WeaponBaseRangeModifier
     {
         private float average = 0f;
-        private float mAve = 0f;
-        private float lAve = 0f;
 
         public float maxBoost = MAX_RANGE_BOOST;
 
@@ -130,7 +128,7 @@ public class ApexRangeSync extends BaseHullMod
         @Override
         public float getWeaponBaseRangeFlatMod(ShipAPI ship, WeaponAPI weapon)
         {
-            if (weapon.isBeam() || weapon.getType() == WeaponAPI.WeaponType.MISSILE || weapon.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || weapon.getSlot() == null || weapon.getSlot().isBuiltIn())
+            if (weapon.isBeam() || weapon.getType() == WeaponAPI.WeaponType.MISSILE || weapon.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || weapon.getSlot() == null || weapon.getSlot().isBuiltIn() || weapon.isDecorative() || weapon.getSpec().getMaxRange() == 0)
                 return 0f;
             if (weapon.getId().contains("apex_repair") || weapon.getId().contains("apex_cryo"))
                 return 0f;
@@ -168,7 +166,7 @@ public class ApexRangeSync extends BaseHullMod
             for (int i = 0; i < ship.getAllWeapons().size(); i++)
             {
                 WeaponAPI wep = ship.getAllWeapons().get(i);
-                if (wep.isBeam() || wep.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || wep.getType() == WeaponAPI.WeaponType.MISSILE || wep.getSlot().isBuiltIn())
+                if (wep.isBeam() || wep.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || wep.getType() == WeaponAPI.WeaponType.MISSILE || wep.getSlot().isBuiltIn() || wep.isDecorative() || wep.getSpec().getMaxRange() == 0)
                     continue;
                 numWeps++;
                 total += getAdjustedBaseRange(ship, wep);

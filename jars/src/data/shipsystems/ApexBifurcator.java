@@ -17,8 +17,9 @@ import java.util.HashSet;
 
 public class ApexBifurcator extends BaseShipSystemScript
 {
-    public static final float MAX_SPLIT_ANGLE = 20f;
+    public static final float MAX_SPLIT_ANGLE = 25f;
     public static final float SPLIT_CHANCE_PER_INTERVAL = 0.075f; // 50% chance per second to split at least once
+    public static final float MAX_SPLIT_RANGE = 1350 * 1350; // stops splitting projectiles if they're this far from the ship
 
     // turns projectile spec ID's into appropriate weapon ID's, if something isn't present, it's fine
     private static final HashMap<String, String> projToWep = new HashMap<>();
@@ -116,13 +117,8 @@ public class ApexBifurcator extends BaseShipSystemScript
                 float exp = (proj.getMoveSpeed() / 600f * SPLIT_CHANCE_PER_INTERVAL)/2f + 1f;
                 if (Misc.random.nextFloat() < Math.pow(1 + SPLIT_CHANCE_PER_INTERVAL * proj.getMoveSpeed() / 600f, exp) - 1f)
                 {
-                    float distFraction = MathUtils.getDistance(proj.getLocation(), proj.getSource().getLocation()) / proj.getWeapon().getRange();
-                    // if projectile is outside of weapon range, run another rng check
-                    if (distFraction > 1f)
-                    {
-                        if (Misc.random.nextFloat() > 0.5f / distFraction)
-                            continue;
-                    }
+                    if (MathUtils.getDistanceSquared(proj.getLocation(), proj.getSource().getLocation()) > MAX_SPLIT_RANGE)
+                        continue;
                     // missiles don't have these traits and I can't be bothered to look them up rn
                     float size = 0;
                     Color color = Color.LIGHT_GRAY;
