@@ -1,3 +1,23 @@
+:toot: The mod is now feature complete! I will, of course, continue maintaining it, but there will be no more major additions (unless I feel particularly inspired).
+
+New:
+- Boa-class phase destroyer: An aggressive phase destroyer with good turret coverage. System is Pursuit Mode, which increases forward speed and weapon damage.
+- Mission ("Black Ops"). Completing it will unlock a start option with the Anaconda. Completing it with a perfect score will unlock a *special* start option.
+
+Changes:
+- Networked Targeting Array: Fighter range bonus is now based on the average range bonus affecting your weapons instead of the smallest bonus.
+- Augmented Range Synchronizer: No longer excludes beam weapons. The modular version is unchanged.
+- Limited Magazines (builtin on phase ships): No longer reduces fire rate. Instead, reduces missile ammo capacity.
+- Mamba: Added Limited Magazines. Removed Augmented Range Synchronizer.
+- Goanna: Added Augmented Range Synchronizer.
+- Najash: Increasd DP/supply cost (8 -> 9).
+
+Bug fixes:
+- Toroid Mortar: The projectile's arc rate is no longer affected by the firing ship's timeflow.
+- [REDACTED] should no longer trigger [REDACTED] on fleets that do not affect faction reputation, like deserter bounties.
+
+
+
 New:
 - Anaconda-class phase battlecruiser: Phase capital. It's pretty fast and has very heavy armor. System is Gravitic Shield, which decelerates or diverts incoming projectiles, and reduces incoming beam damage for a short duration.
 

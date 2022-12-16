@@ -1,9 +1,12 @@
 package data.hullmods;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CampaignFleetAPI;
+import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.DamageDealtModifier;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
@@ -185,10 +188,14 @@ public class ApexExcessionReactor extends BaseHullMod
 
         // trigger killswitch, if necessary
         // no, they're not giving you a supership without some precautions
-        // triggers if enemy fleet has more than a few apex ships
+        // triggers if enemy fleet is apex faction, and will not give a rep penalty on death
         BattleCreationContext context = Global.getCombatEngine().getContext();
         if (!Global.getCombatEngine().isSimulation() && context != null && context.getOtherFleet() != null && context.getOtherFleet().getFaction() != null)
         {
+            // checks to see if no rep impact flag is set
+            MemoryAPI mem = context.getOtherFleet().getMemoryWithoutUpdate();
+            if (mem.contains(MemFlags.MEMORY_KEY_NO_REP_IMPACT) && mem.get(MemFlags.MEMORY_KEY_NO_REP_IMPACT) instanceof Boolean && (boolean)(mem.get(MemFlags.MEMORY_KEY_NO_REP_IMPACT)))
+                return;
             if (context.getOtherFleet().getFaction().getId().equals("apex_design"))
             {
                 Global.getCombatEngine().addFloatingText(

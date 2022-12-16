@@ -18,6 +18,7 @@ import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class ApexToroidMortarEffects implements OnFireEffectPlugin, OnHitEffectP
 
     private HashMap<DamagingProjectileAPI, IntervalUtil> projMap = new HashMap<>();
     // this is the hit glow sprite. don't ask.
-    private SpriteAPI glowSprite = Global.getSettings().getSprite("campaignEntities", "fusion_lamp_glow");
+    private final SpriteAPI glowSprite = Global.getSettings().getSprite("campaignEntities", "fusion_lamp_glow");
     private static final Vector2f spriteSize = new Vector2f(150f, 150f);
 
     @Override
@@ -44,19 +45,8 @@ public class ApexToroidMortarEffects implements OnFireEffectPlugin, OnHitEffectP
 
         for (DamagingProjectileAPI proj : projMap.keySet())
         {
-            projMap.get(proj).advance(amount);
-            glowSprite.setAlphaMult(proj.getBrightness() * 0.33f);
-            Vector2f adjustedPos = VectorUtils.rotate(new Vector2f(18f, 0f), proj.getFacing());
-            Vector2f.add(adjustedPos, proj.getLocation(), adjustedPos);
-            // rendering a glow sprite here, because the large projectile sprite makes it weirdly offset if I use a normal one
-            MagicRender.singleframe(
-                    glowSprite,
-                    adjustedPos,
-                    spriteSize,
-                    0,
-                    proj.getProjectileSpec().getFringeColor(),
-                    true
-            );
+            projMap.get(proj).advance(amount / weapon.getShip().getMutableStats().getTimeMult().getModifiedValue());
+
             // arc if the arc timer is up
             if (projMap.get(proj).intervalElapsed())
                 arc(proj, engine);
@@ -76,6 +66,7 @@ public class ApexToroidMortarEffects implements OnFireEffectPlugin, OnHitEffectP
     public void onFire(DamagingProjectileAPI projectile, WeaponAPI weapon, CombatEngineAPI engine)
     {
         projMap.put(projectile, new IntervalUtil(ARC_MIN_INTERVAL, ARC_MAX_INTERVAL));
+        engine.addLayeredRenderingPlugin(new ApexToroidGlowEffect(projectile));
     }
 
     @Override
@@ -180,5 +171,68 @@ public class ApexToroidMortarEffects implements OnFireEffectPlugin, OnHitEffectP
                 projectile.getProjectileSpec().getFringeColor(),
                 Color.WHITE
         );
+    }
+
+    // used to render projectile glow in the right spot withough getting fucky because of time dilation
+    private class ApexToroidGlowEffect extends BaseCombatLayeredRenderingPlugin
+    {
+        DamagingProjectileAPI proj;
+
+        public ApexToroidGlowEffect() {}
+
+        public ApexToroidGlowEffect(DamagingProjectileAPI proj)
+        {
+            this.proj = proj;
+        }
+
+        @Override
+        public void advance(float amount) {}
+
+        @Override
+        public void render(CombatEngineLayers layer, ViewportAPI viewport)
+        {
+            glowSprite.setSize(spriteSize.x, spriteSize.y);
+            glowSprite.setColor(proj.getProjectileSpec().getFringeColor());
+            glowSprite.setAlphaMult(proj.getBrightness() * 0.33f);
+            Vector2f adjustedPos = VectorUtils.rotate(new Vector2f(18f, 0f), proj.getFacing());
+            Vector2f.add(adjustedPos, proj.getLocation(), adjustedPos);
+            // rendering a glow sprite here, because the large projectile sprite makes it weirdly offset if I use a normal one
+            /*MagicRender.singleframe(
+                    glowSprite,
+                    adjustedPos,
+                    spriteSize,
+                    0,
+                    proj.getProjectileSpec().getFringeColor(),
+                    true
+            );*/
+            glowSprite.renderAtCenter(adjustedPos.x, adjustedPos.y);
+
+        }
+
+        @Override
+        public float getRenderRadius()
+        {
+            return 9001f;
+        }
+
+        protected EnumSet<CombatEngineLayers> layers = EnumSet.of(CombatEngineLayers.BELOW_INDICATORS_LAYER);
+
+        @Override
+        public EnumSet<CombatEngineLayers> getActiveLayers()
+        {
+            return layers;
+        }
+
+        @Override
+        public void init(CombatEntityAPI entity)
+        {
+            super.init(entity);
+        }
+
+        @Override
+        public boolean isExpired()
+        {
+            return proj.isExpired() || proj.didDamage() || proj.isFading();
+        }
     }
 }

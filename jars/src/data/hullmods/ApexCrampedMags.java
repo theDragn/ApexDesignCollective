@@ -36,7 +36,15 @@ public class ApexCrampedMags extends BaseHullMod
     public void applyEffectsAfterShipCreation(ShipAPI ship, String id)
     {
         float penalty = getPenalty(ship);
-        ship.getMutableStats().getMissileRoFMult().modifyMult(id, penalty);
+        ship.getMutableStats().getMissileAmmoBonus().modifyMult(id, penalty);
+        for (WeaponAPI wep : ship.getAllWeapons())
+        {
+            if (wep.getType().equals(WeaponAPI.WeaponType.MISSILE))
+            {
+                wep.setAmmo((int) (wep.getMaxAmmo() * penalty));
+                wep.setMaxAmmo((int) (wep.getMaxAmmo() * penalty));
+            }
+        }
     }
 
     @Override

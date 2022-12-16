@@ -1,0 +1,46 @@
+{
+    "displayName": "Strike",
+    "fluxCapacitors": 15,
+    "fluxVents": 20,
+    "hullId": "apex_boa",
+    "goalVariant": true,
+    "hullMods": [
+        "magazines",
+        "armoredweapons"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_boa_blaster",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0007": "apex_toroid_mortar",
+                "WS0007y": "apex_toroid_mortar"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_qgp_small",
+                "WS0002": "apex_qgp_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "apex_coilgun_small"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_qgpd_s_flak",
+                "WS0004": "apex_qgpd_s_flak",
+                "WS0006": "apex_qgpd_s_flak"
+            }
+        }
+    ]
+}

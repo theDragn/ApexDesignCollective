@@ -11,6 +11,8 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.impl.campaign.shared.SharedData
 import data.campaign.missions.ApexExcessionAdder
 import data.weapons.proj.ai.*
+import exerelin.utilities.NexConfig
+import exerelin.utilities.NexFactionConfig.StartFleetType
 import org.json.JSONException
 import world.ApexRelicPlacer
 import world.ApexSectorGenerator
@@ -46,6 +48,23 @@ class ApexModPlugin : BaseModPlugin() {
         }
 
         ApexSpecLoadingUtils.loadSubsystemData();
+        if (Global.getSettings().modManager.isModEnabled("nexerelin"))
+        {
+            if (Global.getSettings().getMissionScore("apex_4blackops") > 0) {
+                val faction = NexConfig.getFactionConfig("apex_design")
+                val fleetSet = faction.getStartFleetSet(StartFleetType.SUPER.name)
+                val grandPhaseFleet: MutableList<String> = ArrayList(1)
+                grandPhaseFleet.add("apex_anaconda_strike")
+                fleetSet.addFleet(grandPhaseFleet)
+            }
+            if (Global.getSettings().getMissionScore("apex_4blackops") == 100) {
+                val faction = NexConfig.getFactionConfig("apex_design")
+                val fleetSet = faction.getStartFleetSet(StartFleetType.SUPER.name)
+                val excFleet: MutableList<String> = ArrayList(1)
+                excFleet.add("apex_excession_prototype")
+                fleetSet.addFleet(excFleet)
+            }
+        }
 
     }
 

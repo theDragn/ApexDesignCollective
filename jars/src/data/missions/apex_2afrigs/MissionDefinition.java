@@ -41,7 +41,7 @@ public class MissionDefinition implements MissionDefinitionPlugin
         // Mark both ships as essential - losing either one results
         // in mission failure. Could also be set on an enemy ship,
         // in which case destroying it would result in a win.
-        api.defeatOnShipLoss(text("mis2-6"));
+        api.defeatOnShipLoss(text("mis2-5") + " 181");
 
         // Set up the enemy fleet.
         api.addToFleet(FleetSide.ENEMY, "enforcer_Elite", FleetMemberType.SHIP, false);

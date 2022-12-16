@@ -4,7 +4,7 @@ Summit,apex_apex,Battleship,Apex Design Collective,apex_damper,29,20000,1300,220
 Apotheosis,apex_apotheosis,Battlecruiser,Apex Design Collective,apex_microburn,23,10000,950,13500,,900,225,,50,25,25,15,15,2000,OMNI,,180,0.3,0.9,,,350,500,300,240,8,30,8,250000,10,25,720,0.25,37,37,,rare_bp,,0.33,2,3,,1312
 Eidolon,apex_eidolon,Battlecruiser,Apex Design Collective,apex_heavy_skimmer,24,11500,1000,15000,,1000,265,,50,30,30,15,15,2200,OMNI,,180,0.3,0.9,,,350,500,300,270,9,30,8,275000,10,25,720,0.25,45,45,,rare_bp,,0.33,2,3,,1312
 Sunbeam,apex_sunbeam,Siege Carrier,Apex Design Collective,apex_uplink,25,15000,1200,18000,,1000,300,4,35,12,12,10,10,2500,OMNI,,180,0.3,0.9,,,500,650,450,400,10,40,7,350000,10,25,720,0.25,55,55,"COMBAT, CARRIER",rare_bp,,0.33,2,3,,6969
-Anaconda,apex_anaconda,Phase Battlecruiser,Apex Design Collective,apex_gravity_shield,27,20000,1750,18000,,1000,225,,55,25,25,16,16,2500,PHASE,apex_phasecloak,,,,0.05,0.04,325,450,300,270,9,30,8,400000,10,25,720,0.375,50,50,PHASE,rare_bp,,0.33,2,3,,1312
+Anaconda,apex_anaconda,Phase Battlecruiser,Apex Design Collective,apex_gravity_shield,27,20000,1750,18000,,1000,225,,55,25,25,16,16,2500,PHASE,apex_phasecloak,,,,0.05,0.04,275,325,300,270,9,30,8,400000,10,25,720,0.375,50,50,PHASE,rare_bp,,0.33,2,3,,1312
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Cruisers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Spectrum,apex_spectrum,Carrier,Apex Design Collective,apex_remote_damper,16,6500,600,6000,,350,100,2,55,50,40,20,20,900,OMNI,,180,0.3,0.9,,,100,200,100,60,3,20,8,150000,10,25,480,0.25,28,28,CARRIER,apex_hulls,,0.33,2,3,,1312
@@ -18,9 +18,9 @@ Goanna,apex_goanna,Heavy Cruiser,Apex Design Collective,apex_pursuit_jets,19,900
 Caiman,apex_caiman,Destroyer,Apex Design Collective,apex_thorns,10,5000,500,4200,,400,95,,80,60,40,30,60,400,OMNI,,180,0.3,0.9,,,50,75,100,60,2,30,9,40000,10,25,360,0.25,10,10,,apex_hulls,,0.5,2,3,,1312
 Gharial,apex_gharial,Destroyer,Apex Design Collective,apex_microburn,9,4000,400,4200,,375,95,,120,100,100,45,90,400,OMNI,,180,0.3,0.9,,,50,75,100,60,2,30,10,40000,10,25,360,0.25,9,9,,apex_hulls,,0.5,2,3,,1312
 Backscatter,apex_backscatter,Carrier,Apex Design Collective,apex_remote_damper,10,4000,400,2500,,200,70,2,75,60,40,30,45,400,OMNI,,180,0.3,0.9,,,50,100,100,50,2,25,10,45000,10,25,360,0.25,12,12,CARRIER,apex_hulls,,0.5,2,3,,1312
-Najash,apex_najash,Dropship,Apex Design Collective,apex_microburn,6,3500,400,2250,,100,40,,80,60,60,30,45,400,OMNI,,180,0.3,0.9,,,10,250,50,80,2,40,10,35000,10,25,360,0.25,8,8,"CIVILIAN, TRANSPORT",apex_hulls,,0.5,2,3,,7
+Najash,apex_najash,Dropship,Apex Design Collective,apex_microburn,6,3500,400,2250,,100,40,,80,60,60,30,45,400,OMNI,,180,0.3,0.9,,,10,250,50,80,2,40,10,35000,10,25,360,0.25,9,9,"CIVILIAN, TRANSPORT",apex_hulls,,0.5,2,3,,7
 Tuatara,apex_tuatara,Minelayer Destroyer,Apex Design Collective,apex_arc_mine,12,4000,400,4000,,250,70,,75,60,40,30,45,350,OMNI,,180,0.3,0.9,,,50,75,100,60,2,30,10,45000,10,25,360,0.25,10,10,,apex_hulls,,0.5,2,3,,1312
-# Boa,,Phase Destroyer,,apex_temporal_siphon,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Boa,apex_boa,Phase Destroyer,Apex Design Collective,apex_pursuit_jets,15,4500,550,5000,,500,100,,80,60,40,30,30,400,PHASE,apex_phasecloak,,,,0.05,0.04,25,50,50,100,2,50,10,100000,7.5,25,360,0.375,18,18,PHASE,apex_hulls,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Frigates,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Lacerta,apex_lacerta,Frigate,Apex Design Collective,apex_arc_mine,8,2000,400,3000,,225,55,,130,200,175,90,270,200,OMNI,,180,0.2,0.9,,,15,25,30,25,1,25,11,15000,20,25,210,0.25,8,8,,apex_hulls,,0.4,2,2,,1312

@@ -63,6 +63,10 @@
 		"apex_mamba_gunner":6,
 		"apex_mamba_strike":6
 	},
+	"phaseMedium":{
+		"apex_boa_attack":6,
+		"apex_boa_blaster":6
+	},
 	"phaseLarge":{
 		"apex_python_assault":6,
 		"apex_python_strike":6,

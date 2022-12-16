@@ -173,21 +173,20 @@ public class ApexNetworkTargeter extends BaseHullMod
 
     public static float getBonus(ShipAPI ship)
     {
-        float min = Float.MAX_VALUE;
+        float totalBonus = 0;
+        float numWeps = 0;
         for (WeaponAPI wep : ship.getAllWeapons())
         {
             if (wep.isDecorative())
                 continue;
-            float bonus = wep.getRange() / wep.getSpec().getMaxRange();
-            //System.out.println(bonus);
-            if (bonus < min && bonus != 1)
-                min = bonus;
+            totalBonus += wep.getRange() / wep.getSpec().getMaxRange();
+            numWeps++;
         }
-        if (min == Float.MAX_VALUE)
-            min = 1.0f;
-        min = min * 100f - 100f;
+        if (numWeps == 0 || totalBonus <= 1f)
+            return 0f;
+
         //System.out.println(min);
-        return Math.min(min, FTR_RANGE_PERCENT_MAX);
+        return Math.min((totalBonus / numWeps) * 100f - 100f, FTR_RANGE_PERCENT_MAX);
     }
 
     public static int getOp(ShipAPI ship)
