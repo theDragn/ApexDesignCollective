@@ -71,6 +71,10 @@ public class ApexBifurcator extends BaseShipSystemScript
         projToWep.put("kyeltziv_fougasse_pellet","kyeltziv_shockFougasse_pellet");
         projToWep.put("kyeltziv_shrap_driver_pellet","kyeltziv_driver_shrap_pellet");
         projToWep.put("prv_massdriver_1_shot","prv_massdriver_1");
+        projToWep.put("prv_jursla_1_shot", "prv_jursla_1");
+        // because this exists indefinitely, allowing duplication would permit storing up an infinite amount of damage
+        projToWep.put("sun_ice_mobiusray_hack", null);
+        projToWep.put("sun_ice_mobiusray", null);
     }
     // turns weapon spec ID's into appropriate weapon spec ID's. Used for guns with too many sub-weapons
     // not perfectly accurate but generally good enough that it's hard to tell that it's cheating
@@ -114,46 +118,19 @@ public class ApexBifurcator extends BaseShipSystemScript
                     continue;
                 if (proj.getWeapon().getType().equals(WeaponAPI.WeaponType.MISSILE))
                     continue;
-                float exp = (proj.getMoveSpeed() / 600f * SPLIT_CHANCE_PER_INTERVAL)/2f + 1f;
-                if (Misc.random.nextFloat() < Math.pow(1 + SPLIT_CHANCE_PER_INTERVAL * proj.getMoveSpeed() / 600f, exp) - 1f)
+                float moveSpeed = proj.getVelocity().length();
+                float exp = (moveSpeed / 700f * SPLIT_CHANCE_PER_INTERVAL)/2f + 1f;
+                if (Misc.random.nextFloat() < Math.pow(1 + SPLIT_CHANCE_PER_INTERVAL * moveSpeed / 700f, exp) - 1f)
                 {
                     if (MathUtils.getDistanceSquared(proj.getLocation(), proj.getSource().getLocation()) > MAX_SPLIT_RANGE)
                         continue;
-                    // missiles don't have these traits and I can't be bothered to look them up rn
-                    float size = 0;
-                    Color color = Color.LIGHT_GRAY;
-                    if (proj instanceof MissileAPI)
-                    {
-                        MissileAPI missile = (MissileAPI) proj;
-                        size = missile.getCollisionRadius();
-                        color = missile.getSpec().getExplosionColor();
-                        if (color == null)
-                            color = missile.getSpec().getGlowColor();
-                    } else
-                    {
-                        size = Math.max(10, proj.getProjectileSpec().getWidth());
-                        color = proj.getProjectileSpec().getFringeColor();
-
-                    }
-                    float velMult = 1f;//1f - distFraction;
-                    spawnSplitProj(proj, Math.max(0.5f, velMult));
-
-                    if (color == null)
-                        return;
-                    // one particle for flash
-                    engine.addHitParticle(proj.getLocation(), Misc.ZERO, size * 3f, 1f, 0.5f, color);
-                    // a few particles for splitty bits
-                    for (int i = 0; i < size / 4f; i++)
-                    {
-                        Vector2f randVel = MathUtils.getRandomPointInCircle(Misc.ZERO, 100f);
-                        engine.addHitParticle(proj.getLocation(), randVel, size, 1f, 0.5f, color);
-                    }
+                    spawnSplitProj(proj);
                 }
             }
         }
     }
 
-    private void spawnSplitProj(DamagingProjectileAPI proj, float velMult)
+    private void spawnSplitProj(DamagingProjectileAPI proj)
     {
         // unfuck weapon ID
         String weaponID = proj.getWeapon().getId();//getUnfuckedWeaponID(proj);
@@ -171,6 +148,7 @@ public class ApexBifurcator extends BaseShipSystemScript
         if (weaponID == null)
             return;
         float facing = proj.getFacing() + Misc.random.nextFloat() * MAX_SPLIT_ANGLE - MAX_SPLIT_ANGLE / 2f;
+        //float facing = (Misc.random.nextBoolean() ? -1 : 1) * MAX_SPLIT_ANGLE + proj.getFacing();
         DamagingProjectileAPI newProj = (DamagingProjectileAPI) Global.getCombatEngine().spawnProjectile(
                 proj.getSource(),
                 proj.getWeapon(),
@@ -178,7 +156,6 @@ public class ApexBifurcator extends BaseShipSystemScript
                 proj.getLocation(),
                 facing,
                 Misc.ZERO);
-        newProj.getVelocity().scale(velMult);
         newProj.setDamageAmount(proj.getDamageAmount());
 
         // don't do on-fire if we had to unfuck the gun
@@ -187,6 +164,22 @@ public class ApexBifurcator extends BaseShipSystemScript
         OnFireEffectPlugin onFire;
         System.out.println(newProj.getProjectileSpecId());
 
+        // missiles don't have these traits and I can't be bothered to look them up rn
+        float size = 0;
+        Color color = Color.LIGHT_GRAY;
+        if (proj instanceof MissileAPI)
+        {
+            MissileAPI missile = (MissileAPI) proj;
+            size = missile.getCollisionRadius();
+            color = missile.getSpec().getExplosionColor();
+            if (color == null)
+                color = missile.getSpec().getGlowColor();
+        } else
+        {
+            size = Math.max(10, proj.getProjectileSpec().getWidth());
+            color = proj.getProjectileSpec().getFringeColor();
+
+        }
         if (proj instanceof MissileAPI)
         {
             onFire = ((MissileAPI)proj).getSpec().getOnFireEffect();
@@ -195,6 +188,17 @@ public class ApexBifurcator extends BaseShipSystemScript
         }
         if (onFire != null)
             onFire.onFire(newProj, proj.getWeapon(), Global.getCombatEngine());
+
+        if (color == null)
+            return;
+        // one particle for flash
+        Global.getCombatEngine().addHitParticle(proj.getLocation(), Misc.ZERO, size * 3f, 1f, 0.5f, color);
+        // a few particles for splitty bits
+        for (int i = 0; i < size / 4f; i++)
+        {
+            Vector2f randVel = MathUtils.getRandomPointInCircle(Misc.ZERO, 100f);
+            Global.getCombatEngine().addHitParticle(proj.getLocation(), randVel, size, 1f, 0.5f, color);
+        }
 
     }
 }
