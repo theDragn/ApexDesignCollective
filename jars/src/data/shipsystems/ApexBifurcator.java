@@ -105,7 +105,7 @@ public class ApexBifurcator extends BaseShipSystemScript
         float amount = engine.getElapsedInLastFrame();
         if (((ShipAPI) stats.getEntity()).isPhased() || amount == 0)
             return;
-        splitTimer.advance(amount);
+        splitTimer.advance(amount / stats.getTimeMult().getModifiedValue());
         if (splitTimer.intervalElapsed())
         {
             for (DamagingProjectileAPI proj : engine.getProjectiles())
