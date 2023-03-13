@@ -1,6 +1,20 @@
-Tweaks:
-- tachyon inverter distortion
-- medium QGP hit glow, thicker projectile?
+- chameleon support fighter: reduced weapon range from 1200 to 1000. I think I balanced these off of the xyphos having 1200 range? but these deal hard flux, so...
+- gecko interceptor: significantly increased rate of fire because they were getting bullied by cheaper interceptors
+- tachyon inverter: look, I was wrong when I increased it to 800 range. I'm sorry. It will happen again. It's 700 now.
+- gharial and komodo: reduced damper uptime from 5.2s to 3s.
 
-New:
-- Mission ("Killing a Monster"): Tritach fleet, kill a single Excession
+todo:
+- Mission ("Slugfest"): Capital on capital action. Both sides are playable in this one. Winning with a good score unlocks a start option for both factions. (apex oddy, tritach summit?)
+- fix cryocooled not blocking vaingloria armor
+- fix vayra's sector factions using fighter_doctrine skill
+- arcspike srm pod extra space after comma
+- gharial destroyer beamer autofit has LRPD
+- reduce distortion size on tachyon inverter
+
+Changes:
+- Tweaked tachyon inverter vfx
+= fixed a missing rank/post in a bounty
+- fixed a missing string in a hullmod
+- fixed a number of sprite offset issues (thanks nes!)
+- fix python with brdy_iwcannon/iwshard (ironweaver)
+

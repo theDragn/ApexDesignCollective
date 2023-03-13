@@ -4,11 +4,11 @@
   "hullSize": "DESTROYER",
   "spriteName": "graphics/ships/apex_caiman.png",
   "style": "HIGH_TECH",
-  "height": 155,
+  "height": 156,
   "width": 120,
-  "center": [60, 77.5],
+  "center": [60, 78],
   "collisionRadius": 79,
-  "shieldCenter": [0, 0],
+  "shieldCenter": [0, -0],
   "shieldRadius": 105,
   "viewOffset": 0,
   "builtInMods": [
@@ -35,7 +35,7 @@
       "mount": "TURRET",
       "arc": 194,
       "angle": 45,
-      "locations": [14.5, 24],
+      "locations": [15, 24],
       "renderOrderMod": 200
     },
     {
@@ -45,7 +45,7 @@
       "mount": "TURRET",
       "arc": 194,
       "angle": -45,
-      "locations": [14.5, -24],
+      "locations": [15, -24],
       "renderOrderMod": 200
     },
     {
@@ -55,7 +55,7 @@
       "mount": "TURRET",
       "arc": 194,
       "angle": 90,
-      "locations": [-6.5, 32],
+      "locations": [-6, 32],
       "renderOrderMod": 99
     },
     {
@@ -65,7 +65,7 @@
       "mount": "TURRET",
       "arc": 194,
       "angle": -90,
-      "locations": [-6.5, -32],
+      "locations": [-6, -32],
       "renderOrderMod": 99
     },
     {
@@ -75,7 +75,7 @@
       "mount": "TURRET",
       "arc": 150,
       "angle": 135,
-      "locations": [-28.5, 32]
+      "locations": [-28, 32]
     },
     {
       "id": "WS0007",
@@ -84,7 +84,7 @@
       "mount": "TURRET",
       "arc": 150,
       "angle": -135,
-      "locations": [-28.5, -32]
+      "locations": [-28, -32]
     },
     {
       "id": "WS0008",
@@ -93,7 +93,7 @@
       "mount": "HIDDEN",
       "arc": 0,
       "angle": 125,
-      "locations": [-49.5, 34]
+      "locations": [-49, 34]
     },
     {
       "id": "WS0009",
@@ -102,7 +102,7 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": -125,
-      "locations": [-49.5, -34]
+      "locations": [-49, -34]
     },
     {
       "id": "WS0010",
@@ -111,13 +111,13 @@
       "mount": "TURRET",
       "arc": 5,
       "angle": 0,
-      "locations": [43.5, -0],
+      "locations": [43, -0],
       "renderOrderMod": 100
     }
   ],
   "engineSlots": [
     {
-      "location": [-69.5, -0],
+      "location": [-70, -0],
       "length": 42,
       "width": 14,
       "angle": 180,
@@ -125,7 +125,7 @@
       "style": "HIGH_TECH"
     },
     {
-      "location": [-69.5, -17],
+      "location": [-70, -17],
       "length": 42,
       "width": 13,
       "angle": 180,
@@ -133,7 +133,7 @@
       "style": "HIGH_TECH"
     },
     {
-      "location": [-69.5, 17],
+      "location": [-70, 17],
       "length": 42,
       "width": 13,
       "angle": -180,
@@ -142,13 +142,13 @@
     }
   ],
   "bounds": [
-    -76, 21,
-    -29, 49.5,
-    18, 50,
-    73, 21,
-    73, -21,
-    18, -50,
-    -29, -49.5,
-    -76, -21
+    -76.5, 21,
+    -29.5, 49.5,
+    17.5, 50,
+    72.5, 21,
+    72.5, -21,
+    17.5, -50,
+    -29.5, -49.5,
+    -76.5, -21
   ]
 }

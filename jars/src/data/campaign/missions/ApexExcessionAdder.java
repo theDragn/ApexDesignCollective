@@ -18,6 +18,7 @@ public class ApexExcessionAdder extends BaseCampaignEventListener
     @Override
     public void reportPlayerOpenedMarket(MarketAPI market)
     {
+        //System.out.println("Excession Adder Triggered");
         if (Global.getSector().getMemoryWithoutUpdate().contains("$gatesActive"))
         {
             Object o = Global.getSector().getMemoryWithoutUpdate().get("$gatesActive");

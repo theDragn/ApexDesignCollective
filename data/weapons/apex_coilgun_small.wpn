@@ -8,7 +8,6 @@
   "turretGlowSprite": "graphics/weapons/apex_coilgun_small_t_glow.png",
   "hardpointSprite": "graphics/weapons/apex_coilgun_small_h.png",
   "hardpointGlowSprite": "graphics/weapons/apex_coilgun_small_h_glow.png",
-  "renderAboveAllWeapons": 0,
   "glowColor": [
     255,
     228,
@@ -16,14 +15,14 @@
     255
   ],
   "turretOffsets": [
-    19,
+    20,
     0
   ],
   "turretAngleOffsets": [
     0
   ],
   "hardpointOffsets": [
-    24.5,
+    25,
     0
   ],
   "hardpointAngleOffsets": [
@@ -45,6 +44,5 @@
       175
     ]
   },
-  "textureType": ROUGH,
   "fireSoundTwo": "needler_fire"
 }

@@ -111,7 +111,7 @@ public class ApexShield extends BaseHullMod
         {
             if (ship.getVariant().getHullMods().contains(hullmod))
             {
-                return text("hmoderror1") + " " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
+                return text("hmerror1") + " " + Global.getSettings().getHullModSpec(hullmod).getDisplayName() + ".";
             }
         }
 

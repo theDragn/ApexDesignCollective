@@ -10,7 +10,7 @@ Phase Banish,apex_phasebanish,,,,,,0.1,,2,0.075,0,0,0.5,0,,,,,,,,,,,,,graphics/i
 Rapid Loader,apex_rapid_loader,,,,,,0.075,,,,,0.25,,30,,,,,,,,,,,,,graphics/icons/hullsys/ammo_feeder.png
 Heavy Inertial Skimmer,apex_heavy_skimmer,,,,,,,,3,0.1,0.4,0.5,0.4,1,,,,,,,,,,,,,graphics/icons/hullsys/burn_drive.png
 Bifurcation Device,apex_bifurcator,,,,,,,,,,0.25,2.5,0.25,12,,,,,,,,,,,,,graphics/icons/hullsys/ammo_feeder.png
-Entropy Consolidator,apex_thorns,,,,,,,,2,0.05,0.1,5,0.1,,,,,,TRUE,,,,TRUE,,,,graphics/icons/hullsys/damper_field.png
+Entropy Consolidator,apex_thorns,,,,,,,,2,0.05,0.1,2.8,0.1,,,,,,TRUE,,,,TRUE,,,,graphics/icons/hullsys/damper_field.png
 Defense Uplink,apex_uplink,,,,,,,,,,0.5,,0.5,,TRUE,,TRUE,,,,,,,,,,graphics/icons/hullsys/damper_field.png
 Pursuit Mode,apex_pursuit_jets,,,,,,,,,,0.5,4,0.5,8,,,,,,,,,,,,,graphics/icons/hullsys/burn_drive.png
 Gravity Shield,apex_gravity_shield,,,,,,,,,,0.25,1.75,0.25,8,,,,,,,,,,,,,graphics/icons/hullsys/damper_field.png
