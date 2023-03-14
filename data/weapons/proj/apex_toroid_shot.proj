@@ -5,7 +5,7 @@
 	"collisionClass":"PROJECTILE_FF",
 	"collisionClassByFighter":"PROJECTILE_FIGHTER",
 	"passThroughMissiles":true,
-	"onHitEffect":"data.weapons.ApexToroidMortarEffects",
+	"onFireEffect":"data.weapons.proj.ApexToroidEffect",
 	"length":28,
 	"width":28,
 	"fadeTime":0.3,

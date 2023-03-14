@@ -4,7 +4,7 @@
   "projectileSpecId": "apex_toroid_shot",
   "type": "ENERGY",
   "size": "MEDIUM",
-  "everyFrameEffect":"data.weapons.ApexToroidMortarEffects",
+  #"everyFrameEffect":"data.weapons.ApexToroidMortarEffects",
   "turretSprite": "graphics/weapons/apex_toroid_mortar_t.png",
   "turretGlowSprite": "graphics/weapons/apex_toroid_mortar_t_glow.png",
   "hardpointSprite": "graphics/weapons/apex_toroid_mortar_h.png",

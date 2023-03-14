@@ -1,7 +1,7 @@
 name,id,designation,tech/manufacturer,system id,fleet pts,hitpoints,armor rating,max flux,8/6/5/4%,flux dissipation,ordnance points,fighter bays,max speed,acceleration,deceleration,max turn rate,turn acceleration,mass,shield type,defense id,shield arc,shield upkeep,shield efficiency,phase cost,phase upkeep,min crew,max crew,cargo,fuel,fuel/ly,range,max burn,base value,cr %/day,CR to deploy,peak CR sec,CR loss/sec,supplies/rec,supplies/mo,hints,tags,rarity,breakProb,minPieces,maxPieces,travel drive,number
 # Capitals,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Summit,apex_apex,Battleship,Apex Design Collective,apex_damper,29,20000,1300,22000,,1300,340,,35,12,12,8,8,3000,OMNI,,180,0.3,0.9,,,500,650,300,360,12,30,7,500000,10,25,720,0.25,60,60,,rare_bp,,0.33,2,3,,1312
-Apotheosis,apex_apotheosis,Battlecruiser,Apex Design Collective,apex_microburn,23,10000,950,13500,,900,225,,50,25,25,15,15,2000,OMNI,,180,0.3,0.9,,,350,500,300,240,8,30,8,250000,10,25,720,0.25,37,37,,rare_bp,,0.33,2,3,,1312
+Apotheosis,apex_apotheosis,Battlecruiser,Apex Design Collective,apex_microburn,23,10000,950,13500,,900,225,,50,25,25,15,15,2000,OMNI,,180,0.3,0.9,,,350,500,300,240,8,30,8,250000,10,25,720,0.25,38,38,,rare_bp,,0.33,2,3,,1312
 Eidolon,apex_eidolon,Battlecruiser,Apex Design Collective,apex_heavy_skimmer,24,11500,1000,15000,,1000,265,,50,30,30,15,15,2200,OMNI,,180,0.3,0.9,,,350,500,300,270,9,30,8,275000,10,25,720,0.25,45,45,,rare_bp,,0.33,2,3,,1312
 Sunbeam,apex_sunbeam,Siege Carrier,Apex Design Collective,apex_uplink,25,15000,1200,18000,,1000,300,4,35,12,12,10,10,2500,OMNI,,180,0.3,0.9,,,500,650,450,400,10,40,7,350000,10,25,720,0.25,55,55,"COMBAT, CARRIER",rare_bp,,0.33,2,3,,6969
 Anaconda,apex_anaconda,Phase Battlecruiser,Apex Design Collective,apex_gravity_shield,27,20000,1750,18000,,1000,225,,55,25,25,16,16,2500,PHASE,apex_phasecloak,,,,0.05,0.04,275,325,300,270,9,30,8,400000,10,25,720,0.375,50,50,PHASE,rare_bp,,0.33,2,3,,1312
@@ -39,7 +39,7 @@ Gecko,apex_fighter_gecko,,Apex Design Collective,,,400,150,200,,75,0,,250,500,50
 Chameleon,apex_fighter_chameleon,,Apex Design Collective,,,600,100,300,,75,0,,175,175,175,180,360,20,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,69
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,,,,42069
 # Export Hulls (should probably do more of these but I'm lazy),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Apotheosis (RG),apex_apotheosis_rg,Battlecruiser,Red Guards,apex_microburn,23,10000,1100,13500,,650,215,,50,25,25,15,15,2000,OMNI,,180,0.3,0.9,,,350,500,300,240,8,30,8,250000,10,25,720,0.25,38,38,,"revolutionary, vayra_red_army",,0.33,2,3,,1312
+Apotheosis (RG),apex_apotheosis_rg,Battlecruiser,Red Guards,apex_microburn,23,10000,1100,13500,,650,215,,50,25,25,15,15,2000,OMNI,,180,0.3,0.9,,,350,500,300,240,8,30,8,250000,10,25,720,0.25,37,37,,"revolutionary, vayra_red_army",,0.33,2,3,,1312
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 "# secret (I guess it's really not that secret if it's in here but I don't have that many options, y'know?)",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Excession,apex_excession,Phase Destroyer,Apex Design Collective,apex_excessionsys,150,2500,1000,5000,,400,50,,90,250,250,230,230,400,PHASE,apex_excessionphase,,,,0.03,0.08,5,10,100,60,1,60,10,2000000,10,25,360,0.25,40,40,"PHASE, HIDE_IN_CODEX",no_dealer,,0.5,2,3,,1312

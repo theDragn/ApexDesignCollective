@@ -23,9 +23,9 @@ public class ApexFlareSystemHullmod extends BaseHullMod
     static
     {
         NUM_FLARES.put(ShipAPI.HullSize.FRIGATE, 2);
-        NUM_FLARES.put(ShipAPI.HullSize.DESTROYER, 3);
-        NUM_FLARES.put(ShipAPI.HullSize.CRUISER, 4);
-        NUM_FLARES.put(ShipAPI.HullSize.CAPITAL_SHIP, 5);
+        NUM_FLARES.put(ShipAPI.HullSize.DESTROYER, 2);
+        NUM_FLARES.put(ShipAPI.HullSize.CRUISER, 3);
+        NUM_FLARES.put(ShipAPI.HullSize.CAPITAL_SHIP, 4);
     }
     public static final float BASE_COOLDOWN = 20f;
 

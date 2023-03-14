@@ -164,9 +164,9 @@ Based on the same principles as the Tachyon Lance, the Tachyon Inverter bifurcat
 apex_haymarket,WEAPON,"A high-performance railgun that delivers a steady stream of charged kinetic slugs.
 
 A remarkably simple and robust weapon, the Haymarket is a modern iteration of a time-tested design. Unlike the Collective's other kinetic weaponry, which uses frictionless coilgun designs, the Haymarket uses a traditional linear motor to simultaneously charge and accelerate a capacitve slug. While extremely simple to operate, it has significant maintenance requirements, as the rails must be replaced and recalibrated frequently.",,,
-apex_arcspike,WEAPON,"Arcspike missiles use a ""dirty"" engine that builds up a significant graviton charge , which is then dispersed into the target on impact. Their high speed makes them very difficult to intercept.
+apex_arcspike,WEAPON,"Arcspike missiles use a ""dirty"" engine that builds up a significant graviton charge, which is then dispersed into the target on impact. Their high speed makes them very difficult to intercept.
 
-Rumor has it that the Arcspike was specifically engineered as a counter to Fortress Shield systems, to take down TriTachyon's most vaunted capable ship. While certainly highly effective against advanced shield systems, the Arcspike has yet to dethrone the ubiquitious Sabot SRM as a generalist shield-breaker.",,,
+Rumor has it that the Arcspike was specifically engineered as a counter to Fortress Shield systems, to take down TriTachyon's most vaunted capital ship. While certainly highly effective against advanced shield systems, the Arcspike has yet to dethrone the ubiquitious Sabot SRM as a generalist shield-breaker.",,,
 apex_arcspike_canister,WEAPON,"Launches an unpowered canister containing Arcspike SRMs. Rapidly disperses its payload when a target enters range.
 
 Remarkably simple to construct, Arcspike canisters consist of nothing more than an armored shell, ten Arcspike SRMs, and packing foam. Gunnery crews insist that despite the visual similarities, ordnance packing foam is completely unrelated to generic floral foam.",,,

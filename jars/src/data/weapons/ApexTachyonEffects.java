@@ -96,7 +96,7 @@ public class ApexTachyonEffects implements OnHitEffectPlugin, EveryFrameWeaponEf
         if (charge >= 1f && !firedThisCycle )
         {
             if (!POTATO_MODE)
-                ApexUtils.addWaveDistortion(barrelLoc, 20f, 35f, 0.2f);
+                ApexUtils.addWaveDistortion(barrelLoc, 10f, 15f, 0.15f);
             firedThisCycle = true;
         }
         if (firedThisCycle && (charge <= 0f || !weapon.isFiring()))

@@ -1,15 +1,12 @@
-package data.weapons;
+package data.weapons.proj;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
-import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
 import com.fs.starfarer.api.graphics.SpriteAPI;
-import com.fs.starfarer.api.loading.DamagingExplosionSpec;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
 import data.ApexUtils;
-import data.scripts.util.MagicRender;
 import org.lazywizard.lazylib.CollisionUtils;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
@@ -17,15 +14,14 @@ import org.lazywizard.lazylib.combat.CombatUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.List;
 
 import static plugins.ApexModPlugin.POTATO_MODE;
 
-public class ApexToroidMortarEffects implements OnFireEffectPlugin, OnHitEffectPlugin, EveryFrameWeaponEffectPlugin
+public class ApexToroidEffect implements OnFireEffectPlugin
 {
+    private static final SpriteAPI glowSprite = Global.getSettings().getSprite("campaignEntities", "fusion_lamp_glow");
+    private static final Vector2f spriteSize = new Vector2f(150f, 150f);
     public static final float MIN_ARC_DAMAGE = 0.1f;
     public static final float MAX_ARC_DAMAGE = 0.2f;
     public static final float ARC_RANGE = 200f;
@@ -33,48 +29,84 @@ public class ApexToroidMortarEffects implements OnFireEffectPlugin, OnHitEffectP
     public static final float ARC_MAX_INTERVAL = 0.5f;
     public static final float EXP_RANGE = 100f;
 
-    private HashMap<DamagingProjectileAPI, IntervalUtil> projMap = new HashMap<>();
-    // this is the hit glow sprite. don't ask.
-    private final SpriteAPI glowSprite = Global.getSettings().getSprite("campaignEntities", "fusion_lamp_glow");
-    private static final Vector2f spriteSize = new Vector2f(150f, 150f);
-
-    @Override
-    public void advance(float amount, CombatEngineAPI engine, WeaponAPI weapon)
-    {
-        List<DamagingProjectileAPI> toRemove = new ArrayList<>();
-
-        for (DamagingProjectileAPI proj : projMap.keySet())
-        {
-            projMap.get(proj).advance(amount / weapon.getShip().getMutableStats().getTimeMult().getModifiedValue());
-
-            // arc if the arc timer is up
-            if (projMap.get(proj).intervalElapsed())
-                arc(proj, engine);
-            if (proj.isFading() || proj.isExpired() || !engine.isInPlay(proj))
-            {
-                toRemove.add(proj);
-                if (!proj.didDamage())
-                    explode(proj, proj.getLocation(), engine, null);
-                engine.removeEntity(proj);
-            }
-        }
-        for (DamagingProjectileAPI proj : toRemove)
-            projMap.remove(proj);
-    }
-
     @Override
     public void onFire(DamagingProjectileAPI projectile, WeaponAPI weapon, CombatEngineAPI engine)
     {
-        projMap.put(projectile, new IntervalUtil(ARC_MIN_INTERVAL, ARC_MAX_INTERVAL));
-        engine.addLayeredRenderingPlugin(new ApexToroidGlowEffect(projectile));
+        engine.addLayeredRenderingPlugin(new ApexToroidPlugin(projectile));
     }
 
-    @Override
-    public void onHit(DamagingProjectileAPI projectile, CombatEntityAPI target, Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine)
+    private class ApexToroidPlugin extends BaseCombatLayeredRenderingPlugin
     {
-        if (target instanceof MissileAPI)
-            return;
-        explode(projectile, point, engine, target);
+        DamagingProjectileAPI proj;
+        IntervalUtil interval;
+        boolean isDone = false;
+
+        public ApexToroidPlugin() {}
+
+        public ApexToroidPlugin(DamagingProjectileAPI proj)
+        {
+            this.proj = proj;
+            this.interval = new IntervalUtil(ARC_MIN_INTERVAL, ARC_MAX_INTERVAL);
+        }
+
+        @Override
+        public void advance(float amount)
+        {
+            interval.advance(amount);
+            if (proj.getDamageTarget() instanceof ShipAPI)
+            {
+                explode(proj, proj.getLocation(), Global.getCombatEngine(), proj.getDamageTarget());
+                isDone = true;
+            }
+            if (interval.intervalElapsed())
+            {
+                arc(proj, Global.getCombatEngine());
+            }
+            if (!isDone && proj.didDamage() || proj.isExpired() || proj.isFading())
+            {
+                explode(proj, proj.getLocation(), Global.getCombatEngine(), null);
+                Global.getCombatEngine().removeEntity(proj);
+                isDone = true;
+            }
+        }
+
+        @Override
+        public void render(CombatEngineLayers layer, ViewportAPI viewport)
+        {
+            glowSprite.setSize(spriteSize.x, spriteSize.y);
+            glowSprite.setColor(proj.getProjectileSpec().getFringeColor());
+            glowSprite.setAlphaMult(proj.getBrightness() * 0.33f);
+            Vector2f adjustedPos = VectorUtils.rotate(new Vector2f(18f, 0f), proj.getFacing());
+            Vector2f.add(adjustedPos, proj.getLocation(), adjustedPos);
+            // rendering a glow sprite here, because the large projectile sprite makes it weirdly offset if I use a normal one
+            glowSprite.renderAtCenter(adjustedPos.x, adjustedPos.y);
+        }
+
+        @Override
+        public float getRenderRadius()
+        {
+            return 9001f;
+        }
+
+        protected EnumSet<CombatEngineLayers> layers = EnumSet.of(CombatEngineLayers.BELOW_INDICATORS_LAYER);
+
+        @Override
+        public EnumSet<CombatEngineLayers> getActiveLayers()
+        {
+            return layers;
+        }
+
+        @Override
+        public void init(CombatEntityAPI entity)
+        {
+            super.init(entity);
+        }
+
+        @Override
+        public boolean isExpired()
+        {
+            return isDone;
+        }
     }
 
     private static void explode(DamagingProjectileAPI projectile, Vector2f point, CombatEngineAPI engine, CombatEntityAPI target)
@@ -149,7 +181,6 @@ public class ApexToroidMortarEffects implements OnFireEffectPlugin, OnHitEffectP
                 targets.add(possibleTarget, 1f);
         }
 
-
         if (targets.isEmpty())
             return;
 
@@ -171,68 +202,5 @@ public class ApexToroidMortarEffects implements OnFireEffectPlugin, OnHitEffectP
                 projectile.getProjectileSpec().getFringeColor(),
                 Color.WHITE
         );
-    }
-
-    // used to render projectile glow in the right spot withough getting fucky because of time dilation
-    private class ApexToroidGlowEffect extends BaseCombatLayeredRenderingPlugin
-    {
-        DamagingProjectileAPI proj;
-
-        public ApexToroidGlowEffect() {}
-
-        public ApexToroidGlowEffect(DamagingProjectileAPI proj)
-        {
-            this.proj = proj;
-        }
-
-        @Override
-        public void advance(float amount) {}
-
-        @Override
-        public void render(CombatEngineLayers layer, ViewportAPI viewport)
-        {
-            glowSprite.setSize(spriteSize.x, spriteSize.y);
-            glowSprite.setColor(proj.getProjectileSpec().getFringeColor());
-            glowSprite.setAlphaMult(proj.getBrightness() * 0.33f);
-            Vector2f adjustedPos = VectorUtils.rotate(new Vector2f(18f, 0f), proj.getFacing());
-            Vector2f.add(adjustedPos, proj.getLocation(), adjustedPos);
-            // rendering a glow sprite here, because the large projectile sprite makes it weirdly offset if I use a normal one
-            /*MagicRender.singleframe(
-                    glowSprite,
-                    adjustedPos,
-                    spriteSize,
-                    0,
-                    proj.getProjectileSpec().getFringeColor(),
-                    true
-            );*/
-            glowSprite.renderAtCenter(adjustedPos.x, adjustedPos.y);
-
-        }
-
-        @Override
-        public float getRenderRadius()
-        {
-            return 9001f;
-        }
-
-        protected EnumSet<CombatEngineLayers> layers = EnumSet.of(CombatEngineLayers.BELOW_INDICATORS_LAYER);
-
-        @Override
-        public EnumSet<CombatEngineLayers> getActiveLayers()
-        {
-            return layers;
-        }
-
-        @Override
-        public void init(CombatEntityAPI entity)
-        {
-            super.init(entity);
-        }
-
-        @Override
-        public boolean isExpired()
-        {
-            return proj.isExpired() || proj.didDamage() || proj.isFading();
-        }
     }
 }
