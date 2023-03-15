@@ -1,8 +1,9 @@
 - chameleon support fighter: reduced weapon range from 1200 to 1000. I think I balanced these off of the xyphos having 1200 range? but these deal hard flux, so...
 - gecko interceptor: significantly increased rate of fire because they were getting bullied by cheaper interceptors
+- anole heavy fighter: weapons now generate flux, somewhat limiting sustained damage output
 - tachyon inverter: look, I was wrong when I increased it to 800 range. I'm sorry. It will happen again. It's 700 now.
 - gharial and komodo: reduced damper uptime from 5.2s to 3s.
-- apotheosis and apotheosis(RG): adjusted DP values- regular one was 37 and the RG one ws 38, despite being a downgrade. Regular is now 38, RG is now 37.
+- apotheosis and apotheosis(RG): adjusted DP values- regular one was 37 and the RG one was 38, despite being a downgrade. Regular is now 38, RG is now 37.
 - active flare projector: reduced number of flares for larger ships
 
 todo:
