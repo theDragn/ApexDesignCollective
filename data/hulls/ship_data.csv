@@ -34,7 +34,7 @@ Photon (P),apex_photon_p,Ultralight Transport,Apex Design Collective,apex_cruise
 # Fighters,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Whiptail,apex_fighter_whiptail,,Apex Design Collective,,,400,100,50,,10,0,,150,150,150,45,90,25,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,65000
 Tegu,apex_fighter_tegu,,Apex Design Collective,,,300,100,50,,10,0,,150,150,150,45,90,15,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,117
-Anole,apex_fighter_anole,,Apex Design Collective,apex_inertial_skimmer,,750,200,1000,,200,0,,175,175,175,90,180,15,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,420
+Anole,apex_fighter_anole,,Apex Design Collective,apex_inertial_skimmer,,750,200,350,,125,0,,175,175,175,90,180,15,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,420
 Gecko,apex_fighter_gecko,,Apex Design Collective,,,400,150,200,,75,0,,250,500,500,360,720,10,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,69
 Chameleon,apex_fighter_chameleon,,Apex Design Collective,,,600,100,300,,75,0,,175,175,175,180,360,20,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,69
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,,,,42069

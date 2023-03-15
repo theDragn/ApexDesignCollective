@@ -4,7 +4,7 @@
 	"hullName":"Backscatter",
 	"descriptionId":"apex_backscatter",
 	"tags":["no_sell","no_dealer","restricted"],
-	"addHints":["CIVILIAN"],
+	"addHints":["CIVILIAN","HIDE_IN_CODEX"],
 	"tech":"Apex Design Collective",
 	"fleetPoints":8,
 	"systemId":"apex_microburn",

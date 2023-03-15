@@ -4,7 +4,7 @@
     "fluxVents": 0,
     "goalVariant": false,
     "hullId": "apex_fighter_anole",
-    "hullMods":["no_weapon_flux"],
+    "hullMods":[],
     "permaMods": [],
     "sMods": [],
     "variantId": "apex_anole_fighter",
