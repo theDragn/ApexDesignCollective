@@ -1,6 +1,5 @@
 package plugins
 
-import apexsubs.ApexSpecLoadingUtils
 import com.fs.starfarer.api.BaseModPlugin
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.PluginPick
@@ -47,7 +46,6 @@ class ApexModPlugin : BaseModPlugin() {
             )
         }
 
-        ApexSpecLoadingUtils.loadSubsystemData();
         if (Global.getSettings().modManager.isModEnabled("nexerelin"))
         {
             if (Global.getSettings().getMissionScore("apex_4blackops") > 0) {

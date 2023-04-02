@@ -1,6 +1,6 @@
 package data.hullmods;
 
-import apexsubs.ApexSubsystemUtils;
+import activators.ActivatorManager;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.loading.WeaponSlotAPI;
@@ -9,7 +9,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.ApexUtils;
 import data.scripts.util.MagicIncompatibleHullmods;
-import data.subsystems.ApexFlareSubsystem;
+import data.subsystems.ApexFlareActivator;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -50,7 +50,8 @@ public class ApexFlareSystemHullmod extends BaseHullMod
                 );
             }
         }
-        ApexSubsystemUtils.queueSubsystemForShip(ship, ApexFlareSubsystem.class);
+
+        ActivatorManager.addActivator(ship, new ApexFlareActivator(ship));
     }
 
 

@@ -1,7 +1,6 @@
 package data.hullmods;
 
-import apexsubs.ApexSubsystemUtils;
-import com.fs.starfarer.api.Global;
+import activators.ActivatorManager;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
@@ -11,7 +10,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.ApexUtils;
 import data.scripts.util.MagicIncompatibleHullmods;
-import data.subsystems.ApexArmorRepairSubsystem;
+import data.subsystems.ApexArmorRepairActivator;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -113,7 +112,8 @@ public class ApexArmorRepairHullmod extends BaseHullMod
                 );
             }
         }
-        ApexSubsystemUtils.queueSubsystemForShip(ship, ApexArmorRepairSubsystem.class);
+
+        ActivatorManager.addActivator(ship, new ApexArmorRepairActivator(ship));
     }
 
 
