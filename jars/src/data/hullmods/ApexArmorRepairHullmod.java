@@ -26,33 +26,32 @@ public class ApexArmorRepairHullmod extends BaseHullMod
     public static final Map<HullSize, Float> regenMap = new HashMap<HullSize, Float>();
     static {
         regenMap.put(HullSize.DEFAULT, 0f);
-        regenMap.put(HullSize.FRIGATE, 50f);
+        regenMap.put(HullSize.FRIGATE, 75f);
         regenMap.put(HullSize.DESTROYER, 100f);
         regenMap.put(HullSize.CRUISER, 175f);
         regenMap.put(HullSize.CAPITAL_SHIP, 300f);
     }
 
-    // TODO: when 0.95.1 hits, make this increase DP too
     public static final Map<HullSize, Float> supplyCostMap = new HashMap<HullSize, Float>();
     static {
         supplyCostMap.put(HullSize.DEFAULT, 0f);
-        supplyCostMap.put(HullSize.FRIGATE, 2f);
-        supplyCostMap.put(HullSize.DESTROYER, 3f);
-        supplyCostMap.put(HullSize.CRUISER, 4f);
-        supplyCostMap.put(HullSize.CAPITAL_SHIP, 5f);
+        supplyCostMap.put(HullSize.FRIGATE, 1f);
+        supplyCostMap.put(HullSize.DESTROYER, 1f);
+        supplyCostMap.put(HullSize.CRUISER, 2f);
+        supplyCostMap.put(HullSize.CAPITAL_SHIP, 3f);
     }
 
     public static final Map<HullSize, Float> smodCostMap = new HashMap<HullSize, Float>();
     static {
         smodCostMap.put(HullSize.DEFAULT, 0f);
-        smodCostMap.put(HullSize.FRIGATE, 1f);
-        smodCostMap.put(HullSize.DESTROYER, 2f);
-        smodCostMap.put(HullSize.CRUISER, 2f);
-        smodCostMap.put(HullSize.CAPITAL_SHIP, 3f);
+        smodCostMap.put(HullSize.FRIGATE, 0f);
+        smodCostMap.put(HullSize.DESTROYER, 0f);
+        smodCostMap.put(HullSize.CRUISER, 0f);
+        smodCostMap.put(HullSize.CAPITAL_SHIP, 0f);
     }
 
     public static final float BASE_REGEN_DURATION = 10f; // time in seconds for regen to be applied
-    public static final float MAX_REGEN_LOCKON_RANGE = 1500f; // distance at which a repair target is considered in range
+    public static final float MAX_REGEN_LOCKON_RANGE = 2000f; // distance at which a repair target is considered in range
     public static final float MAX_REGEN_FRACTION = 0.75f; // can't regen armor to more than this fraction of the base amount
     public static final float BASE_COOLDOWN = 30f; // cooldown time
 

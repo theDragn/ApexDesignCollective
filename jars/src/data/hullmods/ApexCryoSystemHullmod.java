@@ -24,13 +24,10 @@ import static data.ApexUtils.text;
 public class ApexCryoSystemHullmod extends BaseHullMod
 {
 
-    public static final float CRYO_GENERATION_MULT = 1.3f;
     public static final float CRYO_BUFF_DURATION = 10f;
-    public static final float CRYO_BUFF_EFFECTIVENESS_VS_LARGER = 0.5f;
-    public static final float MAX_COOLANT_LOCKON_RANGE = 1500f; // distance at which a repair target is considered in range
+    public static final float MAX_COOLANT_LOCKON_RANGE = 2000f; // distance at which a repair target is considered in range
     public static final float BASE_COOLDOWN = 30f;
 
-    // TODO: when 0.95.1 hits, make this increase DP too
     public static final Map<HullSize, Float> supplyCostMap = new HashMap<HullSize, Float>();
     static {
         supplyCostMap.put(HullSize.DEFAULT, 0f);
@@ -45,23 +42,30 @@ public class ApexCryoSystemHullmod extends BaseHullMod
         smodCostMap.put(HullSize.DEFAULT, 0f);
         smodCostMap.put(HullSize.FRIGATE, 0f);
         smodCostMap.put(HullSize.DESTROYER, 0f);
-        smodCostMap.put(HullSize.CRUISER, 1f);
-        smodCostMap.put(HullSize.CAPITAL_SHIP, 2f);
+        smodCostMap.put(HullSize.CRUISER, 0f);
+        smodCostMap.put(HullSize.CAPITAL_SHIP, 0f);
     }
 
+    public static final Map<HullSize, Float> dissMap = new HashMap<HullSize, Float>();
+    static {
+        dissMap.put(HullSize.DEFAULT, 0f);
+        dissMap.put(HullSize.FRIGATE, 100f);
+        dissMap.put(HullSize.DESTROYER, 150f);
+        dissMap.put(HullSize.CRUISER, 200f);
+        dissMap.put(HullSize.CAPITAL_SHIP, 300f);
+    }
 
     public static final String line1 = "\n• " + text("cryop1")+
             "\n• " + text("repper2") +
             "\n• " + text("cryop2");
     public static final String line2 = "• " + text("cryop3");
     public static final String line3 = "• " + text("cryop4");
-    public static final String line4 = "• " + text("cryop5");
     public static final String[] line2sub = {
-            (int)(100f*CRYO_GENERATION_MULT - 100f) + "%",
-            (int) CRYO_BUFF_DURATION + ""
-    };
-    public static final String[] line4sub = {
-            (int)(100f- CRYO_BUFF_EFFECTIVENESS_VS_LARGER *100f) + "%"
+            dissMap.get(HullSize.FRIGATE).intValue()+ "",
+            dissMap.get(HullSize.DESTROYER).intValue() + "",
+            dissMap.get(HullSize.CRUISER).intValue() + "",
+            dissMap.get(HullSize.CAPITAL_SHIP).intValue() + "",
+            (int)CRYO_BUFF_DURATION + ""
     };
 
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<>();
@@ -131,7 +135,6 @@ public class ApexCryoSystemHullmod extends BaseHullMod
             tooltip.addPara(line1, 0f, Misc.getHighlightColor(), (int)BASE_COOLDOWN + " " + text("nozz8"));
             tooltip.addPara(line2, 0f, Misc.getHighlightColor(), line2sub);
             tooltip.addPara(line3, 0f);
-            tooltip.addPara(line4, 0f, Misc.getHighlightColor(), line4sub);
             TooltipMakerAPI text = tooltip.beginImageWithText("graphics/hullmods/apex_nozzle.png", 40);
             text.addPara(text("nozz1") + " " + nozzles + " " + text("nozz2"), 0, Misc.getHighlightColor(), nozzles + "", text("nozzOne"));
             tooltip.addImageWithText(pad);

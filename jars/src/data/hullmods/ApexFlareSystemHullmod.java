@@ -2,17 +2,20 @@ package data.hullmods;
 
 import apexsubs.ApexSubsystemUtils;
 import com.fs.starfarer.api.combat.BaseHullMod;
+import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
+import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.ApexUtils;
 import data.scripts.util.MagicIncompatibleHullmods;
-import data.subsystems.ApexFlareSubsystem;
+import data.subsystems.ApexFlareActivator;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import static data.ApexUtils.text;
@@ -24,8 +27,26 @@ public class ApexFlareSystemHullmod extends BaseHullMod
     {
         NUM_FLARES.put(ShipAPI.HullSize.FRIGATE, 2);
         NUM_FLARES.put(ShipAPI.HullSize.DESTROYER, 2);
-        NUM_FLARES.put(ShipAPI.HullSize.CRUISER, 3);
+        NUM_FLARES.put(ShipAPI.HullSize.CRUISER, 4);
         NUM_FLARES.put(ShipAPI.HullSize.CAPITAL_SHIP, 4);
+    }
+
+    public static final Map<ShipAPI.HullSize, Float> supplyCostMap = new HashMap<ShipAPI.HullSize, Float>();
+    static {
+        supplyCostMap.put(ShipAPI.HullSize.DEFAULT, 0f);
+        supplyCostMap.put(ShipAPI.HullSize.FRIGATE, 1f);
+        supplyCostMap.put(ShipAPI.HullSize.DESTROYER, 1f);
+        supplyCostMap.put(ShipAPI.HullSize.CRUISER, 2f);
+        supplyCostMap.put(ShipAPI.HullSize.CAPITAL_SHIP, 2f);
+    }
+
+    public static final Map<ShipAPI.HullSize, Float> smodCostMap = new HashMap<ShipAPI.HullSize, Float>();
+    static {
+        smodCostMap.put(ShipAPI.HullSize.DEFAULT, 0f);
+        smodCostMap.put(ShipAPI.HullSize.FRIGATE, 0f);
+        smodCostMap.put(ShipAPI.HullSize.DESTROYER, 0f);
+        smodCostMap.put(ShipAPI.HullSize.CRUISER, 0f);
+        smodCostMap.put(ShipAPI.HullSize.CAPITAL_SHIP, 0f);
     }
     public static final float BASE_COOLDOWN = 20f;
 
@@ -34,6 +55,22 @@ public class ApexFlareSystemHullmod extends BaseHullMod
     {
         BLOCKED_HULLMODS.add("apex_armor_repairer");
         BLOCKED_HULLMODS.add("apex_cryo_projector");
+    }
+
+    @Override
+    public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id)
+    {
+        if (stats.getVariant().getSMods().contains("apex_flare_system"))
+        {
+            stats.getSuppliesPerMonth().modifyFlat(id, smodCostMap.get(hullSize));
+            stats.getSuppliesToRecover().modifyFlat(id, smodCostMap.get(hullSize));
+            stats.getDynamic().getMod(Stats.DEPLOYMENT_POINTS_MOD).modifyFlat(id, smodCostMap.get(hullSize));
+        } else
+        {
+            stats.getSuppliesPerMonth().modifyFlat(id, supplyCostMap.get(hullSize));
+            stats.getSuppliesToRecover().modifyFlat(id, supplyCostMap.get(hullSize));
+            stats.getDynamic().getMod(Stats.DEPLOYMENT_POINTS_MOD).modifyFlat(id, supplyCostMap.get(hullSize));
+        }
     }
 
     @Override
@@ -57,6 +94,14 @@ public class ApexFlareSystemHullmod extends BaseHullMod
     @Override
     public String getDescriptionParam(int index, ShipAPI.HullSize hullSize)
     {
+        if (index == 0)
+            return supplyCostMap.get(ShipAPI.HullSize.FRIGATE).intValue() + "";
+        if (index == 1)
+            return supplyCostMap.get(ShipAPI.HullSize.DESTROYER).intValue() + "";
+        if (index == 2)
+            return supplyCostMap.get(ShipAPI.HullSize.CRUISER).intValue() + "";
+        if (index == 3)
+            return supplyCostMap.get(ShipAPI.HullSize.CAPITAL_SHIP).intValue() + "";
         return null;
     }
 
@@ -80,6 +125,13 @@ public class ApexFlareSystemHullmod extends BaseHullMod
                     0, Misc.getHighlightColor(),
                     nozzles + "", "" + NUM_FLARES.get(ship.getHullSize()));
             tooltip.addImageWithText(pad);
+            if (ship.getVariant().getSMods().contains("apex_flare_system"))
+            {
+                tooltip.addPara(text("nozz3") + " %s.", 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
+            } else
+            {
+                tooltip.addPara(text("nozz4") + " %s.",10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
+            }
         }
     }
 
