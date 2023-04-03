@@ -1,23 +1,8 @@
-- chameleon support fighter: reduced weapon range from 1200 to 1000. I think I balanced these off of the xyphos having 1200 range? but these deal hard flux, so...
-- gecko interceptor: significantly increased rate of fire because they were getting bullied by cheaper interceptors
-- anole heavy fighter: weapons now generate flux, somewhat limiting sustained damage output
-- tachyon inverter: look, I was wrong when I increased it to 800 range. I'm sorry. It will happen again. It's 700 now.
-- gharial and komodo: reduced damper uptime from 5.2s to 3s.
-- apotheosis and apotheosis(RG): adjusted DP values- regular one was 37 and the RG one was 38, despite being a downgrade. Regular is now 38, RG is now 37.
-- active flare projector: reduced number of flares for larger ships
+crocodile: +50 dissipation, +1000 max flux, +5 op
+alligator: +25 dissipation, +10 speed, +750 max flux
+sunbeam: +100 dissipation, +2000 max flux
+eidolon: +1000 max flux
 
-todo:
-- Mission ("Slugfest"): Capital on capital action. Both sides are playable in this one. Winning with a good score unlocks a start option for both factions. (apex oddy, tritach summit?)
-- fix cryocooled not blocking vaingloria armor
-- fix vayra's sector factions using fighter_doctrine skill
-- arcspike srm pod extra space after comma
-- gharial destroyer beamer autofit has LRPD
-- reduce distortion size on tachyon inverter
-
-Changes:
-- Tweaked tachyon inverter vfx
-= fixed a missing rank/post in a bounty
-- fixed a missing string in a hullmod
-- fixed a number of sprite offset issues (thanks nes!)
-- fix python with brdy_iwcannon/iwshard (ironweaver)
-
+armor repairer: DP cost reduced to 1/1/2/3 (same as cryocoolant), smod bonus removes the cost. Increased frigate repair amount. Increased targeting range to 2000.
+cryocoolant: smod bonus removes the cost, now provides 100/150/200/300 flat dissipation instead of 30% more. no longer penalized against larger targets. Increased targeting range to 2000.
+flares: added DP cost (1/1/2/2), smod bonus removes cost. Adjusted flare numbers to 2/2/4/4.

@@ -69,9 +69,8 @@
         # cryocoolant projector
         "cryop1":"Fires magnetically-guided blobs of cryogenic coolant that increase flux dissipation.",
         "cryop2":"Targets the selected ally, if in range. If no allied target is selected, targets allies with non-zero flux within range.",
-        "cryop3":"Projectiles increase flux dissipation by %s for %s seconds.",
+        "cryop3":"Projectiles increase flux dissipation by %s/%s/%s/%s for %s seconds, depending on the size of the source ship.",
         "cryop4":"Hitting an ally with multiple projectiles increases the duration of the buff, with diminishing returns.",
-        "cryop5":"Projectiles from smaller ships are %s less effective on larger ships.",
         # excession armor hullmod
         "exca1":"Maximum armor damage reduction is %s.",
         "exca2":"%s minimum armor rating.",
