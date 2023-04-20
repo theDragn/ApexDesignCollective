@@ -1,8 +1,10 @@
-crocodile: +50 dissipation, +1000 max flux, +5 op
-alligator: +25 dissipation, +10 speed, +750 max flux
+crocodile: +50 dissipation, +1000 max flux, +5 op. VLS ammo regen doubled.
+alligator: +25 dissipation, +750 max flux, +10 speed. 
 sunbeam: +100 dissipation, +2000 max flux
-eidolon: +1000 max flux
+eidolon: +1000 max flux.
+iguana: VLS ammo regen doubled.
 
 armor repairer: DP cost reduced to 1/1/2/3 (same as cryocoolant), smod bonus removes the cost. Increased frigate repair amount. Increased targeting range to 2000.
 cryocoolant: smod bonus removes the cost, now provides 100/150/200/300 flat dissipation instead of 30% more. no longer penalized against larger targets. Increased targeting range to 2000.
 flares: added DP cost (1/1/2/2), smod bonus removes cost. Adjusted flare numbers to 2/2/4/4.
+cryocooled armor: finally remembered to block vaingloria armor

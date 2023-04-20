@@ -30,6 +30,7 @@ public class ApexCryoArmor extends BaseHullMod
         // needed to be done
         BLOCKED_HULLMODS.add("monjeau_armour");
         BLOCKED_HULLMODS.add("apex_excession_armor");
+        BLOCKED_HULLMODS.add("eis_damperhull");
         // TODO: any others that need to be blocked?
     }
 
