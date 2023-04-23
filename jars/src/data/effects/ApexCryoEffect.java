@@ -36,10 +36,7 @@ public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
         this.target = target;
         this.sourceSize = sourceSize;
         this.numCombinations = 0;
-        if (ApexCryoSubsystem.shouldReduceBonus(target.getHullSize(), sourceSize))
-            effect = 1f - (1f - ApexCryoSystemHullmod.CRYO_GENERATION_MULT) * ApexCryoSystemHullmod.CRYO_BUFF_EFFECTIVENESS_VS_LARGER;
-        else
-            effect = ApexCryoSystemHullmod.CRYO_GENERATION_MULT;
+        this.effect = ApexCryoSystemHullmod.dissMap.get(target.getHullSize());
         // check to see if ship already has a regen effect going
         if (effectMap.containsKey(target))
         {
@@ -60,9 +57,7 @@ public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
         numCombinations++;
         remainingDuration += ApexCryoSystemHullmod.CRYO_BUFF_DURATION/(2.5 * numCombinations);
 
-        // if the target isn't larger than the new effect's source size
-        if (!ApexCryoSubsystem.shouldReduceBonus(target.getHullSize(), newEffect.sourceSize))
-            effect = ApexCryoSystemHullmod.CRYO_GENERATION_MULT;
+        this.effect = Math.max(newEffect.effect, this.effect);
     }
 
     @Override

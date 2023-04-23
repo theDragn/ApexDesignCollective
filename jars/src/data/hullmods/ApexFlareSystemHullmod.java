@@ -11,7 +11,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.ApexUtils;
 import data.scripts.util.MagicIncompatibleHullmods;
-import data.subsystems.ApexFlareActivator;
+import data.subsystems.ApexFlareSubsystem;
 
 import java.util.HashMap;
 import java.util.HashSet;
