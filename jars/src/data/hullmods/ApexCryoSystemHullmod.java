@@ -173,7 +173,7 @@ public class ApexCryoSystemHullmod extends BaseHullMod
             return text("nozz5");
         }
         int nozzles = 0;
-        ApexUtils.getNumNozzles(ship);
+        nozzles = ApexUtils.getNumNozzles(ship);
         if (nozzles == 0)
             return text("nozz6");
         for (String hullmod : BLOCKED_HULLMODS)
