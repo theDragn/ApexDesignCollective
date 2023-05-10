@@ -22,7 +22,7 @@ public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin
     private CombatEngineAPI engine;
     private IntervalUtil update = new IntervalUtil(0.25f, 0.75f);
     private List<ShipAPI> shipsWithSystem = new ArrayList<>();
-
+    private boolean didInit = false;
 
     public ApexDefenseUplinkPlugin()
     {
@@ -30,19 +30,18 @@ public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin
     }
 
     @Override
-    public void init(CombatEngineAPI engine)
-    {
-        this.engine = engine;
-        for (ShipAPI ship : engine.getShips())
-        {
-            if (ship.getSystem() != null && ship.getSystem().getSpecAPI().getId().equals("apex_uplink"))
-                shipsWithSystem.add(ship);
-        }
-    }
-
-    @Override
     public void advance(float amount, List<InputEventAPI> events)
     {
+        if (!didInit)
+        {
+            didInit = true;
+            this.engine = Global.getCombatEngine();
+            for (ShipAPI ship : engine.getShips())
+            {
+                if (ship.getSystem() != null && ship.getSystem().getSpecAPI().getId().equals("apex_uplink"))
+                    shipsWithSystem.add(ship);
+            }
+        }
         // check list of ships that we know have the system every frame
         // this is still O(n^2) but it's a lot better than checking all ships for the system presence/activation every frame
         update.advance(amount);
@@ -122,5 +121,10 @@ public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin
     public void processInputPreCoreControls(float amount, List<InputEventAPI> events)
     {
 
+    }
+
+    @Override
+    public void init(CombatEngineAPI engine) {
+        // deprecated
     }
 }

@@ -1,17 +1,15 @@
 package data.hullmods;
 
-import apexsubs.ApexSubsystemUtils;
-import com.fs.starfarer.api.Global;
+import activators.ActivatorManager;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
-import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.ApexUtils;
-import data.scripts.util.MagicIncompatibleHullmods;
-import data.subsystems.ApexCryoSubsystem;
+import org.magiclib.util.MagicIncompatibleHullmods;
+import data.activators.ApexCryoActivator;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -105,7 +103,7 @@ public class ApexCryoSystemHullmod extends BaseHullMod
                 );
             }
         }
-        ApexSubsystemUtils.queueSubsystemForShip(ship, ApexCryoSubsystem.class);
+        ActivatorManager.addActivator(ship, new ApexCryoActivator(ship));
     }
 
 

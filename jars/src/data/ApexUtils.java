@@ -8,7 +8,7 @@ import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.hullmods.ApexFastNozzles;
 import data.hullmods.ApexSlowNozzles;
-import data.scripts.plugins.MagicTrailPlugin;
+import org.magiclib.plugins.MagicTrailPlugin;
 import org.dark.shaders.distortion.DistortionShader;
 import org.dark.shaders.distortion.WaveDistortion;
 import org.dark.shaders.light.LightShader;

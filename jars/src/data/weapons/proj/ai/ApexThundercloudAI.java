@@ -3,7 +3,7 @@ package data.weapons.proj.ai;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.util.Misc;
-import data.scripts.util.MagicTargeting;
+import org.magiclib.util.MagicTargeting;
 import data.weapons.proj.ApexThundercloudMineExpScript;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;

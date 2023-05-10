@@ -7,7 +7,7 @@ import com.fs.starfarer.api.loading.ProjectileSpawnType;
 import com.fs.starfarer.api.util.FaderUtil;
 import com.fs.starfarer.api.util.Misc;
 import data.ApexUtils;
-import data.scripts.plugins.MagicTrailPlugin;
+import org.magiclib.plugins.MagicTrailPlugin;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lwjgl.util.vector.Vector2f;
@@ -386,7 +386,7 @@ public class ApexTachyonShredder extends BaseCombatLayeredRenderingPlugin implem
         }
 
         //Then, actually spawn a trail
-        MagicTrailPlugin.AddTrailMemberAdvanced(
+        MagicTrailPlugin.addTrailMemberAdvanced(
                 proj,
                 idMap.get(proj),
                 sprite,

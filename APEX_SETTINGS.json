@@ -12,21 +12,10 @@
     # You can turn this off if you'd rather not have the faction (or its planets) spawn. Not sure why you'd want that, but the option's a holdover from some testing, so I've left it in.
     "generateSystems":true,
 
-    # sets whether the Harmonic Dart Cannon should show its debuff indicator ring/text.
-    "showDartgunOverlay":false,
-
-    # keybinds for nozzle subsystems. If you've got dronelib enabled, it'll ignore this and use dronelib's keybind settings instead to avoid conflicts.
-    # main keybind for nozzle system. Personally, I set fighter engagement toggle to Y, which frees up Z for subsystems.
-    "subsystemKeybind1":"H",
-    # you normally can't get more than one nozzle subsystem...
-    # but in case you do (through some cross-mod interaction), your second and third ones will use these keys. Again, if you've got dronelib enabled, it'll use those keybinds instead.
-    "subsystemKeybind2":"J",
-    "subsystemKeybind3":"N",
-
     # added due to a request
     # causes AI ships with the Travel Drive system to turn it on at the earliest possible moment, and never turn it off.
     "eurobeatMode":false,
 
     # causes the Excession to ID your fleet like the Ziggurat. Only takes effect when the ship is first given to you; changing it later will have no effect.
-    "excessionID":true,
+    "excessionID":true
 }

@@ -1,6 +1,5 @@
 package plugins
 
-import apexsubs.ApexSpecLoadingUtils
 import com.fs.starfarer.api.BaseModPlugin
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.PluginPick
@@ -47,7 +46,6 @@ class ApexModPlugin : BaseModPlugin() {
             )
         }
 
-        ApexSpecLoadingUtils.loadSubsystemData();
         if (Global.getSettings().modManager.isModEnabled("nexerelin"))
         {
             if (Global.getSettings().getMissionScore("apex_4blackops") > 0) {
@@ -79,13 +77,12 @@ class ApexModPlugin : BaseModPlugin() {
     }
 
     override fun onGameLoad(newGame: Boolean) {
-        var hasApex = false
         /*for (system in Global.getSector().getStarSystems()) {
             if (system.baseName.equals("Vela")) {
                 hasApex = true
             }
         }*/
-        hasApex = SharedData.getData().personBountyEventData.participatingFactions.contains("apex_design")
+        val hasApex = SharedData.getData().personBountyEventData.participatingFactions.contains("apex_design")
         if (!hasApex) {
             ApexSectorGenerator().generate(Global.getSector())
             ApexSectorGenerator.createInitialPeople()
@@ -134,8 +131,6 @@ class ApexModPlugin : BaseModPlugin() {
         @JvmField
         var GENERATE_SYSTEMS = false
 
-        @JvmField
-        var SHOW_DARTGUN_OVERLAY = false
 
         @JvmField
         var EUROBEAT_MODE = false;
@@ -150,7 +145,6 @@ class ApexModPlugin : BaseModPlugin() {
             loaded = true
             POTATO_MODE = settings.getBoolean("potatoMode")
             GENERATE_RELICS = settings.getBoolean("generateRelics")
-            SHOW_DARTGUN_OVERLAY = settings.getBoolean("showDartgunOverlay")
             EUROBEAT_MODE = settings.getBoolean("eurobeatMode")
             EXCESSION_ID = settings.getBoolean("excessionID")
             try {

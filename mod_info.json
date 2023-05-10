@@ -4,7 +4,7 @@
 	"author":"theDragn",
 	"version":"1.1.1a",
 	"description":"A collectivist faction that focuses on ultra-modern, high-performance ships and remote support systems.",
-	"gameVersion":"0.95.1a-RC6",
+	"gameVersion":"0.96a-RC8",
 	"jars":["jars/ADC.jar"],
 	"dependencies": [
         {
@@ -18,6 +18,10 @@
 		{
 			"id": "shaderLib",
 			"name": "GraphicsLib"
+		},
+		{
+			"id": "combatactivators",
+			"name": "Combat Activators"
 		}
     ],
 	"modPlugin":"plugins.ApexModPlugin"

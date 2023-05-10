@@ -1,7 +1,4 @@
 {
-  "plugins":{
-    "ApexSubsystemCombatManager":"apexsubs.ApexSubsystemCombatManager"
-  },
 	"designTypeColors":{
 	  "Apex Design Collective":[72,148,78,255]
 	},

@@ -58,20 +58,17 @@ public class ApexThundercloudMineExpScript implements EveryFrameCombatPlugin
     }
 
     @Override
-    public void renderInWorldCoords(ViewportAPI viewport)
-    {
+    public void renderInWorldCoords(ViewportAPI viewport) {
 
     }
 
     @Override
-    public void renderInUICoords(ViewportAPI viewport)
-    {
+    public void renderInUICoords(ViewportAPI viewport) {
 
     }
 
     @Override
-    public void init(CombatEngineAPI engine)
-    {
-
+    public void init(CombatEngineAPI engine) {
+        // this is deprecated, apparently
     }
 }

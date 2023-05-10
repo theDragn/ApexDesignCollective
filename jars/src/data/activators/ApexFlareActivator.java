@@ -1,38 +1,45 @@
-package data.subsystems;
+package data.activators;
 
-import apexsubs.ApexBaseSubsystem;
+import activators.CombatActivator;
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.combat.MutableShipStatsAPI;
-import com.fs.starfarer.api.impl.campaign.ids.Skills;
+import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
 import data.ApexUtils;
-import data.hullmods.ApexFastNozzles;
 import org.lazywizard.lazylib.combat.AIUtils;
 
 import static data.ApexUtils.text;
 import static data.hullmods.ApexFlareSystemHullmod.BASE_COOLDOWN;
 import static data.hullmods.ApexFlareSystemHullmod.NUM_FLARES;
 
-public class ApexFlareSubsystem extends ApexBaseSubsystem
+public class ApexFlareActivator extends CombatActivator
 {
-    public static final String SUBSYSTEM_ID = "apex_flaresubsystem"; //this should match the id in the csv
-
-    private boolean runOnce = false;
     private int firedFlares = 0;
     private IntervalUtil frameTracker = new IntervalUtil(0.1f, 0.1f);
     private IntervalUtil updateTimer = new IntervalUtil(0.33f, 0.66f);
 
-    public ApexFlareSubsystem()
-    {
-        super(SUBSYSTEM_ID);
+    public ApexFlareActivator(ShipAPI ship) {
+        super(ship);
     }
 
     @Override
-    public void apply(MutableShipStatsAPI stats, String id, SubsystemState state, float effectLevel)
+    public float getBaseActiveDuration() {
+        return 1f;
+    }
+
+    @Override
+    public float getBaseCooldownDuration() {
+        return 19f;
+    }
+
+    @Override
+    public void advance(float amount)
     {
-        frameTracker.advance(Global.getCombatEngine().getElapsedInLastFrame());
+        if (!isActive())
+            return;
+
+        frameTracker.advance(amount);
         if (firedFlares != NUM_FLARES.get(ship.getHullSize()) && frameTracker.intervalElapsed())
         {
             for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
@@ -49,28 +56,16 @@ public class ApexFlareSubsystem extends ApexBaseSubsystem
     }
 
     @Override
-    public void unapply(MutableShipStatsAPI mutableShipStatsAPI, String s)
-    {
+    public void onFinished() {
         if (firedFlares != 0)
         {
             firedFlares = 0;
-            setCooldownTime(ship.getMutableStats().getSystemCooldownBonus().computeEffective(BASE_COOLDOWN * ApexUtils.getNozzleCooldownMult(ship)));
+            setCooldownDuration(ship.getMutableStats().getSystemCooldownBonus().computeEffective(BASE_COOLDOWN * ApexUtils.getNozzleCooldownMult(ship)), false);
         }
     }
 
     @Override
-    public void aiInit()
-    {
-    }
-
-    @Override
-    public String getStatusString()
-    {
-        return null;
-    }
-
-    @Override
-    public String getInfoString()
+    public String getStateText()
     {
         if (isOn()) return text("repair2");
         else if (isCooldown()) return text("repair3");
@@ -79,38 +74,21 @@ public class ApexFlareSubsystem extends ApexBaseSubsystem
     }
 
     @Override
-    public String getFlavourString()
+    public String getDisplayText()
     {
         return text("flaresys1");
     }
 
     @Override
-    public int getNumGuiBars()
-    {
-        return 1;
-    }
-
-    @Override
-    public void aiUpdate(float amount)
+    public boolean shouldActivateAI(float amount)
     {
         updateTimer.advance(amount);
-        if (ship == null || !ship.isAlive() || !state.equals(SubsystemState.OFF))
-            return;
+        if (ship == null || !ship.isAlive() || !state.equals(State.READY))
+            return false;
         if (!updateTimer.intervalElapsed())
-            return;
-        float damage = 0;
+            return false;
         if (AIUtils.getNearbyEnemyMissiles(ship, 750).size() > 0)
-            activate();
-    }
-    @Override
-    public boolean canUseWhileOverloaded()
-    {
-        return false;
-    }
-
-    @Override
-    public boolean canUseWhileVenting()
-    {
+            return true;
         return false;
     }
 }

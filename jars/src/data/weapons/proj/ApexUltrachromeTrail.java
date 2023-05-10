@@ -5,7 +5,7 @@ import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.graphics.SpriteAPI;
 import com.fs.starfarer.api.loading.ProjectileSpawnType;
 import com.fs.starfarer.api.util.Misc;
-import data.scripts.plugins.MagicTrailPlugin;
+import org.magiclib.plugins.MagicTrailPlugin;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lwjgl.util.vector.Vector2f;
@@ -178,7 +178,7 @@ public class ApexUltrachromeTrail implements OnFireEffectPlugin, EveryFrameWeapo
         }
 
         //Then, actually spawn a trail
-        MagicTrailPlugin.AddTrailMemberAdvanced(
+        MagicTrailPlugin.addTrailMemberAdvanced(
                 proj,
                 idMap.get(proj),
                 sprite,
