@@ -8,7 +8,6 @@ import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.hullmods.ApexCryoSystemHullmod;
-import data.subsystems.ApexCryoSubsystem;
 
 import java.util.HashMap;
 import java.util.List;
@@ -80,11 +79,11 @@ public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
         target.getMutableStats().getEnergyWeaponFluxCostMod().modifyMult("apexCryo", effect);
         target.getMutableStats().getMissileWeaponFluxCostMod().modifyMult("apexCryo", effect);
         target.getMutableStats().getShieldUpkeepMult().modifyMult("apexCryo", effect);*/
-        target.getMutableStats().getFluxDissipation().modifyMult("apexCryo", effect);
+        target.getMutableStats().getFluxDissipation().modifyFlat("apexCryo", effect);
 
         if (engine.getPlayerShip() == target && remainingDuration > 0f)
         {
-            engine.maintainStatusForPlayerShip("apex_cryo", "graphics/icons/buffs/apex_cryo.png", "+" + (int)(effect*100f-100f) + "% " + text("cryo1") , text("cryo2") + ": " + Misc.getRoundedValue(remainingDuration), false);
+            engine.maintainStatusForPlayerShip("apex_cryo", "graphics/icons/buffs/apex_cryo.png", "+" + (int)(effect) + " " + text("cryo1") , text("cryo2") + ": " + Misc.getRoundedValue(remainingDuration), false);
         }
     }
 
@@ -95,6 +94,6 @@ public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
         target.getMutableStats().getEnergyWeaponFluxCostMod().unmodify("apexCryo");
         target.getMutableStats().getMissileWeaponFluxCostMod().unmodify("apexCryo");
         target.getMutableStats().getShieldUpkeepMult().unmodify("apexCryo");*/
-        target.getMutableStats().getFluxDissipation().modifyMult("apexCryo", effect);
+        target.getMutableStats().getFluxDissipation().modifyFlat("apexCryo", effect);
     }
 }
