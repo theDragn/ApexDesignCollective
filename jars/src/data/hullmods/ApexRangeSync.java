@@ -105,13 +105,24 @@ public class ApexRangeSync extends BaseHullMod
             }
         }
         tooltip.addPara("\n%s", 0, incompatTextColor, text("rngsync1"));
-        if (ship.getVariant().getSMods().contains("apex_range_sync"))
+        /*if (ship.getVariant().getSMods().contains("apex_range_sync"))
         {
             tooltip.addPara(text("rngsync2"), 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), (int) (SMOD_MAX_RANGE_BOOST * 100f - 100f) + "%");
         } else
         {
             tooltip.addPara(text("rngsync3"), 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), (int) (SMOD_MAX_RANGE_BOOST * 100f - 100f) + "%");
-        }
+        }*/
+    }
+
+    @Override
+    public String getSModDescriptionParam(int index, ShipAPI.HullSize hullSize) {
+        if (index == 0) return (int)(SMOD_MAX_RANGE_BOOST * 100f - 100f) + "%";
+        return null;
+    }
+
+    @Override
+    public boolean hasSModEffect() {
+        return true;
     }
 
     // they call me Janky Kang

@@ -31,4 +31,21 @@ public class ApexQGAmplifier extends BaseHullMod
             return (int)(QGPD_EXTRA_ENERGY) + " " + text("coamp4");
         return null;
     }
+
+    @Override
+    public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
+        boolean sMod = isSMod(stats);
+        if (sMod) stats.getProjectileSpeedMult().modifyMult(id, 1.15f);
+    }
+
+    @Override
+    public boolean hasSModEffect() {
+        return true;
+    }
+
+    @Override
+    public String getSModDescriptionParam(int index, ShipAPI.HullSize hullSize) {
+        if (index == 0) return "15%";
+        return null;
+    }
 }

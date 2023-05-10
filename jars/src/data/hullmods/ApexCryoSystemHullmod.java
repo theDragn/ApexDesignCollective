@@ -136,14 +136,19 @@ public class ApexCryoSystemHullmod extends BaseHullMod
             TooltipMakerAPI text = tooltip.beginImageWithText("graphics/hullmods/apex_nozzle.png", 40);
             text.addPara(text("nozz1") + " " + nozzles + " " + text("nozz2"), 0, Misc.getHighlightColor(), nozzles + "", text("nozzOne"));
             tooltip.addImageWithText(pad);
-            if (ship.getVariant().getSMods().contains("apex_cryo_projector"))
+            /*if (ship.getVariant().getSMods().contains("apex_cryo_projector"))
             {
                 tooltip.addPara(text("nozz3") + " %s.", 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
             } else
             {
                 tooltip.addPara(text("nozz4") + " %s.",10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
-            }
+            }*/
         }
+    }
+
+    @Override
+    public boolean hasSModEffect() {
+        return true;
     }
 
     public boolean isApplicableToShip(ShipAPI ship)

@@ -1,6 +1,6 @@
 Credits
 Gwyvern: Sprites
-Tomatopaste: dronelib code
+President Matt Damon: help for combat activators implementation
 Mayu: A few hullmod sprites
 Mesotronik: a lot of the good sounds and none of the bad ones
 Harmful Mechanic: Assets used for blueprint pack icons.

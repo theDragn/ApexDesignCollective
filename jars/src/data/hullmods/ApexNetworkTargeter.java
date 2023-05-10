@@ -53,7 +53,7 @@ public class ApexNetworkTargeter extends BaseHullMod
                 );
             }
         }
-        ship.addListener(new ApexSonoraRangeBuff(getOp(ship)));
+        ship.addListener(new ApexUplinkRangeMod(getOp(ship)));
     }
 
     @Override
@@ -102,10 +102,10 @@ public class ApexNetworkTargeter extends BaseHullMod
         }
     }
 
-    public static class ApexSonoraRangeBuff implements WeaponBaseRangeModifier
+    public static class ApexUplinkRangeMod implements WeaponBaseRangeModifier
     {
         private int op = 0;
-        public ApexSonoraRangeBuff(int op)
+        public ApexUplinkRangeMod(int op)
         {
             this.op = op;
         }

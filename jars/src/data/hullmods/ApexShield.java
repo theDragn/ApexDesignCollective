@@ -315,7 +315,7 @@ public class ApexShield extends BaseHullMod
             }
             tooltip.addPara("%s", 0, incompatTextColor, "• " + text("geo9"));
 
-            if (ship.getVariant().getSMods().contains("apex_geodesic_shield"))
+            /*if (ship.getVariant().getSMods().contains("apex_geodesic_shield"))
             {
                 tooltip.addPara(text("geo10"),
                         10f,
@@ -328,8 +328,19 @@ public class ApexShield extends BaseHullMod
                         10f,
                         Misc.getHighlightColor(),
                         (int) (SMOD_ARC_BONUS) + "", (int) (UNFOLD_BONUS) + "%");
-            }
+            }*/
         }
+    }
+
+    @Override
+    public String getSModDescriptionParam(int index, ShipAPI.HullSize hullSize) {
+        if (index == 0) return (int)(SMOD_ARC_BONUS) + "";
+        return null;
+    }
+
+    @Override
+    public boolean hasSModEffect() {
+        return true;
     }
 
     public static void spawnGeodesicSpall(Vector2f point, CombatEntityAPI target, DamageAPI damage)

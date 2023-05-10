@@ -125,14 +125,18 @@ public class ApexFlareSystemHullmod extends BaseHullMod
                     0, Misc.getHighlightColor(),
                     nozzles + "", "" + NUM_FLARES.get(ship.getHullSize()));
             tooltip.addImageWithText(pad);
-            if (ship.getVariant().getSMods().contains("apex_flare_system"))
+            /*if (ship.getVariant().getSMods().contains("apex_flare_system"))
             {
                 tooltip.addPara(text("nozz3") + " %s.", 10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
             } else
             {
                 tooltip.addPara(text("nozz4") + " %s.",10f, Misc.getPositiveHighlightColor(), Misc.getHighlightColor(), smodCostMap.get(hullSize).intValue() + "");
-            }
+            }*/
         }
+    }
+    @Override
+    public boolean hasSModEffect() {
+        return true;
     }
 
     public boolean isApplicableToShip(ShipAPI ship)
