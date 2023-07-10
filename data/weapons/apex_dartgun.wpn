@@ -4,7 +4,6 @@
   "projectileSpecId": "apex_dartgun_shot",
   "type": "BALLISTIC",
   "size": "LARGE",
-  "everyFrameEffect": "data.weapons.ApexDartgunMuzzleFlash",
   "turretSprite": "graphics/weapons/apex_dartgun_t.png",
   "turretGunSprite": "graphics/weapons/apex_dartgun_t_recoil.png",
   "hardpointSprite": "graphics/weapons/apex_dartgun_h.png",
@@ -64,5 +63,5 @@
     ]
   },
   "textureType": ROUGH,
-  "fireSoundTwo": "heavy_mortar_fire"
+  "fireSoundTwo": "heavy_mauler_fire",
 }

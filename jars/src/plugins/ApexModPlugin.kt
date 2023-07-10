@@ -131,12 +131,11 @@ class ApexModPlugin : BaseModPlugin() {
         @JvmField
         var GENERATE_SYSTEMS = false
 
+        @JvmField
+        var EUROBEAT_MODE = false
 
         @JvmField
-        var EUROBEAT_MODE = false;
-
-        @JvmField
-        var EXCESSION_ID = true;
+        var EXCESSION_ID = true
 
         @Throws(IOException::class, JSONException::class)
         private fun loadApexSettings() {
@@ -149,7 +148,7 @@ class ApexModPlugin : BaseModPlugin() {
             EXCESSION_ID = settings.getBoolean("excessionID")
             try {
                 // die mad, fash
-                Global.getSettings().scriptClassLoader.loadClass(xd("ZGF0YS5zY3JpcHRzLk1hZ2ljX21vZFBsdWdpbg=="))
+                Global.getSettings().scriptClassLoader.loadClass(xd("b3JnLm1hZ2ljbGliLk1hZ2ljX21vZFBsdWdpbg=="))
                 GENERATE_SYSTEMS = settings.getBoolean("generateSystems")
                 Global.getSettings().scriptClassLoader.loadClass(xd("ZGF0YS5zY3JpcHRzLk5HT01vZFBsdWdpbg=="))
                 GENERATE_SYSTEMS = false
