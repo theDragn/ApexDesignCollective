@@ -15,7 +15,7 @@ import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 import static plugins.ApexModPlugin.POTATO_MODE;
 
 public class ApexGravityShield extends BaseShipSystemScript

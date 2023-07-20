@@ -3,13 +3,12 @@ package data.activators;
 import activators.CombatActivator;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
-import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
-import data.ApexUtils;
+import utils.ApexUtils;
 import data.weapons.proj.ApexCryoBlobScript;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
@@ -18,7 +17,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 import static data.hullmods.ApexCryoSystemHullmod.MAX_COOLANT_LOCKON_RANGE;
 import static data.hullmods.ApexCryoSystemHullmod.BASE_COOLDOWN;
 
@@ -53,10 +52,9 @@ public class ApexCryoActivator extends CombatActivator
         didThings = false;
         setCooldownDuration(ship.getMutableStats().getSystemCooldownBonus().computeEffective(BASE_COOLDOWN), false);
         WeightedRandomPicker<ShipAPI> buffTargets = new WeightedRandomPicker<>();
-        if (ship.getShipTarget() != null && ship.getShipTarget().getOwner() == ship.getOwner() && MathUtils.getDistanceSquared(ship.getShipTarget(), ship) < lockonRange && !ship.getShipTarget().getHullSize().equals(ShipAPI.HullSize.FIGHTER))
+        if (ship.getShipTarget() != null && ship.getShipTarget().getOwner() == ship.getOwner() && MathUtils.getDistance(ship.getShipTarget(), ship) < lockonRange && !ship.getShipTarget().getHullSize().equals(ShipAPI.HullSize.FIGHTER))
         {
-            float weight = ship.getShipTarget().getFluxLevel();
-            buffTargets.add(ship.getShipTarget(), weight + 5000);
+            buffTargets.add(ship.getShipTarget(), 5000);
         } else
         {
             List<ShipAPI> allies = AIUtils.getNearbyAllies(ship, lockonRange);
@@ -65,8 +63,6 @@ public class ApexCryoActivator extends CombatActivator
                 if (ally.getHullSize().equals(ShipAPI.HullSize.FIGHTER))
                     continue;
                 float weight = Math.min(ally.getFluxLevel(), 0.2f);
-                if (shouldReduceBonus(ally.getHullSize(), ship.getHullSize()))
-                    weight *= 0.75f;
                 buffTargets.add(ally, weight);
             }
         }
@@ -149,8 +145,9 @@ public class ApexCryoActivator extends CombatActivator
     }
 
     @Override
-    protected void initialized()
+    protected void init()
     {
+        super.init();
         lockonRange = ship.getMutableStats().getSystemRangeBonus().computeEffective(MAX_COOLANT_LOCKON_RANGE);
     }
 
@@ -193,21 +190,5 @@ public class ApexCryoActivator extends CombatActivator
             }
         }
         return false;
-    }
-
-    /**
-     * Returns true if a is larger than b, otherwise returns false
-     */
-    public static boolean shouldReduceBonus(ShipAPI.HullSize targetSize, ShipAPI.HullSize sourceSize)
-    {
-        if (targetSize == ShipAPI.HullSize.FRIGATE)
-            return false;
-        else if (targetSize == ShipAPI.HullSize.DESTROYER && sourceSize != ShipAPI.HullSize.FRIGATE)
-            return false;
-        else if (targetSize == ShipAPI.HullSize.CRUISER && sourceSize != ShipAPI.HullSize.FRIGATE && sourceSize != ShipAPI.HullSize.DESTROYER)
-            return false;
-        else if (targetSize == ShipAPI.HullSize.CAPITAL_SHIP && sourceSize == ShipAPI.HullSize.CAPITAL_SHIP)
-            return false;
-        return true;
     }
 }

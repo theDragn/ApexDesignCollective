@@ -6,7 +6,7 @@ import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
-import data.ApexUtils;
+import utils.ApexUtils;
 import data.hullmods.ApexArmorRepairHullmod;
 import data.weapons.proj.ApexRepairBlobScript;
 import org.lazywizard.lazylib.MathUtils;
@@ -16,7 +16,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 import static data.hullmods.ApexArmorRepairHullmod.BASE_COOLDOWN;
 import static data.hullmods.ApexArmorRepairHullmod.MAX_REGEN_LOCKON_RANGE;
 
@@ -40,7 +40,8 @@ public class ApexArmorRepairActivator extends CombatActivator {
     }
 
     @Override
-    protected void initialized() {
+    protected void init() {
+        super.init();
         lockonRange = ship.getMutableStats().getSystemRangeBonus().computeEffective(MAX_REGEN_LOCKON_RANGE);
     }
 

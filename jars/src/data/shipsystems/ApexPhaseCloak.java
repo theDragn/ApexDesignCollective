@@ -9,7 +9,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 // mostly a copy of vanilla phase cloak
 // just needs a different max speed/time mult

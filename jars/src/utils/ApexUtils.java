@@ -1,4 +1,4 @@
-package data;
+package utils;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
@@ -113,10 +113,9 @@ public class ApexUtils
         }
         return damageTypeMult;
     }
-    // code provided by tomatopaste
 
     /**
-     *
+     * needs fixing, ship bounds aren't actually updated every frame, as far as I can tell
      * @param entity
      * @param center center point of arc
      * @param centerAngle angle from center point to center of the edge
@@ -125,7 +124,7 @@ public class ApexUtils
      */
     public static boolean isEntityInArc(CombatEntityAPI entity, Vector2f center, float centerAngle, float arcDeviation)
     {
-        if (entity instanceof ShipAPI)
+        if (false) //entity instanceof ShipAPI)
         {
             Vector2f point = getNearestPointOnShipBounds((ShipAPI) entity, center);
             return Misc.isInArc(centerAngle, arcDeviation * 2f, center, point);
@@ -150,8 +149,8 @@ public class ApexUtils
             return getNearestPointOnCollisionRadius(point, ship);
         } else
         {
-            Vector2f closest = ship.getLocation();
-            float distSquared = 0f;
+            Vector2f closest = new Vector2f(ship.getLocation());
+            float distSquared = 99999f;
             for (BoundsAPI.SegmentAPI segment : bounds.getSegments())
             {
                 Vector2f tmpcp = MathUtils.getNearestPointOnLine(point, segment.getP1(), segment.getP2());
@@ -204,7 +203,7 @@ public class ApexUtils
     }
 
     // unused but perhaps useful in the future
-
+    // oh my god thank you, past me
     /**
      * Returns true if there is no more armor to remove at an impact point
      * @param target
@@ -261,5 +260,25 @@ public class ApexUtils
                 nozzles++;
         }
         return nozzles;
+    }
+
+    public static Vector2f getRandomPointOnShipBounds(ShipAPI ship)
+    {
+        BoundsAPI bounds = ship.getExactBounds();
+        int segment = Misc.random.nextInt(bounds.getSegments().size());
+        return MathUtils.getRandomPointOnLine(
+                bounds.getSegments().get(segment).getP1(),
+                bounds.getSegments().get(segment).getP2()
+        );
+    }
+
+    public static float lerp(float a, float b, float amount)
+    {
+        return a*(1f-amount) + b*amount;
+    }
+
+    public static Vector2f lerp(Vector2f a, Vector2f b, float amount)
+    {
+        return new Vector2f(lerp(a.x, b.x, amount), lerp(a.y, b.y, amount));
     }
 }

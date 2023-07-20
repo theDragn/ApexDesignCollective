@@ -1,17 +1,15 @@
 package data.hullmods;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.DamageDealtModifier;
-import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
-import data.ApexUtils;
+import utils.ApexUtils;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lazywizard.lazylib.combat.CombatUtils;
@@ -22,7 +20,7 @@ import plugins.ApexModPlugin;
 import java.awt.*;
 import java.util.*;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 import static data.shipsystems.ApexExcessionSystem.CHARGE_MULT;
 import static plugins.ApexModPlugin.POTATO_MODE;
 

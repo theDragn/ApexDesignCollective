@@ -9,7 +9,7 @@ import com.fs.starfarer.api.impl.campaign.procgen.NebulaEditor;
 import com.fs.starfarer.api.impl.campaign.terrain.HyperspaceTerrainPlugin;
 import com.fs.starfarer.api.util.Misc;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 import static plugins.ApexModPlugin.GENERATE_SYSTEMS;
 
 public class ApexSerpens implements SectorGeneratorPlugin

@@ -4,15 +4,12 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
-import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
-import data.ApexUtils;
+import utils.ApexUtils;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collections;
 
 import static plugins.ApexModPlugin.POTATO_MODE;
 

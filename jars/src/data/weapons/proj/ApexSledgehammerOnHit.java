@@ -3,7 +3,6 @@ package data.weapons.proj;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
 import com.fs.starfarer.api.util.Misc;
-import data.ApexUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;

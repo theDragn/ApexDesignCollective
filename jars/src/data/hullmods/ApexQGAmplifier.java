@@ -1,13 +1,8 @@
 package data.hullmods;
 
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
-import com.fs.starfarer.api.combat.listeners.DamageDealtModifier;
-import org.lwjgl.util.vector.Vector2f;
 
-import java.awt.*;
-
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexQGAmplifier extends BaseHullMod
 {

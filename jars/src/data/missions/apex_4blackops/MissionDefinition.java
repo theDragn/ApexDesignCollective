@@ -6,7 +6,7 @@ import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.mission.MissionDefinitionAPI;
 import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class MissionDefinition implements MissionDefinitionPlugin
 {

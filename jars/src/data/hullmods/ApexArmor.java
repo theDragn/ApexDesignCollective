@@ -14,7 +14,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexArmor extends BaseHullMod
 {

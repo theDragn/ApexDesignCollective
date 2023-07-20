@@ -9,7 +9,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 import static data.hullmods.ApexExcessionCoils.BASE_TIMEFLOW_MULT;
 import static data.hullmods.ApexExcessionCoils.MAXIMUM_TIMEFLOW_MULT;
 

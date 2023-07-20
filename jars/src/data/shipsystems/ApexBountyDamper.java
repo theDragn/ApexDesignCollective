@@ -11,7 +11,7 @@ import com.fs.starfarer.api.combat.ShipSystemAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexBountyDamper extends BaseShipSystemScript
 {

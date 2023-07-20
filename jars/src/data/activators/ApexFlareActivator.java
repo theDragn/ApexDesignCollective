@@ -6,10 +6,10 @@ import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
-import data.ApexUtils;
+import utils.ApexUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 import static data.hullmods.ApexFlareSystemHullmod.BASE_COOLDOWN;
 import static data.hullmods.ApexFlareSystemHullmod.NUM_FLARES;
 

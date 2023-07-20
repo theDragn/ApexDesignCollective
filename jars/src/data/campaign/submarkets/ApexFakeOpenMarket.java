@@ -18,7 +18,7 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexFakeOpenMarket extends BaseSubmarketPlugin
 {

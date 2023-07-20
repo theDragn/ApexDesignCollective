@@ -1,12 +1,10 @@
 package data.shipsystems;
 
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
-import com.fs.starfarer.api.combat.ShipAPI;
-import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexManeuveringPulse extends BaseShipSystemScript
 {

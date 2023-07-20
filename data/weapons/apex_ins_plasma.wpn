@@ -1,0 +1,55 @@
+{
+  "id": "apex_ins_plasma",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_ins_plasma_shot",
+  "type": "BALLISTIC",
+  "size": "LARGE",
+  "displayArcRadius": 450,
+  "turretSprite": "graphics/weapons/ins/apex_ins_plasma_t.png",
+  "turretGunSprite": "graphics/weapons/ins/apex_ins_plasma_t_b.png",
+  "hardpointSprite": "graphics/weapons/ins/apex_ins_plasma_h.png",
+  "hardpointGunSprite": "graphics/weapons/ins/apex_ins_plasma_h_b.png",
+  "renderAboveAllWeapons": 0,
+  "visualRecoil": 10,
+  "renderHints": [
+    RENDER_BARREL_BELOW
+  ],
+  "turretOffsets": [
+    26.5,
+    -8.5,
+    26.5,
+    8.5
+  ],
+  "turretAngleOffsets": [
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    31.5,
+    -8.5,
+    31.5,
+    8.5
+  ],
+  "hardpointAngleOffsets": [
+    0,
+    0
+  ],
+  "barrelMode": "LINKED",
+  "animationType": "MUZZLE_FLASH",
+  "muzzleFlashSpec": {
+    "length": 54,
+    "spread": 20,
+    "particleSizeMin": 18,
+    "particleSizeRange": 24,
+    "particleDuration": 0.12,
+    "particleCount": 0,
+    "particleColor": [
+      255,
+      185,
+      115,
+      215
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "hephaestus_fire"
+}

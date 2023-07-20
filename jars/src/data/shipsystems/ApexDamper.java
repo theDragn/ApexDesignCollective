@@ -3,13 +3,11 @@ package data.shipsystems;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
-import com.fs.starfarer.api.combat.WeaponAPI.WeaponType;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 
 import java.awt.*;
-import java.util.EnumSet;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexDamper extends BaseShipSystemScript
 {

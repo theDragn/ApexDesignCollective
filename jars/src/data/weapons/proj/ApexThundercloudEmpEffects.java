@@ -2,15 +2,10 @@ package data.weapons.proj;
 
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
-import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.util.Misc;
-import data.ApexUtils;
-import data.weapons.proj.ai.ApexThundercloudAI;
-import org.lazywizard.lazylib.MathUtils;
-import org.lazywizard.lazylib.VectorUtils;
+import utils.ApexUtils;
 import org.lwjgl.util.vector.Vector2f;
 
-import java.awt.*;
 import java.util.HashSet;
 
 // this is actually kinetic but I'm not changing a dozen instances of "emp" to "kin"

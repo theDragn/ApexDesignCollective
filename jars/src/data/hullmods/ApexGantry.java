@@ -12,7 +12,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import org.lazywizard.lazylib.MathUtils;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 // the fleet buff code is mostly stolen from Approlight (which very much inspired the effect)
 // it's way cleaner than the "use a manager campaign plugin" method that I was going to use

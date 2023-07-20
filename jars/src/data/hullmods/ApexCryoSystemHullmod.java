@@ -7,7 +7,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
-import data.ApexUtils;
+import utils.ApexUtils;
 import org.magiclib.util.MagicIncompatibleHullmods;
 import data.activators.ApexCryoActivator;
 
@@ -16,7 +16,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 
 public class ApexCryoSystemHullmod extends BaseHullMod

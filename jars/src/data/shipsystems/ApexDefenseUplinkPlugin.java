@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 import static data.shipsystems.ApexDefenseUplink.*;
 
 public class ApexDefenseUplinkPlugin implements EveryFrameCombatPlugin

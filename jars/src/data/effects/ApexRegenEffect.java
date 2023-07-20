@@ -2,16 +2,13 @@ package data.effects;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
-import com.fs.starfarer.api.graphics.SpriteAPI;
 import com.fs.starfarer.api.input.InputEventAPI;
-import com.fs.starfarer.api.util.FaderUtil;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
 import data.hullmods.ApexArmor;
 import data.hullmods.ApexArmorRepairHullmod;
 import data.hullmods.ApexCryoArmor;
 import org.lazywizard.lazylib.MathUtils;
-import org.lwjgl.opengl.GL14;
 import org.lwjgl.util.vector.Vector2f;
 import plugins.ApexModPlugin;
 
@@ -19,7 +16,7 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 // this creates the glow and armor regen effects
 public class ApexRegenEffect extends BaseEveryFrameCombatPlugin

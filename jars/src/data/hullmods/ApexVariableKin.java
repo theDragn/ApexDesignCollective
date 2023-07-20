@@ -1,13 +1,9 @@
 package data.hullmods;
 
 import com.fs.starfarer.api.combat.BaseHullMod;
-import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
-import com.fs.starfarer.api.combat.ShipVariantAPI;
 
-import static data.ApexUtils.text;
-import static data.hullmods.ApexVariableWarheads.LEFT_SLOT;
-import static data.hullmods.ApexVariableWarheads.RIGHT_SLOT;
+import static utils.ApexUtils.text;
 
 public class ApexVariableKin extends BaseHullMod
 {

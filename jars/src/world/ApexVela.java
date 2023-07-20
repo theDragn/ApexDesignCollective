@@ -14,7 +14,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 import static plugins.ApexModPlugin.GENERATE_SYSTEMS;
 
 public class ApexVela implements SectorGeneratorPlugin

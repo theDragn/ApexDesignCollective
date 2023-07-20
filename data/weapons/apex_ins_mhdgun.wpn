@@ -1,0 +1,52 @@
+{
+  "id": "apex_ins_mhdgun",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_ins_mhd_shot",
+  "type": "BALLISTIC",
+  "size": "LARGE",
+  "displayArcRadius": 1200,
+  "turretSprite": "graphics/weapons/ins/apex_ins_mhdgun_t.png",
+  "turretGlowSprite": "graphics/weapons/ins/apex_ins_mhdgun_t_glow.png",
+  "hardpointSprite": "graphics/weapons/ins/apex_ins_mhdgun_h.png",
+  "hardpointGlowSprite": "graphics/weapons/ins/apex_ins_mhdgun_h_glow.png",
+  "renderAboveAllWeapons": 0,
+  "glowColor": [
+    255,
+    0,
+    0,
+    180
+  ],
+  "turretOffsets": [
+    36,
+    0
+  ],
+  "turretAngleOffsets": [
+    0
+  ],
+  "hardpointOffsets": [
+    41,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "barrelMode": "ALTERNATING",
+  "animationType": "GLOW_AND_FLASH",
+  "autocharge": true,
+  "muzzleFlashSpec": {
+    "length": 50,
+    "spread": 5,
+    "particleSizeMin": 10,
+    "particleSizeRange": 20,
+    "particleDuration": 0.25,
+    "particleCount": 15,
+    "particleColor": [
+      100,
+      100,
+      255,
+      255
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "autocannon_fire_mark9"
+}

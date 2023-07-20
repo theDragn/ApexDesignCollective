@@ -9,7 +9,7 @@ import com.fs.starfarer.api.util.Misc;
 import java.awt.*;
 import java.util.HashMap;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexCrampedMags extends BaseHullMod
 {

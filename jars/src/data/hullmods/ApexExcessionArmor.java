@@ -12,7 +12,7 @@ import org.magiclib.util.MagicIncompatibleHullmods;
 import java.util.HashSet;
 import java.util.Set;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexExcessionArmor extends BaseHullMod
 {

@@ -5,19 +5,15 @@ import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.combat.listeners.WeaponBaseRangeModifier;
-import com.fs.starfarer.api.combat.listeners.WeaponRangeModifier;
-import com.fs.starfarer.api.loading.WeaponSpecAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import org.magiclib.util.MagicIncompatibleHullmods;
-import data.weapons.ApexQGeffects;
-import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
 import java.util.HashSet;
 import java.util.Set;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexRangeSync extends BaseHullMod
 {

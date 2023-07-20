@@ -20,7 +20,7 @@ import plugins.ApexModPlugin;
 import java.util.List;
 import java.util.Map;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 // this is mostly a modification of the "surplus hull" mission
 // dear future me: good luck figuring this one out, asshole

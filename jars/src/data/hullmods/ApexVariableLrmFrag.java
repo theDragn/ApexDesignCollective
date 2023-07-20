@@ -3,7 +3,7 @@ package data.hullmods;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.ShipAPI;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexVariableLrmFrag extends BaseHullMod
 {

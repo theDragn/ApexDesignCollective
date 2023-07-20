@@ -4,16 +4,12 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.loading.DamagingExplosionSpec;
 import com.fs.starfarer.api.util.IntervalUtil;
-import data.ApexUtils;
-import org.dark.shaders.light.LightAPI;
-import org.dark.shaders.light.LightShader;
+import utils.ApexUtils;
 import org.lazywizard.lazylib.CollisionUtils;
 import org.lazywizard.lazylib.MathUtils;
-import org.lazywizard.lazylib.combat.DefenseUtils;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
-import java.util.HashMap;
 import java.util.HashSet;
 
 import static com.fs.starfarer.api.util.Misc.ZERO;

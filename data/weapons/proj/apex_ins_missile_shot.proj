@@ -1,0 +1,41 @@
+{
+	"id":"apex_ins_missile_shot",
+	"specClass":"missile",
+	"missileType":"MISSILE",
+	"sprite":"graphics/missiles/apex_ins_fragmissile.png",
+	"onHitEffect":"data.weapons.proj.ApexInsMissileOnHit",
+	"size":[6,8],	
+	"center":[3,5],
+	"collisionRadius":6,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[255,255,100,255],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":90, # purely visual
+	"flameoutTime":0.5,
+	"noEngineGlowTime":0.5,
+	"fadeTime":0.5,			 
+	"engineSpec":{"turnAcc":360,
+				  "turnRate":360,
+				  "acc":2000,
+				  "dec":2000},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-6, 0],
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[240,163,32,255],
+						"glowSizeMult":1.5,
+						"contrailDuration":1,
+						"contrailWidthMult":0.75,
+						"contrailWidthAddedFractionAtEnd":1,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.5f,
+						"contrailAngularVelocityMult":0.5f,
+						#"contrailSpawnDistMult":0f, # how far away from engine it starts
+						"contrailColor":[240,163,32,150],
+						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":4.0,
+				    "length":25.0,
+				    "angle":180.0},
+				    ]
+}

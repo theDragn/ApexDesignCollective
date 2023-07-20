@@ -13,7 +13,7 @@ import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexExcessionSystem extends BaseShipSystemScript
 {

@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
 {

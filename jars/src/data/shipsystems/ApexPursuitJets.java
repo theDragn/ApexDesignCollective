@@ -1,11 +1,9 @@
 package data.shipsystems;
 
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
-import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
 import com.fs.starfarer.api.util.Misc;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
@@ -13,7 +11,7 @@ import org.lazywizard.lazylib.VectorUtils;
 import java.awt.*;
 import java.util.EnumSet;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexPursuitJets extends BaseShipSystemScript
 {

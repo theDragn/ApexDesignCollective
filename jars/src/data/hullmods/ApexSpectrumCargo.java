@@ -6,12 +6,11 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.graphics.SpriteAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
-import com.fs.starfarer.api.util.Misc;
 
 import java.awt.*;
 import java.util.HashMap;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 
 public class ApexSpectrumCargo extends BaseHullMod
 {
@@ -110,5 +109,14 @@ public class ApexSpectrumCargo extends BaseHullMod
         if (ship.getVariant().hasHullMod("apex_spectrum_fuel"))
             return text("conv1");
         return text("conv2");
+    }
+
+    @Override
+    public boolean showInRefitScreenModPickerFor(ShipAPI ship) {
+        if (ship == null)
+            return false;
+        if (ship.getVariant().hasHullMod("apex_spectrum_fuel"))
+            return false;
+        return (ship.getHullSpec().getBaseHullId().equals("apex_spectrum") || ship.getHullSpec().getBaseHullId().equals("apex_backscatter"));
     }
 }

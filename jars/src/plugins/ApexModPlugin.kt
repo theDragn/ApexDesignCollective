@@ -94,23 +94,23 @@ class ApexModPlugin : BaseModPlugin() {
     }
 
     override fun pickMissileAI(missile: MissileAPI, launchingShip: ShipAPI): PluginPick<MissileAIPlugin>? {
-        when (missile.projectileSpecId) {
-            "apex_nanoacid_torp_guided" -> return PluginPick(ApexGuidedTorpAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_arcspike" -> return PluginPick(ApexArcspikeAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_arcspike_canister" -> return PluginPick(ApexArcspikeCanisterAI2(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_arcspike_canister_fighter" -> return PluginPick(ApexArcspikeCanisterAI2(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_arcstorm_canister" -> return PluginPick(ApexArcspikeCanisterAI2(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_sledgehammer_missile" -> return PluginPick(ApexSledgehammerAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_vls_acid_missile" -> return PluginPick(ApexVLSMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_vls_kin_missile" -> return PluginPick(ApexVLSMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_vls_tachyon_missile" -> return PluginPick(ApexVLSMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_thundercloud_missile_frag" -> return PluginPick(ApexThundercloudAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_thundercloud_missile_he" -> return PluginPick(ApexThundercloudAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_thundercloud_missile_emp" -> return PluginPick(ApexThundercloudAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            else -> {
-            }
+        return when (missile.projectileSpecId) {
+            "apex_nanoacid_torp_guided" -> PluginPick(ApexGuidedTorpAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_arcspike" -> PluginPick(ApexArcspikeAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_arcspike_canister" -> PluginPick(ApexArcspikeCanisterAI2(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_arcspike_canister_fighter" -> PluginPick(ApexArcspikeCanisterAI2(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_arcstorm_canister" -> PluginPick(ApexArcspikeCanisterAI2(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_sledgehammer_missile" -> PluginPick(ApexSledgehammerAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_vls_acid_missile" -> PluginPick(ApexVLSMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_vls_kin_missile" -> PluginPick(ApexVLSMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_vls_tachyon_missile" -> PluginPick(ApexVLSMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_thundercloud_missile_frag" -> PluginPick(ApexThundercloudAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_thundercloud_missile_he" -> PluginPick(ApexThundercloudAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_thundercloud_missile_emp" -> PluginPick(ApexThundercloudAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_ins_missile_shot" -> PluginPick(ApexInsMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            else -> null
         }
-        return null
+
     }
 
     companion object {

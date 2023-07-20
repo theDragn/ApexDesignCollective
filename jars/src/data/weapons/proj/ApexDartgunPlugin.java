@@ -3,15 +3,11 @@ package data.weapons.proj;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.DamageTakenModifier;
-import data.ApexUtils;
-import org.magiclib.util.MagicRender;
-import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
-import plugins.ApexModPlugin;
 
 import java.awt.*;
 
-import static data.ApexUtils.text;
+import static utils.ApexUtils.text;
 import static plugins.ApexModPlugin.POTATO_MODE;
 
 // plugin determines if ship needs a listener, and keeps track of debuffs

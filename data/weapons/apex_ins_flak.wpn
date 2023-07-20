@@ -1,0 +1,26 @@
+{
+	"id":"apex_ins_flak",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"type":"BALLISTIC",
+	"size":"LARGE",
+	"turretSprite":"graphics/weapons/ins/apex_ins_flak_t00.png",
+	"hardpointSprite":"graphics/weapons/ins/apex_ins_flak_h00.png",	
+	"numFrames":3,	
+	"frameRate":45,		
+	"turretOffsets":[10, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[10, 0],
+	"hardpointAngleOffsets":[0],
+	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"animationType":"MUZZLE_FLASH",
+	"muzzleFlashSpec":{"length":45.0,   # only used if animationType = MUZZLE_FLASH
+					   "spread":25,
+					   "particleSizeMin":12.0,
+					   "particleSizeRange":22.0,
+					   "particleDuration":0.13,
+					   "particleCount":15,
+					   "particleColor":[255,225,165,75]},
+	"projectileSpecId":"apex_ins_flak_shot",  # projectile that will be fired
+	"fireSoundTwo":"flak_fire",
+	"everyFrameEffect": "data.weapons.ApexInsRotaryFlak",
+}
