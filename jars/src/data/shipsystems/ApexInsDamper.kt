@@ -73,6 +73,6 @@ class ApexInsDamper: BaseShipSystemScript()
     {
         const val DAMAGE_MULT = 0.5f
         const val MANEUVERING_MULT = 2f
-        const val ARMOR_REGEN = 0.0333f
+        const val ARMOR_REGEN = 0.025f
     }
 }

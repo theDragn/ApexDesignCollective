@@ -1,3 +1,17 @@
+==== 1.2.3 ====
+Fleshing out the relic guns and adding some relic hulls. I don't have anything else planned for the relic stuff at the moment, but I may add more if inspiration strikes.
+New: (all need spawn rate checking)
+- MHD Driver
+- Plasmatic Repeater (needs sfx)
+- Shrieker Torpedo Silo
+- Shrieker Torpedo Rack
+- Dadras-class destroyer
+- Aizawa-class dreadnought
+Changes:
+- added a loot cargo listener to ensure that Taipan VLS cells never end up in anyone's cargo, ever
+- Rotary AM Flak: new sounds courtesy of meso, and significantly reworked explosion visual effects
+- Wailer MRM Pod: increased flight time by 2 seconds to ensure it reaches its listed range even if fired directly away from the target.
+==== 1.2.2 ====
 - fixes an issue with the most recent combat activators version that caused some nozzle systems to never find valid targets
 - cryocoolant manual targeting now considers a selected ally a valid target, even if they have zero flux
 - harmonic dart cannon: improved sound and visual effects

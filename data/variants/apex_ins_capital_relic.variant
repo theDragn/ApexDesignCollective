@@ -1,0 +1,64 @@
+{
+    "displayName": "Relic",
+    "fluxCapacitors": 6,
+    "fluxVents": 50,
+    "hullId": "apex_ins_capital",
+    "goalVariant":true,
+    "hullMods": [
+        "targetingunit",
+        "heavyarmor",
+        "fluxbreakers",
+        "autorepair",
+        "armoredweapons",
+        "magazines"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_ins_capital_relic",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "apex_ins_plasma",
+                "WS0002": "apex_ins_plasma"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0009": "apex_ins_missile",
+                "WS0010": "apex_ins_missile",
+                "WS0011": "apex_ins_missile",
+                "WS0012": "apex_ins_missile"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_ins_plasma",
+                "WS0004": "apex_ins_plasma"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0008": "apex_ins_mhdgun"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0006": "apex_ins_mhdgun"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "apex_ins_flak",
+                "WS0007": "apex_ins_flak"
+            }
+        }
+    ]
+}

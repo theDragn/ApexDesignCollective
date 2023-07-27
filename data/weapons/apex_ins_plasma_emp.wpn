@@ -1,7 +1,7 @@
 {
-  "id": "apex_ins_plasma",
+  "id": "apex_ins_plasma_emp",
   "specClass": "projectile",
-  "projectileSpecId": "apex_ins_plasma_shot",
+  "projectileSpecId": "apex_ins_plasma_emp_shot",
   "type": "BALLISTIC",
   "size": "LARGE",
   "displayArcRadius": 450,
@@ -41,15 +41,15 @@
     "spread": 20,
     "particleSizeMin": 18,
     "particleSizeRange": 24,
-    "particleDuration": 0.2,
-    "particleCount": 12,
+    "particleDuration": 0.12,
+    "particleCount": 0,
     "particleColor": [
-      72,
-      70,
       255,
+      185,
+      115,
       215
     ]
   },
   "textureType": ROUGH,
-  "fireSoundTwo": "apex_ins_plasma_shot"
+  "fireSoundTwo": "apex_ins_plasma"
 }

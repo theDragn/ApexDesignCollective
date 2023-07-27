@@ -172,7 +172,7 @@ public class ApexArmorRepairHullmod extends BaseHullMod
                 return false;
             }
         }
-        return nozzles != 0 && ship.getHullSpec().getHullId().contains("apex_");
+        return nozzles != 0 && ship.getHullSpec().getHullId().contains("apex_") && !ship.getHullSpec().getHullId().contains("apex_ins");
     }
 
     public String getUnapplicableReason(ShipAPI ship)
@@ -182,7 +182,7 @@ public class ApexArmorRepairHullmod extends BaseHullMod
             return "Ship does not exist, what the fuck";
         }
 
-        if (!ship.getHullSpec().getHullId().contains("apex_"))
+        if (!ship.getHullSpec().getHullId().contains("apex_") || ship.getHullSpec().getHullId().contains("apex_ins"))
         {
             return text("nozz5");
         }

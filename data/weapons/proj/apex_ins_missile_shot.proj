@@ -6,7 +6,7 @@
 	"onHitEffect":"data.weapons.proj.ApexInsMissileOnHit",
 	"size":[6,8],	
 	"center":[3,5],
-	"collisionRadius":6,
+	"collisionRadius":5,
 	"collisionClass":"MISSILE_NO_FF",
 	"explosionColor":[255,255,100,255],  # purely visual, will get a white additively blended core on top of this color
 	"explosionRadius":90, # purely visual

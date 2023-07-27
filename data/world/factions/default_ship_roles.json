@@ -12,7 +12,8 @@
 		"apex_eidolon_attack":4,
 		"apex_apotheosis_rg_redguards":2,
 		"apex_sunbeam_strike":3,
-		"apex_sunbeam_line":3
+		"apex_sunbeam_line":3,
+		"apex_ins_capital_relic":4
 	},
 	
 	"combatLarge":{
@@ -42,7 +43,8 @@
 		"apex_gharial_strike":6,
 		"apex_tuatara_kin":4,
 		"apex_tuatara_he":4,
-		"apex_tuatara_frag":4
+		"apex_tuatara_frag":4,
+		"apex_ins_destroyer_relic":4
 	},
 	"combatSmall":{
 		"apex_lacerta_attack":4,

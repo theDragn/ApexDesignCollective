@@ -23,8 +23,8 @@
 					"range":35,
 					#"vsMissileRange":100,
 					"explosionSpec":{"duration":0.1f,
-									 "radius":50,
-									 "coreRadius":35, # full damage within core radius - also equal to proximity fuse range
+									 "radius":75,
+									 "coreRadius":50, # full damage within core radius - also equal to proximity fuse range
 									 "collisionClass":PROJECTILE_FF,
 									 "collisionClassByFighter":PROJECTILE_FIGHTER,
 									 "particleSizeMin":3.0,
@@ -32,7 +32,7 @@
 									 "particleDuration":1,
 									 "particleCount":0,
 									 "particleColor":[255,155,155,255],
-									 "sound":"explosion_flak"},
+									 "sound":"apex_rotary_flak_exp"},
 
 					}
 					

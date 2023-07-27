@@ -1,0 +1,58 @@
+{
+    "displayName": "Relic",
+    "fluxCapacitors": 0,
+    "fluxVents": 17,
+    "hullId": "apex_ins_destroyer",
+    "hullMods": [
+        "eccm",
+        "targetingunit",
+        "heavyarmor",
+        "armoredweapons"
+    ],
+    "goalVariant":true,
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_ins_destroyer_relic",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "heavymauler"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0011": "apex_ins_torp_s",
+                "WS0012": "apex_ins_torp_s",
+                "WS0013": "apex_ins_torp_s",
+                "WS0014": "apex_ins_torp_s"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "lightac",
+                "WS0006": "lightac",
+                "WS0007": "lightac",
+                "WS0008": "lightac",
+                "WS0009": "lightac",
+                "WS0010": "lightac"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "flak",
+                "WS0002": "flak"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0004": "vulcan"}
+        }
+    ]
+}

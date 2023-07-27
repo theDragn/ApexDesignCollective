@@ -43,7 +43,11 @@ apex_thorn_trail3,apex_thorn_shot,base_trail_smooth,10,0,0.1,0.1,4,20,"[255,120,
 apex_toroid_trail,apex_toroid_shot,base_trail_heavySmoke,10,0.1,0,0.4,30,70,"[200,200,255]","[64,64,255]",0.4,300,-300,30,0,1,TRUE,FALSE,TRUE,0,0,0,0,0,0,FALSE,FALSE
 apex_toroid_trail2,apex_toroid_shot,apex_trail_twin,10,0,0,0.5,30,10,"[128,128,255]","[0,0,255]",0.7,300,-300,30,18,1,TRUE,FALSE,TRUE,0,0,0,0,0,0,FALSE,FALSE
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
-apex_mhd,apex_ins_mhd_shot,base_trail_contrail,5,0.05,0.25,0.25,4,20,"[255,255,255]","[80,80,80]",0.7,300,-300,20,0,1,TRUE,FALSE,TRUE,0,0,0,0,0,0,FALSE,FALSE
+apex_mhd,apex_ins_mhd_shot,base_trail_smooth,5,0.05,0.25,0.25,4,4,"[255,255,255]","[255,255,255]",0.7,300,-300,20,0,1,TRUE,FALSE,TRUE,0,0,0,0,0,0,FALSE,FALSE
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
-apex_plasmatic_1,apex_ins_plasma_shot,base_trail_smoke,10,0,0.1,0.15,18,3,"[72,70,255]","[128,0,128]",0.7,300,400,0,0,1,TRUE,FALSE,TRUE,0,0,0,0,100,100,TRUE,FALSE
-apex_plasmatic_2,apex_ins_plasma_shot,base_trail_smoke,10,0.05,0.18,0.15,10,4,"[50,50,255]","[137,56,217]",0.5,300,-300,20,0,1,TRUE,FALSE,TRUE,10,30,0.2,0,100,100,TRUE,FALSE
+apex_plasmatic_1,apex_ins_plasma_shot,base_trail_smooth,10,0,0.1,0.1,9,9,"[72,70,255]","[128,0,128]",0.7,300,-300,20,0,1,TRUE,FALSE,TRUE,0,0,0,0,100,100,TRUE,FALSE
+apex_plasmatic_2,apex_ins_plasma_shot,base_trail_smooth,10,0.05,0.1,0.1,7,7,"[50,50,255]","[137,56,217]",0.5,300,-300,20,0,1,TRUE,FALSE,TRUE,10,30,0.2,0,100,100,TRUE,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+apex_plasmatic_emp_1,apex_ins_plasma_emp_shot,base_trail_smooth,10,0,0.1,0.1,9,9,"[72,255,255]","[128,0,128]",0.7,300,-300,20,0,1,TRUE,FALSE,TRUE,0,0,0,0,100,100,TRUE,FALSE
+apex_plasmatic_emp_2,apex_ins_plasma_emp_shot,base_trail_smooth,10,0.05,0.1,0.1,7,7,"[50,50,255]","[137,56,217]",0.5,300,-300,20,20,1,TRUE,FALSE,TRUE,20,120,1,0,100,100,TRUE,FALSE
+apex_plasmatic_emp_3,apex_ins_plasma_emp_shot,base_trail_zap,10,0.05,0.1,0.15,9,9,"[255,255,255]","[0,180,255]",0.7,300,-300,20,20,1,TRUE,FALSE,TRUE,20,120,1,0,0,200,TRUE,FALSE

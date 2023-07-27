@@ -157,4 +157,38 @@
 		{"file":"sounds/weapon/apex_fusion_s_proc.ogg","pitch":1,"volume":1.0},
 		{"file":"sounds/weapon/apex_fusion_s_proc.ogg","pitch":1.1,"volume":1.0}
 	],
+	"apex_ins_mhd":
+	[
+		{"file":"sounds/sfx_wpn_guns/hypervel_driver_fire_01_loud.ogg","pitch":0.8,"volume":0.85},
+		{"file":"sounds/sfx_wpn_guns/hypervel_driver_fire_01_loud.ogg","pitch":0.85,"volume":0.85},
+		{"file":"sounds/sfx_wpn_guns/hypervel_driver_fire_01_loud.ogg","pitch":0.75,"volume":0.85}
+	],
+	"apex_rotary_flak_fire":
+	[
+		{"file":"sounds/weapon/apex_rotary_flak_fire.ogg","pitch":1.0,"volume":0.3},
+		{"file":"sounds/weapon/apex_rotary_flak_fire.ogg","pitch":1.1,"volume":0.3},
+		{"file":"sounds/weapon/apex_rotary_flak_fire.ogg","pitch":0.9,"volume":0.3}
+	],
+	"apex_rotary_flak_loop":
+	[
+		{"file":"sounds/weapon/apex_rotary_flak_loop.ogg","pitch":1.0,"volume":0.3}
+	],
+	"apex_rotary_flak_exp":
+	[
+		{"file":"sounds/weapon/apex_rotary_flak_exp1.ogg","pitch":1.0,"volume":0.3},
+		{"file":"sounds/weapon/apex_rotary_flak_exp2.ogg","pitch":1.0,"volume":0.3},
+		{"file":"sounds/weapon/apex_rotary_flak_exp3.ogg","pitch":1.0,"volume":0.3}
+	],
+	"apex_rotary_flak_end":
+	[
+		{"file":"sounds/weapon/apex_rotary_flak_end.ogg","pitch":1.0,"volume":0.3}
+	],
+	"apex_ins_plasma_shot":
+	[
+		{"file":"sounds/weapon/apex_ins_plasma_shot.ogg","pitch":1.0,"volume":1.0}
+	],
+	"apex_ins_plasma_charged":
+	[
+		{"file":"sounds/weapon/apex_ins_plasma_charged.ogg","pitch":1.0,"volume":1.0}
+	]
 }

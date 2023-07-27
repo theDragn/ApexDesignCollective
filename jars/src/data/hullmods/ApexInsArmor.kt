@@ -35,7 +35,7 @@ class ApexInsArmor: BaseHullMod()
 
     @Override
 
-    override fun applyEffectsBeforeShipCreation(hullSize: ShipAPI.HullSize?, stats: MutableShipStatsAPI, id: String?)
+    override fun applyEffectsBeforeShipCreation(hullSize: ShipAPI.HullSize, stats: MutableShipStatsAPI, id: String)
     {
         if (!isSMod(stats))
         {

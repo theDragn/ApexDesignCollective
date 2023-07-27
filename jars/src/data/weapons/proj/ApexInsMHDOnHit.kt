@@ -26,7 +26,6 @@ class ApexInsMHDOnHit: OnHitEffectPlugin
         // if the shield takes full damage, no need to add hardflux
         var toDeal = lerp(0.5f, 1f, shieldMult) * baseDam - baseDam * shieldMult
         toDeal *= 2f * target.mutableStats.kineticShieldDamageTakenMult.modifiedValue
-        //engine.addFloatingText(point, toDeal.toString(), 24f, Color.CYAN, target, 0f, 0f)
         if (toDeal < 0) return
         target.fluxTracker.increaseFlux(toDeal , true)
         engine.addFloatingDamageText(point, toDeal, Misc.FLOATY_SHIELD_DAMAGE_COLOR, target, proj.source)

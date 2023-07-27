@@ -41,12 +41,12 @@
     "particleDuration": 0.25,
     "particleCount": 15,
     "particleColor": [
-      100,
-      100,
       255,
-      255
+      100,
+      100,
+      155
     ]
   },
   "textureType": ROUGH,
-  "fireSoundTwo": "autocannon_fire_mark9"
+  "fireSoundTwo": "apex_ins_mhd"
 }

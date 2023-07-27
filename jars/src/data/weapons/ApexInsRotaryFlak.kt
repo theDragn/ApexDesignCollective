@@ -1,5 +1,6 @@
 package data.weapons
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.*
 import kotlin.math.max
 import kotlin.math.min
@@ -7,41 +8,30 @@ import kotlin.math.min
 // this handles the animation frames and the explosion vfx plugin
 class ApexInsRotaryFlak: EveryFrameWeaponEffectPlugin, OnFireEffectPlugin
 {
-    private var fired = false
-    private var modifiedCooldown = 0f
-    private var modifiedCooldownLeft = 0f
-    private var spool = 5f
+    companion object
+    {
+        const val loop_end = "apex_rotary_flak_end"
+        const val loop = "apex_rotary_flak_loop"
+    }
+
+    private var firingLastFrame = false
 
     override fun advance(amount: Float, engine: CombatEngineAPI?, weapon: WeaponAPI)
     {
-        if (fired && spool < 5f)
+        if (weapon.chargeLevel > 0 || firingLastFrame)
+            Global.getSoundPlayer().playLoop(loop, weapon, 1f, 1f, weapon.location, weapon.ship.velocity, 0f, 0.2f)
+        if (weapon.chargeLevel == 0f && firingLastFrame)
         {
-            fired = false
-            val baseCooldown = weapon.cooldown
-            modifiedCooldown = baseCooldown + (baseCooldown * spool/5f)
-            modifiedCooldownLeft = modifiedCooldown
+            firingLastFrame = false
+            Global.getSoundPlayer().playSound(loop_end, 1f, 1f, weapon.location, weapon.ship.location)
         }
-        if (modifiedCooldownLeft > 0)
-        {
-            // Cooldown is off for some reason compared to unmodified weapon cooldown
-            if (modifiedCooldownLeft < amount * 3f)
-            {
-                modifiedCooldownLeft = 0f
-                weapon.setRemainingCooldownTo(0f)
-            } else
-            {
-                modifiedCooldownLeft -= amount * weapon.ship.mutableStats.ballisticRoFMult.modifiedValue
-                weapon.setRemainingCooldownTo(modifiedCooldownLeft / modifiedCooldown)
-            }
-        }
-        spool = min(spool + amount * 1.5f, 5f)
+        if (weapon.chargeLevel > 0)
+            firingLastFrame = true
     }
 
 
     override fun onFire(projectile: DamagingProjectileAPI, weapon: WeaponAPI, engine: CombatEngineAPI)
     {
-        fired = true
-        spool = max(spool - 2f * weapon.ship.mutableStats.ballisticRoFMult.modifiedValue, 0f)
         val plugin = ApexInsFlakExp(projectile)
         engine.addPlugin(plugin)
     }

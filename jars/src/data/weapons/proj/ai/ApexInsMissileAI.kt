@@ -58,6 +58,10 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
         // >1 will have no effect
         // actually it's just binary at the moment, <0 is off, everything else is on
         const val SPREAD_AMOUNT = 1f
+        // controls the distance where the missile will stop using the spread-targeted point and use the target's center instead
+        // this is distance to the edge of the target's collision radius (negative will turn it off inside the collision radius)
+        // set to a large negative number to disable (or just take out the comparison)
+        const val SPREAD_CUTOFF_DIST = 0f
         // missile begins increasing its check rate and decreasing its wave amplitude at this distance
         // 500 is fine for most purposes, but increase it if you have very fast missiles
         const val HIGH_PERFORMANCE_RANGE = 500f
@@ -119,16 +123,17 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
         }
         timer += amount
         // do expensive angle and distance calculations on a timer
+        val targetDist = MathUtils.getDistanceSquared(missile.location, target!!.location)
         if (timer >= check)
         {
             // math is a little fancy but: timer is decreased as missile
             check = min(0.25f, max(
                     0.05f,
-                    0.2f * MathUtils.getDistanceSquared(missile.location, target!!.location) / (HIGH_PERFORMANCE_RANGE * HIGH_PERFORMANCE_RANGE)
+                    0.2f * targetDist / (HIGH_PERFORMANCE_RANGE * HIGH_PERFORMANCE_RANGE)
                 )
             )
             var targetLoc = Vector2f(target!!.location)
-            if (SPREAD_AMOUNT > 0)
+            if (SPREAD_AMOUNT > 0 && MathUtils.getDistance(missile, target) > SPREAD_CUTOFF_DIST)
             {
                 //target!!.exactBounds.update(target!!.location, target!!.facing)
                 //targetLoc = lerp(segment_target!!.p1, segment_target!!.p2, segment_lerp)
@@ -148,8 +153,9 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
 
             } else
                 Vector2f(targetLoc)
-            lead ?: return
+            lead = lead ?: targetLoc
         }
+        if (missile.location == null || lead == null) return // idk but someone got an NPE on the next line so let's make sure
         var correctAngle = VectorUtils.getAngle(missile.location, lead)
         if (WAVE_TIME > 0)
         {
@@ -157,7 +163,7 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
             if (ECCM) amplitude_mult *= WAVE_ECCM_FACTOR
             if (WAVE_CUTOFF_DIST > 0)
             {
-                if (MathUtils.getDistanceSquared(missile.location, target!!.location) < WAVE_CUTOFF_DIST * WAVE_CUTOFF_DIST)
+                if (targetDist < WAVE_CUTOFF_DIST * WAVE_CUTOFF_DIST)
                     amplitude_mult = 0f
             }
             correctAngle += amplitude_mult * WAVE_SIZE * (4f * check) *
@@ -181,7 +187,7 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
                 MathUtils.getShortestRotation(VectorUtils.getAngle(Misc.ZERO, relativeVelToTarget), missile.facing)
             // only begin strafing to zero out relative velocities if we're close to the target
             // this prevents clumping up early on, helping missiles converge from multiple directions and overwhelm PD
-            if (MathUtils.getDistanceSquared(missile.location, target!!.location) < LATERAL_MATCHING_DIST * LATERAL_MATCHING_DIST)
+            if (targetDist < LATERAL_MATCHING_DIST * LATERAL_MATCHING_DIST)
             {
                 // this could be zero degrees instead of 10, it would work fine
                 // but we leave a little bit of wiggle room to get some missiles to miss very fast-maneuvering targets on their first pass

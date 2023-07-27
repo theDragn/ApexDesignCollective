@@ -108,6 +108,7 @@ class ApexModPlugin : BaseModPlugin() {
             "apex_thundercloud_missile_he" -> PluginPick(ApexThundercloudAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_thundercloud_missile_emp" -> PluginPick(ApexThundercloudAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_ins_missile_shot" -> PluginPick(ApexInsMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_ins_torp_shot" -> PluginPick(ApexInsTorpAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             else -> null
         }
 

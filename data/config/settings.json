@@ -1,6 +1,7 @@
 {
 	"designTypeColors":{
-	  "Apex Design Collective":[72,148,78,255]
+	  "Apex Design Collective":[72,148,78,255],
+    "Relic":[201, 114, 34,255]
 	},
 	"graphics": {
     "blueprint_packages":{
@@ -22,7 +23,8 @@
       "apex_trail_helix_reversed":"graphics/trails/fx/trails_dhelix_reversed.png",
       "apex_shockwave":"graphics/fx/shields256ring.png",
       "apex_flak_puff":"graphics/effects/apex_ins_flak_puff.png",
-      "apex_flak_fire":"graphics/effects/apex_ins_flak_fire.png"
+      "apex_flak_fire":"graphics/effects/apex_ins_flak_fire.png",
+      "apex_shrieker_sprite":"graphics/missiles/apex_ins_torp_real.png"
 		},
     "apex_spectrum":{
       "apex_spectrum_cargo":"graphics/ships/apex_spectrum_cargo.png",

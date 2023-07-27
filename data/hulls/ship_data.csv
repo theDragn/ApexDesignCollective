@@ -50,6 +50,6 @@ Quasar,apex_quasar,Supercapital,Apex Design Collective,apex_remote_damper,150,25
 ,apex_quasar_right,Right Wing,Apex Design Collective,apex_damper,0,8000,1050,6000,,500,150,,10,10,10,10,10,1500,NONE,,,,,,,0,0,0,0,0,0,0,0,0,0,,,0,0,"UNBOARDABLE, HIDE_IN_CODEX",,,1,1,2,,1234
 ,apex_quasar_front,Armor Module,Apex Design Collective,apex_thorns,0,10000,1200,6000,,150,50,,0,0,0,0,0,1500,NONE,,,,,,,0,0,0,0,0,0,0,0,0,0,,,0,0,"UNBOARDABLE, HIDE_IN_CODEX",,,1,1,2,,1234
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Dadras,apex_ins_destroyer,Destroyer,Ancient,apex_ins_damper,9,5000,900,4000,,350,130,,80,60,40,30,60,400,PHASE,canister_flak,0,0,0,,,50,75,100,60,2,30,9,40000,10,25,360,0.25,10,10,,"rare_bp, hist1t, merc, ind, apex_relic_bp",,0.33,2,3,,1312
-Aizawa,apex_ins_capital,Dreadnought,Ancient,apex_ins_damper,25,20000,2000,20000,,900,320,,35,20,20,15,15,3000,PHASE,canister_flak,0,0,0,,,500,650,300,360,12,30,7,300000,10,25,720,0.25,60,60,,"rare_bp, hist1t, merc, ind, apex_relic_bp",,0.33,2,3,,1312
+Dadras,apex_ins_destroyer,Destroyer,Relic,apex_ins_damper,9,5000,900,4000,,350,135,,80,60,40,30,60,400,PHASE,canister_flak,0,0,0,,,50,75,100,60,2,30,9,40000,10,25,360,0.25,10,10,,"rare_bp, hist1t, merc, ind, apex_relic_bp",0.2,0.33,2,3,,1312
+Aizawa,apex_ins_capital,Dreadnought,Relic,apex_ins_damper,25,20000,1800,20000,,900,320,,35,20,20,15,15,3000,PHASE,canister_flak,0,0,0,,,500,650,300,360,12,30,7,300000,10,25,720,0.25,60,60,,"rare_bp, hist1t, merc, ind, apex_relic_bp",0.2,0.33,2,3,,1312
 ,,,,,,,,,,,,,,,,,,, ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
