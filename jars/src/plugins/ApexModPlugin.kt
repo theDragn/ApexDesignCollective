@@ -12,6 +12,7 @@ import data.campaign.missions.ApexExcessionAdder
 import data.weapons.proj.ai.*
 import exerelin.utilities.NexConfig
 import exerelin.utilities.NexFactionConfig.StartFleetType
+import lunalib.lunaSettings.LunaSettings
 import org.json.JSONException
 import world.ApexRelicPlacer
 import world.ApexSectorGenerator
@@ -20,23 +21,6 @@ import java.io.IOException
 
 class ApexModPlugin : BaseModPlugin() {
     override fun onApplicationLoad() {
-        val hasLazyLib = Global.getSettings().modManager.isModEnabled("lw_lazylib")
-        if (!hasLazyLib) throw RuntimeException(
-                "Apex Design Collective requires LazyLib.\nGet it on the forums."
-        )
-        // Needs MagicLib for rendering stuff, probably
-        val hasMagicLib = Global.getSettings().modManager.isModEnabled("MagicLib")
-        if (!hasMagicLib) throw RuntimeException(
-                "Apex Design Collective requires MagicLib.\nGet it on the forums."
-        )
-        /*val hasDroneLib = Global.getSettings().modManager.isModEnabled("dronelib")
-        if (!hasDroneLib) throw RuntimeException(
-                "Apex Design Collective requires DroneLib.\nGet it on the forums."
-        )*/
-        val hasGraphicslib = Global.getSettings().modManager.isModEnabled("shaderLib")
-        if (!hasGraphicslib) throw RuntimeException(
-                "Apex Design Collective requires GraphicsLib. Get it on the forums."
-        )
         try {
             loadApexSettings()
         } catch (e: Exception) {
@@ -89,7 +73,7 @@ class ApexModPlugin : BaseModPlugin() {
             if (GENERATE_RELICS && Global.getSector().memoryWithoutUpdate.contains("\$apex_placed_relics"))
                 ApexRelicPlacer().generate(Global.getSector())
         }
-
+        Global.getSector().addTransientListener(ApexCargoListener(false))
         Global.getSector().addTransientListener(ApexExcessionAdder())
     }
 
@@ -121,16 +105,13 @@ class ApexModPlugin : BaseModPlugin() {
         var loaded = false
 
         @JvmField
-        val HAS_DRONELIB = Global.getSettings().modManager.isModEnabled("dronelib");
-
-        @JvmField
         var POTATO_MODE = false
 
         @JvmField
-        var GENERATE_RELICS = false
+        var GENERATE_RELICS = true
 
         @JvmField
-        var GENERATE_SYSTEMS = false
+        var GENERATE_SYSTEMS = true
 
         @JvmField
         var EUROBEAT_MODE = false
@@ -140,21 +121,20 @@ class ApexModPlugin : BaseModPlugin() {
 
         @Throws(IOException::class, JSONException::class)
         private fun loadApexSettings() {
-            val settings = Global.getSettings().loadJSON(SETTINGS_FILE)
-            log.info("Loaded ADC settings json")
+            POTATO_MODE = LunaSettings.getBoolean("apex_design", "apex_potatomode") ?: false
+            GENERATE_RELICS = LunaSettings.getBoolean("apex_design", "apex_relics") ?: true
+            EUROBEAT_MODE = LunaSettings.getBoolean("apex_design", "apex_eurobeat") ?: false
+            EXCESSION_ID = LunaSettings.getBoolean("apex_design", "apex_excession_id") ?: true
+            log.info("Loaded ADC settings")
             loaded = true
-            POTATO_MODE = settings.getBoolean("potatoMode")
-            GENERATE_RELICS = settings.getBoolean("generateRelics")
-            EUROBEAT_MODE = settings.getBoolean("eurobeatMode")
-            EXCESSION_ID = settings.getBoolean("excessionID")
+            LunaSettings.addSettingsListener(ApexSettings())
+
             try {
                 // die mad, fash
-                Global.getSettings().scriptClassLoader.loadClass(xd("b3JnLm1hZ2ljbGliLk1hZ2ljX21vZFBsdWdpbg=="))
-                GENERATE_SYSTEMS = settings.getBoolean("generateSystems")
                 Global.getSettings().scriptClassLoader.loadClass(xd("ZGF0YS5zY3JpcHRzLk5HT01vZFBsdWdpbg=="))
                 GENERATE_SYSTEMS = false
                 GENERATE_RELICS = false
-            } catch (e: ClassNotFoundException) {
+            } catch (_: ClassNotFoundException) {
             }
         }
 

@@ -1,17 +1,25 @@
-==== 1.2.3 ====
-Fleshing out the relic guns and adding some relic hulls. I don't have anything else planned for the relic stuff at the moment, but I may add more if inspiration strikes.
-New: (all need spawn rate checking)
+Version 1.2.3
+Fleshing out the relic guns and adding some relic hulls. I don't have anything else planned for the relic stuff at the moment, but I'll add more if inspiration strikes.
+New:
 - MHD Driver
-- Plasmatic Repeater (needs sfx)
+- Plasmatic Repeater
 - Shrieker Torpedo Silo
 - Shrieker Torpedo Rack
 - Dadras-class destroyer
 - Aizawa-class dreadnought
+- Several relic weapon caches and hulls will be placed during sector generation.
+
 Changes:
-- added a loot cargo listener to ensure that Taipan VLS cells never end up in anyone's cargo, ever
+- Changed relic weapon/hull spawning- they now show up only in mercenary and scavenger fleets.
+- added a loot cargo listener to ensure that Taipan VLS cells (and any other weapons with the SYSTEM tag) never end up in anyone's cargo, ever
 - Rotary AM Flak: new sounds courtesy of meso, and significantly reworked explosion visual effects
-- Wailer MRM Pod: increased flight time by 2 seconds to ensure it reaches its listed range even if fired directly away from the target.
-==== 1.2.2 ====
+- Wailer MRM Pod: increased flight time by 2 seconds to ensure it reaches its listed range even if fired directly away from the target. Reduced homing spread amount.
+- Consolidated the Kommok and Odomodo bounties into a single bounty with a higher level requirement, difficulty, and a third weird Komodo. 
+- Reduced the power of the Odomodo's damper to 90%. 
+- Kommok and Odomodo are no longer guaranteed recoveries.
+- Kommok now has Temporal Damper instead of Temporal Shell.
+
+Version 1.2.2
 - fixes an issue with the most recent combat activators version that caused some nozzle systems to never find valid targets
 - cryocoolant manual targeting now considers a selected ally a valid target, even if they have zero flux
 - harmonic dart cannon: improved sound and visual effects

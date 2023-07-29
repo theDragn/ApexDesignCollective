@@ -1,0 +1,15 @@
+{
+	# multiplier for how often hulls show up in the faction's fleets
+	"hullFrequency":{
+		"tags":{
+			"apex_relic":0.15
+		}
+	},
+	"knownShips":{
+		"tags":["apex_relic"],
+	},
+	
+	"knownWeapons":{
+		"tags":["apex_relic"],
+	},
+},	

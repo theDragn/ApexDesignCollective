@@ -18,11 +18,11 @@ public class ApexBountyDamper extends BaseShipSystemScript
 
     private static Map mag = new HashMap();
     static {
-        mag.put(HullSize.FIGHTER, 0.05f);
-        mag.put(HullSize.FRIGATE, 0.05f);
-        mag.put(HullSize.DESTROYER, 0.05f);
-        mag.put(HullSize.CRUISER, 0.05f);
-        mag.put(HullSize.CAPITAL_SHIP, 0.05f);
+        mag.put(HullSize.FIGHTER, 0.1f);
+        mag.put(HullSize.FRIGATE, 0.1f);
+        mag.put(HullSize.DESTROYER, 0.1f);
+        mag.put(HullSize.CRUISER, 0.1f);
+        mag.put(HullSize.CAPITAL_SHIP, 0.1f);
     }
 
     protected Object STATUSKEY1 = new Object();

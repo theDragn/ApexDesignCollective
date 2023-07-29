@@ -9,7 +9,7 @@
     # Turn this on to place a few Apex Design ships as derelicts. It'll also place a reasearch station with blueprints if you turned off faction spawning.
     "generateRelics":true,
 
-    # You can turn this off if you'd rather not have the faction (or its planets) spawn. Not sure why you'd want that, but the option's a holdover from some testing, so I've left it in.
+    # this just... turns off the mod. idk why you'd want to do that but it's a holdover from early testing and I'm too lazy to remove it
     "generateSystems":true,
 
     # added due to a request

@@ -242,5 +242,7 @@
         "jp1":"Vela, Fringe Jump Point",
         "jp2":"Vela, Inner Jump Point",
         
+        # EXPLORATION CONTENT
+        "cache":"Relic Cache"
     }
 }

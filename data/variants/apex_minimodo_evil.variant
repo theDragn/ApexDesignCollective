@@ -1,0 +1,58 @@
+{
+    "displayName": "Mini",
+    "fluxCapacitors": 14,
+    "fluxVents": 30,
+    "hullId": "apex_bounty_minimodo",
+    "hullMods": ["targetingunit"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_minimodo_evil",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0012": "apex_coilgun_small",
+                "WS0013": "apex_coilgun_small",
+                "WS0014": "apex_coilgun_small",
+                "WS0015": "apex_coilgun_small",
+                "WS0024": "apex_coilgun_small",
+                "WS0025": "apex_coilgun_small"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0003": "apex_nanoacid_torp_pod",
+                "WS0004": "apex_nanoacid_torp_pod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0018": "apex_tachyondriver_s",
+                "WS0019": "apex_tachyondriver_s",
+                "WS0020": "apex_nanogun_small",
+                "WS0021": "apex_nanogun_small",
+                "WS0022": "apex_nanogun_small",
+                "WS0023": "apex_nanogun_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "vulcan",
+                "WS0006": "vulcan",
+                "WS0007": "vulcan",
+                "WS0008": "vulcan",
+                "WS0009": "vulcan",
+                "WS0010": "vulcan",
+                "WS0011": "vulcan"
+            }
+        }
+    ],
+    "wings": ["apex_chameleon_wing"]
+}

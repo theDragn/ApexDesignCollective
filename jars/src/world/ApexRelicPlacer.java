@@ -11,6 +11,8 @@ import com.fs.starfarer.api.impl.campaign.procgen.themes.BaseThemeGenerator.Loca
 import com.fs.starfarer.api.impl.campaign.procgen.themes.DerelictThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.special.BaseSalvageSpecial;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.special.ShipRecoverySpecial;
+import com.fs.starfarer.api.util.Misc;
+import com.fs.starfarer.api.util.Pair;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -19,31 +21,38 @@ import java.util.*;
 
 import static plugins.ApexModPlugin.GENERATE_SYSTEMS;
 import static plugins.ApexModPlugin.GENERATE_RELICS;
+import static utils.ApexUtils.text;
 
 public class ApexRelicPlacer implements SectorGeneratorPlugin
 {
     public static final Logger LOGGER = Global.getLogger(ApexRelicPlacer.class);
 
-    private static final WeightedRandomPicker<String> relicPicker = new WeightedRandomPicker<>();
+    private static final WeightedRandomPicker<String> relicHullPicker = new WeightedRandomPicker<>();
     static
     {
-        relicPicker.add("apex_apotheosis_strike");
-        relicPicker.add("apex_spectrum_fighter");
-        //relicPicker.add("apex_spectrum_fighter");
-        relicPicker.add("apex_alligator_line");
-        relicPicker.add("apex_crocodile_antishield");
-        relicPicker.add("apex_caiman_line");
-        relicPicker.add("apex_gharial_strike");
+        relicHullPicker.add("apex_apotheosis_strike");
+        relicHullPicker.add("apex_ins_destroyer_relic");
+        relicHullPicker.add("apex_ins_destroyer_relic");
+        relicHullPicker.add("apex_ins_capital_relic");
     }
 
+    private static final WeightedRandomPicker<String> relicWeaponPicker;
+    private static final WeightedRandomPicker<String> relicBPPicker = new WeightedRandomPicker<>();
+    static
+    {
+        relicBPPicker.add("apex_ins_missile");
+        relicBPPicker.add("apex_ins_torp_l");
+        relicBPPicker.add("apex_ins_torp_s");
+        relicBPPicker.add("apex_ins_flak");
+        relicBPPicker.add("apex_ins_plasma");
+        relicBPPicker.add("apex_ins_mhdgun");
+        relicWeaponPicker = relicBPPicker.clone();
+    }
     private static final Set<String> STAR_TYPES = new HashSet<>();
-
     static
     {
         String hint = "nosy little fucker, aren't you?";
         STAR_TYPES.add("star_white");
-        //STAR_TYPES.add("star_red_dwarf");
-        //STAR_TYPES.add("star_browndwarf");
     }
 
     private static final LinkedHashMap<LocationType, Float> WEIGHTS = new LinkedHashMap<>();
@@ -61,20 +70,39 @@ public class ApexRelicPlacer implements SectorGeneratorPlugin
             return;
         if (!GENERATE_SYSTEMS)
         {
-            relicPicker.add("apex_apex_line");
+            relicHullPicker.add("apex_apex_line");
             //relicPicker.add("apex_apotheosis_strike");
         }
         WeightedRandomPicker<StarSystemAPI> systemPicker = getSpawnSystems(sector);
 
         Global.getSector().getMemoryWithoutUpdate().set("$apex_placed_relics", true);
 
-        int attempts = 0;
-        int maxAttempts = relicPicker.getItems().size() + 5;
-        while (!relicPicker.isEmpty() && attempts < maxAttempts)
+        // place hulls
+        while (!relicHullPicker.isEmpty())
         {
-            attempts++;
-            if (attempts == maxAttempts)
-                LOGGER.warn("Apex Relics: reached maximum relic placement attempts, giving up.");
+            // pick the system to spawn things in
+            StarSystemAPI system = systemPicker.pick();
+            if (system == null)
+            {
+                LOGGER.log(Level.WARN, "Apex Relics: Failed to find a valid system, aborting.");
+                return;
+            }
+            // pick the hull and remove it from the list
+            String hull = relicHullPicker.pickAndRemove();
+            // place the hull
+            DerelictShipEntityPlugin.DerelictShipData derelictData = new DerelictShipEntityPlugin.DerelictShipData(new ShipRecoverySpecial.PerShipData(hull, ShipRecoverySpecial.ShipCondition.PRISTINE), false);
+            SectorEntityToken ship = BaseThemeGenerator.addSalvageEntity(system, Entities.WRECK, "apex_design", derelictData);
+            ship.setFaction("neutral");
+            ship.setDiscoverable(true);
+            // always put these pretty close to the star rather than possibly scattered way out in the system
+            ship.setCircularOrbit(system.getStar(), Misc.random.nextFloat() * 360, system.getStar().getRadius() * 2.5f, 50);
+            //LOGGER.log(Level.INFO, "Apex Relics: spawned " + hull + " in " + system.getName());
+        }
+        // relic weapon caches
+        // each one has some relic guns, some random high-value guns, and one relic weapon BP
+        // spawn all of them for completionists :)
+        while (!relicBPPicker.isEmpty())
+        {
             // pick the system to spawn things in
             StarSystemAPI system = systemPicker.pick();
             if (system == null)
@@ -82,41 +110,24 @@ public class ApexRelicPlacer implements SectorGeneratorPlugin
                 LOGGER.log(Level.WARN, "Apex Relics: Failed to find a valid system.");
                 return;
             }
-            // pick the location in the system
-            WeightedRandomPicker<BaseThemeGenerator.EntityLocation> points = BaseThemeGenerator.getLocations(new Random(), system, 50f, WEIGHTS);
-            BaseThemeGenerator.EntityLocation spawnLoc = points.pick();
-            if (spawnLoc == null)
-            {
-                LOGGER.warn("Apex Relics: failed to place hull.");
-                continue;
-            }
-            // pick the hull and remove it from the list
-            String hull = relicPicker.pickAndRemove();
-            // place the hull
-            DerelictShipEntityPlugin.DerelictShipData derelictData = new DerelictShipEntityPlugin.DerelictShipData(new ShipRecoverySpecial.PerShipData(hull, ShipRecoverySpecial.ShipCondition.AVERAGE), false);
-            SectorEntityToken ship = BaseThemeGenerator.addSalvageEntity(system, Entities.WRECK, "apex_design", derelictData);
-            ship.setFaction("neutral");
-            ship.setDiscoverable(true);
-            ship.setOrbit(spawnLoc.orbit);
-            LOGGER.log(Level.INFO, "Apex Relics: spawned " + hull + " in " + system.getName());
-        }
-        if (!GENERATE_SYSTEMS)
-        {// pick star for research station and spawn it
-            StarSystemAPI system = systemPicker.pick();
-            SectorEntityToken station = DerelictThemeGenerator.addSalvageEntity(system, "station_research", Factions.NEUTRAL);
-            station.setCircularOrbit(system.getStar(), 120, system.getStar().getRadius() * 2.5f, 50);
+            // create our cache and loot holder thingy
+            SectorEntityToken cache = DerelictThemeGenerator.addSalvageEntity(system, "weapons_cache", Factions.NEUTRAL);
+            cache.setCircularOrbit(system.getStar(), 120, system.getStar().getRadius() * 2.5f, 50);
             CargoAPI extraSalvage = Global.getFactory().createCargo(true);
-            extraSalvage.addSpecial(new SpecialItemData("apex_weapons_package", null), 1);
-            extraSalvage.addSpecial(new SpecialItemData("apex_hulls_package", null), 1);
-            extraSalvage.addHullmods("apex_armor", 1);
-            extraSalvage.addHullmods("apex_cryo_armor", 1);
-            extraSalvage.addHullmods("apex_geodesic_shield", 1);
-            extraSalvage.addHullmods("apex_armor_repairer", 1);
-            extraSalvage.addHullmods("apex_range_sync", 1);
-            extraSalvage.addHullmods("apex_cryo_projector", 1);
-            extraSalvage.addHullmods("apex_flare_system", 1);
-            BaseSalvageSpecial.addExtraSalvage(extraSalvage, station.getMemoryWithoutUpdate(), -1);
-            LOGGER.log(Level.INFO, "Apex Relics: spawned research station in " + system.getName());
+
+            String bp = relicBPPicker.pickAndRemove();
+            extraSalvage.addSpecial(new SpecialItemData("weapon_bp", bp), 1);
+            extraSalvage.addWeapons(relicWeaponPicker.pick(), Misc.random.nextInt(3)+2);
+            extraSalvage.addWeapons(relicWeaponPicker.pick(), Misc.random.nextInt(3)+2);
+            // :3
+            if (Misc.random.nextInt() % 5000 == 0 && Global.getSettings().getModManager().isModEnabled("tahlan")) {
+                extraSalvage.addSpecial(new SpecialItemData("tahlan_rare_bp_package", null), 1);
+                LOGGER.log(Level.INFO, "tell nia. I want him to know it was me.");
+            }
+
+            BaseSalvageSpecial.addExtraSalvage(extraSalvage, cache.getMemoryWithoutUpdate(), -1);
+            cache.setName(text("cache"));
+            //LOGGER.log(Level.INFO, "Apex Relics: spawned relic cache in " + system.getName());
         }
     }
 

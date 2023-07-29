@@ -18,6 +18,7 @@ import java.awt.Color
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
+import kotlin.math.sqrt
 
 // a kotlin adaptation (and improvement) of magiclib missile AI
 class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): MissileAIPlugin, GuidedMissileAI
@@ -30,41 +31,54 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
 
         // accelerate if there's no target (most missiles do this)
         const val ENGINE_ON_WITH_NO_TARGET = true
+
         // cuts forward thrust if facing vector is too far from target vector
         // set to -1 to disable (which will mean the engine is always on)
         const val ENGINE_OFF_ANGLE = 30f
-        // time for a full wave (left, then right, then back to center), in seconds. <=0 disables
+
+        // time for a full wave (center, then left, then right, then back to center), in seconds. <=0 disables
         const val WAVE_TIME = 2f
-        // max angle of wave from target vector. <= 0 disables (but you should disable it with WAVE_TIME instead)
+
+        // max angle of wave from target angle. <= 0 disables (but you should disable it with WAVE_TIME instead)
         // this should be less than ENGINE_OFF_ANGLE
         const val WAVE_SIZE = 20f
+
         // disables waving at this distance.
         // make it zero to wave until impact
         const val WAVE_CUTOFF_DIST = 600f
+
         // self-explanatory. random offset for waving so not all missiles follow the same path
         const val WAVE_RANDOM = false
+
         // if it's got ECCM, multiplies wave size by this much
         const val WAVE_ECCM_FACTOR = 0.5f
+
         // if DOESN'T have ECCM, multiplies target velocity by this much when predicting intercept
         const val ECCM_VEL_FACTOR = 0.66f
+
         // magic rotation damping factor. smaller numbers cause more aggressive snapping to target angles and allow higher turn speeds.
         // too small and it'll be jerky. 0.5 to 0.1 is usually a good number.
         const val DAMPING_FACTOR = 0.1f
+
         // engages lateral velocity matching at this range; set to -1 to disable
         // produces *extremely* accurate guidance
         const val LATERAL_MATCHING_DIST = -1
-        // enables spread targeting- missiles will target a random point on the target ship, like breaches.
-        // <0 is off. between 0 and 1 controls the amount of spread (1 being == the target's collision radius)
-        // >1 will have no effect
-        // actually it's just binary at the moment, <0 is off, everything else is on
-        const val SPREAD_AMOUNT = 1f
-        // controls the distance where the missile will stop using the spread-targeted point and use the target's center instead
-        // this is distance to the edge of the target's collision radius (negative will turn it off inside the collision radius)
-        // set to a large negative number to disable (or just take out the comparison)
-        const val SPREAD_CUTOFF_DIST = 0f
+
+        // enables spread targeting- missiles will aim some random distance off of the target's center, like breaches
+        // <=0 is off.  >0 controls the amount of spread (ex, 0.5 means maximum spread is 0.5 * target's collision radius)
+        // >1 means they'll never hit without using the spread shrink variables below
+        const val SPREAD_AMOUNT = 0.5f
+
+        // begins to reduce the spread amount after this distance from target
+        // good for making missiles spread out mid-flight and the collapse back on the target
+        // effectively just multiplies the spread amount by lerp(shrink_factor, 0, max(dist_to_target / shrink_dist, 1))
+        const val SPREAD_SHRINK_FACTOR = -1f
+        const val SPREAD_SHRINK_DIST = -1f
+
         // missile begins increasing its check rate and decreasing its wave amplitude at this distance
         // 500 is fine for most purposes, but increase it if you have very fast missiles
         const val HIGH_PERFORMANCE_RANGE = 500f
+
         // targeting options
         // NO_RANDOM: ship target first, then unselected target near cursor, then closest valid target
         // LOCAL_RANDOM: picks random targets around ship target, then around cursor, then around itself
@@ -77,12 +91,16 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
         const val DESTROYERS = 1
         const val CRUISERS = 1
         const val CAPITALS = 1
-        // search cone for new target selection, >= 360 disables cone targeting
+
+        // search cone for new target selection, >= 360 disables cone targeting (should be an int, not a float)
         const val SEARCH_CONE = 360
-        // self-explanatory. square the value you actually want (to save time with distance checks)
-        const val SEARCH_RANGE = 2500*2500
+
+        // self-explanatory (should be an int, not a float)
+        const val SEARCH_RANGE = 2500
+
         // will cause missiles to target the closest target if no valid one can be found with search parameters
         const val SEARCH_FAILSAFE = false
+
         // does missile predict an intercept point or just point right at the target?
         const val PREDICTIVE_INTERCEPT = true
     }
@@ -96,10 +114,7 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
     private var timer = 0f
     private var check = 0f
     private var lead: Vector2f? = Vector2f()
-    // rotate to ship facing and add to intercept point for spread impacts
-    // for spread targeting
-    //private var segment_target: SegmentAPI? = null
-    //private var segment_lerp = 0f
+    private var side_offset = 0f
     private var vector_offset = Vector2f()
     private val WAVE_TIME_CONST = 2f * MathUtils.FPI / WAVE_TIME
 
@@ -112,7 +127,7 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
             setTarget(MagicTargeting.pickTarget(
                 missile,
                 SEEKING,
-                SEARCH_RANGE,
+                SEARCH_RANGE * SEARCH_RANGE,
                 SEARCH_CONE,
                 FIGHTERS, FRIGATES, DESTROYERS, CRUISERS, CAPITALS,
                 SEARCH_FAILSAFE
@@ -133,13 +148,17 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
                 )
             )
             var targetLoc = Vector2f(target!!.location)
-            if (SPREAD_AMOUNT > 0 && MathUtils.getDistance(missile, target) > SPREAD_CUTOFF_DIST)
+            if (SPREAD_AMOUNT > 0)
             {
-                //target!!.exactBounds.update(target!!.location, target!!.facing)
-                //targetLoc = lerp(segment_target!!.p1, segment_target!!.p2, segment_lerp)
-                targetLoc = Vector2f(vector_offset)
-                targetLoc.rotate(target!!.facing)
-                Vector2f.add(targetLoc,target!!.location, targetLoc)
+                //targetLoc = Vector2f(vector_offset)
+                //targetLoc.rotate(target!!.facing)
+                //Vector2f.add(targetLoc,target!!.location, targetLoc)
+                var offset_mult = 1f
+                if (SPREAD_SHRINK_FACTOR > 0)
+                    offset_mult = lerp(SPREAD_SHRINK_FACTOR, 1f, min(sqrt(targetDist) / SPREAD_SHRINK_DIST, 1f))
+
+                targetLoc = Vector2f(0f, side_offset * offset_mult).rotate(VectorUtils.getAngle(missile.location, target!!.location))
+                Vector2f.add(target!!.location, targetLoc, targetLoc)
                 //engine.addSmoothParticle(targetLoc, Misc.ZERO, 10f, 1f, 0.1f, Color.CYAN)
             }
             lead = if (PREDICTIVE_INTERCEPT)
@@ -211,13 +230,13 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
     {
         target = newTarget
         if (target !is ShipAPI || SPREAD_AMOUNT <= 0) return
-        //segment_target = target!!.exactBounds.segments[Misc.random.nextInt(target!!.exactBounds.segments.size)]
-        //segment_lerp = Misc.random.nextFloat()
 
         target!!.exactBounds.update(target!!.location, target!!.facing)
         vector_offset = ApexUtils.getRandomPointOnShipBounds(target as ShipAPI)
         Vector2f.sub(vector_offset, target!!.location, vector_offset)
         vector_offset.rotate(-target!!.facing)
+
+        side_offset = (2f * Misc.random.nextFloat() - 1f) * target!!.collisionRadius * SPREAD_AMOUNT
     }
 
 

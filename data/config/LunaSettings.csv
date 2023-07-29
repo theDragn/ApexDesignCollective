@@ -1,0 +1,6 @@
+fieldID,fieldName,fieldType,defaultValue,secondaryValue,fieldDescription,minValue,maxValue,tab
+apex_potatomode,Potato Mode,Boolean,FALSE,,Disables most of the graphical effects in this mod. You should probably only turn this off if you don't have a dedicated GPU; anything modern won't have any trouble. Enabling this will NOT reduce VRAM usage. Can be toggled at any time.,,,
+apex_relics,Generate Relics,Boolean,TRUE,,Enables generation of Relic Caches and derelict Relic hulls. Changing this will only affect a new playthrough. Only applies to Relic Caches and derelict Relic hulls; other loot sources can still have them.,,,
+apex_eurobeat,Eurobeat Mode,Boolean,FALSE,,"Modifies the AI usage of the Travel Drive ship system, causing ships with the system to leave it on at all times. Can be toggled at any time.",,,
+apex_excession_id,Excession ID,Boolean,TRUE,,"Marks the Excession as a unique ship, similar to the Ziggurat, if you acquire it. The intended experience is with this enabled. Only applies when you first get the ship; changing it afterwards will have no effect.",,,
+# apex_systems,Generate Faction/Systems,Boolean,TRUE,,"Enables generation of core mod faction and their associated star systems. Dunno why you'd want to turn this off, but you can. Changing this will only affect a new playthrough. Does not override Nexerelin faction respawning.",,,

@@ -6,7 +6,7 @@
 	"graphics": {
     "blueprint_packages":{
       "apex_weapons_package":"graphics/icons/cargo/apex_weapons_package.png",
-      "apex_hulls_package":"graphics/icons/cargo/apex_hulls_package.png"
+      "apex_hulls_package":"graphics/icons/cargo/apex_hulls_package.png",
     },	
 		"misc": {
 		  "apex_regen": "graphics/icons/buffs/apex_regen.png",
@@ -14,7 +14,8 @@
       "apex_nozzle": "graphics/hullmods/apex_nozzle.png",
       "apex_slow_nozzles":"graphics/hullmods/apex_slow_nozzles.png",
       "apex_shieldaccel":"graphics/hullmods/apex_fastshields.png",
-      "apex_breach_core":"graphics/icons/buffs/apex_breachcore.png"
+      "apex_breach_core":"graphics/icons/buffs/apex_breachcore.png",
+      "apex_crest":"graphics/factions/apex_40x40.png",
 		},
 		"fx":{
       "apex_trail_twin":"graphics/trails/fx/trails_twin.png",

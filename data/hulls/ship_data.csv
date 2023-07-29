@@ -43,13 +43,14 @@ Apotheosis (RG),apex_apotheosis_rg,Battlecruiser,Red Guards,apex_microburn,23,10
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 "# secret (I guess it's really not that secret if it's in here but I don't have that many options, y'know?)",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Excession,apex_excession,Phase Destroyer,Apex Design Collective,apex_excessionsys,150,2500,1000,5000,,400,50,,90,250,250,230,230,400,PHASE,apex_excessionphase,,,,0.03,0.08,5,10,100,60,1,60,10,2000000,10,25,360,0.25,40,40,"PHASE, HIDE_IN_CODEX",no_dealer,,0.5,2,3,,1312
-Kommok,apex_bounty_kommok,Heavy Cruiser,Apex Design Collective,temporalshell,25,10000,1150,10000,,750,195,1,45,35,35,15,15,1750,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,"COMBAT, HIDE_IN_CODEX",no_dealer,,0.25,2,3,,69420
+Kommok,apex_bounty_kommok,Heavy Cruiser,Apex Design Collective,apex_damper,25,10000,1150,10000,,750,195,1,45,35,35,15,15,1750,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,"COMBAT, HIDE_IN_CODEX",no_dealer,,0.25,2,3,,69420
 Odomodo,apex_bounty_odomodo,Heavy Cruiser,Apex Design Collective,apex_bounty_superdamper,25,10000,1150,10000,,750,195,1,45,35,35,15,15,1750,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,"COMBAT, HIDE_IN_CODEX",no_dealer,,0.25,2,3,,69420
+Minimodo,apex_bounty_minimodo,Heavy Cruiser,Apex Design Collective,temporalshell,25,10000,1150,10000,,750,195,1,45,35,35,15,15,1750,OMNI,,180,0.3,0.9,,,125,250,150,100,4,25,8,175000,10,25,480,0.25,30,30,"COMBAT, HIDE_IN_CODEX",no_dealer,,0.25,2,3,,69420
 Quasar,apex_quasar,Supercapital,Apex Design Collective,apex_remote_damper,150,25000,1700,25000,,1500,340,4,40,20,10,12,12,6000,OMNI,,180,0.3,0.9,,,0,0,500,540,18,30,6,2000000,10,25,,,150,150,"SHIP_WITH_MODULES, UNBOARDABLE, COMBAT, HIDE_IN_CODEX",no_dealer,,1,3,4,,1234
 ,apex_quasar_left,Left Wing,Apex Design Collective,apex_damper,0,8000,1050,6000,,500,150,,10,10,10,10,10,1500,NONE,,,,,,,0,0,0,0,0,0,0,0,0,0,,,0,0,"UNBOARDABLE, HIDE_IN_CODEX",,,1,1,2,,1234
 ,apex_quasar_right,Right Wing,Apex Design Collective,apex_damper,0,8000,1050,6000,,500,150,,10,10,10,10,10,1500,NONE,,,,,,,0,0,0,0,0,0,0,0,0,0,,,0,0,"UNBOARDABLE, HIDE_IN_CODEX",,,1,1,2,,1234
 ,apex_quasar_front,Armor Module,Apex Design Collective,apex_thorns,0,10000,1200,6000,,150,50,,0,0,0,0,0,1500,NONE,,,,,,,0,0,0,0,0,0,0,0,0,0,,,0,0,"UNBOARDABLE, HIDE_IN_CODEX",,,1,1,2,,1234
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Dadras,apex_ins_destroyer,Destroyer,Relic,apex_ins_damper,9,5000,900,4000,,350,135,,80,60,40,30,60,400,PHASE,canister_flak,0,0,0,,,50,75,100,60,2,30,9,40000,10,25,360,0.25,10,10,,"rare_bp, hist1t, merc, ind, apex_relic_bp",0.2,0.33,2,3,,1312
-Aizawa,apex_ins_capital,Dreadnought,Relic,apex_ins_damper,25,20000,1800,20000,,900,320,,35,20,20,15,15,3000,PHASE,canister_flak,0,0,0,,,500,650,300,360,12,30,7,300000,10,25,720,0.25,60,60,,"rare_bp, hist1t, merc, ind, apex_relic_bp",0.2,0.33,2,3,,1312
+Dadras,apex_ins_destroyer,Destroyer,Relic,apex_ins_damper,9,5000,900,4000,,350,135,,80,60,40,30,60,400,PHASE,canister_flak,0,0,0,,,50,75,100,60,2,30,9,40000,10,25,360,0.25,10,10,,"hist1t, merc, apex_relic",,0.33,2,3,,1312
+Aizawa,apex_ins_capital,Dreadnought,Relic,apex_ins_damper,25,20000,1800,20000,,900,320,,35,20,20,15,15,3000,PHASE,canister_flak,0,0,0,,,500,650,300,360,12,30,7,300000,10,25,720,0.25,60,60,,"hist1t, merc, apex_relic",,0.33,2,3,,1312
 ,,,,,,,,,,,,,,,,,,, ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
