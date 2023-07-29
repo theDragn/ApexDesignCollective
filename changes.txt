@@ -19,6 +19,9 @@ Changes:
 - Kommok and Odomodo are no longer guaranteed recoveries.
 - Kommok now has Temporal Damper instead of Temporal Shell.
 
+Bugs Squashed:
+- Fixed a rare crash with the Wailer MRM missile AI.
+
 Version 1.2.2
 - fixes an issue with the most recent combat activators version that caused some nozzle systems to never find valid targets
 - cryocoolant manual targeting now considers a selected ally a valid target, even if they have zero flux
