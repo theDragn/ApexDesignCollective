@@ -1,7 +1,9 @@
 {
 	"id":"apex_ins_damper",
 	"type":"STAT_MOD",
-	"aiType":"DAMPER_FIELD",
+	"aiType":"CUSTOM",
+	
+	"aiScript":"data.shipsystems.ai.ApexDamperAI",
 	
 	"statsScript":"data.shipsystems.ApexInsDamper",
 	

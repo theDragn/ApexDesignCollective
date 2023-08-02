@@ -8,7 +8,7 @@ class ApexInsTorpOnHit: OnHitEffectPlugin
 {
     companion object
     {
-        const val DAMAGE = 400f / 800f
+        const val DAMAGE = 400f / 600f
     }
 
     override fun onHit(

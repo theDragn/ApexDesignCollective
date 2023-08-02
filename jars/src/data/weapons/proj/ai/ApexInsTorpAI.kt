@@ -19,7 +19,7 @@ class ApexInsTorpAI(var missile: MissileAPI, var ship: ShipAPI): GuidedMissileAI
     var guidanceTarget: CombatEntityAPI? = null
     var doneVFX = false
     var aimTimer = 1f
-    var aimOffset = Misc.random.nextFloat() * 5f - 2.5f
+    var aimOffset = Misc.random.nextFloat() * 6f - 3f
     var eccm = ship.variant.hasHullMod("eccm")
     val missile_sprite: SpriteAPI = Global.getSettings().getSprite("fx","apex_shrieker_sprite")
     val sprite_size = Vector2f(9f, 13f)

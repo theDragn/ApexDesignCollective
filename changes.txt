@@ -1,3 +1,10 @@
+Version 1.2.4
+Just some fixes.
+- Added version requirement for Combat Activators to prevent a crash if you didn't update it to at least 1.1.0.
+- Toroid Mortars: somehow 0.96 broke the projectile glow on these? fuckin weird. anyway, it's fixed
+- Shrieker Torpedoes: Reduced damage to 600 HE + 400 frag and increased targeting spread by about 20%.
+- Aizawa and Dadras now have custom system AI and should be much more aggressive about using their dampers.
+
 Version 1.2.3
 Fleshing out the relic guns and adding some relic hulls. I don't have anything else planned for the relic stuff at the moment, but I'll add more if inspiration strikes.
 New:

@@ -65,7 +65,7 @@ public class ApexTachyonShredder extends BaseCombatLayeredRenderingPlugin implem
     {
         projectiles.add(proj);
         float extraDamage = weapon.getShip().getFluxLevel() * DAMAGE_BOOST;
-        Color movingEffectColor = ApexUtils.blendColors(START_COLOR, FINAL_COLOR, weapon.getShip().getFluxLevel());
+        Color movingEffectColor = Misc.interpolateColor(START_COLOR, FINAL_COLOR, weapon.getShip().getFluxLevel());
         //proj.getProjectileSpec().setFringeColor(effectColor);
         ApexTachyonShredder trail = new ApexTachyonShredder(proj, movingEffectColor);
 
@@ -398,7 +398,7 @@ public class ApexTachyonShredder extends BaseCombatLayeredRenderingPlugin implem
                 rotationOut,
                 SIZE_IN,
                 SIZE_OUT,
-                ApexUtils.blendColors(COLOR_IN, COLOR_IN_FADE, scalar),
+                Misc.interpolateColor(COLOR_IN, COLOR_IN_FADE, scalar),
                 COLOR_OUT,
                 OPACITY * opacityMult,
                 FADE_IN_DURATION,

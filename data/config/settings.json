@@ -25,7 +25,8 @@
       "apex_shockwave":"graphics/fx/shields256ring.png",
       "apex_flak_puff":"graphics/effects/apex_ins_flak_puff.png",
       "apex_flak_fire":"graphics/effects/apex_ins_flak_fire.png",
-      "apex_shrieker_sprite":"graphics/missiles/apex_ins_torp_real.png"
+      "apex_shrieker_sprite":"graphics/missiles/apex_ins_torp_real.png",
+      "toroid_glow":"graphics/effects/apex_hit_glow.png"
 		},
     "apex_spectrum":{
       "apex_spectrum_cargo":"graphics/ships/apex_spectrum_cargo.png",

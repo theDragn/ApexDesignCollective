@@ -171,39 +171,8 @@ public class ApexUtils
                 VectorUtils.getAngle(entity.getLocation(), point));
     }
 
-    /**
-     * Blends two colors
-     *
-     * @param c1    color 1
-     * @param c2    color 2
-     * @param ratio what percent of color 1 the result should have
-     * @return blended color
-     */
-    public static Color blendColors(Color c1, Color c2, float ratio)
-    {
-
-        float iRatio = 1.0f - ratio;
-
-        int a1 = c1.getAlpha();
-        int r1 = c1.getRed();
-        int g1 = c1.getGreen();
-        int b1 = c1.getBlue();
-
-        int a2 = c2.getAlpha();
-        int r2 = c2.getRed();
-        int g2 = c2.getGreen();
-        int b2 = c2.getBlue();
-
-        int a = (int) ((a1 * iRatio) + (a2 * ratio));
-        int r = (int) ((r1 * iRatio) + (r2 * ratio));
-        int g = (int) ((g1 * iRatio) + (g2 * ratio));
-        int b = (int) ((b1 * iRatio) + (b2 * ratio));
-
-        return new Color(r, g, b, a);
-    }
-
     // unused but perhaps useful in the future
-    // oh my god thank you, past me
+    // thank you, past me, it was useful
     /**
      * Returns true if there is no more armor to remove at an impact point
      * @param target

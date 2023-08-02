@@ -56,7 +56,7 @@ public class ApexTachyonShredderOnHit implements OnHitEffectPlugin
 
             // graphics
 
-            Color color = ApexUtils.blendColors(START_COLOR, FINAL_COLOR, proj.getSource().getFluxLevel());
+            Color color = Misc.interpolateColor(START_COLOR, FINAL_COLOR, proj.getSource().getFluxLevel());
                     //proj.getProjectileSpec().getFringeColor();
             color = Misc.setAlpha(color, 100);
 

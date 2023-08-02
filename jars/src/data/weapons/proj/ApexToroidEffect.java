@@ -20,7 +20,7 @@ import static plugins.ApexModPlugin.POTATO_MODE;
 
 public class ApexToroidEffect implements OnFireEffectPlugin
 {
-    private static final SpriteAPI glowSprite = Global.getSettings().getSprite("campaignEntities", "fusion_lamp_glow");
+    //private static final SpriteAPI glowSprite = Global.getSettings().getSprite("fx", "toroid_glow");
     private static final Vector2f spriteSize = new Vector2f(150f, 150f);
     public static final float MIN_ARC_DAMAGE = 0.1f;
     public static final float MAX_ARC_DAMAGE = 0.2f;
@@ -42,11 +42,12 @@ public class ApexToroidEffect implements OnFireEffectPlugin
         boolean isDone = false;
 
         public ApexToroidPlugin() {}
-
+        private SpriteAPI glowSprite;
         public ApexToroidPlugin(DamagingProjectileAPI proj)
         {
             this.proj = proj;
             this.interval = new IntervalUtil(ARC_MIN_INTERVAL, ARC_MAX_INTERVAL);
+            this.glowSprite = Global.getSettings().getSprite("fx", "toroid_glow");
         }
 
         @Override
@@ -80,6 +81,7 @@ public class ApexToroidEffect implements OnFireEffectPlugin
             Vector2f.add(adjustedPos, proj.getLocation(), adjustedPos);
             // rendering a glow sprite here, because the large projectile sprite makes it weirdly offset if I use a normal one
             glowSprite.renderAtCenter(adjustedPos.x, adjustedPos.y);
+
         }
 
         @Override
