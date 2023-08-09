@@ -229,7 +229,8 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
     {
         target = newTarget
         if (target !is ShipAPI || SPREAD_AMOUNT <= 0) return
-
+        // yeah look I had an NPE here and don't want to deal with it
+        target ?: return; target?.exactBounds ?: return; target?.location ?: return; target?.facing ?: return
         target!!.exactBounds.update(target!!.location, target!!.facing)
         vector_offset = ApexUtils.getRandomPointOnShipBounds(target as ShipAPI)
         Vector2f.sub(vector_offset, target!!.location, vector_offset)

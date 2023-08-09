@@ -1,11 +1,17 @@
-Version 1.2.4
+Version 1.2.5- save compatible
+- Rotary AM Flak: Improved vfx performance. Spam them more, if you desire.
+- Wailer MRM: Increased frag damage to 400 (previously 300) since it felt a little lackluster for 13 OP.
+- Fixed a crash that would happen if you fired Shrieker torpedoes at ships that were faster than them
+- Fixed a crash with Wailer missiles that would happen if you were unlucky (honestly idk but it's fixed)
+
+Version 1.2.4- save compatible
 Just some fixes.
 - Added version requirement for Combat Activators to prevent a crash if you didn't update it to at least 1.1.0.
 - Toroid Mortars: somehow 0.96 broke the projectile glow on these? fuckin weird. anyway, it's fixed
 - Shrieker Torpedoes: Reduced damage to 600 HE + 400 frag and increased targeting spread by about 20%.
 - Aizawa and Dadras now have custom system AI and should be much more aggressive about using their dampers.
 
-Version 1.2.3
+Version 1.2.3- save compatible (requires new save to spawn relic caches and derelicts)
 Fleshing out the relic guns and adding some relic hulls. I don't have anything else planned for the relic stuff at the moment, but I'll add more if inspiration strikes.
 New:
 - MHD Driver
@@ -29,7 +35,7 @@ Changes:
 Bugs Squashed:
 - Fixed a rare crash with the Wailer MRM missile AI.
 
-Version 1.2.2
+Version 1.2.2- save compatible
 - fixes an issue with the most recent combat activators version that caused some nozzle systems to never find valid targets
 - cryocoolant manual targeting now considers a selected ally a valid target, even if they have zero flux
 - harmonic dart cannon: improved sound and visual effects

@@ -68,11 +68,13 @@ class ApexInsTorpAI(var missile: MissileAPI, var ship: ShipAPI): GuidedMissileAI
                 3,
                 false
             )
+        guidanceTarget ?: return
+        guidanceTarget?.location ?: return
         if (aimTimer > 0f)
         {
             aimTimer -= amount
-            guidanceTarget ?: return
-            val intercept = AIUtils.getBestInterceptPoint(missile.location, missile.maxSpeed, guidanceTarget?.location, guidanceTarget?.velocity)
+            var intercept = AIUtils.getBestInterceptPoint(missile.location, missile.maxSpeed, guidanceTarget?.location, guidanceTarget?.velocity)
+            intercept = intercept ?: guidanceTarget?.location
             val aimAngle = VectorUtils.getAngle(missile.location, intercept) + aimOffset
             val angleDelta = MathUtils.getShortestRotation(missile.facing, aimAngle)
             if (angleDelta < 0) missile.giveCommand(ShipCommand.TURN_RIGHT)
@@ -90,8 +92,8 @@ class ApexInsTorpAI(var missile: MissileAPI, var ship: ShipAPI): GuidedMissileAI
         }
         if (aimTimer <= 0f && eccm)
         {
-            guidanceTarget ?: return
-            val intercept = AIUtils.getBestInterceptPoint(missile.location, missile.maxSpeed, guidanceTarget?.location, guidanceTarget?.velocity)
+            var intercept = AIUtils.getBestInterceptPoint(missile.location, missile.maxSpeed, guidanceTarget?.location, guidanceTarget?.velocity)
+            intercept = intercept ?: guidanceTarget?.location
             val aimAngle = VectorUtils.getAngle(missile.location, intercept)
             val angleDelta = MathUtils.getShortestRotation(missile.facing, aimAngle)
             if (angleDelta < 0) missile.giveCommand(ShipCommand.TURN_RIGHT)

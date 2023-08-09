@@ -6,7 +6,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 // this handles the animation frames and the explosion vfx plugin
-class ApexInsRotaryFlak: EveryFrameWeaponEffectPlugin, OnFireEffectPlugin
+class ApexInsRotaryFlak: EveryFrameWeaponEffectPlugin
 {
     companion object
     {
@@ -27,12 +27,5 @@ class ApexInsRotaryFlak: EveryFrameWeaponEffectPlugin, OnFireEffectPlugin
         }
         if (weapon.chargeLevel > 0)
             firingLastFrame = true
-    }
-
-
-    override fun onFire(projectile: DamagingProjectileAPI, weapon: WeaponAPI, engine: CombatEngineAPI)
-    {
-        val plugin = ApexInsFlakExp(projectile)
-        engine.addPlugin(plugin)
     }
 }
