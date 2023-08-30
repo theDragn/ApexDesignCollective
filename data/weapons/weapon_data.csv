@@ -71,6 +71,7 @@ Nanoacid Burstcannon,apex_nanogun_medium,1,,1750,800,,150,0,8,15,13,,,,HIGH_EXPL
 # BALLISTIC LORGE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Haymarket Railcannon,apex_haymarket,3,,5000,900,,400,200,10,10,25,,,,KINETIC,500,,,1,,,,7,2,7,,1200,,,,,,,"kinetic15, apex_weapons",,Apex Design Collective,,Anti Shield,,,,,,,,,,1
 Harmonic Dart Cannon,apex_dartgun,2,,5000,900,,250,,10,10,25,,,,HIGH_EXPLOSIVE,325,,,2.25,4,0.25,0,8,2,8,,800,,,,,,,"he15, rare_bp",,Apex Design Collective,,Anti Armor,,,,,"%s: Each dart that hits hull or armor increases hull and armor damage taken from other harmonized projectiles by %s for %s seconds, up to a maximum of %s.",Harmonized | 8% | 5 | 100%,,,,1
+Nanoacid Foamer,apex_acid_foamer,2,,5000,700,,50,,0,20,24,100,10,50,HIGH_EXPLOSIVE,50,,,1,20,0.05,5,10,0.5,10,,800,,,,,,,"he12, rare_bp, pirate",,Pirate,,Anti Armor,,,,,"%s: Deals %s damage to shields. Deals no direct damage to hull or armor, instead applying its damage over %s seconds, ignoring armor damage reduction.",Nanoacid Foam | fragmentation | 5,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # MISSILE SMOL,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Arcspike SRM Pod,apex_arcspike,1,0.5,800,1200,,110,175,10,30,4,20,0,,KINETIC,,,,8,5,0.05,10,10,0,0,,550,50,3,225,,,"GUIDED_POOR, STRIKE, USE_VS_FRIGATES","kinetic6, apex_weapons",,Apex Design Collective,,Anti Shield,Very Fast,Good,,,"Shield hits increase hard flux by %s. Hull or armor hits have a %s chance to arc to weapons or engines, dealing %s EMP damage.",75 | 25% | 175,,,TRUE,1
