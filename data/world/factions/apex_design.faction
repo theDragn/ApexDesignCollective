@@ -266,4 +266,13 @@
 		"patrolLarge":"Defense Armada",
 		"taskForce":"Fleet Group",
 	},
+	"music":{
+		"theme":"apex_market_neutral",
+		"market_neutral":"apex_market_neutral",
+		"market_hostile":"apex_market_hostile",
+		"market_friendly":"apex_market_friendly",
+		"encounter_neutral":"apex_fleet_neutral",
+		"encounter_hostile":"apex_fleet_hostile",
+		"encounter_friendly":"apex_fleet_friendly",
+	},
 },	

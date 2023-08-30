@@ -250,4 +250,9 @@ public class ApexUtils
     {
         return new Vector2f(lerp(a.x, b.x, amount), lerp(a.y, b.y, amount));
     }
+
+    public static float randBetween(float a, float b)
+    {
+        return lerp(a, b, Misc.random.nextFloat());
+    }
 }

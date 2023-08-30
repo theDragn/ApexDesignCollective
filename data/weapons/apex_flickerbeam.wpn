@@ -1,0 +1,64 @@
+{
+  "id": "apex_flickerbeam",
+  "specClass": "beam",
+  "type": "ENERGY",
+  "size": "LARGE",
+  "everyFrameEffect": "data.weapons.ApexFlickerbeamEffect",
+  "collisionClass": "RAY",
+  "collisionClassByFighter": "RAY_FIGHTER",
+  "turretSprite": "graphics/weapons/apex_flickerbeam_t.png",
+  "turretUnderSprite":"graphics/weapons/apex_flickerbeam_t_u.png",
+  "hardpointSprite": "graphics/weapons/apex_flickerbeam_h.png",
+  "hardpointUnderSprite":"graphics/weapons/apex_flickerbeam_h_u.png",	
+  "renderAboveAllWeapons": 0,
+  "glowColor": [
+    236,
+    242,
+    61,
+    255
+  ],
+  "hitGlowRadius": 0,
+  "turretOffsets": [
+    10,
+    0
+  ],
+  "turretAngleOffsets": [
+    0
+  ],
+  "hardpointOffsets": [
+    6.5,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "fringeColor": [
+    236,
+    242,
+    61,
+    255
+  ],
+  "coreColor": [
+    255,
+    255,
+    255,
+    255
+  ],
+  "width": 15,
+  "textureType": [
+    "graphics/fx/beam_laser_fringe.png",
+    "graphics/effects/apex_fusion_beam_core.png"
+  ],
+  "textureScrollSpeed": 1200,
+  "pixelsPerTexel": 5,
+  "pierceSet": [
+    PROJECTILE_FF,
+    PROJECTILE_NO_FF,
+    PROJECTILE_FIGHTER,
+    MISSILE_FF,
+    MISSILE_NO_FF
+  ],
+  # done through weapon scripting because it doesn't like to actually play the whole sound
+  #"fireSoundOne": "apex_fusion_l_fire",
+  #"fireSoundTwo": "laser_loop"
+}

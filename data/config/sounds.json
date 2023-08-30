@@ -1,4 +1,24 @@
 {
+	"music":{
+		"apex_market_friendly":[
+			{"file":"apex_market_friendly.ogg","source":"sounds/music/","volume":0.5,"randomStart":false}
+		],
+		"apex_market_neutral":[
+			{"file":"apex_market_neutral.ogg","source":"sounds/music/","volume":0.5,"randomStart":false}
+		],
+		"apex_market_hostile":[
+			{"file":"apex_market_hostile.ogg","source":"sounds/music/","volume":0.5,"randomStart":false}
+		],
+    	"apex_fleet_neutral":[
+			{"file":"apex_fleet_neutral.ogg","source":"sounds/music/","volume":0.5,"randomStart":false}
+		],
+		"apex_fleet_friendly":[
+			{"file":"apex_fleet_friendly.ogg","source":"sounds/music/","volume":0.5,"randomStart":false}
+		],
+		"apex_fleet_hostile":[
+			{"file":"apex_fleet_hostile.ogg","source":"sounds/music/","volume":0.5,"randomStart":false}
+		]
+  	},
 	"apex_haymarket_shot":
 	[
 		{"file":"sounds/weapon/apex_haymarket_shot.ogg","pitch":1,"volume":0.7},
@@ -176,8 +196,8 @@
 	"apex_rotary_flak_exp":
 	[
 		{"file":"sounds/weapon/apex_rotary_flak_exp1.ogg","pitch":1.0,"volume":0.3},
-		{"file":"sounds/weapon/apex_rotary_flak_exp2.ogg","pitch":1.0,"volume":0.3},
-		{"file":"sounds/weapon/apex_rotary_flak_exp3.ogg","pitch":1.0,"volume":0.3}
+		{"file":"sounds/weapon/apex_rotary_flak_exp2.ogg","pitch":0.9,"volume":0.3},
+		{"file":"sounds/weapon/apex_rotary_flak_exp3.ogg","pitch":1.1,"volume":0.3}
 	],
 	"apex_rotary_flak_end":
 	[
@@ -190,5 +210,11 @@
 	"apex_ins_plasma_charged":
 	[
 		{"file":"sounds/weapon/apex_ins_plasma_charged.ogg","pitch":1.0,"volume":1.0}
+	],
+	"apex_flickerbeam_fire":
+	[
+		{"file":"sounds/weapon/apex_flickerbeam.ogg","pitch":0.9,"volume":1.0},
+		{"file":"sounds/weapon/apex_flickerbeam.ogg","pitch":1.0,"volume":1.0},
+		{"file":"sounds/weapon/apex_flickerbeam.ogg","pitch":1.1,"volume":1.0}
 	]
 }

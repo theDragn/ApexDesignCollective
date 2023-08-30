@@ -71,5 +71,6 @@
     ]
   },
   "textureType": ROUGH,
+  "fireSoundOne":"apex_inverter_charge",
   "fireSoundTwo": "apex_inverter_fire"
 }

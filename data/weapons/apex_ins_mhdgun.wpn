@@ -5,6 +5,7 @@
   "type": "BALLISTIC",
   "size": "LARGE",
   "displayArcRadius": 1200,
+  "everyFrameEffect": "data.weapons.ApexInsMHD",
   "turretSprite": "graphics/weapons/ins/apex_ins_mhdgun_t.png",
   "turretGlowSprite": "graphics/weapons/ins/apex_ins_mhdgun_t_glow.png",
   "hardpointSprite": "graphics/weapons/ins/apex_ins_mhdgun_h.png",

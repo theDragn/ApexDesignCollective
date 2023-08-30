@@ -63,7 +63,7 @@ public class ApexTachyonEffects implements OnHitEffectPlugin, EveryFrameWeaponEf
 
         if (!playedCharge && charge > 0)
         {
-            Global.getSoundPlayer().playSound("apex_inverter_charge", 1f, 1f, weapon.getLocation(), new Vector2f(0f, 0f));
+            //Global.getSoundPlayer().playSound("apex_inverter_charge", 1f, 1f, weapon.getLocation(), new Vector2f(0f, 0f));
             playedCharge = true;
         }
 

@@ -4,7 +4,6 @@
 	"spawnType":"BALLISTIC",
 	"collisionClass":"PROJECTILE_FF",
 	"collisionClassByFighter":"PROJECTILE_FIGHTER",	
-	"onHitEffect":"data.weapons.proj.ApexInsMHDOnHit",
 	#"spawnType":"BALLISTIC_AS_BEAM",
 	#"collisionClass":"RAY",
 	#"collisionClassByFighter":"RAY_FIGHTER",

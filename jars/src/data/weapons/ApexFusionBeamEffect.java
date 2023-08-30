@@ -75,8 +75,9 @@ public class ApexFusionBeamEffect implements BeamEffectPlugin
                     float damage = ship.getArmorGrid().getArmorRating() * bonusFraction * ship.getMutableStats().getBeamWeaponDamageMult().computeMultMod() * ship.getMutableStats().getEnergyWeaponDamageMult().computeMultMod();
                     //System.out.println(damage);
                     //engine.spawnExplosion(point, ZERO, Color.WHITE, damage * 0.66f, 1f);
-                    engine.spawnExplosion(point, ZERO, Color.MAGENTA, damage * 0.66f, 1f);
-                    float radius = Math.min(damage * 0.66f, 250);
+                    //float radius = Math.min(damage * 0.66f, 250);
+                    float radius = 30f * (float)Math.sqrt(damage * 0.06);
+                    engine.spawnExplosion(point, ZERO, Color.MAGENTA, radius, 1f);
                     DamagingExplosionSpec spec = new DamagingExplosionSpec(0.1f,
                             radius * 1.2f,
                             radius,
@@ -98,7 +99,7 @@ public class ApexFusionBeamEffect implements BeamEffectPlugin
                     Global.getSoundPlayer().playSound(sound, 1f, 1f, point, target.getVelocity());
                     if (!POTATO_MODE) {
                         damage = Math.min(damage, 375);
-                        ApexUtils.addWaveDistortion(point, Math.min(damage * 0.25f, 150f), damage * 0.25f, 0.2f + damage * 0.002f);
+                        ApexUtils.addWaveDistortion(point, Math.min(damage * 0.25f, 150f), radius, 0.33f);
                         engine.addSmoothParticle(point, new Vector2f(), radius * 2f, 1.0F, 0.05F, Color.WHITE);
                         engine.addSmoothParticle(point, new Vector2f(), radius * 2f, 1.0F, 0.1F, Color.WHITE);
                         //ApexUtils.addLight(point, damage*0.025f, damage*0.025f, 0.2f*0.002f, Color.RED);
