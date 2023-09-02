@@ -30,7 +30,7 @@ public class ApexRelicPlacer implements SectorGeneratorPlugin
     private static final WeightedRandomPicker<String> relicHullPicker = new WeightedRandomPicker<>();
     static
     {
-        relicHullPicker.add("apex_apotheosis_strike");
+        //relicHullPicker.add("apex_apotheosis_strike");
         relicHullPicker.add("apex_ins_destroyer_relic");
         relicHullPicker.add("apex_ins_destroyer_relic");
         relicHullPicker.add("apex_ins_capital_relic");
@@ -46,6 +46,8 @@ public class ApexRelicPlacer implements SectorGeneratorPlugin
         relicBPPicker.add("apex_ins_flak");
         relicBPPicker.add("apex_ins_plasma");
         relicBPPicker.add("apex_ins_mhdgun");
+        relicBPPicker.add("apex_ins_shattercan");
+        relicBPPicker.add("apex_ins_shatterpod");
         relicWeaponPicker = relicBPPicker.clone();
     }
     private static final Set<String> STAR_TYPES = new HashSet<>();
@@ -68,18 +70,16 @@ public class ApexRelicPlacer implements SectorGeneratorPlugin
     {
         if (!GENERATE_RELICS)
             return;
-        if (!GENERATE_SYSTEMS)
-        {
-            relicHullPicker.add("apex_apex_line");
-            //relicPicker.add("apex_apotheosis_strike");
-        }
+
         WeightedRandomPicker<StarSystemAPI> systemPicker = getSpawnSystems(sector);
 
         Global.getSector().getMemoryWithoutUpdate().set("$apex_placed_relics", true);
 
         // place hulls
-        while (!relicHullPicker.isEmpty())
+        int toPlace = 2;
+        while (toPlace > 0)
         {
+            toPlace--;
             // pick the system to spawn things in
             StarSystemAPI system = systemPicker.pick();
             if (system == null)
@@ -100,9 +100,10 @@ public class ApexRelicPlacer implements SectorGeneratorPlugin
         }
         // relic weapon caches
         // each one has some relic guns, some random high-value guns, and one relic weapon BP
-        // spawn all of them for completionists :)
-        while (!relicBPPicker.isEmpty())
+        toPlace = 6;
+        while (toPlace > 0)
         {
+            toPlace--;
             // pick the system to spawn things in
             StarSystemAPI system = systemPicker.pick();
             if (system == null)

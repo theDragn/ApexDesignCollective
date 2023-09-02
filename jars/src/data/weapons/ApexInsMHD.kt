@@ -17,28 +17,28 @@ class ApexInsMHD: EveryFrameWeaponEffectPlugin
         }
 
     }
-}
-
-class ApexMHDListener: DamageDealtModifier
-{
-    override fun modifyDamageDealt(
-        param: Any?,
-        target: CombatEntityAPI?,
-        damage: DamageAPI?,
-        point: Vector2f?,
-        shieldHit: Boolean
-    ): String?
+    class ApexMHDListener: DamageDealtModifier
     {
-        if (shieldHit && param is DamagingProjectileAPI && param.projectileSpecId != null && damage != null && target is ShipAPI && param.source != null)
+        override fun modifyDamageDealt(
+            param: Any?,
+            target: CombatEntityAPI?,
+            damage: DamageAPI?,
+            point: Vector2f?,
+            shieldHit: Boolean
+        ): String?
         {
-            if (param.projectileSpecId.equals("apex_ins_mhd_shot"))
+            if (shieldHit && param is DamagingProjectileAPI && param.projectileSpecId != null && damage != null && target is ShipAPI && param.source != null)
             {
-                target.fluxTracker.increaseFlux(damage.damage, true)
-                Global.getCombatEngine().addFloatingDamageText(point, damage.damage, Misc.FLOATY_SHIELD_DAMAGE_COLOR, target, param.source)
-                damage.modifier.modifyMult("apexMHD", 0.5f)
-                return "apexMHD"
+                if (param.projectileSpecId.equals("apex_ins_mhd_shot"))
+                {
+                    target.fluxTracker.increaseFlux(damage.damage, true)
+                    Global.getCombatEngine().addFloatingDamageText(point, damage.damage, Misc.FLOATY_SHIELD_DAMAGE_COLOR, target, param.source)
+                    damage.modifier.modifyMult("apexMHD", 0.5f)
+                    return "apexMHD"
+                }
             }
+            return null
         }
-        return null
     }
 }
+

@@ -274,7 +274,7 @@ public class ApexNanoacidEffect extends BaseCombatLayeredRenderingPlugin
             damageRemaining -= excessDamage;
             target.syncWithArmorGridState();
         }
-
+        //System.out.println("damage remaining = " + damageRemaining + ", damage dealt = " + damageDealt + ", excess dealt to hull = " + excessDamage);
     }
 
     @Override

@@ -216,5 +216,11 @@
 		{"file":"sounds/weapon/apex_flickerbeam.ogg","pitch":0.9,"volume":1.0},
 		{"file":"sounds/weapon/apex_flickerbeam.ogg","pitch":1.0,"volume":1.0},
 		{"file":"sounds/weapon/apex_flickerbeam.ogg","pitch":1.1,"volume":1.0}
+	],
+	"apex_foamer_fire":
+	[
+		{"file":"sounds/weapon/apex_foamer_fire.ogg","pitch":0.90,"volume":0.2},
+		{"file":"sounds/weapon/apex_foamer_fire.ogg","pitch":1.10,"volume":0.2},
+		{"file":"sounds/weapon/apex_foamer_fire.ogg","pitch":1.00,"volume":0.2}
 	]
 }

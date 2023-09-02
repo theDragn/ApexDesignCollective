@@ -94,7 +94,9 @@ public class ApexSuperRangeSync extends BaseHullMod
         @Override
         public float getWeaponBaseRangeFlatMod(ShipAPI ship, WeaponAPI weapon)
         {
-            if (weapon.getType() == WeaponAPI.WeaponType.MISSILE || weapon.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || weapon.getSlot() == null || weapon.getSlot().isBuiltIn() || weapon.isDecorative() || weapon.getSpec().getMaxRange() == 0)
+            if (weapon.getType() == WeaponAPI.WeaponType.MISSILE || weapon.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || weapon.getSlot() == null || weapon.getSlot().isBuiltIn() || weapon.isDecorative() || weapon.getSpec().getMaxRange() == 0
+                    || weapon.getSlot().isSystemSlot()
+                    || weapon.getSpec().getAIHints().contains(WeaponAPI.AIHints.SYSTEM))
                 return 0f;
             if (weapon.getId().contains("apex_repair") || weapon.getId().contains("apex_cryo"))
                 return 0f;
@@ -130,7 +132,9 @@ public class ApexSuperRangeSync extends BaseHullMod
             for (int i = 0; i < ship.getAllWeapons().size(); i++)
             {
                 WeaponAPI wep = ship.getAllWeapons().get(i);
-                if (wep.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || wep.getType() == WeaponAPI.WeaponType.MISSILE || wep.getSlot().isBuiltIn() || wep.isDecorative() || wep.getSpec().getMaxRange() == 0)
+                if (wep.getSpec().getAIHints().contains(WeaponAPI.AIHints.PD) || wep.getType() == WeaponAPI.WeaponType.MISSILE || wep.getSlot().isBuiltIn() || wep.isDecorative() || wep.getSpec().getMaxRange() == 0
+                        || wep.getSlot().isSystemSlot()
+                        || wep.getSpec().getAIHints().contains(WeaponAPI.AIHints.SYSTEM))
                     continue;
                 numWeps++;
                 total += getAdjustedBaseRange(ship, wep);

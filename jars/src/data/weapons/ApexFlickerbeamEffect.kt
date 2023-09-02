@@ -41,16 +41,17 @@ class ApexFlickerbeamEffect: EveryFrameWeaponEffectPlugin
             last_played_vfx = 0f
             val beam = weapon.beams[0]
             val from_point = Vector2f(beam.from)
+            /*
             var length = 0f
             while (length < beam.lengthPrevFrame)
             {
                 length += ApexUtils.randBetween(5f, 50f)
                 val col = Misc.interpolateColor(vfx_color, vfx_color2, Misc.random.nextFloat())
                 val spawnloc = MathUtils.getPointOnCircumference(from_point, length, weapon.currAngle)
-                //engine.addNebulaParticle(spawnloc, beam.source.velocity, 45f, 0.1f, 0.5f, 1f, 0.15f, col)
-                //engine.addNegativeSwirlyNebulaParticle(spawnloc, beam.source.velocity, 30f, 0.1f, 0.5f, 1f, 0.15f, col)
-            }
-            engine.addSmoothParticle(beam.from, weapon.ship.velocity, 60f, 1f, 0.2f, vfx_color)
+                engine.addNebulaParticle(spawnloc, beam.source.velocity, 45f, 0.1f, 0.5f, 1f, 0.15f, col)
+                engine.addNegativeSwirlyNebulaParticle(spawnloc, beam.source.velocity, 30f, 0.1f, 0.5f, 1f, 0.15f, col)
+            }*/
+            engine.addSmoothParticle(from_point, weapon.ship.velocity, 60f, 1f, 0.2f, vfx_color)
             if (beam.damageTarget != null)
                 engine.addSmoothParticle(beam.to, beam.damageTarget?.velocity ?: Misc.ZERO, 60f, 1f, 0.2f, vfx_color)
         }

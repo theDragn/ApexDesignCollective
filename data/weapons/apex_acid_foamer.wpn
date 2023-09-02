@@ -1,7 +1,7 @@
 {
   "id": "apex_acid_foamer",
   "specClass": "projectile",
-  "projectileSpecId": "apex_acid_shot",
+  "projectileSpecId": "apex_foamer_shot",
   "type": "BALLISTIC",
   "size": "LARGE",
   "turretSprite": "graphics/weapons/apex_acid_foamer_t.png",
@@ -35,8 +35,8 @@
 					   "particleSizeMin":12.0,
 					   "particleSizeRange":22.0,
 					   "particleDuration":0.13,
-					   "particleCount":35,
-					   "particleColor":[225,220,255,175]},
+					   "particleCount":15,
+					   "particleColor":[225,220,255,75]},
   "textureType": ROUGH,
-  "fireSoundTwo": "apex_haymarket_shot"
+  "fireSoundTwo": "apex_foamer_fire"
 }

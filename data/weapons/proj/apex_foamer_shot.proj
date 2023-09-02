@@ -1,0 +1,19 @@
+{
+	"id":"apex_foamer_shot",
+	"specClass":"projectile",
+	"onHitEffect":"data.weapons.ApexFoamerVFX",
+	"onFireEffect":"data.weapons.ApexFoamerVFX",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"length":30.0,
+	"width":30.0,
+	"hitGlowRadius":20,
+	"fadeTime":0.5,
+	"fringeColor":[75,110,15,255],
+	"coreColor":[69,110,15,255],
+	#"coreColor":[255,255,255,50],
+	"textureType":"SMOOTH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256,
+	"pixelsPerTexel":5.0
+}

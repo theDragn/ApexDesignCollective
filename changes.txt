@@ -1,17 +1,10 @@
-Version 1.2.6- (IN DEVELOPMENT)
-- if you're seeing this, this file has been pushed to github. the stuff below is just notes for me until it's released- please don't download the dev version and complain that things are missing or broken.
-
+Version 1.2.6- save compatible 
+(new relic weapons will not show up in caches in existing saves)
 New:
-- amazing music by haplogynae
-- five and a half new guns
-Two new in-faction weapons:
-- Caedometric Flickerbeam 
-- Ultrachromatic Torpedo
-Two and a half new relic weapons:
-- Honeybee Pod
-- Shatter Canister (in both small and medium)
-And one weapon for pirates:
-- Nanoacid Foamer
+- incredible music by @haplogynae
+- Caedometric Flickerbeam (in-faction)
+- Nanoacid Foamer (pirates)
+- Shatter Canister, Shatter Canister Pod (relics)
 Changes
 - Plasmatic Repeater: this wasn't supposed to be 20 op. oops. it's 24 now. also reduced sustained dps to 300 and efficiency to 1.1
 - Wailer MRM: slightly modified spread parameters and reduced missile HP (175 -> 120)
@@ -20,19 +13,8 @@ Changes
 - Light Fusion Beam: Reworked stats; the short burst and low beam velocity made it useless with any sort of range boost. Beam velocity is now higher and burst duration is longer; the explosion is unchanged.
 - Tachyon Inverter: Fixed an issue with the sound that could occur at low amounts of time dilation.
 - Relic derelicts are no longer pristine.
-- All relic weapons and derelicts are no longer are guaranteed to spawn in every playthrough. Now spawns 2 derelicts and 6 relic caches. Other drop sources (merc/scavenger fleets, exploration loot, historians) are unchanged.
+- All relic weapons and derelicts are no longer are guaranteed to spawn in every playthrough. Now spawns 2 derelicts and 6 relic caches. Ships got moved up a tier in historian drops, weapons unchanged.
 - Added some hamster death causes for industrial evolution, and fixed some ships not being on the printing/reverse engineering whitelists.
-
-Excession rework
-- Dealing damage generates entropy. A small amount of entropy is continuously generated over time. 
-- Stored entropy is automatically spent to regenerate damaged armor. 
-- Armor regeneration is more effective at higher timeflow.
-- Maximum armor damage reduction is 100%.
-- Phase timeflow increases with flux level, up to 12x.
-- Zero-flux boost always applies during phase.
-- System consumes all stored entropy to increase
-
-System instantly consumes all stored entropy and makes the entropic shredder spend flux instead of generate it. Increases all damage dealt and generates homing energy projectiles based on the amount of entropy consumed.
 
 Version 1.2.5- save compatible
 - Rotary AM Flak: Improved vfx performance. Spam them more, if you desire.
