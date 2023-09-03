@@ -1,3 +1,10 @@
+Version 1.2.7- save compatible
+Really fucked up some of the relic generation code last version. It is fixed now. If you continue a save that you started in 1.2.6, please save your game before trying to open a relic cache because there's a non-zero chance it's bugged and will crash.
+
+Since I feel bad about a bug like that, I have reworked the Excession to actually require a tiny bit of skill.
+- You can no longer get two of them by doing the Nex start option.
+- It's still vaguely similar (deal damage -> get juice -> use juice) but has some major changes.
+
 Version 1.2.6- save compatible 
 (new relic weapons will not show up in caches in existing saves)
 New:

@@ -36,7 +36,7 @@ public class ApexTachyonShredderOnHit implements OnHitEffectPlugin
         if (!(target instanceof MissileAPI) && proj.getSource().getFluxLevel() > 0.5f)
         {
             // damaging explosion
-            float radius = BASE_EXP_RADIUS + RADIUS_BONUS_MULT * proj.getSource().getFluxLevel();
+            /*float radius = BASE_EXP_RADIUS + RADIUS_BONUS_MULT * proj.getSource().getFluxLevel();
             DamagingExplosionSpec spec = new DamagingExplosionSpec(0.1f,
                     radius,
                     radius * 0.75f,
@@ -52,7 +52,7 @@ public class ApexTachyonShredderOnHit implements OnHitEffectPlugin
                     null);
             spec.setDamageType(DamageType.FRAGMENTATION);
             spec.setShowGraphic(false);
-            engine.spawnDamagingExplosion(spec, proj.getSource(), point, false);
+            engine.spawnDamagingExplosion(spec, proj.getSource(), point, false);*/
 
             // graphics
 
@@ -68,7 +68,7 @@ public class ApexTachyonShredderOnHit implements OnHitEffectPlugin
 
             float sizeMult = Misc.getHitGlowSize(20f, proj.getDamage().getBaseDamage(), damageResult) / 100f;
 
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 5; i++)
             {
                 //float size = projectile.getProjectileSpec().getWidth() * (0.75f + (float) Math.random() * 0.5f);
                 float size = 10f * (0.75f + (float) Math.random() * 0.5f);

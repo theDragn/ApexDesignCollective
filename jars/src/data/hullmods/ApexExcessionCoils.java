@@ -47,6 +47,9 @@ public class ApexExcessionCoils extends BaseHullMod
                     Misc.getHighlightColor(),
                     (int) (PHASE_COOLDOWN_REDUCTION) + "%");
 
+            tooltip.addPara("• " + text("excc6"),
+                    0);
+
             tooltip.addPara("• " + text("excc3"),
                     0f,
                     Misc.getHighlightColor(),

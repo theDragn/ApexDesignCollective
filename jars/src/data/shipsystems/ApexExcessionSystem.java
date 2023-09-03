@@ -60,7 +60,9 @@ public class ApexExcessionSystem extends BaseShipSystemScript
             }
             doEffects++;
         }
-            }
+
+        // convert
+    }
 
     @Override
     public void unapply(MutableShipStatsAPI stats, String id)

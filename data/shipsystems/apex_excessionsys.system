@@ -4,7 +4,7 @@
 	"aiType":"WEAPON_BOOST",
 
 	# this is actually the simple part
-	"statsScript":"data.shipsystems.ApexExcessionSystem",
+	"statsScript":"data.shipsystems.ApexExcessionSystemNew",
 	
 	"useSound":"apex_excession_system",
 	"loopSound":"system_temporalshell_loop",

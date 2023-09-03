@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.BaseCampaignEventListener;
 import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import exerelin.world.ExerelinNewGameSetup;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,6 @@ public class ApexExcessionAdder extends BaseCampaignEventListener
             return;
         if (!market.getId().equals("apex_granite_market"))
             return;
-
         Object o = market.getMemoryWithoutUpdate().get("$BarCMD_shownEvents");
         if (o instanceof ArrayList)
         {

@@ -126,7 +126,7 @@ apex_rapid_loader,SHIP_SYSTEM,"Instantly fills weapon magazines with 20 seconds 
 apex_heavy_skimmer,SHIP_SYSTEM,"Provides a short bonus to maneuverability, followed by a high-speed movement burst in the current travel direction.",,,
 apex_bifurcator,SHIP_SYSTEM,Causes projectiles to occasionally summon a duplicate of themselves.,,,
 apex_thorns,SHIP_SYSTEM,An exotic distortion field reduces incoming damage and generates homing energy projectiles when hit. Disables weapons and shields while active.,,,
-apex_excessionsys,SHIP_SYSTEM,"Shunts a large amount of flux into the breach core, expanding the captured hyperspace tear. Massively increases core charge generation, but prevents phasing while active.",,,
+apex_excessionsys,SHIP_SYSTEM,"Consumes all stored entropy. Converts a small amount of hard flux to soft flux, fires homing energy projectiles, and decreases weapon flux cost for a short period based on the entropy consumed. Prevents phasing while active.",,,
 apex_bounty_superdamper,SHIP_SYSTEM,Reduces incoming damage by 95%. Disables weapons and shields while active.,,,
 apex_uplink,SHIP_SYSTEM,"Improves the defenses of allies within 1600su, reducing shield damage taken by 20% and increasing armor effectiveness by 33%. Prevents hard flux dissipation while active.",,,
 apex_pursuit_jets,SHIP_SYSTEM,"Increases non-missile weapon damage by 33%, and improves speed and maneuverability. The speed bonus is strongest when moving forwards.",,,

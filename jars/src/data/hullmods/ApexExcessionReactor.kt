@@ -8,28 +8,30 @@ import com.fs.starfarer.api.ui.Alignment
 import com.fs.starfarer.api.ui.TooltipMakerAPI
 import com.fs.starfarer.api.util.Misc
 import org.lwjgl.util.vector.Vector2f
-import org.magiclib.util.MagicUI
+import plugins.ApexExcessionRenderPlugin
 import plugins.ApexModPlugin.Companion.xd
 import utils.ApexUtils.text
 import java.awt.Color
 import kotlin.math.max
 import kotlin.math.min
 
-class ApexExcessionReactorNew: BaseHullMod()
+class ApexExcessionReactor: BaseHullMod()
 {
 
     class ExcessionData
     {
         var entropy = 0f
         var ppt_time = 0f
+        var added_plugin = false
     }
 
     companion object
     {
-        const val BASE_CHARGE_RATE = 100f
-        const val DAMAGE_CHARGE_MULT = 1.5f // from system being active
-        const val MAX_ENTROPY = 3000f
-        const val REPAIR_RATE = 15f
+        const val BASE_CHARGE_RATE = 0f
+        const val DAMAGE_CHARGE_MULT = 0.25f // damage to entropy charge ratio
+        const val MAX_ENTROPY = 10000f
+        const val ENTROPY_TO_REPAIR = 4f // costs this much entropy to repair 1 armor HP
+        const val REPAIR_RATE = 150f
         const val KEY = "apex_ex"
         val CHARGE_COLOR = Color(89, 170, 255);
     }
@@ -39,25 +41,39 @@ class ApexExcessionReactorNew: BaseHullMod()
         return -1
     }
 
+    override fun applyEffectsBeforeShipCreation(hullSize: ShipAPI.HullSize?, stats: MutableShipStatsAPI?, id: String?)
+    {
+        if (Global.getSector() != null)
+            Global.getSector().memoryWithoutUpdate.set("\$didExcession", true)
+    }
+
     override fun applyEffectsAfterShipCreation(ship: ShipAPI, id: String)
     {
         ship.addListener(ApexExcessionChargeListener())
-        ship.customData[KEY] = ExcessionData()
+        ship.setCustomData(KEY, ExcessionData())
     }
 
     override fun advanceInCombat(ship: ShipAPI, amount: Float)
     {
         if (!ship.isAlive || ship.isHulk) return
-        val data = ship.customData[KEY] as ExcessionData
 
-        MagicUI.drawInterfaceStatusBar(
+        if (!ship.customData.containsKey(KEY))
+            ship.setCustomData(KEY, ExcessionData())
+        val data = ship.customData[KEY] as ExcessionData
+        if (!data.added_plugin)
+        {
+            Global.getCombatEngine().addLayeredRenderingPlugin(ApexExcessionRenderPlugin(ship))
+            data.added_plugin = true
+        }
+
+        /*MagicUI.drawInterfaceStatusBar(
             ship,
             data.entropy / MAX_ENTROPY,
-            null,
+            CHARGE_COLOR,
             null,
             0f,
             "entropy",
-            data.entropy.toInt())
+            data.entropy.toInt())*/
         data.entropy = min(data.entropy + BASE_CHARGE_RATE * amount, MAX_ENTROPY)
 
         if (data.ppt_time < ship.timeDeployedForCRReduction)
@@ -66,9 +82,15 @@ class ApexExcessionReactorNew: BaseHullMod()
             ship.setTimeDeployed(data.ppt_time)
         }
 
-        if (ship.isPhased)
-            doRepair(ship, amount)
+        if (ship.fluxTracker.isOverloadedOrVenting)
+            data.entropy = 0f
 
+        if (ship.isPhased)
+        {
+            ship.mutableStats.zeroFluxMinimumFluxLevel.modifyFlat("apex_ex", 1f)
+            doRepair(ship, amount)
+        } else
+            ship.mutableStats.zeroFluxMinimumFluxLevel.unmodify("apex_ex")
         // trigger killswitch, if necessary
         // no, they're not giving you a supership without some precautions
         // triggers if enemy fleet is apex faction, and will not give a rep penalty on death
@@ -122,46 +144,33 @@ class ApexExcessionReactorNew: BaseHullMod()
         ship ?: return
         val pad = 10f
         tooltip.addSectionHeading(text("Details"), Alignment.MID, pad)
-        tooltip.addPara("\n• " + text("excb1"), 0f, CHARGE_COLOR, text("excb2"))
-        tooltip.addPara("• " + text("excb3"), 0f, CHARGE_COLOR, text("excb2"))
-        tooltip.addPara("• " + text("excb5"), 0f, CHARGE_COLOR, text("excb6"))
+        //tooltip.addPara("\n• " + text("excb1"), 0f, CHARGE_COLOR, text("excb2"))
+        tooltip.addPara("• " + text("excb3"), pad, CHARGE_COLOR, text("excb2"))
+        tooltip.addPara("• " + text("excb5"), 0f, arrayOf(Misc.getHighlightColor(), CHARGE_COLOR), text("excb6"), text("excb2"))
         val colors = arrayOf(CHARGE_COLOR, Misc.getHighlightColor())
         tooltip.addPara("• " + text("excb7"), 0f, colors, text("excb2"), REPAIR_RATE.toInt().toString())
-        tooltip.addPara("• " + text("excb8"), 0f, Misc.getHighlightColor(), text("excb9"))
+        //tooltip.addPara("• " + text("excb8"), 0f, Misc.getHighlightColor(), text("excb9"))
         tooltip.addPara("• " + text("excb10"), 0f, Misc.getHighlightColor(), text("excb11"))
     }
 
     class ApexExcessionChargeListener : DamageDealtModifier
     {
         override fun modifyDamageDealt(
-            param: Any,
+            param: Any?,
             target: CombatEntityAPI,
             damage: DamageAPI,
-            point: Vector2f,
+            point: Vector2f?,
             shieldHit: Boolean
         ): String?
         {
             if (target is ShipAPI && target.isHulk) return null
+            param ?: return null; point ?: return null
             if (param is DamagingProjectileAPI)
             {
                 var chargeAmount = damage.damage
                 val proj = param
                 if (proj.source.system.isActive) chargeAmount *= DAMAGE_CHARGE_MULT
                 addCharge(proj.source, chargeAmount)
-                if (Misc.shouldShowDamageFloaty(
-                        proj.source,
-                        proj.source
-                    ) && proj.source.system.isActive && proj.weapon != null
-                )
-                {
-                    Global.getCombatEngine().addFloatingDamageText(
-                        proj.weapon.location,
-                        chargeAmount * ApexExcessionReactor.DAMAGE_CHARGE_MULT,
-                        Color.MAGENTA,
-                        proj.source,
-                        proj.source
-                    )
-                }
             }
             return null
         }
@@ -176,13 +185,11 @@ class ApexExcessionReactorNew: BaseHullMod()
     private fun doRepair(ship: ShipAPI, amount: Float)
     {
         //System.out.println("did effect tick");
-        var amount = amount
         val engine = Global.getCombatEngine()
         val timeMult = ship.mutableStats.timeMult.modifiedValue
-        amount *= timeMult // first one is to bring it back to "normal" timeflow, second is to multiply it by timeflow.
         val repairThisFrame = min(
-            REPAIR_RATE,
-            (ship.customData[KEY] as ExcessionData).entropy
+            REPAIR_RATE * amount,
+            (ship.customData[KEY] as ExcessionData).entropy / ENTROPY_TO_REPAIR
         )
         if (repairThisFrame <= 0) return
         val grid = ship.armorGrid ?: return
@@ -217,12 +224,9 @@ class ApexExcessionReactorNew: BaseHullMod()
         }
         if (repairDoneThisFrame > 0)
         {
-            // only show rapid regen while phased, normal regen is pretty damn slow
-            if (Misc.shouldShowDamageFloaty(ship, ship) && ship.isPhased)
-            {
-                engine.addFloatingDamageText(ship.location, repairDoneThisFrame, Color.GREEN, ship, ship)
-            }
-            ApexExcessionReactor.repairMap[ship] = max(ApexExcessionReactor.repairMap[ship]!! - repairDoneThisFrame, 0f)
+            engine.addFloatingDamageText(ship.location, repairDoneThisFrame, Color.GREEN, ship, ship)
+            val data = ship.customData[KEY] as ExcessionData
+            data.entropy = max(data.entropy - repairDoneThisFrame * ENTROPY_TO_REPAIR, 0f)
             ship.syncWithArmorGridState()
         }
     }
