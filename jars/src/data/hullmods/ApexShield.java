@@ -26,7 +26,7 @@ import static utils.ApexUtils.text;
 
 public class ApexShield extends BaseHullMod
 {
-    private Map<ShipAPI, ApexShieldTracker> trackerMap = new HashMap<>(); // stores the base shield arc for each ship when deployed
+    private static final String KEY = "apex_geo_track";
 
     public static final float DAMAGE_REDUCTION = 20f; // reduces incoming damage/beam dps by this flat amount
     //public static final float TRANSFER_MULT = 1.25f;
@@ -128,11 +128,14 @@ public class ApexShield extends BaseHullMod
         CombatEngineAPI engine = Global.getCombatEngine();
 
         // this stuff makes sure that nothing can decrease the shield arc while the shield is active
-        if (!trackerMap.containsKey(ship))
+        ApexShieldTracker tracker;
+        if (ship.getCustomData().containsKey(KEY))
         {
-            trackerMap.put(ship, new ApexShieldTracker(ship.getShield().getArc(), 0f));
+            tracker = (ApexShieldTracker)ship.getCustomData().get(KEY);
+        } else {
+            tracker = new ApexShieldTracker(ship.getShield().getArc(), 0f);
         }
-        ApexShieldTracker tracker = trackerMap.get(ship);
+
         // shield is on
         if (ship.getShield().isOn())
         {

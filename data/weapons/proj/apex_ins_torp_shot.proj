@@ -7,7 +7,7 @@
 	"size":[9,13],	
 	"center":[4.5,8],
 	"collisionRadius":8,
-	"collisionClass":"MISSILE_FF",
+	"collisionClass":"MISSILE_NO_FF",
 	"explosionColor":[255,125,80,255],  # purely visual, will get a white additively blended core on top of this color
 	"explosionRadius":230, # purely visual
 	"explosionSpec":{"duration":0.1f, # not visual

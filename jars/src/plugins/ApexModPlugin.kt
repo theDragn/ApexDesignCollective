@@ -8,6 +8,7 @@ import com.fs.starfarer.api.combat.MissileAIPlugin
 import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.impl.campaign.shared.SharedData
+import com.fs.starfarer.api.loading.Description
 import data.campaign.missions.ApexExcessionAdder
 import data.weapons.proj.ai.*
 import exerelin.utilities.NexConfig
@@ -47,7 +48,6 @@ class ApexModPlugin : BaseModPlugin() {
                 fleetSet.addFleet(excFleet)
             }
         }
-
     }
 
 

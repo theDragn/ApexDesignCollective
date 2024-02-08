@@ -40,7 +40,7 @@
       "size": "MEDIUM",
       "type": "BALLISTIC",
       "mount": "TURRET",
-      "arc": 260,
+      "arc": 285,
       "angle": 180,
       "locations": [-49, -0]
     },

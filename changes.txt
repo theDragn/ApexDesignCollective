@@ -1,3 +1,16 @@
+Version 1.2.8
+New:
+- Ultrachromatic Torpedo (in-faction): everyone else is doing bigass torpedoes and I don't wanna be left out
+- Honeybee Fabricator (relic): fabricates and controls kinetic-kill interceptor missiles
+Changes:
+- 
+
+
+1.2.7a- save compatible
+- Caedometric Flickerbeam no longer says that it can't rotate while firing (it could already rotate while firing, the text was just incorrect)
+- Shrieker torpedoes no longer collide with friendlies, like other homing missiles.
+- Slightly adjusted some mount arcs on the Dadras to improve broadside performance.
+
 Version 1.2.7- save compatible
 Really fucked up some of the relic generation code last version. It is fixed now. If you continue a save that you started in 1.2.6, please save your game before trying to open a relic cache because there's a non-zero chance it's bugged and will crash.
 
