@@ -1,11 +1,11 @@
 package data.activators;
 
-import activators.CombatActivator;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
+import org.magiclib.subsystems.MagicSubsystem;
 import utils.ApexUtils;
 import org.lazywizard.lazylib.combat.AIUtils;
 
@@ -13,7 +13,7 @@ import static utils.ApexUtils.text;
 import static data.hullmods.ApexFlareSystemHullmod.BASE_COOLDOWN;
 import static data.hullmods.ApexFlareSystemHullmod.NUM_FLARES;
 
-public class ApexFlareActivator extends CombatActivator
+public class ApexFlareActivator extends MagicSubsystem
 {
     private int firedFlares = 0;
     private IntervalUtil frameTracker = new IntervalUtil(0.1f, 0.1f);
@@ -34,9 +34,9 @@ public class ApexFlareActivator extends CombatActivator
     }
 
     @Override
-    public void advance(float amount)
+    public void advance(float amount, boolean isPaused)
     {
-        if (!isActive())
+        if (!isActive() || isPaused)
             return;
 
         frameTracker.advance(amount);

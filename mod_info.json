@@ -2,7 +2,7 @@
 	"id":"apex_design",
 	"name":"Apex Design Collective",
 	"author":"theDragn",
-	"version":"1.2.7b",
+	"version":{ "major": '1', "minor": '2', "patch": '8' },
 	"description":"A collectivist faction that focuses on ultra-modern, high-performance ships and remote support systems.",
 	"gameVersion":"0.97a-RC7",
 	"jars":["jars/ADC.jar"],
@@ -13,16 +13,12 @@
         },
 		{
 			"id": "MagicLib",
-            "name": "MagicLib"
+            "name": "MagicLib",
+			"version":"1.4.0"
 		},
 		{
 			"id": "shaderLib",
 			"name": "GraphicsLib"
-		},
-		{
-			"id": "combatactivators",
-			"name": "Combat Activators",
-			"version":"1.1.0"
 		}
     ],
 	"modPlugin":"plugins.ApexModPlugin"

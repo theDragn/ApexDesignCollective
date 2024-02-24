@@ -1,6 +1,6 @@
 package data.activators;
 
-import activators.CombatActivator;
+import org.magiclib.subsystems.MagicSubsystem;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.loading.WeaponSlotAPI;
@@ -20,7 +20,7 @@ import static utils.ApexUtils.text;
 import static data.hullmods.ApexArmorRepairHullmod.BASE_COOLDOWN;
 import static data.hullmods.ApexArmorRepairHullmod.MAX_REGEN_LOCKON_RANGE;
 
-public class ApexArmorRepairActivator extends CombatActivator {
+public class ApexArmorRepairActivator extends MagicSubsystem {
     public static final Color JITTER_COLOR = new Color(55, 255, 55, 75);
     public static final Color JITTER_UNDER_COLOR = new Color(55, 255, 55, 155);
 
@@ -129,7 +129,8 @@ public class ApexArmorRepairActivator extends CombatActivator {
     }
 
     @Override
-    public void advance(float amount) {
+    public void advance(float amount, boolean isPaused) {
+        if (isPaused) return;
         if (didThings) {
             ship.setJitterUnder(this, JITTER_UNDER_COLOR, getEffectLevel(), 11, 0f, 3f + getEffectLevel() * 25);
             ship.setJitter(this, JITTER_COLOR, getEffectLevel(), 4, 0f, 0 + getEffectLevel() * 25);

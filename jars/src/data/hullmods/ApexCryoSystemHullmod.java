@@ -1,6 +1,6 @@
 package data.hullmods;
 
-import activators.ActivatorManager;
+import org.magiclib.subsystems.MagicSubsystemsManager;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
@@ -103,7 +103,7 @@ public class ApexCryoSystemHullmod extends BaseHullMod
                 );
             }
         }
-        ActivatorManager.addActivator(ship, new ApexCryoActivator(ship));
+        MagicSubsystemsManager.addSubsystemToShip(ship, new ApexCryoActivator(ship));
     }
 
 

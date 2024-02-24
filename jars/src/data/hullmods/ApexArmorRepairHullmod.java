@@ -9,7 +9,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import utils.ApexUtils;
 import org.magiclib.util.MagicIncompatibleHullmods;
-import activators.ActivatorManager;
+import org.magiclib.subsystems.MagicSubsystemsManager;
 import data.activators.ApexArmorRepairActivator;
 
 import java.util.HashMap;
@@ -111,7 +111,7 @@ public class ApexArmorRepairHullmod extends BaseHullMod
                 );
             }
         }
-        ActivatorManager.addActivator(ship, new ApexArmorRepairActivator(ship));
+        MagicSubsystemsManager.addSubsystemToShip(ship, new ApexArmorRepairActivator(ship));
     }
 
 

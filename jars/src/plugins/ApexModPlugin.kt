@@ -48,6 +48,11 @@ class ApexModPlugin : BaseModPlugin() {
                 fleetSet.addFleet(excFleet)
             }
         }
+        val ml = Global.getSettings().modManager.getModSpec("MagicLib")
+        val minor = ml.versionInfo.minor.toInt()
+        val major = ml.versionInfo.major.toInt()
+        if (major < 1 || (major == 1 && minor < 4))
+            throw RuntimeException("Apex Design Collective requires MagicLib version 1.4.0 or newer.")
     }
 
 

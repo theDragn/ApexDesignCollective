@@ -1,6 +1,6 @@
 package data.activators;
 
-import activators.CombatActivator;
+import org.magiclib.subsystems.MagicSubsystem;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
@@ -21,7 +21,7 @@ import static utils.ApexUtils.text;
 import static data.hullmods.ApexCryoSystemHullmod.MAX_COOLANT_LOCKON_RANGE;
 import static data.hullmods.ApexCryoSystemHullmod.BASE_COOLDOWN;
 
-public class ApexCryoActivator extends CombatActivator
+public class ApexCryoActivator extends MagicSubsystem
 {
     public static final String SUBSYSTEM_ID = "apex_cryosubsystem"; //this should match the id in the csv
 
@@ -113,8 +113,9 @@ public class ApexCryoActivator extends CombatActivator
     }
 
     @Override
-    public void advance(float amount)
+    public void advance(float amount, boolean isPaused)
     {
+        if (isPaused) return;
         if (didThings)
         {
             float effectLevel = getEffectLevel();
