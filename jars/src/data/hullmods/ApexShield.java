@@ -176,6 +176,7 @@ public class ApexShield extends BaseHullMod
         {
             tracker.arcLastFrame = 0f;
         }
+        ship.getCustomData().put(KEY, tracker);
     }
 
     private class ApexShieldTracker
