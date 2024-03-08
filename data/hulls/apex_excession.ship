@@ -50,7 +50,7 @@
       "locations": [16, 33]
     },
     {
-      "id": "WS0006",
+      "id": "WS0006MINE",
       "size": "SMALL",
       "type": "SYSTEM",
       "mount": "HIDDEN",
@@ -59,7 +59,7 @@
       "locations": [56.5, 21.5]
     },
     {
-      "id": "WS0007",
+      "id": "WS0007MINE",
       "size": "SMALL",
       "type": "SYSTEM",
       "mount": "HIDDEN",
@@ -68,7 +68,7 @@
       "locations": [56.5, -21.5]
     },
     {
-      "id": "WS0004",
+      "id": "WS0004MINE",
       "size": "SMALL",
       "type": "SYSTEM",
       "mount": "HIDDEN",
@@ -77,7 +77,7 @@
       "locations": [66.5, 22]
     },
     {
-      "id": "WS0005",
+      "id": "WS0005MINE",
       "size": "SMALL",
       "type": "SYSTEM",
       "mount": "HIDDEN",
@@ -86,7 +86,7 @@
       "locations": [66.5, -22]
     },
     {
-      "id": "WS0008",
+      "id": "WS0008MINE",
       "size": "SMALL",
       "type": "SYSTEM",
       "mount": "HIDDEN",
@@ -95,7 +95,7 @@
       "locations": [76.5, 23]
     },
     {
-      "id": "WS0009",
+      "id": "WS0009MINE",
       "size": "SMALL",
       "type": "SYSTEM",
       "mount": "HIDDEN",
@@ -104,7 +104,7 @@
       "locations": [76.5, -23]
     },
     {
-      "id": "WS0010",
+      "id": "WS0010MINE",
       "size": "SMALL",
       "type": "SYSTEM",
       "mount": "HIDDEN",
@@ -113,7 +113,7 @@
       "locations": [10.5, 20]
     },
     {
-      "id": "WS0011",
+      "id": "WS0011MINE",
       "size": "SMALL",
       "type": "SYSTEM",
       "mount": "HIDDEN",
@@ -122,7 +122,7 @@
       "locations": [10.5, -20]
     },
     {
-      "id": "WS0012",
+      "id": "WS0012MINE",
       "size": "SMALL",
       "type": "SYSTEM",
       "mount": "HIDDEN",
@@ -131,7 +131,7 @@
       "locations": [0.5, 25]
     },
     {
-      "id": "WS0013",
+      "id": "WS0013MINE",
       "size": "SMALL",
       "type": "SYSTEM",
       "mount": "HIDDEN",
@@ -140,7 +140,7 @@
       "locations": [0.5, -25]
     },
     {
-      "id": "WS0014",
+      "id": "WS0014MINE",
       "size": "SMALL",
       "type": "SYSTEM",
       "mount": "HIDDEN",
@@ -149,7 +149,7 @@
       "locations": [-9, 30]
     },
     {
-      "id": "WS0015",
+      "id": "WS0015MINE",
       "size": "SMALL",
       "type": "SYSTEM",
       "mount": "HIDDEN",
