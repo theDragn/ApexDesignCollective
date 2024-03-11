@@ -1,9 +1,5 @@
 Version 1.2.8
-New:
-- Ultrachromatic Torpedo (in-faction): everyone else is doing bigass torpedoes and I don't wanna be left out
-- Honeybee Fabricator (relic): fabricates and controls kinetic-kill interceptor missiles
-Changes:
-- 
+Pushed out version that uses Magiclib 1.4.0, which integrates Combat Activators into Magiclib proper.
 
 
 1.2.7a- save compatible
