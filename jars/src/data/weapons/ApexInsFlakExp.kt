@@ -58,39 +58,4 @@ class ApexInsFlakExp: ProximityExplosionEffect
         wave.size = AOE_SIZE * 0.25f
         DistortionShader.addDistortion(wave)
     }
-
-    // previous explosion vfx
-    /*val flak_puff = Global.getSettings().getSprite("fx", "apex_flak_puff")
-    val flak_fire = Global.getSettings().getSprite("fx", "apex_flak_fire")
-    // dark cloud vfx
-    val randAmount = Misc.random.nextFloat() * 5f
-    val puffsize = Vector2f(50f + randAmount, 50f + randAmount)
-    val puffgrowth = Vector2f(90f, 90f)
-    MagicRender.battlespace(flak_puff,
-        proj.location,
-        Misc.ZERO,
-        puffsize,
-        puffgrowth,
-        Misc.random.nextFloat() * 360f,
-        0f,
-        PUFF_COLOR,
-        true,
-        0f,
-        0.33f,
-        0.66f)
-    // bright flame/shard sprite
-    //val flamesize = Vector2f(35f + randAmount, 35f + randAmount)
-    //val flamegrowth = Vector2f(5f, 5f)
-    MagicRender.battlespace(flak_fire,
-        proj.location,
-        Misc.ZERO,
-        flamesize,
-        flamegrowth,
-        Misc.random.nextFloat() * 360f,
-        0f,
-        FIRE_COLOR,
-        true,
-        0f,
-        0.1f,
-        0.56f)*/
 }

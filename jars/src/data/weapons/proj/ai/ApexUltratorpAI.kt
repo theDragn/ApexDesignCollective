@@ -20,7 +20,7 @@ import kotlin.math.min
 import kotlin.math.sqrt
 
 // a kotlin adaptation (and improvement) of magiclib missile AI
-class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): MissileAIPlugin, GuidedMissileAI
+class ApexUltratorpAI(val missile: MissileAPI, val launchingShip: ShipAPI): MissileAIPlugin, GuidedMissileAI
 {
     // SETTINGS
     companion object
@@ -33,18 +33,18 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
 
         // cuts forward thrust if facing vector is too far from target vector
         // set to -1 to disable (which will mean the engine is always on)
-        const val ENGINE_OFF_ANGLE = 30f
+        const val ENGINE_OFF_ANGLE = -1f
 
         // time for a full wave (center, then left, then right, then back to center), in seconds. <=0 disables
-        const val WAVE_TIME = 2f
+        const val WAVE_TIME = -1f
 
         // max angle of wave from target angle. <= 0 disables (but you should disable it with WAVE_TIME instead)
         // this should be less than ENGINE_OFF_ANGLE
-        const val WAVE_SIZE = 20f
+        const val WAVE_SIZE = -1f
 
         // disables waving at this distance.
         // make it zero to wave until impact
-        const val WAVE_CUTOFF_DIST = 600f
+        const val WAVE_CUTOFF_DIST = 30f
 
         // self-explanatory. random offset for waving so not all missiles follow the same path
         const val WAVE_RANDOM = false
@@ -65,9 +65,8 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
 
         // enables spread targeting- missiles will aim some random distance off of the target's center, like breaches
         // <=0 is off.  >0 controls the amount of spread (ex, 0.5 means maximum spread is 0.5 * target's collision radius)
-        // >1 means some missiles will never hit without using the spread shrink variables below
-        // in practice this should be <1 because most ships are smaller than their actual collision radius
-        const val SPREAD_AMOUNT = 0.5f
+        // >1 means they'll never hit without using the spread shrink variables below
+        const val SPREAD_AMOUNT = -1f
 
         // begins to reduce the spread amount after this distance from target
         // good for making missiles spread out mid-flight and the collapse back on the target
@@ -96,7 +95,7 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
         const val SEARCH_CONE = 360
 
         // self-explanatory (should be an int, not a float)
-        const val SEARCH_RANGE = 2500
+        const val SEARCH_RANGE = 5000
 
         // will cause missiles to target the closest target if no valid one can be found with search parameters
         const val SEARCH_FAILSAFE = false
@@ -115,7 +114,7 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
     private var check = 0f
     private var lead: Vector2f? = Vector2f()
     private var side_offset = 0f
-    //private var vector_offset = Vector2f()
+    private var vector_offset = Vector2f()
     private val WAVE_TIME_CONST = 2f * MathUtils.FPI / WAVE_TIME
 
     override fun advance(amount: Float)
@@ -143,9 +142,9 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
         {
             // math is a little fancy but: timer is decreased as missile
             check = min(0.25f, max(
-                    0.05f,
-                    0.2f * targetDist / (HIGH_PERFORMANCE_RANGE * HIGH_PERFORMANCE_RANGE)
-                )
+                0.05f,
+                0.2f * targetDist / (HIGH_PERFORMANCE_RANGE * HIGH_PERFORMANCE_RANGE)
+            )
             )
             var targetLoc = Vector2f(target!!.location)
             if (SPREAD_AMOUNT > 0)
@@ -198,6 +197,8 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
         if (LATERAL_MATCHING_DIST > 0)
         {
             // missile velocity - target velocity
+
+            // missile velocity - target velocity
             val relativeVelToTarget = Vector2f.sub(missile.velocity, target!!.velocity, null)
             // relative velocity angle; 0 deg is "relative velocity is directly forwards from missile facing"
             val relativeVelAngle =
@@ -229,7 +230,11 @@ class ApexInsMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
         target = newTarget
         if (target !is ShipAPI || SPREAD_AMOUNT <= 0) return
         // yeah look I had an NPE here and don't want to deal with it
-        target ?: return
+        target ?: return; target?.exactBounds ?: return; target?.location ?: return; target?.facing ?: return
+        target!!.exactBounds.update(target!!.location, target!!.facing)
+        vector_offset = ApexUtils.getRandomPointOnShipBounds(target as ShipAPI)
+        Vector2f.sub(vector_offset, target!!.location, vector_offset)
+        vector_offset.rotate(-target!!.facing)
 
         side_offset = (2f * Misc.random.nextFloat() - 1f) * target!!.collisionRadius * SPREAD_AMOUNT
     }

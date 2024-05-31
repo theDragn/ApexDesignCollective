@@ -14,10 +14,12 @@ class ApexInsArmor: BaseHullMod()
     val ARMOR_EFF_MULT = 0.67f
     val SMOD_EFF_MULT = 0.5f
 
+
     companion object
     {
         const val DAMAGE_CAP = 750f
-        const val EXTRA_DAM_MULT = 0.2f
+        const val EXTRA_DAM_MULT = 0.25f
+        val MIN_ARMOR_TO_WORK = 0.15f
     }
 
     override fun getDescriptionParam(index: Int, hullSize: ShipAPI.HullSize?, ship: ShipAPI?): String
@@ -29,6 +31,7 @@ class ApexInsArmor: BaseHullMod()
             3 -> DAMAGE_CAP.toInt().toString()
             4 -> DAMAGE_CAP.toInt().toString()
             5 -> (100f - 100f * EXTRA_DAM_MULT).toInt().toString() + "%"
+            6 -> (100 * MIN_ARMOR_TO_WORK).toInt().toString() + "%"
             else -> ""
         }
     }
@@ -83,7 +86,7 @@ class ApexInsArmor: BaseHullMod()
             if (shieldHit) return null
             if (target !is ShipAPI) return null
             point ?: return null
-            if (ApexUtils.isArmorStripped(target, point)) return null
+            if (ApexUtils.getArmorFraction(target, point) < MIN_ARMOR_TO_WORK) return null
             if (damage != null)
             {
                 var initialDamage = damage.damage

@@ -1,0 +1,56 @@
+{
+  "id": "apex_ins_pdmissile",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_ins_pdmissile_shot",
+  "type": "MISSILE",
+  "size": "MEDIUM",
+  "everyFrameEffect": "data.weapons.ApexLPDWeapon",
+  "displayArcRadius": 300,
+  "turretSprite": "graphics/weapons/ins/apex_ins_pdmissile_t.png",
+  "hardpointSprite": "graphics/weapons/ins/apex_ins_pdmissile_h.png",
+  "renderAboveAllWeapons": 0,
+  "renderHints": [
+    RENDER_LOADED_MISSILES
+  ],
+  "turretOffsets": [
+    0,
+    -8,
+    0,
+    8
+  ],
+  "turretAngleOffsets": [
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    3,
+    -8,
+    3,
+    8
+  ],
+  "hardpointAngleOffsets": [
+    0,
+    0
+  ],
+  "barrelMode": "ALTERNATING",
+  "animationType": "SMOKE",
+  "smokeSpec": {
+    "particleSizeMin": 20,
+    "particleSizeRange": 20,
+    "cloudParticleCount": 3,
+    "cloudDuration": 1,
+    "cloudRadius": 10,
+    "blowbackParticleCount": 3,
+    "blowbackDuration": 2,
+    "blowbackLength": 30,
+    "blowbackSpread": 10,
+    "particleColor": [
+      180,
+      180,
+      180,
+      100
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "harpoon_fire"
+}

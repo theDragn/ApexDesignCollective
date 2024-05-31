@@ -205,11 +205,11 @@
 	],
 	"apex_ins_plasma_shot":
 	[
-		{"file":"sounds/weapon/apex_ins_plasma_shot.ogg","pitch":1.0,"volume":1.0}
+		{"file":"sounds/weapon/apex_ins_plasma_shot.ogg","pitch":0.93,"volume":1.0}
 	],
 	"apex_ins_plasma_charged":
 	[
-		{"file":"sounds/weapon/apex_ins_plasma_charged.ogg","pitch":1.0,"volume":1.0}
+		{"file":"sounds/weapon/apex_ins_plasma_charged.ogg","pitch":0.93,"volume":1.0}
 	],
 	"apex_flickerbeam_fire":
 	[

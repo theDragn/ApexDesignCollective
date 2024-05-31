@@ -58,6 +58,7 @@ public class ApexRelicPlacer implements SectorGeneratorPlugin
         relicBPPicker.add("apex_ins_mhdgun");
         relicBPPicker.add("apex_ins_shattercan");
         relicBPPicker.add("apex_ins_shatterpod");
+        relicBPPicker.add("apex_ins_pdmissile");
         relicWeaponPicker = relicBPPicker.clone();
 
         //relicHullPicker.add("apex_apotheosis_strike");

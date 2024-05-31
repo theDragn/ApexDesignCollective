@@ -76,5 +76,5 @@ Bricker,apex_quasar_bricker,,,Apex Design Collective,,,,,TRUE,TRUE,0,0,0,0,data.
 # Insurgency,,,,,,,,,,,,,,,,,,,
 Ablative Spaced Armor,apex_ins_armor,,0,Unknown,,,,TRUE,,,0,0,0,0,data.hullmods.ApexInsArmor,"Increases armor rating, weapon health, and engine health by %s. Decreases armor effectiveness by %s. 
 
-Incoming damage that exceeds %s per hit or %s beam damage per second (after damage type bonuses) has the amount above %s reduced by %s. Has no effect if armor is fully stripped.",,"Increases the armor bonus to %s, and increases the effectiveness penalty to %s.",graphics/hullmods/apex_ins_armor.png
+Incoming damage that exceeds %s per hit or %s beam damage per second (after damage type bonuses) has the amount above %s reduced by %s. Has no effect if armor is stripped below %s of its full value.",,"Increases the armor bonus to %s, and increases the effectiveness penalty to %s.",graphics/hullmods/apex_ins_armor.png
 Integrated Autoforge,apex_ins_missiles,,0,Unknown,,,,,TRUE,,0,0,0,0,data.hullmods.ApexInsMissiles,Missile weapons reload ammo equal to %s of their capacity per minute. Missiles that already reload ammo will have their reload speed increased by this amount. Missiles that do not naturally reload will always reload one full burst at a time.,,,graphics/hullmods/apex_ins_missiles.png

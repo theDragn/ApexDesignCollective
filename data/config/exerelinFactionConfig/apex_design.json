@@ -40,7 +40,7 @@
         "COPS" # the cop is the natural enemy of the union man
         ],
 	
-	# probably needs more so if you have someone to add to the list, ping @theDragn on discord
+	# probably needs more so if you have someone to add to the list, ping @iryx. on discord
 	# starting relationships are set through scripting, not here, so look in the source code if you want the whole list
     "maxRelationships":{
     		"luddic_path": -0.6, # Yeah uhhh we're not gonna stop using tech, and you're not gonna stop being terrorists (the bad kind)

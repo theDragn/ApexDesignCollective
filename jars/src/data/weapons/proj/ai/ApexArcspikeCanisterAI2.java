@@ -23,6 +23,7 @@ public class ApexArcspikeCanisterAI2 implements MissileAIPlugin, GuidedMissileAI
     private IntervalUtil firingTimer;
     private IntervalUtil updateTimer = new IntervalUtil(0.1f, 0.33f);
     private int repsDone = 0;
+    private float bonusAngle = 1.0f;
 
     public ApexArcspikeCanisterAI2(MissileAPI missile, ShipAPI launchingShip)
     {
@@ -34,12 +35,13 @@ public class ApexArcspikeCanisterAI2 implements MissileAIPlugin, GuidedMissileAI
         // compute range for split
         this.mirvRange = missile.getSource().getMutableStats().getMissileWeaponRangeBonus().computeEffective(isLarge ? 2000 : 1000);
         this.numSubmunitionsPerCycle = isLarge ? 1 : 2;
-        float firingInterval = isLarge ? 0.2f : 0.05f;
+        float firingInterval = 0.05f;
         this.firingTimer = new IntervalUtil(firingInterval, firingInterval);
         this.firingReps = numSubmunitions / numSubmunitionsPerCycle;
         this.rangeLastFrame = Float.MAX_VALUE;
         this.subWepID = isLarge ? "apex_arcstorm" : "apex_arcspike";
         this.isFiring = false;
+        this.bonusAngle = isLarge ? 2.0f : 1.0f;
         if (target == null)
             acquireTarget();
     }
@@ -89,7 +91,7 @@ public class ApexArcspikeCanisterAI2 implements MissileAIPlugin, GuidedMissileAI
             {
                 for (int i = 0; i < numSubmunitionsPerCycle; i++)
                 {
-                    CombatEntityAPI proj = engine.spawnProjectile(missile.getSource(), missile.getWeapon(), subWepID, missile.getLocation(), missile.getFacing() + Misc.random.nextFloat() * 40f - 20f, missile.getVelocity());
+                    CombatEntityAPI proj = engine.spawnProjectile(missile.getSource(), missile.getWeapon(), subWepID, missile.getLocation(), missile.getFacing() + (Misc.random.nextFloat() * 40f - 20f) * bonusAngle, missile.getVelocity());
                     GuidedMissileAI ai = (GuidedMissileAI) ((MissileAPI) proj).getUnwrappedMissileAI();
                     ai.setTarget(target);
                 }

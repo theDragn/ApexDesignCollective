@@ -22,7 +22,6 @@ public class ApexSerpens implements SectorGeneratorPlugin
         // TODO: blue giant star, green corona, station + market, Sapphire planet, Topaz planet, asteroid belt
         StarSystemAPI system = sector.createStarSystem("apex_serpens");
         system.setBaseName(text("serpens"));
-
         system.getLocation().set(-5800, -16000);
         system.setBackgroundTextureFilename("graphics/backgrounds/background6.jpg");
         PlanetAPI star = system.initStar("apex_serpens", StarTypes.BLUE_GIANT, 1000f, 1000f);

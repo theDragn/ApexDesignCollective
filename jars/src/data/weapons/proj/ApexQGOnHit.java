@@ -13,6 +13,8 @@ public class ApexQGOnHit implements OnHitEffectPlugin
 {
     private HashSet<CombatEntityAPI> hitTargets = new HashSet<>();
 
+
+    // why the fuck did I put like five different guns in one plugin
     @Override
     public void onHit(DamagingProjectileAPI proj, CombatEntityAPI target, Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine)
     {

@@ -1,3 +1,14 @@
+Version 1.2.9
+New:
+- LPDM System: Medium missile, relic weapon. Automatically fires loitering point-defense missiles that follow the parent ship and intelligently engage incoming missiles and fighters.
+Changes:
+- Aizawa: Over-cap damage reduction reduced (80% -> 75%), increased minimum requirement to trigger damage capping (more than 0 armor -> more than 15% armor)
+- Nanoacid Cannon (small): Increased spread by 20%.
+- Shatter Canisters: Improved ammo regeneration (60s -> 40s) and slightly tightened firing cone.
+- Shrieker Torpedoes: Large version OP increased (30 -> 32). Reduced frag damage (400 -> 300) and HP (300 -> 250). Slightly improved ECCM guidance algorithm.
+- Arcstorm (large Arcspike): Hugely increased submunition fire rate and dispersal angle. Increased ammo (10 -> 12).
+- Significantly increased the amount of malware hidden in the mod
+
 Version 1.2.8
 Pushed out version that uses Magiclib 1.4.0, which integrates Combat Activators into Magiclib proper.
 

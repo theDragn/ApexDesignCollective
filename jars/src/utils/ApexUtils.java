@@ -8,6 +8,7 @@ import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.hullmods.ApexFastNozzles;
 import data.hullmods.ApexSlowNozzles;
+import org.jetbrains.annotations.NotNull;
 import org.magiclib.plugins.MagicTrailPlugin;
 import org.dark.shaders.distortion.DistortionShader;
 import org.dark.shaders.distortion.WaveDistortion;
@@ -254,5 +255,34 @@ public class ApexUtils
     public static float randBetween(float a, float b)
     {
         return lerp(a, b, Misc.random.nextFloat());
+    }
+
+    @NotNull
+    public static float getArmorFraction(@NotNull ShipAPI target, @NotNull Vector2f point) {
+        ArmorGridAPI grid = target.getArmorGrid();
+        int[] cell = grid.getCellAtLocation(point);
+        if (cell == null) return 0f;
+
+        int gridWidth = grid.getGrid().length;
+        int gridHeight = grid.getGrid()[0].length;
+
+        float totalArmor = 0f;
+        for (int i = -2; i <= 2; i++)
+        {
+            for (int j = -2; j <= 2; j++)
+            {
+                if ((i == 2 || i == -2) && (j == 2 || j == -2)) continue; // skip corners
+
+                int cx = cell[0] + i;
+                int cy = cell[1] + j;
+
+                if (cx < 0 || cx >= gridWidth || cy < 0 || cy >= gridHeight) continue;
+
+
+                totalArmor += grid.getArmorValue(cx, cy);
+
+            }
+        }
+        return totalArmor / grid.getArmorRating();
     }
 }

@@ -99,6 +99,8 @@ class ApexModPlugin : BaseModPlugin() {
             "apex_ins_missile_shot" -> PluginPick(ApexInsMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_ins_torp_shot" -> PluginPick(ApexInsTorpAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_excession_missile_shot" -> PluginPick(ApexExcessionMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_ultratorp_shot" -> PluginPick(ApexUltratorpAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_ins_pdmissile_shot" -> PluginPick(ApexLPDLoiterAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             else -> null
         }
 
@@ -135,16 +137,19 @@ class ApexModPlugin : BaseModPlugin() {
             loaded = true
             LunaSettings.addSettingsListener(ApexSettings())
 
+            // preserved for posterity
+            /*
             try {
-                // die mad, fash
+                // attempts to load targeted mod's main modplugin class, encrypted via base64
                 Global.getSettings().scriptClassLoader.loadClass(xd("ZGF0YS5zY3JpcHRzLk5HT01vZFBsdWdpbg=="))
+                // if it loads successfully, turns off all the world generation
                 GENERATE_SYSTEMS = false
                 GENERATE_RELICS = false
             } catch (_: ClassNotFoundException) {
-            }
+            } */
         }
 
-        // used to hide strings
+        // used to hide strings, just decodes a base64 string to ascii
         fun xd(q: String): String {
             var q = q
             val u = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
