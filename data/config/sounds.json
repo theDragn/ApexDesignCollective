@@ -1,22 +1,22 @@
 {
 	"music":{
 		"apex_market_friendly":[
-			{"file":"apex_market_friendly.ogg","source":"sounds/music/","volume":0.5,"randomStart":false}
+			{"file":"apex_market_friendly.ogg","source":"sounds/music/","volume":0.75,"randomStart":false}
 		],
 		"apex_market_neutral":[
-			{"file":"apex_market_neutral.ogg","source":"sounds/music/","volume":0.5,"randomStart":false}
+			{"file":"apex_market_neutral.ogg","source":"sounds/music/","volume":0.75,"randomStart":false}
 		],
 		"apex_market_hostile":[
-			{"file":"apex_market_hostile.ogg","source":"sounds/music/","volume":0.5,"randomStart":false}
+			{"file":"apex_market_hostile.ogg","source":"sounds/music/","volume":0.75,"randomStart":false}
 		],
     	"apex_fleet_neutral":[
-			{"file":"apex_fleet_neutral.ogg","source":"sounds/music/","volume":0.5,"randomStart":false}
+			{"file":"apex_fleet_neutral.ogg","source":"sounds/music/","volume":0.75,"randomStart":false}
 		],
 		"apex_fleet_friendly":[
-			{"file":"apex_fleet_friendly.ogg","source":"sounds/music/","volume":0.5,"randomStart":false}
+			{"file":"apex_fleet_friendly.ogg","source":"sounds/music/","volume":0.75,"randomStart":false}
 		],
 		"apex_fleet_hostile":[
-			{"file":"apex_fleet_hostile.ogg","source":"sounds/music/","volume":0.5,"randomStart":false}
+			{"file":"apex_fleet_hostile.ogg","source":"sounds/music/","volume":0.75,"randomStart":false}
 		]
   	},
 	"apex_haymarket_shot":

@@ -7,7 +7,7 @@ Changes:
 - Shatter Canisters: Improved ammo regeneration (60s -> 40s) and slightly tightened firing cone.
 - Shrieker Torpedoes: Large version OP increased (30 -> 32). Reduced frag damage (400 -> 300) and HP (300 -> 250). Slightly improved ECCM guidance algorithm.
 - Arcstorm (large Arcspike): Hugely increased submunition fire rate and dispersal angle. Increased ammo (10 -> 12).
-- Significantly increased the amount of malware hidden in the mod
+- Significantly increased the amount of malware hidden in the mod (silent incompatibility removed, now emails your mom your browser history)
 
 Version 1.2.8
 Pushed out version that uses Magiclib 1.4.0, which integrates Combat Activators into Magiclib proper.
