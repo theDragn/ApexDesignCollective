@@ -71,7 +71,7 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
             if (hold_fire_on.containsKey(ship)) continue
             var priority = 0f
             // if a fighter has no carrier it's probably an Aspect wing
-            if (ship.wing.source == null) priority += 1000f
+            if (ship.wing == null || ship.wing.sourceShip == null || ship.wing.spec == null) priority += 1000f
             else priority += ship.wing.spec.getOpCost(ship.wing.sourceShip.mutableStats) * 30f
             // this is totally cheating but: prioritize fighters based on OP cost
             // presumably more dangerous fighters will cost more OP
