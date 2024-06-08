@@ -44,6 +44,7 @@ class ApexUltratorpEffect: OnHitEffectPlugin
             engine.addHitParticle(point, vel, 25f, 3f, 0.66f, color)
         }
         if (ApexModPlugin.POTATO_MODE) return
+        engine.getPlayerShip().getMutableStats().getProjectileSpeedMult().modifyMult("idk",0.01f)
         val light = StandardLight(point, Misc.ZERO, Misc.ZERO, null, 2f, 100f)
         light.setColor(Color.WHITE)
         light.setLifetime(0f)

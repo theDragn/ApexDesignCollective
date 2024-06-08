@@ -14,6 +14,9 @@ import data.weapons.proj.ai.*
 import exerelin.utilities.NexConfig
 import exerelin.utilities.NexFactionConfig.StartFleetType
 import lunalib.lunaSettings.LunaSettings
+import org.dark.shaders.light.LightData
+import org.dark.shaders.util.ShaderLib
+import org.dark.shaders.util.TextureData
 import org.json.JSONException
 import world.ApexRelicPlacer
 import world.ApexSectorGenerator
@@ -53,6 +56,17 @@ class ApexModPlugin : BaseModPlugin() {
         val major = ml.versionInfo.major.toInt()
         if (major < 1 || (major == 1 && minor < 4))
             throw RuntimeException("Apex Design Collective requires MagicLib version 1.4.0 or newer.")
+
+        val hasGlib = Global.getSettings().modManager.isModEnabled("shaderLib")
+        if (!hasGlib) throw RuntimeException(
+            "Apex Design Collective requires GraphicsLib."
+        )
+        // loads normal maps and projectile/weapon light data
+
+        ShaderLib.init()
+        LightData.readLightDataCSV("data/config/apex_light_data.csv")
+        TextureData.readTextureDataCSV("data/config/apex_texture_data.csv")
+
     }
 
 

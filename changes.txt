@@ -1,3 +1,12 @@
+Version 1.2.10: Bye Bye VRAM Edition
+
+Overall: Added proper GraphicsLib shader integration. This roughly doubles the mod's VRAM footprint. It should have a very small performance hit if you were already using GraphicsLib, and no performance hit if you had turned off GraphicsLib shaders.
+
+Changes:
+- Added normal maps for all hulls and weapons.
+- Added light data for weapons.
+- Fixed a crash that could occur if the LPDS Pod targeted fighters that didn't have a parent carrier.
+
 Version 1.2.9
 New:
 - LPDM System: Medium missile, relic weapon. Automatically fires loitering point-defense missiles that follow the parent ship and intelligently engage incoming missiles and fighters.

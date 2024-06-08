@@ -72,10 +72,11 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
             var priority = 0f
             // if a fighter has no carrier it's probably an Aspect wing
             if (ship.wing.source == null) priority += 1000f
+            else priority += ship.wing.spec.getOpCost(ship.wing.sourceShip.mutableStats) * 30f
             // this is totally cheating but: prioritize fighters based on OP cost
             // presumably more dangerous fighters will cost more OP
             // ie, a broadsword will get 240 priority, slightly more than an annihilator rocket
-            priority += ship.wing.spec.getOpCost(ship.wing.sourceShip.mutableStats) * 30f
+
             // only bother targeting fighters that are close to our protection zone
             var hp = ship.hitpoints
             if (ship.shield != null) hp += ship.maxFlux * 2
@@ -116,18 +117,19 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
         //engine.addFloatingText(missile.location, "tasked", 12f, Color.WHITE, missile, 0f, 0f)
         //engine.addHitParticle(target.location, target.velocity, 40f, 1.0f, Color.GREEN)
     }
-}
 
+    // just used to make the target priority queue sort correctly
+    class TargetComparator: Comparator<TargetData> {
+        override fun compare(o1: TargetData?, o2: TargetData?): Int
+        {
+            o1 ?: return 0
+            o2 ?: return 0
+            return (o1.priority - o2.priority).toInt()
+        }
 
-// just used to make the target priority queue sort correctly
-class TargetComparator: Comparator<TargetData> {
-    override fun compare(o1: TargetData?, o2: TargetData?): Int
-    {
-        o1 ?: return 0
-        o2 ?: return 0
-        return (o1.priority - o2.priority).toInt()
     }
 
+    class TargetData(val target: CombatEntityAPI, val priority: Float, var predicted_hp: Float) {}
 }
 
-class TargetData(val target: CombatEntityAPI, val priority: Float, var predicted_hp: Float) {}
+
