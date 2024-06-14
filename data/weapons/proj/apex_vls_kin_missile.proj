@@ -8,7 +8,7 @@
 	"center":[3,7],
 	"collisionRadius":10,
 	"collisionClass":"MISSILE_NO_FF",
-	"explosionColor":[255,165,50,255],
+	"explosionColor":[150,150,225,255],
 	"explosionRadius":50, # purely visual
 	"engineSpec":{"turnAcc":270,
                         "turnRate":270,

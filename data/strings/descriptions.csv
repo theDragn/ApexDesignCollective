@@ -130,7 +130,7 @@ apex_excessionsys,SHIP_SYSTEM,"Consumes all stored entropy. Converts a small amo
 apex_bounty_superdamper,SHIP_SYSTEM,Reduces incoming damage by 95%. Disables weapons and shields while active.,,,
 apex_uplink,SHIP_SYSTEM,"Improves the defenses of allies within 1600su, reducing shield damage taken by 20% and increasing armor effectiveness by 33%. Prevents hard flux dissipation while active.",,,
 apex_pursuit_jets,SHIP_SYSTEM,"Increases non-missile weapon damage by 33%, and improves speed and maneuverability. The speed bonus is strongest when moving forwards.",,,
-apex_gravity_shield,SHIP_SYSTEM,"Diverts incoming projectiles, decelerates missiles, and reduces incoming beam damage by 33% for a short duration.",,,
+apex_gravity_shield,SHIP_SYSTEM,"Diverts incoming projectiles, decelerates missiles, and halves incoming beam damage for a short duration.",,,
 apex_ins_damper,SHIP_SYSTEM,"Halves incoming damage, doubles acceleration and turn speed, and repairs 2.5% of missing armor per second for 3 seconds. Disables weapons while active.",,,
 ,,,,,
 # Weapons,,,,,

@@ -6,6 +6,7 @@ import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 import com.fs.starfarer.api.loading.ProjectileSpawnType;
 import com.fs.starfarer.api.util.IntervalUtil;
+import com.fs.starfarer.api.util.Misc;
 import org.dark.shaders.distortion.DistortionShader;
 import org.dark.shaders.distortion.RippleDistortion;
 import org.lazywizard.lazylib.MathUtils;
@@ -21,7 +22,7 @@ import static plugins.ApexModPlugin.POTATO_MODE;
 public class ApexGravityShield extends BaseShipSystemScript
 {
     public static final float RANGE = 600f;
-    public static final float BEAM_MULT = 0.67f;
+    public static final float BEAM_MULT = 0.5f;
     public static final float TARGET_VEL_MULT = 0.2f;
     public static final float TARGET_VEL_FRAMES = 40f; // reaches target velocity mult after this many frames; assumes 60fps
     public static final float VEL_MULT_PER_FRAME = (float)Math.pow(TARGET_VEL_MULT, 1f/TARGET_VEL_FRAMES);
@@ -61,8 +62,8 @@ public class ApexGravityShield extends BaseShipSystemScript
             ripple.setIntensity(90);
 
             //Ensure the effect fades out properly
-            ripple.setLifetime(2);
-            ripple.fadeOutIntensity(2);
+            ripple.setLifetime(2.5f);
+            ripple.fadeOutIntensity(2.5f);
 
             //The ripple need needs to grow over time, or there's not much of a ripple!
             //Also adds animation
@@ -90,8 +91,15 @@ public class ApexGravityShield extends BaseShipSystemScript
 
                 float rotationNeeded = MathUtils.getShortestRotation(thing.getFacing(), idealAngle);
                 thing.setFacing(thing.getFacing() + (rotationNeeded * amount)); // rotates 180 in 1s
-            } else if (!(thing instanceof AsteroidAPI))
-                thing.getVelocity().scale(scaleFactor);
+            } else if (!(thing instanceof AsteroidAPI)) {
+                Vector2f vel = thing.getVelocity();
+                float angleToThing = VectorUtils.getAngle(ship.getLocation(), thing.getLocation());
+                // just add the "pushing" velocity to the thing's current velocity
+                Vector2f push = MathUtils.getPointOnCircumference(Misc.ZERO, 2000f * amount, angleToThing);
+                thing.getVelocity().set(Vector2f.add(vel, push, null));
+            }
+
+
         }
     }
 

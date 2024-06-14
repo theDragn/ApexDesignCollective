@@ -65,7 +65,7 @@
         "cmag1":"prevents the installation of a full missile suite without compromises",
         "cmag2":"The current penalty is %s.",
         # cryocooled armor
-        "cryoarmor1":"Incomaptible with Nanolaminate Plating, Heavy Armor, and other hullmods that provide significant bonuses to armor rating.",
+        "cryoarmor1":"Incompatible with Nanolaminate Plating, Heavy Armor, and other hullmods that provide significant bonuses to armor rating.",
         # cryocoolant projector
         "cryop1":"Fires magnetically-guided blobs of cryogenic coolant that increase flux dissipation.",
         "cryop2":"Targets the selected ally, if in range. If no allied target is selected, targets allies with non-zero flux within range.",

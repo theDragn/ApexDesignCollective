@@ -1,3 +1,10 @@
+Version 1.2.11
+Changes:
+- Fixed kinetic and energy VLS missiles having the wrong impact color.
+- Fixed a spelling error.
+- Anaconda: System duration extended (2.25s -> 2.75s) and beam damage reduction increased (33% -> 50%). Now pushes projectiles away instead of just slowing them down, which can result in shenanigans.
+- LPDS Pod: Reduced OP cost (16 -> 14). Should no longer engage things in the fog of war.
+
 Version 1.2.10: Bye Bye VRAM Edition
 
 Overall: Added proper GraphicsLib shader integration. This roughly doubles the mod's VRAM footprint. It should have a very small performance hit if you were already using GraphicsLib, and no performance hit if you had turned off GraphicsLib shaders.

@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.util.IntervalUtil
+import org.lazywizard.lazylib.MathUtils
 import java.awt.Color
 import java.util.PriorityQueue
 
@@ -18,7 +19,7 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
 
     val engine = Global.getCombatEngine()
 
-    val MISSILE_RANGE = 1800f
+    val MISSILE_RANGE = 2500f
     val MISSILE_DAMAGE = 500f
     val HOLD_FIRE_CYCLES = 4
 
@@ -56,7 +57,7 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
             if (missile.owner == owner || missile.isFizzling || missile.isFlare) continue
             if (hold_fire_on.containsKey(missile)) continue
             // probably not necessary - sides should (almost) always see each other if they're firing missiles
-            //if (!fog.isVisible(missile.location)) continue
+            if (!fog.isVisible(missile.location)) continue
             var priority = 0f
             priority += missile.damage.damage
             // lower priority for frag missiles, since they have oversized damage values
@@ -69,6 +70,7 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
             if (ship.owner == owner || ship.hullSize != ShipAPI.HullSize.FIGHTER || !ship.isAlive) continue
             ship.wing ?: continue
             if (hold_fire_on.containsKey(ship)) continue
+            if (!fog.isVisible(ship.location)) continue
             var priority = 0f
             // if a fighter has no carrier it's probably an Aspect wing
             if (ship.wing == null || ship.wing.sourceShip == null || ship.wing.spec == null) priority += 1000f
@@ -91,12 +93,12 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
             val targetdata = targets.poll()
             while (available_missiles.isNotEmpty() && targetdata.predicted_hp > 0)
             {
+                val missile = available_missiles.first()
                 task(available_missiles.first(), targetdata.target)
                 available_missiles.removeFirst()
                 targetdata.predicted_hp -= MISSILE_DAMAGE
             }
             if (targetdata.predicted_hp <= 0) hold_fire_on[targetdata.target] = HOLD_FIRE_CYCLES
-
         }
 
         // we've tasked all our targets

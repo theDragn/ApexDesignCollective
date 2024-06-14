@@ -13,7 +13,7 @@ Bifurcation Device,apex_bifurcator,,,,,,,,,,0.25,2.5,0.25,12,,,,,,,,,,,,,graphic
 Entropy Consolidator,apex_thorns,,,,,,,,2,0.05,0.1,2.8,0.1,,,,,,TRUE,,,,TRUE,,,,graphics/icons/hullsys/damper_field.png
 Defense Uplink,apex_uplink,,,,,,,,,,0.5,,0.5,,TRUE,,TRUE,,,,,,,,,,graphics/icons/hullsys/damper_field.png
 Pursuit Mode,apex_pursuit_jets,,,,,,,,,,0.5,4,0.5,8,,,,,,,,,,,,,graphics/icons/hullsys/burn_drive.png
-Gravity Shield,apex_gravity_shield,,,,,,,,,,0.25,1.75,0.25,8,,,,,,,,,,,,,graphics/icons/hullsys/damper_field.png
+Gravity Shield,apex_gravity_shield,,,,,,,,,,0.25,2.25,0.25,8,,,,,,,,,,,,,graphics/icons/hullsys/damper_field.png
 Temporal Siphon,apex_temporal_siphon,,,,,,0.2,,,,0.75,10,0.25,12,,,,,,,,,,,,,graphics/icons/hullsys/temporal_shell.png
 Regenerative Damper,apex_ins_damper,,,,,,,,2,0.05,0.25,3,0.25,0,,,,,TRUE,,,,TRUE,TRUE,,uses_damper_ai,graphics/icons/hullsys/damper_field.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
