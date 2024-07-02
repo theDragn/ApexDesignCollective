@@ -122,7 +122,6 @@ class ApexModPlugin : BaseModPlugin() {
 
     companion object {
         // settings stuff and string decoder
-        const val SETTINGS_FILE = "APEX_SETTINGS.json"
         var log = Global.getLogger(ApexModPlugin::class.java)
         var loaded = false
 
@@ -141,26 +140,26 @@ class ApexModPlugin : BaseModPlugin() {
         @JvmField
         var EXCESSION_ID = true
 
+        @JvmField
+        var REPAIR_FLOATY = false
+
         @Throws(IOException::class, JSONException::class)
         private fun loadApexSettings() {
-            POTATO_MODE = LunaSettings.getBoolean("apex_design", "apex_potatomode") ?: false
-            GENERATE_RELICS = LunaSettings.getBoolean("apex_design", "apex_relics") ?: true
-            EUROBEAT_MODE = LunaSettings.getBoolean("apex_design", "apex_eurobeat") ?: false
-            EXCESSION_ID = LunaSettings.getBoolean("apex_design", "apex_excession_id") ?: true
-            log.info("Loaded ADC settings")
-            loaded = true
-            LunaSettings.addSettingsListener(ApexSettings())
-
-            // preserved for posterity
-            /*
-            try {
-                // attempts to load targeted mod's main modplugin class, encrypted via base64
-                Global.getSettings().scriptClassLoader.loadClass(xd("ZGF0YS5zY3JpcHRzLk5HT01vZFBsdWdpbg=="))
-                // if it loads successfully, turns off all the world generation
-                GENERATE_SYSTEMS = false
-                GENERATE_RELICS = false
-            } catch (_: ClassNotFoundException) {
-            } */
+            if (Global.getSettings().modManager.isModEnabled("lunalib"))
+            {
+                POTATO_MODE = LunaSettings.getBoolean("apex_design", "apex_potatomode") ?: false
+                GENERATE_RELICS = LunaSettings.getBoolean("apex_design", "apex_relics") ?: true
+                EUROBEAT_MODE = LunaSettings.getBoolean("apex_design", "apex_eurobeat") ?: false
+                EXCESSION_ID = LunaSettings.getBoolean("apex_design", "apex_excession_id") ?: true
+                REPAIR_FLOATY = LunaSettings.getBoolean("apex_design", "apex_repair_floaty") ?: false
+                log.info("Loaded ADC settings")
+                loaded = true
+                LunaSettings.addSettingsListener(ApexSettings())
+            } else
+            {
+                log.info("Apex: You pulled out the lunalib requirement, but fortunately I love you anyways and it will still work.")
+                log.info("Apex: You can't change the settings though. I'm too lazy to re-create the old json config.")
+            }
         }
 
         // used to hide strings, just decodes a base64 string to ascii

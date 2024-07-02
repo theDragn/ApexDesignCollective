@@ -5,7 +5,13 @@ import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
+import org.lazywizard.lazylib.CollisionUtils;
+import org.lazywizard.lazylib.VectorUtils;
+import org.lwjgl.util.vector.Vector2f;
+import org.lwjgl.util.vector.Vector3f;
 import org.magiclib.util.MagicIncompatibleHullmods;
+import org.magiclib.util.MagicRender;
+import plugins.ApexModPlugin;
 
 
 import java.awt.*;
@@ -43,7 +49,7 @@ public class ApexArmor extends BaseHullMod
     }
     public static final float REDUCTION_BONUS = 0.05f; // flat bonus to max armor damage reduction
     public static final float MIN_ARMOR_FRACTION_BONUS = 0.05f;
-    public static final float REGEN_MULT = 1.33f;
+    public static final float REGEN_MULT = 1.5f;
 
 
 

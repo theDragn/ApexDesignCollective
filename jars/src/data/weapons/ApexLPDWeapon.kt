@@ -8,6 +8,7 @@ import java.awt.Color
 
 class ApexLPDWeapon: OnFireEffectPlugin, EveryFrameWeaponEffectPlugin
 {
+    var runOnce = false
     val loitering = mutableSetOf<MissileAPI>()
 
     override fun onFire(projectile: DamagingProjectileAPI, weapon: WeaponAPI, engine: CombatEngineAPI)
@@ -31,6 +32,8 @@ class ApexLPDWeapon: OnFireEffectPlugin, EveryFrameWeaponEffectPlugin
 
     override fun advance(amount: Float, engine: CombatEngineAPI, weapon: WeaponAPI)
     {
+        if (!runOnce)
+            weapon.ship.mutableStats.fluxDissipation.modifyFlat("apexLPD"+weapon.hashCode().toString(), -33f)
         if (loitering.size >= 6)
             weapon.setForceNoFireOneFrame(true)
         else

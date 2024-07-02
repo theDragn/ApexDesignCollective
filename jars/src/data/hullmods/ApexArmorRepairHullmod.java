@@ -7,6 +7,7 @@ import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
+import data.effects.ApexRegenEffect;
 import utils.ApexUtils;
 import org.magiclib.util.MagicIncompatibleHullmods;
 import org.magiclib.subsystems.MagicSubsystemsManager;
@@ -49,7 +50,6 @@ public class ApexArmorRepairHullmod extends BaseHullMod
         smodCostMap.put(HullSize.CAPITAL_SHIP, 0f);
     }
 
-    public static final float BASE_REGEN_DURATION = 10f; // time in seconds for regen to be applied
     public static final float MAX_REGEN_LOCKON_RANGE = 2000f; // distance at which a repair target is considered in range
     public static final float MAX_REGEN_FRACTION = 0.75f; // can't regen armor to more than this fraction of the base amount
     public static final float BASE_COOLDOWN = 30f; // cooldown time
@@ -59,19 +59,26 @@ public class ApexArmorRepairHullmod extends BaseHullMod
             "\n• " + text("repper4");
     public static final String line2 = "• " + text("repper5");
     public static final String line3 = "• " + text("repper6") + "\n• " + text("repper7");
-    public static final String line4 = "• " + text("repper8");
+    public static final String line3half = "• " + text("repper8");
+    public static final String line4 = "• " + text("repper9");
     public static final String[] line2sub = {
             regenMap.get(HullSize.FRIGATE).intValue()+ "",
             regenMap.get(HullSize.DESTROYER).intValue() + "",
             regenMap.get(HullSize.CRUISER).intValue() + "",
-            regenMap.get(HullSize.CAPITAL_SHIP).intValue() + "",
-            (int)BASE_REGEN_DURATION + ""
+            regenMap.get(HullSize.CAPITAL_SHIP).intValue() + ""
     };
     public static final String[] line3sub = {
+            (int)(ApexRegenEffect.POOL_FRACTION * 100f) + "%",
+            (int)(ApexRegenEffect.MIN_RATE) + "",
+            (int)(ApexRegenEffect.SOFTCAP) + ""
+    };
+
+    public static final String[] line3halfsub = {
             (int)(MAX_REGEN_FRACTION * 100f) + "%"
     };
+
     public static final String[] line4sub = {
-            text("repper9")
+            text("repper10")
     };
 
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<>();
@@ -131,6 +138,7 @@ public class ApexArmorRepairHullmod extends BaseHullMod
 
     @Override
     public void addPostDescriptionSection(TooltipMakerAPI tooltip, HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
+        // this is a fucking nightmare why did I do it like this
         if (ship != null)
         {
             float pad = 10f;
@@ -141,6 +149,7 @@ public class ApexArmorRepairHullmod extends BaseHullMod
             tooltip.addPara(line1, 0f, Misc.getHighlightColor(), (int)BASE_COOLDOWN + " " + text("nozz8"));
             tooltip.addPara(line2, 0f, Misc.getHighlightColor(), line2sub);
             tooltip.addPara(line3, 0f, Misc.getHighlightColor(), line3sub);
+            tooltip.addPara(line3half, 0f, Misc.getHighlightColor(), line3halfsub);
             tooltip.addPara(line4, 0f, Misc.getHighlightColor(), line4sub);
             TooltipMakerAPI text = tooltip.beginImageWithText("graphics/hullmods/apex_nozzle.png", 40);
             text.addPara(text("nozz1") + " " + nozzles + " " + text("nozz2"), 0, Misc.getHighlightColor(), nozzles + "", text("nozzOne"));

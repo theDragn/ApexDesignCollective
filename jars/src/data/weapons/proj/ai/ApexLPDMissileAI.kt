@@ -169,7 +169,8 @@ class ApexLPDMissileAI(val missile: MissileAPI, val launchingShip: ShipAPI): Mis
         }
         engine.addHitParticle(missile.location, Misc.ZERO, 150f, 1f, 0.25f, EXPLOSION_COLOR)
         // destroy missile
-        engine.applyDamage(missile, missile.location, missile.hitpoints, DamageType.FRAGMENTATION, 0f, true, true, missile)
+        // engine.applyDamage(missile, missile.location, missile.hitpoints, DamageType.FRAGMENTATION, 0f, true, true, missile)
+        engine.removeEntity(missile)
     }
 
 

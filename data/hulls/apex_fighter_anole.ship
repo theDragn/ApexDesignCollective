@@ -12,9 +12,7 @@
   "shieldRadius": 23,
   "viewOffset": 0,
   "builtInMods": [
-    "apex_armor",
-    "fluxbreakers",
-    "insulatedengine"
+    "apex_armor"
   ],
   "weaponSlots": [
     {

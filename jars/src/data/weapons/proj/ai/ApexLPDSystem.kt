@@ -5,7 +5,6 @@ import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.util.IntervalUtil
 import org.lazywizard.lazylib.MathUtils
-import java.awt.Color
 import java.util.PriorityQueue
 
 class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
@@ -63,6 +62,8 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
             // lower priority for frag missiles, since they have oversized damage values
             if (missile.damageType == DamageType.FRAGMENTATION) priority *= 0.33f
             if (priority > 750f) priority += priority - 750f // bonus priority for high-damage missiles
+            // if we have more than a hundred targets already, stop considering low-priority targets entirely
+            if (targets.size > 100 && priority < 100) continue
             targets.add(TargetData(missile, priority, missile.hitpoints))
         }
         for (ship in engine.ships)
@@ -79,7 +80,6 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
             // presumably more dangerous fighters will cost more OP
             // ie, a broadsword will get 240 priority, slightly more than an annihilator rocket
 
-            // only bother targeting fighters that are close to our protection zone
             var hp = ship.hitpoints
             if (ship.shield != null) hp += ship.maxFlux * 2
             hp += ship.armorGrid.armorRating * 2
@@ -88,15 +88,33 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
 
         // okay, we have our list
         // task missiles to highest priority targets
-        while (!targets.isEmpty() && available_missiles.isNotEmpty())
+        // this is... really inefficient, despite my best efforts.
+        // There's not really any way avoid having to iterate over every missile for every target to find a missile that's in range.
+        // To avoid problems, we give the missiles a very long range, limit the number of checks we can do for each iteration, and re-order the available missiles frequently (which is cheap).
+        var outerchecks = 0
+        while (!targets.isEmpty() && available_missiles.isNotEmpty() && outerchecks < 50)
         {
+            outerchecks++
             val targetdata = targets.poll()
-            while (available_missiles.isNotEmpty() && targetdata.predicted_hp > 0)
+            var innerchecks = 0
+            // we really don't need to check every missile
+            while (available_missiles.isNotEmpty() && targetdata.predicted_hp > 0 && innerchecks < available_missiles.size / 2)
             {
                 val missile = available_missiles.first()
-                task(available_missiles.first(), targetdata.target)
-                available_missiles.removeFirst()
-                targetdata.predicted_hp -= MISSILE_DAMAGE
+                innerchecks++
+                // if our missile is in range, task it
+                if (MathUtils.isWithinRange(missile.location, targetdata.target.location, MISSILE_RANGE))
+                {
+                    task(missile, targetdata.target)
+                    available_missiles.removeFirst()
+                    targetdata.predicted_hp -= MISSILE_DAMAGE
+                    innerchecks = 0
+                } else // otherwise, send it to the back of the line and try again with a different missile
+                {
+                    available_missiles.addLast(missile)
+                    available_missiles.removeFirst()
+                }
+
             }
             if (targetdata.predicted_hp <= 0) hold_fire_on[targetdata.target] = HOLD_FIRE_CYCLES
         }

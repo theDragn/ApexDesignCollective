@@ -51,6 +51,7 @@
 			"fpe": -0.5, # bash the fash
             "tahlan_legioinfernalis":-0.5,
             "hmi": -0.3,
+            "xhanempire":-0.5 # I think they're supposed to be hostile to everyone anyway
             }, 
     "diplomacyPositiveChance":{
     		"luddic_path": 0.1, # self-explanatory

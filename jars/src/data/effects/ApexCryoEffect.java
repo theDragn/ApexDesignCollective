@@ -8,7 +8,12 @@ import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.hullmods.ApexCryoSystemHullmod;
+import org.lazywizard.lazylib.CollisionUtils;
+import org.lazywizard.lazylib.MathUtils;
+import org.lwjgl.util.vector.Vector2f;
+import utils.ApexUtils;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,11 +22,13 @@ import static utils.ApexUtils.text;
 
 public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
 {
+    public static final float POOL_FRACTION = 0.1f;
+    public static final float MIN_EFFECT = 100f;
+    public static final float SOFTCAP = 2000f;
+    public static final Color PARTICLE_COLOR = new Color(0, 187, 255,200);
     private HullSize sourceSize;
-    private float remainingDuration;
-    private int numCombinations;
     private boolean removeMapEntry;
-    private float effect;
+    private float pool = 0f;
     private ShipAPI target;
 
     public static final Map<ShipAPI, ApexCryoEffect> effectMap = new HashMap<>();
@@ -31,11 +38,9 @@ public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
     public ApexCryoEffect(ShipAPI target, HullSize sourceSize)
     {
         this.removeMapEntry = true;
-        this.remainingDuration = ApexCryoSystemHullmod.CRYO_BUFF_DURATION;
         this.target = target;
         this.sourceSize = sourceSize;
-        this.numCombinations = 0;
-        this.effect = ApexCryoSystemHullmod.dissMap.get(target.getHullSize());
+        this.pool = ApexCryoSystemHullmod.dissMap.get(sourceSize);
         // check to see if ship already has a regen effect going
         if (effectMap.containsKey(target))
         {
@@ -43,8 +48,8 @@ public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
             effectMap.get(target).combineEffects(this);
             // don't remove the map entry, since it points to the existing effect plugin (remember, a new value for an existing key overwrites it)
             removeMapEntry = false;
+            this.pool = 0f;
             // can't remove the plugin in the constructor, so we'll do it when the next frame hits
-            remainingDuration = 0;
         } else
         {
             effectMap.put(target, this);
@@ -53,10 +58,7 @@ public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
 
     public void combineEffects(ApexCryoEffect newEffect)
     {
-        numCombinations++;
-        remainingDuration += ApexCryoSystemHullmod.CRYO_BUFF_DURATION/(2.5 * numCombinations);
-
-        this.effect = Math.max(newEffect.effect, this.effect);
+        pool = diminish(newEffect.pool, this.pool);
     }
 
     @Override
@@ -64,7 +66,7 @@ public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
     {
         CombatEngineAPI engine = Global.getCombatEngine();
         if (engine.isPaused()) return;
-        if (!target.isAlive() || remainingDuration <= 0)
+        if (!target.isAlive() || pool <= 0)
         {
             engine.removePlugin(this);
             // this might cause it to drop the buff for one frame when effects combine but it shouldn't be noticeable
@@ -73,27 +75,56 @@ public class ApexCryoEffect extends BaseEveryFrameCombatPlugin
                 effectMap.remove(target);
             return;
         }
-        remainingDuration -= amount;
-        /*
-        target.getMutableStats().getBallisticWeaponFluxCostMod().modifyMult("apexCryo", effect);
-        target.getMutableStats().getEnergyWeaponFluxCostMod().modifyMult("apexCryo", effect);
-        target.getMutableStats().getMissileWeaponFluxCostMod().modifyMult("apexCryo", effect);
-        target.getMutableStats().getShieldUpkeepMult().modifyMult("apexCryo", effect);*/
+
+        float effect = Math.max(POOL_FRACTION * pool, MIN_EFFECT);
+        pool -= effect * amount * target.getMutableStats().getTimeMult().getMult();
         target.getMutableStats().getFluxDissipation().modifyFlat("apexCryo", effect);
 
-        if (engine.getPlayerShip() == target && remainingDuration > 0f)
+        if (engine.getPlayerShip() == target && pool > 0f)
         {
-            engine.maintainStatusForPlayerShip("apex_cryo", "graphics/icons/buffs/apex_cryo.png", "+" + (int)(effect) + " " + text("cryo1") , text("cryo2") + ": " + Misc.getRoundedValue(remainingDuration), false);
+            engine.maintainStatusForPlayerShip("apex_cryo", "graphics/icons/buffs/apex_cryo.png", "+" + (int)(effect) + " " + text("cryo1") , text("cryo2") + ": " + Misc.getRoundedValue(pool), false);
+        }
+
+        // pick a random spot somewhere inside the ship's collision bounds
+        // similar frequency to the repair vfx, which peaks at about 30 sprites for a normal-looking patch of damaged armor
+        // this is 0.2 * 60 * 1 = 12 sprites at any given time
+        if (Misc.random.nextFloat() < 0.2f)
+        {
+            // pick random point and make sure it's inside ship bounds
+            Vector2f point = MathUtils.getRandomPointInCircle(target.getLocation(), target.getCollisionRadius());
+            if (!CollisionUtils.isPointWithinBounds(point, target)) return;
+            float size = target.getCollisionRadius() * 0.05f;
+            engine.addSwirlyNebulaParticle(point, target.getVelocity(), ApexUtils.randBetween(size, size*2.5f), 2.5f, 0f, 0.5f, 1f,
+                    PARTICLE_COLOR,
+                    false);
         }
     }
 
     private void unmodify(ShipAPI target)
     {
-        /*
-        target.getMutableStats().getBallisticWeaponFluxCostMod().unmodify("apexCryo");
-        target.getMutableStats().getEnergyWeaponFluxCostMod().unmodify("apexCryo");
-        target.getMutableStats().getMissileWeaponFluxCostMod().unmodify("apexCryo");
-        target.getMutableStats().getShieldUpkeepMult().unmodify("apexCryo");*/
-        target.getMutableStats().getFluxDissipation().modifyFlat("apexCryo", effect);
+        target.getMutableStats().getFluxDissipation().unmodify("apexCryo");
+    }
+
+    /**
+     * square-root soft cap for dissipation pool
+     * @param addedAmount dissipation to add to pool
+     * @param currentPool current pool total
+     * @return new pool amount
+     */
+    private float diminish(float addedAmount, float currentPool)
+    {
+        // this is linear scaling until soft cap
+        // after cap, it's sqrt(2000x)
+        if (currentPool + addedAmount < SOFTCAP) return currentPool + addedAmount;
+        if (currentPool < SOFTCAP) // gotta get the portion to add linearly
+        {
+            // add linearly up to softcap
+            // linear increase and our curve intersect at soft cap point at x=400, y=400
+            addedAmount -= (SOFTCAP - currentPool);
+        }
+        // we do the inverse of the curve function to figure out the x-pos of the current total, then add the remaining to it
+        float x = currentPool * currentPool * 0.0005f + addedAmount;
+        // then we run it back through the curve to get the diminished amount
+        return (float)(44.72135955 * Math.sqrt(x));
     }
 }

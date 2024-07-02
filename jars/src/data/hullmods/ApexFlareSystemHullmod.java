@@ -143,12 +143,7 @@ public class ApexFlareSystemHullmod extends BaseHullMod
     {
         if(ship == null)
             return false;
-        int nozzles = 0;
-        for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy())
-        {
-            if (slot.isSystemSlot())
-                nozzles++;
-        }
+        int nozzles = ApexUtils.getNumNozzles(ship);
         for (String hullmod : BLOCKED_HULLMODS)
         {
             if (ship.getVariant().getHullMods().contains(hullmod))

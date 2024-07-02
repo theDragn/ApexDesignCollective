@@ -30,7 +30,7 @@
 
         # cryocoolant effect text
         "cryo1":"flux dissipation.",
-        "cryo2":"Remaining duration",
+        "cryo2":"Remaining dissipation",
 
         # regeneration effect text
         "regen1":"Applying Remote Armor Patch",
@@ -54,13 +54,13 @@
         # remote repair hullmod
         "repper1":"Fires magnetically-guided blobs of molten armor material that can repair allies. ",
         "repper2":"Has a %s cooldown and generates soft flux on use. ", # "has a ## second cooldown and generates...."
-        #"repper3":"second", unused
         "repper4":"Targets the selected ally, if they are in range and can be repaired. If no allied target is selected, targets repairable allies within range.",
-        "repper5":"Projectiles repair %s/%s/%s/%s armor over %s seconds, depending on the size of the source ship.",
-        "repper6":"Cannot repair above %s of initial armor strength.",
-        "repper7":"Multiple repair effects stack with diminishing returns.",
-        "repper8":"Cannot repair %s without Cryocooled Armor Lattice, as shields are used to cool the molten material.", # %s is replaced with the next string
-        "repper9":"shieldless targets",
+        "repper5":"Projectiles add %s/%s/%s/%s armor to the target's repair pool, depending on the size of the source ship.",
+        "repper6":"The repair pool is drained by %s or %s armor per second, whichever is higher, repairing the ship's armor by the same amount.",
+        "repper7":"Repair added to the pool above %s armor is less effective.",
+        "repper8":"Cannot repair above %s of initial armor strength.",
+        "repper9":"Cannot repair %s without Cryocooled Armor Lattice, as shields are used to cool the molten armor patch.", # %s is replaced with the next string
+        "repper10":"shieldless targets",
         # limited magazines
         "cmag1":"prevents the installation of a full missile suite without compromises",
         "cmag2":"The current penalty is %s.",
@@ -69,8 +69,9 @@
         # cryocoolant projector
         "cryop1":"Fires magnetically-guided blobs of cryogenic coolant that increase flux dissipation.",
         "cryop2":"Targets the selected ally, if in range. If no allied target is selected, targets allies with non-zero flux within range.",
-        "cryop3":"Projectiles increase flux dissipation by %s/%s/%s/%s for %s seconds, depending on the size of the source ship.",
-        "cryop4":"Hitting an ally with multiple projectiles increases the duration of the buff, with diminishing returns.",
+        "cryop3":"Projectiles add %s/%s/%s/%s flux to the target's dissipation pool, depending on the size of the source ship.",
+        "cryop4":"The pool is drained by %s or %s flux per second, whichever is higher, increasing the ship's dissipation by the same amount.",
+        "cryop5":"Flux added to the pool beyond %s flux is less effective.",
         # excession armor hullmod
         "exca1":"Maximum armor damage reduction is %s.",
         "exca2":"%s minimum armor rating.",

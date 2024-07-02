@@ -7,6 +7,8 @@ import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.effects.ApexCryoEffect;
+import org.dark.shaders.light.LightShader;
+import org.dark.shaders.light.StandardLight;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
 import org.lwjgl.util.vector.Vector2f;
@@ -53,9 +55,18 @@ public class ApexCryoBlobScript extends BaseEveryFrameCombatPlugin
                         0f,
                         0f,
                         0.66f,
-                        Color.CYAN
+                        ApexCryoEffect.PARTICLE_COLOR
                 );
             }
+            StandardLight light = new StandardLight();
+            light.setColor(ApexCryoEffect.PARTICLE_COLOR);
+            light.setLifetime(0.33f);
+            light.setIntensity(0.25f);
+            light.setAutoFadeOutTime(0.33f);
+            light.setSize(120f);
+            light.setLocation(proj.getLocation());
+            light.setVelocity(proj.getVelocity());
+            LightShader.addLight(light);
         }
         Global.getCombatEngine().addPlugin(new ApexCryoEffect(target, proj.getSource().getHullSize()));
         Global.getCombatEngine().removeEntity(proj);

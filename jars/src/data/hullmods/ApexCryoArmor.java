@@ -44,7 +44,7 @@ public class ApexCryoArmor extends BaseHullMod
 
     public static final float BEAM_DAMAGE_MULT = 0.7f;
     public static final float MANEUVERING_MULT = 0.9f;
-    public static final float REPAIR_TIME_MULT = 1.5f;
+    public static final float REGEN_MULT = 0.67f;
 
 
 
@@ -138,7 +138,7 @@ public class ApexCryoArmor extends BaseHullMod
         if (index == 5)
             return Misc.getRoundedValue(100f - MANEUVERING_MULT * 100f) + "%";
         if (index == 6)
-            return Misc.getRoundedValue(REPAIR_TIME_MULT * 100f - 100f) + "%";
+            return Misc.getRoundedValue(100f-REGEN_MULT * 100f) + "%";
         return null;
     }
 }

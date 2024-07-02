@@ -9,6 +9,9 @@ import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.effects.ApexCryoEffect;
 import data.effects.ApexRegenEffect;
+import org.dark.shaders.light.LightAPI;
+import org.dark.shaders.light.LightShader;
+import org.dark.shaders.light.StandardLight;
 import org.jetbrains.annotations.NotNull;
 import org.lazywizard.lazylib.CollisionUtils;
 import org.lazywizard.lazylib.FastTrig;
@@ -66,6 +69,15 @@ public class ApexRepairBlobScript extends BaseEveryFrameCombatPlugin
                         Color.GREEN
                 );
             }
+            StandardLight light = new StandardLight();
+            light.setColor(Color.GREEN);
+            light.setLifetime(0.33f);
+            light.setIntensity(0.25f);
+            light.setAutoFadeOutTime(0.33f);
+            light.setSize(120f);
+            light.setLocation(proj.getLocation());
+            light.setVelocity(proj.getVelocity());
+            LightShader.addLight(light);
         }
         Global.getCombatEngine().addPlugin(new ApexRegenEffect(target, proj));
         Global.getCombatEngine().removeEntity(proj);

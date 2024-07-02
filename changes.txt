@@ -1,3 +1,20 @@
+Version 1.2.12. Save compatible.
+
+Major changes to the internal math for support hullmods, along with fancy new VFX. This is mostly intended to make them more viable for frigate/destroyer fleets and help avoid scenarios where it would be better to let an effect expire before applying a new one due to how the diminishing returns were calculated. The actual effect for fleets should be about the same as it was previously, and perhaps slightly stronger for cryocoolant builds. 
+
+Other Changes:
+- Removed hard dependency on LunaLib specifically to make Nes happy. If you really, really don't want to have that one button on the refit screen, you can remove it from the mod_info.json and the mod will work fine.
+- Anole: Removed Resistant Flux Conduits, Insulated Engine Assembly, and reduced HP (750 -> 600). 
+- LPDS pod: Increased rate of fire by 50%. Doesn't generate flux to fire, but reduces the ship's flux generation by 33.
+
+Remote Support Hullmod Changes (warning: numbers ahead):
+- Cryocoolant Projector: Improved VFX and reworked effect. Instead of providing a flat dissipation boost, it now adds to a "dissipation pool". The affected ship's dissipation is increased by 10% of the pool, and the pool drains by 10% or 100 per second, whichever is higher. The pool is soft-capped at 2000, which will give you about 16 seconds of buff if you reach the cap. Exceeding the cap uses square-root scaling (ie, you need four times as much coolant to reach double the actual applied amount).
+- Remote Armor Patcher: Improved VFX and reworked effect. Similar to cryocoolant, repair blobs add to a "repair pool". The pool drains by 10% or 20 per second, whichever is higher, repairing the ship's armor by the same amount (if possible). The repair pool is softcapped at 400, and uses asymptotic scaling past that (ie, reaching double the cap is impossible, but adding more repair will always increase the pool). It's also now properly affected by timeflow bonuses.
+- Nanolaminate Armor: No longer provides a bonus to repair received. Instead, increases armor repair rate by 50%.
+- Cryocooled Armor Lattice: Reworded but the effect is the same: -33% repair rate.
+
+
+
 Version 1.2.11
 Changes:
 - Fixed kinetic and energy VLS missiles having the wrong impact color.

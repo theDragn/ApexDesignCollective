@@ -3,7 +3,7 @@ name,id,designation,tech/manufacturer,system id,fleet pts,hitpoints,armor rating
 Summit,apex_apex,Battleship,Apex Design Collective,apex_damper,29,20000,1300,22000,,1300,340,,35,12,12,8,8,3000,OMNI,,180,0.3,0.9,,,500,650,300,360,12,30,7,500000,10,25,720,0.25,60,60,,rare_bp,,0.33,2,3,,1312
 Apotheosis,apex_apotheosis,Battlecruiser,Apex Design Collective,apex_microburn,23,10000,950,13500,,900,225,,50,25,25,15,15,2000,OMNI,,180,0.3,0.9,,,350,500,300,240,8,30,8,250000,10,25,720,0.25,38,38,,rare_bp,,0.33,2,3,,1312
 Eidolon,apex_eidolon,Battlecruiser,Apex Design Collective,apex_heavy_skimmer,24,11500,1000,16000,,1000,265,,50,30,30,15,15,2200,OMNI,,180,0.3,0.9,,,350,500,300,270,9,30,8,275000,10,25,720,0.25,45,45,,rare_bp,,0.33,2,3,,1312
-Sunbeam,apex_sunbeam,Siege Carrier,Apex Design Collective,apex_uplink,25,15000,1200,20000,,1100,300,4,35,12,12,10,10,2500,OMNI,,180,0.3,0.9,,,500,650,450,400,10,40,7,350000,10,25,720,0.25,55,55,"COMBAT, CARRIER",rare_bp,,0.33,2,3,,6969
+Sunbeam,apex_sunbeam,Siege Carrier,Apex Design Collective,apex_uplink,25,15000,1200,20000,,1100,300,4,35,12,12,10,10,2500,OMNI,,180,0.3,0.9,,,500,650,450,400,10,40,7,350000,10,25,720,0.25,55,55,"COMBAT, CARRIER, NO_AUTO_ESCORT",rare_bp,,0.33,2,3,,6969
 Anaconda,apex_anaconda,Phase Battlecruiser,Apex Design Collective,apex_gravity_shield,27,20000,1750,18000,,1000,225,,55,25,25,16,16,2500,PHASE,apex_phasecloak,,,,0.05,0.04,275,325,300,270,9,30,8,400000,10,25,720,0.375,50,50,PHASE,rare_bp,,0.33,2,3,,1312
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Cruisers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -34,7 +34,7 @@ Photon (P),apex_photon_p,Ultralight Transport,Apex Design Collective,apex_cruise
 # Fighters,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Whiptail,apex_fighter_whiptail,,Apex Design Collective,,,400,100,50,,10,0,,150,150,150,45,90,25,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,65000
 Tegu,apex_fighter_tegu,,Apex Design Collective,,,300,100,50,,10,0,,150,150,150,45,90,15,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,117
-Anole,apex_fighter_anole,,Apex Design Collective,apex_inertial_skimmer,,750,200,350,,125,0,,175,175,175,90,180,15,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,420
+Anole,apex_fighter_anole,,Apex Design Collective,apex_inertial_skimmer,,600,200,350,,125,0,,175,175,175,90,180,15,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,420
 Gecko,apex_fighter_gecko,,Apex Design Collective,,,400,150,200,,75,0,,250,500,500,360,720,10,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,69
 Chameleon,apex_fighter_chameleon,,Apex Design Collective,,,600,100,300,,75,0,,175,175,175,180,360,20,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,69
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,,,,42069
