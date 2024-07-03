@@ -10,7 +10,7 @@
     },
 
     #Link towards a direct download, fetched from the online version file
-	"directDownloadURL":"https://github.com/theDragn/ApexDesignCollective/releases/latest/Apex Design Collective.zip",
+	"directDownloadURL":"https://github.com/theDragn/ApexDesignCollective/releases/latest/download/Apex.Design.Collective.zip",
 	
 	#Link towards a directly accessible text file, which can be used to display a changelog ingame, is fetched from the online version file.
 	#The menu will highlight any line that beginns with "Version"
