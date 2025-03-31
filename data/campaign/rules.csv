@@ -116,6 +116,15 @@ $global.didExcession = true",,,
 apexPrototypeRefuse,DialogOptionSelected,$option == apexPrototype_refuse,"AdjustRep apex_design INHOSPITABLE -15
 $global.didExcession = true","Clearly disappointed, $PersonRank $personLastName returns you to your ship and wishes you farewell.",contact_declineBarNoContinue:Leave,
 #END Apex Excession Quest,,,,,,
+apex_nex_NGCPickStartingShips,ExerelinNGCStep3,"$playerFaction == apex_design
+!$apex_ChangeMind
+$corvusMode","AddText ""A collectivist faction that focuses on ultra-modern, high-performance ships and remote support systems.""
+$apex_ChangeMind = true 0",,,
+apex_nex_NGCPickStartingShips2,ExerelinNGCStep3,"$playerFaction == apex_design
+EIS_HasModId timid_commissioned_hull_mods
+!$apex_ChangeMind","AddText ""Commissioned Crews Bonus: Armor is more effective at reducing damage, and a fraction of armor and hull damage is repaired immediately after combat at no cost.""
+SetTextHighlights Commissioned Crews Bonus
+$apex_ChangeMind = true 0",,,
 ,,,,,,
 # bar event forcer,,,,,,
 # bar event forcer is a market open listener,,,,,,
