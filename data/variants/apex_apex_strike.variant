@@ -25,8 +25,8 @@
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS0003": "apex_sledgehammer_large",
-                "WS0004": "apex_sledgehammer_large"
+                "WS0003": "apex_ultrabomb",
+                "WS0004": "apex_ultrabomb"
             }
         },
         {
@@ -38,6 +38,11 @@
                 "WS0009": "apex_emp_laser",
                 "WS0010": "apex_emp_laser"
             }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0019": "apex_fusion_medium"}
         },
         {
             "autofire": true,
@@ -54,11 +59,6 @@
                 "WS0017": "apex_coilgun_small",
                 "WS0018": "apex_coilgun_small"
             }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS0019": "apex_fusion_medium"}
         },
         {
             "autofire": true,

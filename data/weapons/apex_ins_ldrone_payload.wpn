@@ -1,0 +1,52 @@
+{
+  "id": "apex_ins_ldrone_payload",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_ins_laser_shot_noff",
+  "type": "ENERGY",
+  "size": "SMALL",
+  "turretSprite": "",
+  "turretGlowSprite": "",
+  "hardpointSprite": "",
+  "hardpointGlowSprite": "",
+  "renderAboveAllWeapons": 0,
+  "glowColor": [
+    100,
+    200,
+    255,
+    255
+  ],
+  "turretOffsets": [
+    18,
+    0
+  ],
+  "turretAngleOffsets": [
+    0
+  ],
+  "hardpointOffsets": [
+    19,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "barrelMode": "LINKED",
+  "separateRecoilForLinkedBarrels": true,
+  "animationType": "GLOW_AND_FLASH",
+  "autocharge": true,
+  "muzzleFlashSpec": {
+    "length": 20,
+    "spread": 5,
+    "particleSizeMin": 10,
+    "particleSizeRange": 10,
+    "particleDuration": 0.12,
+    "particleCount": 5,
+    "particleColor": [
+      100,
+      200,
+      255,
+      255
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "apex_lrifle_fire"
+}

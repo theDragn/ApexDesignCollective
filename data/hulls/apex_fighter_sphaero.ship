@@ -1,0 +1,60 @@
+{
+  "hullName": "Sphaero",
+  "hullId": "apex_fighter_sphaero",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/fighters/apex_sphaero.png",
+  "style": "HIGH_TECH",
+  "height": 32,
+  "width": 32,
+  "center": [16, 17],
+  "collisionRadius": 17,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 17,
+  "viewOffset": 0,
+  "builtInMods": [
+    "apex_armor"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [7.5, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-10.5, -0],
+      "length": 16,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-7.5, -7],
+      "length": 16,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-7.5, 7],
+      "length": 16,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": [
+    10.5, 11.5,
+    -9.5, 15,
+    -9.5, -15,
+    10.5, -11.5
+  ]
+}

@@ -1,7 +1,7 @@
 {
 	tips:[
         "Don't bother checking out white dwarf systems. There's definitely zero chance for anything worthwhile in them.",
-		"[Tahlan Shipworks] Some people hate fun and get angry about joke loading tips, so if you add any, make sure to blame them on another mod.",
+		{"freq":0.1, "tip":"If you don't like any of the loading tips, please ping @wispborne in the unofficial discord!"},
 		"You should form a union.",
 		"If your immersion is broken, you can ask for a refund from the immersion vendor.",
 		"Everyone says to push Jangala into the sun. But nobody says to push Eochu Bres into the sun. You should change that.",

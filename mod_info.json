@@ -4,7 +4,7 @@
 	"author":"theDragn",
 	"version":{ "major": '1', "minor": '2', "patch": '12' },
 	"description":"A collectivist faction that focuses on ultra-modern, high-performance ships and remote support systems.",
-	"gameVersion":"0.97a-RC11",
+	"gameVersion":"0.98a-RC5",
 	"jars":["jars/ADC.jar"],
 	"dependencies": [
         {

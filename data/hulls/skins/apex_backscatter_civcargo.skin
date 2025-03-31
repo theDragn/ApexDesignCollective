@@ -7,6 +7,7 @@
 	"descriptionPrefix":"A low-cost cargo version of the Backscatter designed for civilian use, this variant lacks military systems and swappable hangar modules, and is thus much cheaper to produce.",
 	"tags":["apex_hulls"],
 	"addHints":["CIVILIAN"],
+	"removeHints":["CARRIER"],
 	"tech":"Apex Design Collective",
 	"fleetPoints":4,
 	"ordnancePoints":40,

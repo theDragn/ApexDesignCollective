@@ -1,0 +1,23 @@
+{
+	"id":"apex_ins_plasmarifle_shot",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"onHitEffect":"data.weapons.proj.ApexInsPlasmaRifleOnHit",
+	"length":80.0,
+	"width":25,
+	"fadeTime":0.5,
+	"coreColor":[255,255,255,255],
+	"fringeColor": [232,41,246,225],
+	"glowColor": [181,41,246,40],
+	"glowRadius":80,
+	"hitGlowRadius":60,	
+	"passThroughMissiles":true,
+	"textureType": [
+		"graphics/fx/beam_chunky_fringe.png",
+		"graphics/effects/apex_fusion_beam_core.png"
+	],
+	"textureScrollSpeed":64,
+	"pixelsPerTexel":1.0,
+}

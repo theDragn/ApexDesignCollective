@@ -25,7 +25,7 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS0012": "apex_sledgehammer_large"}
+            "weapons": {"WS0012": "apex_ultrabomb"}
         },
         {
             "autofire": true,

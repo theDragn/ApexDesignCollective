@@ -222,5 +222,35 @@
 		{"file":"sounds/weapon/apex_foamer_fire.ogg","pitch":0.90,"volume":0.2},
 		{"file":"sounds/weapon/apex_foamer_fire.ogg","pitch":1.10,"volume":0.2},
 		{"file":"sounds/weapon/apex_foamer_fire.ogg","pitch":1.00,"volume":0.2}
-	]
+	],
+	"apex_lshotty_charge":
+	[
+		{"file":"sounds/weapon/apex_lshotty_charge.ogg","pitch":0.90,"volume":0.4},
+		{"file":"sounds/weapon/apex_lshotty_charge.ogg","pitch":1.10,"volume":0.4},
+		{"file":"sounds/weapon/apex_lshotty_charge.ogg","pitch":1.00,"volume":0.4}
+	],
+	"apex_lshotty_fire":
+	[
+		{"file":"sounds/weapon/apex_lshotty_fire.ogg","pitch":0.90,"volume":0.4},
+		{"file":"sounds/weapon/apex_lshotty_fire.ogg","pitch":1.10,"volume":0.4},
+		{"file":"sounds/weapon/apex_lshotty_fire.ogg","pitch":1.00,"volume":0.4}
+	],
+	"apex_lrifle_fire":
+	[
+		{"file":"sounds/weapon/apex_lrifle_fire.ogg","pitch":0.90,"volume":0.15},
+		{"file":"sounds/weapon/apex_lrifle_fire.ogg","pitch":1.10,"volume":0.15},
+		{"file":"sounds/weapon/apex_lrifle_fire.ogg","pitch":1.00,"volume":0.15}
+	],
+	"apex_prifle_fire":
+	[
+		{"file":"sounds/weapon/apex_ins_pr_fire.ogg","pitch":0.90,"volume":0.9},
+		{"file":"sounds/weapon/apex_ins_pr_fire.ogg","pitch":1.10,"volume":0.9},
+		{"file":"sounds/weapon/apex_ins_pr_fire.ogg","pitch":1.00,"volume":0.9}
+	],
+	"apex_prifle_charge":
+	[
+		{"file":"sounds/weapon/apex_ins_pr_charge.ogg","pitch":0.90,"volume":0.9},
+		{"file":"sounds/weapon/apex_ins_pr_charge.ogg","pitch":1.10,"volume":0.9},
+		{"file":"sounds/weapon/apex_ins_pr_charge.ogg","pitch":1.00,"volume":0.9}
+	],
 }

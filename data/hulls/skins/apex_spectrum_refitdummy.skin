@@ -4,6 +4,7 @@
 	"hullName":"Spectrum",
 	"descriptionId":"apex_spectrum",
 	"tags":["no_sell","no_dealer","restricted"],
+	"removeHints":["CARRIER"],
 	"addHints":["CIVILIAN","HIDE_IN_CODEX"],
 	"tech":"Apex Design Collective",
 	"fleetPoints":8,

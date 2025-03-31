@@ -1,32 +1,28 @@
 {
     "displayName": "Assault",
-    "fluxCapacitors": 4,
-    "fluxVents": 7,
+    "fluxCapacitors": 13,
+    "fluxVents": 0,
     "goalVariant": true,
     "hullId": "apex_python",
-    "hullMods": [
-        "targetingunit",
-        "missleracks",
-        "adaptive_coils"
-    ],
+    "hullMods": ["phase_anchor"],
     "permaMods": [],
     "sMods": [],
     "variantId": "apex_python_assault",
     "weaponGroups": [
         {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS0003": "apex_coilgun_medium",
-                "WS0004": "apex_coilgun_medium"
-            }
-        },
-        {
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS0001": "apex_nanoacid_torp_barrage",
-                "WS0002": "apex_nanoacid_torp_barrage"
+                "WS0003": "apex_toroid_mortar",
+                "WS0004": "apex_toroid_mortar"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0001": "apex_ultrabomb",
+                "WS0002": "apex_ultrabomb"
             }
         },
         {

@@ -1,0 +1,71 @@
+{
+  "id": "apex_ins_lshotty",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_ins_laser_shot",
+  "type": "ENERGY",
+  "size": "MEDIUM",
+  "turretSprite": "graphics/weapons/ins/apex_ins_lshotty_t.png",
+  "turretGlowSprite": "graphics/weapons/ins/apex_ins_lshotty_t_glow.png",
+  "hardpointSprite": "graphics/weapons/ins/apex_ins_lshotty_h.png",
+  "hardpointGlowSprite": "graphics/weapons/ins/apex_ins_lshotty_h_glow.png",
+  "renderAboveAllWeapons": 0,
+  "glowColor": [
+    100,
+    200,
+    255,
+    255
+  ],
+  "turretOffsets": [
+    25,
+    0,
+    25,
+    0,
+    25,
+    0,
+    25,
+    0,
+  ],
+  "turretAngleOffsets": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    25,
+    0,
+    25,
+    0,
+    25,
+    0,
+    25,
+    0,
+  ],
+  "hardpointAngleOffsets": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "barrelMode": "LINKED",
+  "separateRecoilForLinkedBarrels":true,
+  "animationType": "GLOW_AND_FLASH",
+  "autocharge": true,
+  "muzzleFlashSpec": {
+    "length": 30,
+    "spread": 5,
+    "particleSizeMin": 15,
+    "particleSizeRange": 20,
+    "particleDuration": 0.12,
+    "particleCount": 10,
+    "particleColor": [
+      100,
+      200,
+      255,
+      255
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundOne":"apex_lshotty_charge",
+  "fireSoundTwo": "apex_lshotty_fire"
+}

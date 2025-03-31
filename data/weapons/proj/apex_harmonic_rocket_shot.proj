@@ -1,0 +1,36 @@
+{
+	"id":"apex_harmonic_rocket_shot",
+	"specClass":"missile",	
+	"missileType":"ROCKET",
+	"sprite":"graphics/missiles/apex_harmonic_rocket.png",
+	"onHitEffect":"data.weapons.proj.ApexDartgunOnHit",
+	"size":[6,14],	
+	"center":[3,7],
+	"collisionRadius":10,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[255,50,50,255],
+	"explosionRadius":80, # purely visual
+	"engineSpec":{"turnAcc":60,
+				  "turnRate":60,
+				  "acc":2000,
+				  "dec":200},		  
+	"engineSlots":[{"id":"ES1",
+                        "loc":[-8, 0],
+                        "style":"CUSTOM",
+                        "styleSpec":{
+                                "mode":"QUAD_STRIP",
+                                "engineColor":[225,70,70,255],
+				"glowSizeMult":1.5,
+                                "contrailDuration":1,
+                                "contrailWidthMult":1,
+                                "contrailWidthAddedFractionAtEnd":2,
+                                "contrailMinSeg":0,
+                                "contrailMaxSpeedMult":0.75f,
+                                "contrailAngularVelocityMult":1f,
+                                "contrailColor":[225,151,151,75],
+                                "type":"SMOKE"
+                        },
+                        "width":4.0,
+                        "length":20.0,
+                        "angle":180.0}]
+}

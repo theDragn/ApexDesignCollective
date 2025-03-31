@@ -242,23 +242,45 @@ public class ApexUtils
         );
     }
 
+    /**
+     * Linear interpolation.
+     * @param a
+     * @param b
+     * @param amount fraction of a vs fraction of b to return. 0 is a, 1 is b.
+     * @return interpolation between a and b
+     */
     public static float lerp(float a, float b, float amount)
     {
         return a*(1f-amount) + b*amount;
     }
 
+    /**
+     * Linear interpolation of a vector.
+     * @param a
+     * @param b
+     * @param amount fraction of a vs fraction of b to return. 0 is a, 1 is b.
+     * @return interpolation between a and b
+     */
     public static Vector2f lerp(Vector2f a, Vector2f b, float amount)
     {
         return new Vector2f(lerp(a.x, b.x, amount), lerp(a.y, b.y, amount));
     }
 
+    // why did I feel the need to replicate base java functionality?
     public static float randBetween(float a, float b)
     {
         return lerp(a, b, Misc.random.nextFloat());
     }
 
+    /**
+     * Returns the fraction of the target's armor rating at a given point. (ie, for damage dealt at a point)
+     * @param target
+     * @param point
+     * @return
+     */
     @NotNull
-    public static float getArmorFraction(@NotNull ShipAPI target, @NotNull Vector2f point) {
+    public static float getArmorFraction(@NotNull ShipAPI target, @NotNull Vector2f point)
+    {
         ArmorGridAPI grid = target.getArmorGrid();
         int[] cell = grid.getCellAtLocation(point);
         if (cell == null) return 0f;
@@ -284,5 +306,17 @@ public class ApexUtils
             }
         }
         return totalArmor / grid.getArmorRating();
+    }
+
+    /**
+     * Draws a spark effect using a magiclib trail. Has some size randomness.
+     * @param location
+     * @param color
+     * @param angle
+     * @param sizeMult
+     */
+    public static void spawnSpark(Vector2f location, Color color, float angle)
+    {
+
     }
 }

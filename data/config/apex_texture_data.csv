@@ -43,6 +43,7 @@ apex_spectrum,ship,,1,normal,graphics/maps/ships/apex_spectrum_nolights_normal.p
 apex_sunbeam,ship,,1,normal,graphics/maps/ships/apex_sunbeam_nolights_normal.png
 apex_fighter_tegu,ship,,1,normal,graphics/maps/ships/apex_torp_bomber_normal.png
 apex_fighter_whiptail,ship,,1,normal,graphics/maps/ships/apex_whiptail_normal.png
+apex_ins_cruiser,ship,,1,normal,graphics/maps/ships/apex_ins_cruiser_normal.png
 ,,,,,
 # WEAPONS,,,,,
 apex_acid_foamer,hardpoint,,1,normal,graphics/maps/weapons/apex_acid_foamer_h_normal.png
@@ -162,6 +163,39 @@ apex_vls_small_tachyon_left,hardpoint,,1,normal,graphics/maps/weapons/apex_vls_s
 apex_vls_small_kin_right,hardpoint,,1,normal,graphics/maps/weapons/apex_vls_small_normal.png
 apex_vls_small_acid_right,hardpoint,,1,normal,graphics/maps/weapons/apex_vls_small_normal.png
 apex_vls_small_tachyon_right,hardpoint,,1,normal,graphics/maps/weapons/apex_vls_small_normal.png
+apex_ultrabomb,hardpoint,,1,normal,graphics/maps/weapons/apex_ultrabomb_h_normal.png
+apex_ultrabomb,turret,,1,normal,graphics/maps/weapons/apex_ultrabomb_t_normal.png
+apex_ins_lrifle,hardpoint,,1,normal,graphics/maps/weapons/apex_ins_lrifle_h_normal.png
+apex_ins_lrifle,turret,,1,normal,graphics/maps/weapons/apex_ins_lrifle_t_normal.png
+apex_ins_lshotty,hardpoint,,1,normal,graphics/maps/weapons/apex_ins_lshotty_h_normal.png
+apex_ins_lshotty,turret,,1,normal,graphics/maps/weapons/apex_ins_lshotty_t_normal.png
+apex_ins_ldrone_pod,hardpoint,,1,normal,graphics/maps/weapons/apex_ins_ldrone_h_normal.png
+apex_ins_ldrone_pod,turret,,1,normal,graphics/maps/weapons/apex_ins_ldrone_t_normal.png
+apex_ins_plasmarifle,hardpoint,,1,normal,graphics/maps/weapons/apex_ins_plasmarifle_h_normal.png
+apex_ins_plasmarifle,turret,,1,normal,graphics/maps/weapons/apex_ins_plasmarifle_t_normal.png
+,,,,,
+,,,,,
+# DECOS,,,,,
+apex_deco_alligator_wing_left,hardpoint,,1,normal,graphics/maps/ships/decos/apex_alligator_wing_left.png
+apex_deco_alligator_wing_right,hardpoint,,1,normal,graphics/maps/ships/decos/apex_alligator_wing_right.png
+apex_deco_caiman_center,hardpoint,,1,normal,graphics/maps/ships/decos/apex_caiman_center.png
+apex_deco_agama_wing_left,hardpoint,,1,normal,graphics/maps/ships/decos/apex_agama_wing_left.png
+apex_deco_agama_wing_right,hardpoint,,1,normal,graphics/maps/ships/decos/apex_agama_wing_right.png
+apex_deco_agama_center,hardpoint,,1,normal,graphics/maps/ships/decos/apex_agama_center.png
+apex_deco_lacerta_left,hardpoint,,1,normal,graphics/maps/ships/decos/apex_lacerta_left.png
+apex_deco_anaconda_right,hardpoint,,1,normal,graphics/maps/ships/decos/apex_deco_anaconda_left.png
+apex_deco_anaconda_left,hardpoint,,1,normal,graphics/maps/ships/decos/apex_deco_anaconda_right.png
+apex_deco_alligator_wing_left,turret,,1,normal,graphics/maps/ships/decos/apex_alligator_wing_left.png
+apex_deco_alligator_wing_right,turret,,1,normal,graphics/maps/ships/decos/apex_alligator_wing_right.png
+apex_deco_caiman_center,turret,,1,normal,graphics/maps/ships/decos/apex_caiman_center.png
+apex_deco_agama_wing_left,turret,,1,normal,graphics/maps/ships/decos/apex_agama_wing_left.png
+apex_deco_agama_wing_right,turret,,1,normal,graphics/maps/ships/decos/apex_agama_wing_right.png
+apex_deco_agama_center,turret,,1,normal,graphics/maps/ships/decos/apex_agama_center.png
+apex_deco_lacerta_left,turret,,1,normal,graphics/maps/ships/decos/apex_lacerta_left.png
+apex_deco_anaconda_right,turret,,1,normal,graphics/maps/ships/decos/apex_deco_anaconda_left.png
+apex_deco_anaconda_left,turret,,1,normal,graphics/maps/ships/decos/apex_deco_anaconda_right.png
+apex_deco_haynes_left,hardpoint,,1,normal,graphics/maps/ships/decos/apex_ins_cruiser_left.png
+apex_deco_haynes_right,hardpoint,,1,normal,graphics/maps/ships/decos/apex_ins_cruiser_right.png
 ,,,,,
 # MISSILES,,,,,
 apex_arcspike_canister,missile,,1,normal,graphics/maps/missiles/apex_arcspike_canister_normal.png
@@ -179,3 +213,4 @@ apex_thundercloud_missile_emp,missile,,1,normal,graphics/maps/missiles/apex_thun
 apex_vls_acid_missile,missile,,1,normal,graphics/maps/missiles/apex_vls_acid_normal.png
 apex_vls_kin_missile,missile,,1,normal,graphics/maps/missiles/apex_vls_acid_normal.png
 apex_vls_tachyon_missile,missile,,1,normal,graphics/maps/missiles/apex_vls_acid_normal.png
+apex_ultrabomb_shot,missile,,1,normal,graphics/maps/missiles/apex_ultrabomb_shot_normal.png

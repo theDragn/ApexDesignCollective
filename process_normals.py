@@ -7,15 +7,17 @@ for f in glob.glob(os.getcwd()+'\\graphics\\maps\\**\\*_normal.png', recursive=T
     normalname = os.path.basename(f)
     nlen = len(normalname)
     orig = normalname[:nlen-11]+".png"
-    orig_f = glob.glob(os.getcwd() + "\\graphics\\**\\" + orig, recursive=True)[0]
-    #print(orig_f)
-    #print("processing " + orig)
-    normal = Image.open(f)
-    original = Image.open(orig_f, 'r')
-    try:
-        normal.putalpha(original.split()[-1])
-    except:
-        print("failed to process " + orig)
-    normal.save(f)
-    normal.close()
-    original.close()
+    files = glob.glob(os.getcwd() + "\\graphics\\**\\" + orig, recursive=True)
+    if files:
+        orig_f = files[0]
+        #print(orig_f)
+        #print("processing " + orig)
+        normal = Image.open(f)
+        original = Image.open(orig_f, 'r')
+        try:
+            normal.putalpha(original.split()[-1])
+        except:
+            print("failed to process " + orig)
+        normal.save(f)
+        normal.close()
+        original.close()

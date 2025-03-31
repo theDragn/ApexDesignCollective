@@ -1,7 +1,8 @@
 {
     "displayName": "Relic",
-    "fluxCapacitors": 0,
-    "fluxVents": 17,
+    "fluxCapacitors": 2,
+    "fluxVents": 20,
+    "goalVariant": true,
     "hullId": "apex_ins_destroyer",
     "hullMods": [
         "eccm",
@@ -9,7 +10,6 @@
         "heavyarmor",
         "armoredweapons"
     ],
-    "goalVariant":true,
     "permaMods": [],
     "sMods": [],
     "variantId": "apex_ins_destroyer_relic",

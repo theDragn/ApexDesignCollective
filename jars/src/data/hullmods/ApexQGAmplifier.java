@@ -1,6 +1,11 @@
 package data.hullmods;
 
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
+import com.fs.starfarer.api.combat.listeners.DamageDealtModifier;
+import org.lwjgl.util.vector.Vector2f;
+
+import java.awt.*;
 
 import static utils.ApexUtils.text;
 
@@ -15,14 +20,8 @@ public class ApexQGAmplifier extends BaseHullMod
     public String getDescriptionParam(int index, ShipAPI.HullSize hullSize)
     {
         if (index == 0)
-            return text("coamp1");
-        if (index == 1)
-            return text("coamp2");
-        if (index == 2)
             return (int)(QGP_EMP_FRACTION * 100f) + "%";
-        if (index == 3)
-            return text("coamp3");
-        if (index == 4)
+        if (index == 1)
             return (int)(QGPD_EXTRA_ENERGY) + " " + text("coamp4");
         return null;
     }
@@ -34,6 +33,12 @@ public class ApexQGAmplifier extends BaseHullMod
     }
 
     @Override
+    public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
+        if (!ship.hasListenerOfClass(ApexQGAmplifier.class))
+            ship.addListener(new ApexQGAmpListener());
+    }
+
+    @Override
     public boolean hasSModEffect() {
         return true;
     }
@@ -42,5 +47,21 @@ public class ApexQGAmplifier extends BaseHullMod
     public String getSModDescriptionParam(int index, ShipAPI.HullSize hullSize) {
         if (index == 0) return "15%";
         return null;
+    }
+
+    static class ApexQGAmpListener implements DamageDealtModifier
+    {
+        @Override
+        public String modifyDamageDealt(Object param, CombatEntityAPI target, DamageAPI damage, Vector2f point, boolean shieldHit) {
+            if (param instanceof DamagingProjectileAPI && ((DamagingProjectileAPI) param).getWeapon() != null)
+            {
+                DamagingProjectileAPI proj = (DamagingProjectileAPI)param;
+                if (proj.getDamageType() == DamageType.FRAGMENTATION && proj.getWeapon().getType() == WeaponAPI.WeaponType.ENERGY)
+                {
+                        Global.getCombatEngine().applyDamage(target, point, 1F, DamageType.FRAGMENTATION, proj.getDamageAmount() * QGP_EMP_FRACTION, false, false, proj.getSource());
+                }
+            }
+            return null;
+        }
     }
 }

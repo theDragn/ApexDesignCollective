@@ -1,15 +1,14 @@
 {
     "displayName": "Relic",
-    "fluxCapacitors": 6,
+    "fluxCapacitors": 5,
     "fluxVents": 50,
+    "goalVariant": true,
     "hullId": "apex_ins_capital",
-    "goalVariant":true,
     "hullMods": [
         "targetingunit",
         "heavyarmor",
         "fluxbreakers",
         "autorepair",
-        "armoredweapons",
         "magazines"
     ],
     "permaMods": [],

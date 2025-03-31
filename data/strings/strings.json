@@ -114,8 +114,7 @@
         "nett1":"Current Effects",
         "nett2":"Fighter weapon range: %s",
         "nett3":"Fighter engagement range: %s",
-        "nett4":"Small weapon base range: %s",
-        "nett5":"Medium weapon base range: %s",
+        "nett4":"Weapon base range: %s",
         "nett6":"Ship must have fighter bays.",
         # coherency amplifier
         "coamp1":"Quark-Gluon Pulse weapons",

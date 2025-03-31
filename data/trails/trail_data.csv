@@ -55,3 +55,17 @@ apex_plasmatic_emp_3,apex_ins_plasma_emp_shot,base_trail_zap,10,0.05,0.1,0.15,9,
 apex_foamer1,apex_foamer_shot,base_trail_smoke,10,0,0.15,0.2,15,6,"[255,150,70]","[0,255,0]",0.7,300,400,0,0,1,TRUE,FALSE,TRUE,0,0,0,0,100,100,TRUE,FALSE
 apex_foamer2,apex_foamer_shot,base_trail_smoke,10,0.05,0.25,0.15,8,8,"[255,255,255]","[0,255,0]",0.5,300,-300,20,0,1,TRUE,FALSE,TRUE,10,30,0.2,0,100,100,TRUE,FALSE
 apex_foamer3,apex_foamer_shot,base_trail_smooth,10,0,0.05,0.15,45,30,"[255,150,70]","[255,150,70]",0.2,300,-300,40,0,1,TRUE,FALSE,TRUE,0,0,0,0,0,0,FALSE,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+apex_ins_laser1,apex_ins_laser_shot,base_trail_smooth,10,0.05,0.25,1,7,7,"[255,255,255]","[255,255,255]",1,300,-300,20,0,1,TRUE,FALSE,TRUE,0,0,0,0,0,0,TRUE,FALSE
+apex_ins_laser2,apex_ins_laser_shot,base_trail_smooth,10,0.05,0.5,1,10,5,"[0,200,255]","[0,0,255]",0.5,300,-300,20,0,1,TRUE,FALSE,TRUE,0,0,0,0,0,0,TRUE,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+apex_ins_slaser1,apex_ins_small_laser_shot,base_trail_smooth,10,0.05,0.25,1,5,5,"[255,255,255]","[255,255,255]",1,300,-300,20,0,1,TRUE,FALSE,TRUE,0,0,0,0,0,0,TRUE,FALSE
+apex_ins_slaser2,apex_ins_small_laser_shot,base_trail_smooth,10,0.05,0.5,1,7,5,"[0,200,255]","[0,0,255]",0.5,300,-300,20,0,1,TRUE,FALSE,TRUE,0,0,0,0,0,0,TRUE,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+apex_ins_slaser1nff,apex_ins_laser_shot_noff,base_trail_smooth,10,0.05,0.25,1,5,5,"[255,255,255]","[255,255,255]",1,300,-300,20,0,1,TRUE,FALSE,TRUE,0,0,0,0,0,0,TRUE,FALSE
+apex_ins_slaser2nff,apex_ins_laser_shot_noff,base_trail_smooth,10,0.05,0.5,1,7,5,"[0,200,255]","[0,0,255]",0.5,300,-300,20,0,1,TRUE,FALSE,TRUE,0,0,0,0,0,0,TRUE,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+apex_ins_pr_glow1,apex_ins_plasmarifle_shot,base_trail_zapWithCore,10,0.2,0.1,0.2,25,7.5,"[255,10,255]","[227,93,154]",0.5,-128,-256,20,0,1,TRUE,FALSE,TRUE,50,0,0,0,0,0,TRUE,FALSE
+apex_ins_pr_glow2,apex_ins_plasmarifle_shot,base_trail_zap,10,0.1,0.1,0.6,20,5,"[255,255,255]","[207,73,207]",0.7,-128,-256,20,10,1,TRUE,FALSE,TRUE,50,0,2,0,180,180,TRUE,FALSE
+apex_ins_pr_zap1,apex_ins_plasmarifle_shot,base_trail_zap,10,0.2,0.1,0.4,25,7.5,"[207,150,207]","[207,73,207]",0.5,-128,-256,20,0,1,TRUE,FALSE,TRUE,50,0,2,0,180,180,TRUE,FALSE
+apex_ins_pr_zap2,apex_ins_plasmarifle_shot,base_trail_aura,10,0.1,0.1,1.2,20,1,"[155,10,155]","[181,43,132]",0.3,-128,-256,20,10,1,TRUE,FALSE,TRUE,50,0,2,0,180,180,TRUE,FALSE

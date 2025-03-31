@@ -1,0 +1,70 @@
+{
+    "displayName": "Mirrored",
+    "fluxCapacitors": 7,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "apex_bounty_odomodo",
+    "hullMods": [
+        "targetingunit",
+        "apex_geodesic_shield"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_odomodo_evil",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0012": "apex_qgp_med",
+                "WS0018": "apex_qgp_med"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0001": "apex_ins_torp_s",
+                "WS0002": "apex_ins_torp_s",
+                "WS0003": "apex_ins_torp_s",
+                "WS0004": "apex_ins_torp_s"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0021": "apex_nanogun_medium",
+                "WS0022": "apex_nanogun_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0019": "apex_coilgun_medium",
+                "WS0020": "apex_coilgun_medium"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0009": "lightac",
+                "WS0010": "lightac"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "vulcan",
+                "WS0006": "vulcan",
+                "WS0007": "vulcan",
+                "WS0008": "vulcan",
+                "WS0011": "vulcan"
+            }
+        }
+    ],
+    "wings": ["apex_chameleon_wing"]
+}

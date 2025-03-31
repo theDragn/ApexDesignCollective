@@ -6,7 +6,6 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
-import sun.audio.AudioPlayer.player
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.roundToInt
@@ -27,11 +26,12 @@ class ApexInsDamper: BaseShipSystemScript()
         val grid = (stats.entity as ShipAPI).armorGrid
         val gridWidth: Int = grid.grid.size
         val gridHeight: Int = grid.grid[0].size
+        val regen = if ((stats.entity as ShipAPI).hullSize == ShipAPI.HullSize.CAPITAL_SHIP) ARMOR_REGEN_CAP else ARMOR_REGEN_SMALL
         for (x in 0..gridWidth)
         {
             for (y in 0..gridHeight)
             {
-                val toRepair = (grid.maxArmorInCell - grid.getArmorValue(x, y)) * ARMOR_REGEN * Global.getCombatEngine().elapsedInLastFrame
+                val toRepair = (grid.maxArmorInCell - grid.getArmorValue(x, y)) * regen * Global.getCombatEngine().elapsedInLastFrame
                 grid.setArmorValue(x, y, min(grid.maxArmorInCell, toRepair + grid.getArmorValue(x, y)))
             }
         }
@@ -73,6 +73,7 @@ class ApexInsDamper: BaseShipSystemScript()
     {
         const val DAMAGE_MULT = 0.5f
         const val MANEUVERING_MULT = 2f
-        const val ARMOR_REGEN = 0.025f
+        const val ARMOR_REGEN_CAP = 0.0133f
+        const val ARMOR_REGEN_SMALL = 0.03f
     }
 }

@@ -1,0 +1,50 @@
+{
+	"id":"apex_ultrabomb_shot",
+	"specClass":"missile",
+	"missileType":"ROCKET",
+	"onHitEffect":"data.weapons.proj.ApexUltrabombEffect",
+	"sprite":"graphics/missiles/apex_ultrabomb_shot.png",
+	"size":[28,26],	
+	"center":[14,13],
+	"collisionRadius":24,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[50,50,255,0],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":100, # purely visual
+	"armingTime":1.0,	
+	"explosionSpec":{
+		"duration":0.1f, # not visual
+		"radius":200,
+		"coreRadius":100, # full damage within core radius
+		"collisionClass":HITS_SHIPS_AND_ASTEROIDS,
+		"collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS
+	},				  
+	"engineSpec":{
+		"turnAcc":0,
+		"turnRate":0,
+		"acc":50,
+		"dec":50,
+		"maxSpeed":250
+	},
+	"engineSlots":[{
+			"id":"ES1",
+			"loc":[-10, 0],
+			"style":"CUSTOM",
+			"styleSpec":{
+				"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+				"engineColor":[170,170,170,170],
+				"glowSizeMult":1.5,
+				"contrailDuration":0,
+				"contrailWidthMult":2,
+				"contrailWidthAddedFractionAtEnd":1.5,  # can be negative. makes trail spread out/narrow at the end
+				"contrailMinSeg":5, # min segment length, in pixels
+				"contrailMaxSpeedMult":0.5f,
+				"contrailAngularVelocityMult":0.5f,
+				"contrailColor":[100,105,100,75],
+				"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+			},
+			"width":10.0,
+			"length":40.0,
+			"angle":180.0
+			},
+	]
+}

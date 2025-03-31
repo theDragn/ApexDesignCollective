@@ -47,7 +47,7 @@
 					"damageType":KINETIC,
 					"hitpoints":500,
 					"evenSpread":false,
-					"arc":17.5,
+					"arc":24,
 					"spreadInaccuracy":5,
 					#"spreadSpeed":300,
 					"spreadSpeed":1000,

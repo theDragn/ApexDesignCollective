@@ -34,7 +34,7 @@ public class ApexQGOnHit implements OnHitEffectPlugin
             // if it's the pulser
             else
             {
-                engine.applyDamage(target, point, 1f, DamageType.ENERGY, proj.getDamageAmount() * ApexQGAmplifier.QGP_EMP_FRACTION, false, false, proj.getSource());
+                //engine.applyDamage(target, point, 1f, DamageType.ENERGY, proj.getDamageAmount() * ApexQGAmplifier.QGP_EMP_FRACTION, false, false, proj.getSource());
             }
         }
         // Gecko projectiles

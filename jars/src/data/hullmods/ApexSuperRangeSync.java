@@ -81,7 +81,7 @@ public class ApexSuperRangeSync extends BaseHullMod
     }
 
     // they call me Janky Kang
-    public static class ApexSuperSyncListener implements WeaponBaseRangeModifier
+    public class ApexSuperSyncListener implements WeaponBaseRangeModifier
     {
         private float average = 0f;
 

@@ -8,7 +8,6 @@ import com.fs.starfarer.api.combat.MissileAIPlugin
 import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.impl.campaign.shared.SharedData
-import com.fs.starfarer.api.loading.Description
 import data.campaign.missions.ApexExcessionAdder
 import data.weapons.proj.ai.*
 import exerelin.utilities.NexConfig
@@ -113,8 +112,8 @@ class ApexModPlugin : BaseModPlugin() {
             "apex_ins_missile_shot" -> PluginPick(ApexInsMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_ins_torp_shot" -> PluginPick(ApexInsTorpAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_excession_missile_shot" -> PluginPick(ApexExcessionMissileAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
-            "apex_ultratorp_shot" -> PluginPick(ApexUltratorpAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             "apex_ins_pdmissile_shot" -> PluginPick(ApexLPDLoiterAI(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+            "apex_harmonic_rocket_shot" -> PluginPick(ApexHarmonicRocket(missile, launchingShip), CampaignPlugin.PickPriority.MOD_SPECIFIC)
             else -> null
         }
 

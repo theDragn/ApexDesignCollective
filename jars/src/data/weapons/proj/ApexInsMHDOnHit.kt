@@ -24,6 +24,7 @@ class ApexInsMHDOnHit: OnHitEffectPlugin
         val shieldMult = target.shield.fluxPerPointOfDamage * target.mutableStats.shieldDamageTakenMult.modifiedValue
         if (shieldMult > 1f) return
         // if the shield takes full damage, no need to add hardflux
+        // if shieldMult = 0, toDeal = 0.5 * basedam. If it's 1, toDeal = 0.
         var toDeal = lerp(0.5f, 1f, shieldMult) * baseDam - baseDam * shieldMult
         toDeal *= 2f * target.mutableStats.kineticShieldDamageTakenMult.modifiedValue
         if (toDeal < 0) return

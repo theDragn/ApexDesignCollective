@@ -33,7 +33,7 @@
 		"job_deadline":120,
 		"job_reputation_reward":10,
 		"job_item_reward": {
-			"weapon_bp apex_disruptor": 1,
+			"weapon_bp apex_acid_foamer": 1,
 			"ship_bp apex_komodo": 1,
 			"crew": 100
 		},

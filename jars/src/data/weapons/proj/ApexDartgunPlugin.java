@@ -138,7 +138,12 @@ public class ApexDartgunPlugin extends BaseCombatLayeredRenderingPlugin
             if (param instanceof DamagingProjectileAPI && !shieldHit)
             {
                 DamagingProjectileAPI proj = (DamagingProjectileAPI) param;
-                if (proj.getWeapon() != null && proj.getWeapon().getId() != null && (proj.getWeapon().getId().equals("apex_dartgun") || proj.getWeapon().getId().equals("apex_thundercloud_mine_he")))
+                if (proj.getWeapon() != null && proj.getWeapon().getId() != null
+                        && (   proj.getWeapon().getId().equals("apex_dartgun")
+                            || proj.getWeapon().getId().equals("apex_thundercloud_mine_he")
+                            || proj.getWeapon().getId().equals("apex_harmonic_rocket_rack")
+                            )
+                    )
                 {
                     damage.getModifier().modifyMult("apexDartgun", controller.damageMult);
                     //System.out.println("damage mult was " + controller.damageMult);

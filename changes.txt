@@ -1,3 +1,36 @@
+Version 1.2.13
+
+Updated for 0.98. Save compatible, if you're using your old save for some reason. Existing relic caches and derelicts will not contain the new relic items, but as always, they can be found with the historian or in scavenger fleets.
+
+New for the Collective:
+- Ultrachromatic Charge Launcher (large missile): Launches slow-moving and highly destructive energy bombs. Shield hits interfere with flux dissipation; armor hits cause EMP chain reactions.
+- Sphaero Light Bomber: Cheap, fast, and disposable bomber drone equipped with unguided harmonic rockets. Three fighters per squadron.
+
+New relics to find in exploration:
+- Haynes-class Cruiser: ???
+- Volatile Plasma Rifle (Relic, large energy): ???
+- Laser Rifle (Relic, small energy): ???
+- Laser Shotgun (Relic, medium energy): ???
+- Laser Drone Pod (Relic, medium missile): ???
+
+Changes:
+- Aizawa/Dadras: Regenerative damper regen percent split by hull; Dadras now gets 3% missing armor/sec, Aizawa now gets 1.33% missing armor/sec. No longer provides maneuverability bonus.
+- Coherency Amplifier: Now gives *all* energy weapon projectiles 50% of their base damage as EMP, not just Quark-Gluon weapons. (For technical reasons, the bonus EMP does not apply to flak-like explosions.)
+- Networked Targeting Array: Reworked. Increases fighter, small, and medium weapon base range based on the amount of OP spent on weapons, but halves fighter engagement range. Maximum bonus is now 300 for ship weapons and 600 for fighter weapons, reached at 120 OP. Now costs as much as Ballistic Rangefinder, and is incompatible with it.
+- Range Synchronizer: Loosened restrictions to match Augmented Range Synchronizer, and increased max range bonus to 50%. Clarified that it does not account for other changes to weapon base range.
+- Sledgehammer MRMs: Decreased reload time on medium (15s -> 10s) and large (22s -> 15s).
+- Shrieker Torpedoes: Increased small (1s -> 3s) and large (6s -> 12s) reload time. Reduced HP (250/300->200).
+- LPDS Pod: Clarified that the flux dissipation penalty is flat, not percent, and increased it (33 -> 40). Decreased missile damage (500 -> 400). Slightly reduced fighter targeting priority; slightly increased high-damage missile priority.
+- Wailer MRMs: Reduced armor strip (100 -> 75).
+- Shatter Canisters: Increased submunition spread arc significantly (17.5 deg -> 24 deg)
+- Plasmatic Repeaters: Increased bonus EMP damage on the fourth shot (300% -> 400%).
+- Chameleon: Reduced gun range (1200 -> 1000).
+- Arcspike/Arcstorm: Normalized EMP damage on hit and arc to 150 across all models.
+Fixes:
+- Hopefully fixed an issue where the Excession event could occur more than once.
+- Some improvements to relic cache/derelict spawn locations; they should no longer spawn on top of each other.
+- Spectrum, Backscatter: Removed carrier tag from cargo/fuel refits.
+
 Version 1.2.12. Save compatible.
 
 Major changes to the internal math for support hullmods, along with fancy new VFX. This is mostly intended to make them more viable for frigate/destroyer fleets and help avoid scenarios where it would be better to let an effect expire before applying a new one due to how the diminishing returns were calculated. The actual effect for fleets should be about the same as it was previously, and perhaps slightly stronger for cryocoolant builds. 
@@ -12,8 +45,6 @@ Remote Support Hullmod Changes (warning: numbers ahead):
 - Remote Armor Patcher: Improved VFX and reworked effect. Similar to cryocoolant, repair blobs add to a "repair pool". The pool drains by 10% or 20 per second, whichever is higher, repairing the ship's armor by the same amount (if possible). The repair pool is softcapped at 400, and uses asymptotic scaling past that (ie, reaching double the cap is impossible, but adding more repair will always increase the pool). It's also now properly affected by timeflow bonuses.
 - Nanolaminate Armor: No longer provides a bonus to repair received. Instead, increases armor repair rate by 50%.
 - Cryocooled Armor Lattice: Reworded but the effect is the same: -33% repair rate.
-
-
 
 Version 1.2.11
 Changes:
@@ -33,7 +64,7 @@ Changes:
 
 Version 1.2.9
 New:
-- LPDM System: Medium missile, relic weapon. Automatically fires loitering point-defense missiles that follow the parent ship and intelligently engage incoming missiles and fighters.
+- LPDS Pod: Medium missile, relic weapon. Automatically fires loitering point-defense missiles that follow the parent ship and intelligently engage incoming missiles and fighters.
 Changes:
 - Aizawa: Over-cap damage reduction reduced (80% -> 75%), increased minimum requirement to trigger damage capping (more than 0 armor -> more than 15% armor)
 - Nanoacid Cannon (small): Increased spread by 20%.

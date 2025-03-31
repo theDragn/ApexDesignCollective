@@ -33,7 +33,7 @@ class ApexLPDWeapon: OnFireEffectPlugin, EveryFrameWeaponEffectPlugin
     override fun advance(amount: Float, engine: CombatEngineAPI, weapon: WeaponAPI)
     {
         if (!runOnce)
-            weapon.ship.mutableStats.fluxDissipation.modifyFlat("apexLPD"+weapon.hashCode().toString(), -33f)
+            weapon.ship.mutableStats.fluxDissipation.modifyFlat("apexLPD"+weapon.hashCode().toString(), -40f)
         if (loitering.size >= 6)
             weapon.setForceNoFireOneFrame(true)
         else

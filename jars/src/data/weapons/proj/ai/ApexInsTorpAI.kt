@@ -55,7 +55,7 @@ class ApexInsTorpAI(var missile: MissileAPI, var ship: ShipAPI): GuidedMissileAI
         missile.spriteAlphaOverride = 0f
         MagicRender.singleframe(missile_sprite, missile.location, sprite_size, missile.facing - 90, missile_sprite.color, true)
         // if target's died or stopped existing since missile launch, retarget
-        if (guidanceTarget is ShipAPI && !(guidanceTarget as ShipAPI).isAlive || guidanceTarget == null)
+        if ((guidanceTarget is ShipAPI && !(guidanceTarget as ShipAPI).isAlive) || guidanceTarget == null)
             guidanceTarget = MagicTargeting.pickTarget(
                 missile,
                 MagicTargeting.targetSeeking.NO_RANDOM,

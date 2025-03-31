@@ -6,8 +6,8 @@
     "hullId": "apex_alligator",
     "hullMods": [
         "targetingunit",
-        "apex_cryo_projector",
-        "apex_geodesic_shield"
+        "apex_geodesic_shield",
+        "apex_armor_repairer"
     ],
     "permaMods": [],
     "sMods": [],

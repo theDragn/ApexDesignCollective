@@ -11,7 +11,7 @@ import java.awt.*;
 public class ApexArcspikeOnHit implements OnHitEffectPlugin
 {
     public static final float ARC_CHANCE = 0.25f;
-    public static final float HARD_FLUX_FRACTION = 75/110f;
+    public static final float HARD_FLUX_FRACTION = 150/110f;
 
     @Override
     public void onHit(DamagingProjectileAPI proj, CombatEntityAPI target, Vector2f point, boolean shieldhit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine)

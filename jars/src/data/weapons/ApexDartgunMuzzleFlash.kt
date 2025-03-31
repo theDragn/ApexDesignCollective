@@ -16,8 +16,6 @@ class ApexDartgunMuzzleFlash: ApexGenericMuzzleFlash(), OnFireEffectPlugin
     {
         proj ?: return; weapon ?: return; engine ?: return
         super.spawnSmoke(proj, weapon, engine)
-
-        // TODO: smoke vfx
     }
 
     override val USED_IDS = listOf(

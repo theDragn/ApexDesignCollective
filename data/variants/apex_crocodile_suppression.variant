@@ -1,6 +1,6 @@
 {
     "displayName": "Suppression",
-    "fluxCapacitors": 5,
+    "fluxCapacitors": 10,
     "fluxVents": 25,
     "goalVariant": true,
     "hullId": "apex_crocodile",

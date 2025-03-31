@@ -59,11 +59,15 @@ public class ApexRelicPlacer implements SectorGeneratorPlugin
         relicBPPicker.add("apex_ins_shattercan");
         relicBPPicker.add("apex_ins_shatterpod");
         relicBPPicker.add("apex_ins_pdmissile");
+        relicBPPicker.add("apex_ins_ldrone_pod");
+        relicBPPicker.add("apex_ins_lrifle");
+        relicBPPicker.add("apex_ins_lshotty");
+        relicBPPicker.add("apex_ins_plasmarifle");
         relicWeaponPicker = relicBPPicker.clone();
 
         //relicHullPicker.add("apex_apotheosis_strike");
         relicHullPicker.add("apex_ins_destroyer_relic");
-        relicHullPicker.add("apex_ins_destroyer_relic");
+        relicHullPicker.add("apex_ins_cruiser_relic");
         relicHullPicker.add("apex_ins_capital_relic");
 
         if (!GENERATE_RELICS)
@@ -92,7 +96,7 @@ public class ApexRelicPlacer implements SectorGeneratorPlugin
                 continue;
             }
             // place the hull
-            DerelictShipEntityPlugin.DerelictShipData derelictData = new DerelictShipEntityPlugin.DerelictShipData(new ShipRecoverySpecial.PerShipData(hull, ShipRecoverySpecial.ShipCondition.PRISTINE), false);
+            DerelictShipEntityPlugin.DerelictShipData derelictData = new DerelictShipEntityPlugin.DerelictShipData(new ShipRecoverySpecial.PerShipData(hull, ShipRecoverySpecial.ShipCondition.BATTERED), false);
             SectorEntityToken ship = BaseThemeGenerator.addSalvageEntity(system, Entities.WRECK, "apex_design", derelictData);
             ship.setFaction("neutral");
             ship.setDiscoverable(true);
@@ -122,7 +126,7 @@ public class ApexRelicPlacer implements SectorGeneratorPlugin
 
             // create our cache and loot holder thingy
             SectorEntityToken cache = DerelictThemeGenerator.addSalvageEntity(system, "weapons_cache", Factions.NEUTRAL);
-            cache.setCircularOrbit(system.getStar(), 120, system.getStar().getRadius() * 2.5f, 50);
+            cache.setCircularOrbit(system.getStar(), Misc.random.nextFloat() * 360, system.getStar().getRadius() * (Misc.random.nextFloat() + 1f) * 2.5f, 50);
             CargoAPI extraSalvage = Global.getFactory().createCargo(true);
 
 

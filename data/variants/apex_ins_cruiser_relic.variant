@@ -1,0 +1,59 @@
+{
+    "displayName": "Relic",
+    "fluxCapacitors": 12,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "apex_ins_cruiser",
+    "hullMods": [
+        "targetingunit",
+        "armoredweapons",
+        "fluxbreakers",
+        "heavyarmor"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "apex_ins_cruiser_relic",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "apex_ins_lrifle",
+                "WS0004": "apex_ins_lrifle",
+                "WS0005": "apex_ins_lrifle",
+                "WS0006": "apex_ins_lrifle",
+                "WS0007": "apex_ins_lrifle",
+                "WS0008": "apex_ins_lrifle",
+                "WS0009": "apex_ins_lrifle",
+                "WS0010": "apex_ins_lrifle",
+                "WS0011": "apex_ins_lrifle",
+                "WS0012": "apex_ins_lrifle",
+                "WS0013": "apex_ins_lrifle",
+                "WS0014": "apex_ins_lrifle"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0018": "apex_ins_ldrone_pod",
+                "WS0019": "apex_ins_ldrone_pod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0017": "apex_ins_lrifle"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "vulcan",
+                "WS0002": "vulcan",
+                "WS0033": "vulcan",
+                "WS0034": "vulcan"
+            }
+        }
+    ]
+}

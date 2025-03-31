@@ -94,7 +94,8 @@
 			"apex_dartgun",
 			"apex_haymarket",
 			"apex_arcstorm_canister",
-			"apex_sledgehammer_large"
+			"apex_sledgehammer_large",
+			"apex_ultrabomb"
 		],
 	},
 	"priorityWeapons":{
@@ -106,6 +107,7 @@
 			"apex_haymarket",
 			"apex_arcstorm_canister",
 			"apex_sledgehammer_large"
+			"apex_ultrabomb"
 		],
 	},
 	"knownHullMods":{

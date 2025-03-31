@@ -1,7 +1,7 @@
 {
     "displayName": "Red Guards",
     "fluxCapacitors": 21,
-    "fluxVents": 30,
+    "fluxVents": 34,
     "goalVariant": true,
     "hullId": "apex_apotheosis_rg",
     "hullMods": [

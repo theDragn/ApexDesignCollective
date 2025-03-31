@@ -43,6 +43,8 @@ class ApexExcessionReactor: BaseHullMod()
 
     override fun applyEffectsBeforeShipCreation(hullSize: ShipAPI.HullSize?, stats: MutableShipStatsAPI?, id: String?)
     {
+        // what the hell was I doing here???
+        // ohhhhhh if you take it as a nex start option you need to not get a second one
         if (Global.getSector() != null)
             Global.getSector().memoryWithoutUpdate.set("\$didExcession", true)
     }

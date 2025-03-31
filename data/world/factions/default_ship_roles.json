@@ -1,7 +1,7 @@
 {
 	"combatCapital":{
-		"apex_apex_line":3,
-		"apex_apex_strike":3,
+		"apex_apex_line":4,
+		"apex_apex_strike":4,
 		"apex_apotheosis_pursuit":0.5,
 		"apex_apotheosis_strike":0.5,
 		"apex_apotheosis_standard":0.5,
@@ -11,8 +11,9 @@
 		"apex_eidolon_assault":4,
 		"apex_eidolon_attack":4,
 		"apex_apotheosis_rg_redguards":2,
-		"apex_sunbeam_strike":3,
-		"apex_sunbeam_line":3,
+		"apex_sunbeam_strike":2.5,
+		"apex_sunbeam_line":2.5,
+		"apex_sunbeam_attack":2.5,
 		"apex_ins_capital_relic":4
 	},
 	
@@ -32,7 +33,8 @@
 		"apex_goanna_assault":3,
 		"apex_goanna_attack":3,
 		"apex_goanna_beam":3,
-		"apex_goanna_overdriven":1
+		"apex_goanna_overdriven":1,
+		"apex_ins_cruiser_relic":4
 	},
 	"combatMedium":{
 		"apex_caiman_line":3,

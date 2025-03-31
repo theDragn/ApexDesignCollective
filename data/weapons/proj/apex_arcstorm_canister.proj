@@ -33,7 +33,7 @@
 					"numShots":20,
 					"damage":110,
 					"impact":5,
-					"emp":175,
+					"emp":150,
 					"damageType":KINETIC,
 					"hitpoints":250,
 					"arc":180,

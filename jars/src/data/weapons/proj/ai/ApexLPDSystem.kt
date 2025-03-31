@@ -61,7 +61,7 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
             priority += missile.damage.damage
             // lower priority for frag missiles, since they have oversized damage values
             if (missile.damageType == DamageType.FRAGMENTATION) priority *= 0.33f
-            if (priority > 750f) priority += priority - 750f // bonus priority for high-damage missiles
+            if (priority >= 750f) priority *= 2f // bonus priority for high-damage missiles
             // if we have more than a hundred targets already, stop considering low-priority targets entirely
             if (targets.size > 100 && priority < 100) continue
             targets.add(TargetData(missile, priority, missile.hitpoints))
@@ -75,7 +75,7 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
             var priority = 0f
             // if a fighter has no carrier it's probably an Aspect wing
             if (ship.wing == null || ship.wing.sourceShip == null || ship.wing.spec == null) priority += 1000f
-            else priority += ship.wing.spec.getOpCost(ship.wing.sourceShip.mutableStats) * 30f
+            else priority += ship.wing.spec.getOpCost(ship.wing.sourceShip.mutableStats) * 25f
             // this is totally cheating but: prioritize fighters based on OP cost
             // presumably more dangerous fighters will cost more OP
             // ie, a broadsword will get 240 priority, slightly more than an annihilator rocket
@@ -124,6 +124,7 @@ class ApexLPDSystem(val owner: Int): EveryFrameCombatPlugin
 
     override fun renderInWorldCoords(viewport: ViewportAPI?) {}
     override fun renderInUICoords(viewport: ViewportAPI?) {}
+    @Deprecated("Deprecated in Java")
     override fun init(engine: CombatEngineAPI?) {}
 
     override fun processInputPreCoreControls(amount: Float, events: MutableList<InputEventAPI>?)

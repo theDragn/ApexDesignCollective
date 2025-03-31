@@ -32,12 +32,13 @@ Photon (F),apex_photon_f,Ultralight Transport,Apex Design Collective,apex_cruise
 Photon (P),apex_photon_p,Ultralight Transport,Apex Design Collective,apex_cruisemode,3,1000,200,1500,,150,25,,150,200,200,100,100,150,OMNI,,180,0.2,0.9,,,5,100,10,25,1,25,11,7500,20,25,240,0.25,2,2,"CIVILIAN, TRANSPORT",apex_hulls,,0.4,2,2,,3
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Fighters,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Whiptail,apex_fighter_whiptail,,Apex Design Collective,,,400,100,50,,10,0,,150,150,150,45,90,25,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,65000
-Tegu,apex_fighter_tegu,,Apex Design Collective,,,300,100,50,,10,0,,150,150,150,45,90,15,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,117
+Whiptail,apex_fighter_whiptail,,Apex Design Collective,,,400,100,50,,10,0,,150,150,150,60,90,25,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,65000
+Tegu,apex_fighter_tegu,,Apex Design Collective,,,300,100,50,,10,0,,150,150,150,60,90,15,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,117
 Anole,apex_fighter_anole,,Apex Design Collective,apex_inertial_skimmer,,600,200,350,,125,0,,175,175,175,90,180,15,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,420
 Gecko,apex_fighter_gecko,,Apex Design Collective,,,400,150,200,,75,0,,250,500,500,360,720,10,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,69
 Chameleon,apex_fighter_chameleon,,Apex Design Collective,,,600,100,300,,75,0,,175,175,175,180,360,20,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,69
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,,,,42069
+Sphaero,apex_fighter_sphaero,,Apex Design Collective,,,300,100,50,,75,0,,200,200,200,360,360,20,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,0,,,,69
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 # Export Hulls (should probably do more of these but I'm lazy),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Apotheosis (RG),apex_apotheosis_rg,Battlecruiser,Red Guards,apex_microburn,23,10000,1100,13500,,650,215,,50,25,25,15,15,2000,OMNI,,180,0.3,0.9,,,350,500,300,240,8,30,8,250000,10,25,720,0.25,37,37,,"revolutionary, vayra_red_army",,0.33,2,3,,1312
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -51,6 +52,6 @@ Quasar,apex_quasar,Supercapital,Apex Design Collective,apex_remote_damper,150,25
 ,apex_quasar_right,Right Wing,Apex Design Collective,apex_damper,0,8000,1050,6000,,500,150,,10,10,10,10,10,1500,NONE,,,,,,,0,0,0,0,0,0,0,0,0,0,,,0,0,"UNBOARDABLE, HIDE_IN_CODEX",,,1,1,2,,1234
 ,apex_quasar_front,Armor Module,Apex Design Collective,apex_thorns,0,10000,1200,6000,,150,50,,0,0,0,0,0,1500,NONE,,,,,,,0,0,0,0,0,0,0,0,0,0,,,0,0,"UNBOARDABLE, HIDE_IN_CODEX",,,1,1,2,,1234
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Dadras,apex_ins_destroyer,Destroyer,Relic,apex_ins_damper,9,5000,900,4000,,350,135,,80,60,40,30,60,400,PHASE,canister_flak,0,0,0,,,50,75,100,60,2,30,9,40000,10,25,360,0.25,10,10,,"hist2t, merc, apex_relic",,0.33,2,3,,1312
+Dadras,apex_ins_destroyer,Destroyer,Relic,apex_ins_damper,9,5000,900,4000,,350,135,,80,60,40,30,60,400,PHASE,canister_flak,0,0,0,,,50,75,100,60,2,30,9,100000,10,25,360,0.25,10,10,,"hist2t, merc, apex_relic",,0.33,2,3,,1312
 Aizawa,apex_ins_capital,Dreadnought,Relic,apex_ins_damper,25,20000,1800,20000,,900,320,,35,20,20,15,15,3000,PHASE,canister_flak,0,0,0,,,500,650,300,360,12,30,7,300000,10,25,720,0.25,60,60,,"hist2t, merc, apex_relic",,0.33,2,3,,1312
-,,,,,,,,,,,,,,,,,,, ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Haynes,apex_ins_cruiser,Cruiser,Relic,entropyamplifier,14,11000,1400,10000,,500,200,,40,30,30,15,15,1500,PHASE,canister_flak,0,0,0,,,200,400,150,120,4,30,8,200000,10,25,540,0.25,25,25,,"hist2t, merc, apex_relic",,0.33,2,3,,1312

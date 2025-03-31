@@ -116,8 +116,6 @@ public class ApexExcession extends HubMissionWithBarEvent
         set("$apexPrototype_rankAOrAn", getPerson().getRankArticle());
         set("$apexPrototype_hisOrHer", getPerson().getHisOrHer());
         set("$apexPrototype_member", excession);
-        // TODO: make them randomly prefer enbies? idk maybe that's chaser-ish
-        // are enbies common enough that it would be justified to list that as a preference?
         //
         set("$apexPrototype_menOrWomen", (Misc.random.nextBoolean() ? text("excmen") : text("excwomen"))); // your contact's sexuality is randomized
     }
@@ -125,6 +123,9 @@ public class ApexExcession extends HubMissionWithBarEvent
     @Override
     protected boolean callAction(String action, String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params, Map<String, MemoryAPI> memoryMap)
     {
+        // idk put it in here, this will make sure the flag gets set
+        Global.getSector().getMemoryWithoutUpdate().set("$didExcession", true);
+
         if ("showShip".equals(action))
         {
             dialog.getVisualPanel().showFleetMemberInfo(excession, true);
@@ -150,7 +151,7 @@ public class ApexExcession extends HubMissionWithBarEvent
     @Override
     public void accept(InteractionDialogAPI dialog, Map<String, MemoryAPI> memoryMap)
     {
-        // it's just an transaction immediate transaction handled in rules.csv
+        // it's just an immediate transaction handled in rules.csv
         // no intel item etc
 
         currentStage = new Object(); // so that the abort() assumes the mission was successful

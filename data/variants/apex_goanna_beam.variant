@@ -1,29 +1,38 @@
 {
     "displayName": "Beam",
-    "fluxCapacitors": 22,
+    "fluxCapacitors": 9,
     "fluxVents": 30,
     "goalVariant": true,
     "hullId": "apex_goanna",
     "hullMods": [
         "targetingunit",
-        "apex_cryo_projector"
+        "apex_cryo_projector",
+        "missleracks"
     ],
     "permaMods": [],
     "sMods": [],
     "variantId": "apex_goanna_beam",
     "weaponGroups": [
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
-            "weapons": {
-                "WS0004": "apex_fusion_medium",
-                "WS0005": "apex_fusion_medium"
-            }
+            "weapons": {"WS0001": "apex_flickerbeam"}
         },
         {
             "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0004": "apex_nanoacid_torp_pod",
+                "WS0005": "apex_nanoacid_torp_pod"
+            }
+        },
+        {
+            "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS0001": "apex_arcstorm_canister"}
+            "weapons": {
+                "WS0002": "apex_coilgun_medium",
+                "WS0003": "apex_coilgun_medium"
+            }
         },
         {
             "autofire": true,
@@ -31,14 +40,6 @@
             "weapons": {
                 "WS0006": "apex_emp_laser",
                 "WS0007": "apex_emp_laser"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS0002": "apex_tachyondriver_m",
-                "WS0003": "apex_tachyondriver_m"
             }
         },
         {

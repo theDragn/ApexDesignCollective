@@ -4,3 +4,4 @@ apex_whiptail_wing,apex_whiptail_bomber,"bomber6, bomber, apex_hulls, auto_fight
 apex_anole_wing,apex_anole_fighter,"fighter6, fighter, rare_bp, auto_fighter",2,1,8,20,V,4000,2000,0,2,FIGHTER,Heavy Fighter Drone,15,10000,,,,,,,,,,,,,1
 apex_gecko_wing,apex_gecko_interceptor,"fighter3, interceptor, apex_hulls, auto_fighter",1,1,8,16,V,4000,2000,0,3,INTERCEPTOR,Interceptor Drone,8,10000,,,,,,,,,,,,,1
 apex_chameleon_wing,apex_chameleon_support,"support2, fighter, apex_hulls, auto_fighter",2,1,6,10,BOX,1000,500,0,2,SUPPORT,Support Drone,15,10000,,,,,,,,,,,,,1
+apex_sphaero_wing,apex_sphaero_bomber,"bomber5, bomber, apex_hulls, auto_fighter",1,1,6,12,V,4000,2000,300,3,BOMBER,Bomber Drone,10,10000,,,,,,,,,,,,,1

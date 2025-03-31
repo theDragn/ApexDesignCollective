@@ -12,32 +12,38 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS0012": "apex_coilgun_small",
-                "WS0013": "apex_coilgun_small",
-                "WS0014": "apex_coilgun_small",
-                "WS0015": "apex_coilgun_small",
-                "WS0024": "apex_coilgun_small",
-                "WS0025": "apex_coilgun_small"
+                "WS0012": "railgun",
+                "WS0013": "railgun",
+                "WS0024": "railgun",
+                "WS0025": "railgun"
             }
         },
         {
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS0003": "apex_nanoacid_torp_pod",
-                "WS0004": "apex_nanoacid_torp_pod"
+                "WS0003": "apex_ins_missile",
+                "WS0004": "apex_ins_missile"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS0018": "apex_tachyondriver_s",
-                "WS0019": "apex_tachyondriver_s",
-                "WS0020": "apex_nanogun_small",
-                "WS0021": "apex_nanogun_small",
-                "WS0022": "apex_nanogun_small",
-                "WS0023": "apex_nanogun_small"
+                "WS0020": "apex_qgp_small",
+                "WS0021": "apex_qgp_small",
+                "WS0022": "apex_qgp_small",
+                "WS0023": "apex_qgp_small"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0014": "apex_fusion_small",
+                "WS0015": "apex_fusion_small",
+                "WS0018": "apex_fusion_small",
+                "WS0019": "apex_fusion_small"
             }
         },
         {

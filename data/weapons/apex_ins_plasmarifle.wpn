@@ -1,0 +1,53 @@
+{
+  "id": "apex_ins_plasmarifle",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_ins_plasmarifle_shot",
+  "type": "ENERGY",
+  "size": "LARGE",
+  "turretSprite": "graphics/weapons/ins/apex_ins_plasmarifle_t.png",
+  "turretGlowSprite": "graphics/weapons/ins/apex_ins_plasmarifle_t_glow.png",
+  "hardpointSprite": "graphics/weapons/ins/apex_ins_plasmarifle_h.png",
+  "hardpointGlowSprite": "graphics/weapons/ins/apex_ins_plasmarifle_h_glow.png",
+  "renderAboveAllWeapons": 0,
+  "everyFrameEffect":"data.weapons.ApexPlasmaRifleEffects",
+  "glowColor": [
+    232,
+    41,
+    246,
+    255
+  ],
+  "turretOffsets": [
+    19,
+    0
+  ],
+  "turretAngleOffsets": [
+    0
+  ],
+  "hardpointOffsets": [
+    20.5,
+    -0.5
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "barrelMode": "ALTERNATING",
+  "animationType": "GLOW_AND_FLASH",
+  "autocharge": true,
+  "muzzleFlashSpec": {
+    "length": 20,
+    "spread": 30,
+    "particleSizeMin": 15,
+    "particleSizeRange": 15,
+    "particleDuration": 0.15,
+    "particleCount": 30,
+    "particleColor": [
+      232,
+      41,
+      246,
+      255
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "apex_prifle_fire",
+  "fireSoundOne":"apex_prifle_charge"
+}

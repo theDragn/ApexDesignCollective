@@ -25,6 +25,6 @@ class ApexInsMissileOnHit: OnHitEffectPlugin
         if (target !is ShipAPI) return
         if (shieldHit) return
         // lmao this is so much easier
-        BreachOnHitEffect.dealArmorDamage(projectile, target, point, projectile.damageAmount * (0.25f))
+        BreachOnHitEffect.dealArmorDamage(projectile, target, point, projectile.damageAmount * (0.1875f))
     }
 }
