@@ -120,7 +120,7 @@ apex_nex_NGCPickStartingShips,ExerelinNGCStep3,"$playerFaction == apex_design
 !$apex_ChangeMind
 $corvusMode","AddText ""A collectivist faction that focuses on ultra-modern, high-performance ships and remote support systems.""
 $apex_ChangeMind = true 0",,,
-apex_nex_NGCPickStartingShips2,ExerelinNGCStep3,"$playerFaction == apex_design
+#apex_nex_NGCPickStartingShips2,ExerelinNGCStep3,"$playerFaction == apex_design
 EIS_HasModId timid_commissioned_hull_mods
 !$apex_ChangeMind","AddText ""Commissioned Crews Bonus: Armor is more effective at reducing damage, and a fraction of armor and hull damage is repaired immediately after combat at no cost.""
 SetTextHighlights Commissioned Crews Bonus
