@@ -134,7 +134,7 @@ class ApexNetworkTargeter : BaseHullMod()
     override fun addPostDescriptionSection(
         tooltip: TooltipMakerAPI,
         hullSize: HullSize,
-        ship: ShipAPI,
+        ship: ShipAPI?,
         width: Float,
         isForModSpec: Boolean
     )
