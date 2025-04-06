@@ -293,7 +293,10 @@ public class ApexDEMScript extends BaseEveryFrameCombatPlugin implements Missile
                 }
             }
         } else if (state == State.TURN_TO_TARGET) {
-            float angle = Misc.getAngleInDegrees(missile.getLocation(), AIUtils.getBestInterceptPoint(missile.getLocation(),1000f, fireTarget.getLocation(), fireTarget.getVelocity()));
+            Vector2f intercept = AIUtils.getBestInterceptPoint(missile.getLocation(),1000f, fireTarget.getLocation(), fireTarget.getVelocity());
+            if (intercept == null)
+                intercept = fireTarget.getLocation();
+            float angle = Misc.getAngleInDegrees(missile.getLocation(), intercept);
 
             if (Misc.isInArc(missile.getFacing(), targetingLaserArc, angle)) {
                 missile.getEngineStats().getMaxTurnRate().modifyMult("dem_mult", turnRateMultOnSignal);
@@ -487,7 +490,10 @@ public class ApexDEMScript extends BaseEveryFrameCombatPlugin implements Missile
             } else if (missile.getVelocity().length() > missile.getMaxSpeed() * allowedDriftFraction) {
                 missile.giveCommand(ShipCommand.DECELERATE);
             }
-            float dir = Misc.getAngleInDegrees(missile.getLocation(), AIUtils.getBestInterceptPoint(missile.getLocation(),1000f, fireTarget.getLocation(), fireTarget.getVelocity()));
+            Vector2f intercept = AIUtils.getBestInterceptPoint(missile.getLocation(),1000f, fireTarget.getLocation(), fireTarget.getVelocity());
+            if (intercept == null)
+                intercept = fireTarget.getLocation();
+            float dir = Misc.getAngleInDegrees(missile.getLocation(), intercept);
             float diff = Misc.getAngleDiff(missile.getFacing(), dir);
             float rate = missile.getMaxTurnRate() * amount;
 //			float turnDir1 = Misc.getClosestTurnDirection(missile.getFacing(), dir);
@@ -499,7 +505,7 @@ public class ApexDEMScript extends BaseEveryFrameCombatPlugin implements Missile
                 if (diff <= rate * 0.25f && turningTowardsDesiredFacing && snapFacingToTargetIfCloseEnough) {
                     missile.setFacing(dir);
                 } else {
-                    Misc.turnTowardsPointV2(missile, AIUtils.getBestInterceptPoint(missile.getLocation(),1000f, fireTarget.getLocation(), fireTarget.getVelocity()), 0f);
+                    Misc.turnTowardsPointV2(missile, intercept, 0f);
                 }
             }
 

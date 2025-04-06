@@ -1,3 +1,9 @@
+Version 1.2.14
+Fixes:
+- Crash on mousing over the Networked Targeting Array hullspec item
+- Rare crash from Laser Drone Pod attempting to fire on a target it couldn't hit
+- Minor pixel-dimension fixes for Plasma Rifle hardpoint sprites.
+
 Version 1.2.13
 
 Updated for 0.98. Save compatible, if you're using your old save for some reason. Existing relic caches and derelicts will not contain the new relic items, but as always, they can be found with the historian or in scavenger fleets.

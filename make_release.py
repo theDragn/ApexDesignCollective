@@ -10,6 +10,6 @@ print("\nDid you update the version number in BOTH the mod_info and the .version
 print("Copying to temp directory...")
 shutil.copytree(src, temp, ignore = toIgnore)
 print("Creating .zip...")
-shutil.make_archive(modname, 'zip', curdir + "\\temp")
+shutil.make_archive('Apex.Design.Collective', 'zip', curdir + "\\temp")
 print("Deleting temp directory...")
 shutil.rmtree(curdir + "\\temp")
