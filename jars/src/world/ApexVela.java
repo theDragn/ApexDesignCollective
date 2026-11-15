@@ -158,7 +158,7 @@ public class ApexVela implements SectorGeneratorPlugin
         graniteMarket.addIndustry(Industries.POPULATION);
         graniteMarket.addIndustry(Industries.HIGHCOMMAND);
         graniteMarket.addIndustry(Industries.FUELPROD);
-        graniteMarket.addIndustry(Industries.ORBITALWORKS, new ArrayList<>(Arrays.asList(Items.PRISTINE_NANOFORGE)));
+        graniteMarket.addIndustry(Industries.ORBITALWORKS, new ArrayList<>(Arrays.asList(Items.CORRUPTED_NANOFORGE)));
         graniteMarket.addIndustry(Industries.LIGHTINDUSTRY);
         graniteMarket.addIndustry(Industries.HEAVYBATTERIES);
         graniteMarket.addIndustry(Industries.STARFORTRESS_HIGH);

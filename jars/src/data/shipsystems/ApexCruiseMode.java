@@ -7,6 +7,7 @@ import com.fs.starfarer.api.combat.ShipEngineControllerAPI;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 import com.fs.starfarer.api.util.Misc;
 import org.lazywizard.lazylib.MathUtils;
+import org.lazywizard.lazylib.VectorUtils;
 
 import java.awt.*;
 
@@ -20,6 +21,7 @@ public class ApexCruiseMode extends BaseShipSystemScript
     public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel)
     {
         ShipAPI ship = (ShipAPI)stats.getEntity();
+        if (ship == null) return;
         if (state == State.OUT)
         {
             stats.getMaxSpeed().unmodify(id); // to slow down ship to its regular top speed while powering drive down
@@ -27,13 +29,17 @@ public class ApexCruiseMode extends BaseShipSystemScript
         } else if (state == State.IN)
         {
             stats.getMaxSpeed().modifyMult(id, 0.25f);
-            stats.getMaxTurnRate().modifyMult(id, 0.25f);
             ship.getEngineController().extendFlame(this, 2f * effectLevel, 0f * effectLevel, 0f * effectLevel);
         } else
         {
-            stats.getMaxSpeed().modifyMult(id, 3f);
+            float relativeVelAngle = Math.abs(MathUtils.getShortestRotation(VectorUtils.getAngle(Misc.ZERO, ship.getVelocity()), ship.getFacing()));
+            float bonusMult = 0f;
+            if (relativeVelAngle <= 90f) {
+                    bonusMult = 1f - (relativeVelAngle / 90f);
+            }
+            stats.getMaxSpeed().modifyMult(id, 1f + 2f * bonusMult);
             stats.getAcceleration().modifyMult(id, 3f);
-            stats.getMaxTurnRate().modifyMult(id, 0.25f);
+            stats.getMaxTurnRate().modifyMult(id, 0.33f);
             float extendMult = 1;//ship.getVelocity().length() / ship.getMaxSpeed();
             ship.getEngineController().extendFlame(this, 2f * extendMult * effectLevel, 0f * effectLevel, 0f * effectLevel);
             if (!runOnce)
@@ -57,7 +63,7 @@ public class ApexCruiseMode extends BaseShipSystemScript
                 }
             }
         }
-        if (ship != null && ship.getShield() != null)
+        if (ship.getShield() != null)
             ship.getShield().toggleOff();
     }
 

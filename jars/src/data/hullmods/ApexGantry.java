@@ -20,7 +20,7 @@ import static utils.ApexUtils.text;
 public class ApexGantry extends BaseHullMod implements HullModFleetEffect
 {
     // total multiplier = 1 + REPAIR_BONUS_MULT * x^POWER; x = number of hullmods
-    public static final float REPAIR_BONUS_MULT = 0.33f;
+    public static final float REPAIR_BONUS_MULT = 0.5f;
     public static final float POWER = 0.66f;
     public static final String ID = "apex_sonora_gantry";
     private static final float UNFOLD_MULT = 1f;

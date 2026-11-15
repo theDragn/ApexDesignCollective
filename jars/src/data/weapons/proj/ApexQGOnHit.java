@@ -27,7 +27,7 @@ public class ApexQGOnHit implements OnHitEffectPlugin
             hitTargets.add(target);
             engine.addHitParticle(point, target.getVelocity(), 100f, 1.0F, 0.1F, Color.BLUE);
             // if it's the flak (flak aoe will have null for weapon)
-            if (proj.getWeapon() == null || proj.getProjectileSpecId().startsWith("apex_flak"))
+            if (proj.getWeapon() == null || proj.getProjectileSpecId() == null || proj.getProjectileSpecId().startsWith("apex_flak"))
             {
                 engine.applyDamage(target, point, ApexQGAmplifier.QGPD_EXTRA_ENERGY, DamageType.ENERGY, 0f, false, false, proj.getSource());
             }

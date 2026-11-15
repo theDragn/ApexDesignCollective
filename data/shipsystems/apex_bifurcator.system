@@ -1,12 +1,13 @@
 {
 	"id":"apex_bifurcator",
 	"type":"STAT_MOD",
-	"aiType":"WEAPON_BOOST",
+	"aiType":"CUSTOM",
 	
 	"statsScript":"data.shipsystems.ApexBifurcator",
+	"aiScript":"data.shipsystems.ai.ApexBifurcatorAI",
 	
-	"weaponGlowColor":[255,0,255,255],
-	"weaponTypes":[ENERGY,BALLISTIC],
+	#"weaponGlowColor":[255,0,255,255],
+	#"weaponTypes":[ENERGY,BALLISTIC],
 	
 	#"useSound":"beam_heavy_intro",
 	#"outOfUsesSound":"gun_out_of_ammo",

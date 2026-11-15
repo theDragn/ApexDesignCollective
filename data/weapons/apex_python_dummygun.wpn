@@ -1,0 +1,59 @@
+{
+  "id": "apex_python_dummygun",
+  "specClass": "projectile",
+  "projectileSpecId": "apex_python_dummyproj",
+  "type": "ENERGY",
+  "size": "LARGE",
+  # woe unto ye who try to comprehend this script
+  # I don't, and I wrote it
+  "everyFrameEffect": "data.weapons.ApexTachyonShredder",
+  "turretSprite": "graphics/weapons/apex_tachyon_shredder.png",
+  "turretGlowSprite": "graphics/weapons/apex_tachyon_shredder_glow.png",
+  "hardpointSprite": "graphics/weapons/apex_tachyon_shredder.png",
+  "hardpointGlowSprite": "graphics/weapons/apex_tachyon_shredder_glow.png",
+  "renderAboveAllWeapons": 0,
+  "glowColor": [
+    140,
+    3,
+    252,
+    255
+  ],
+  "turretOffsets": [
+    33.5,
+    -9.5,
+    33.5,
+    9.5
+  ],
+  "turretAngleOffsets": [
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    51.5,
+    -9.5,
+    51.5,
+    9.5
+  ],
+  "hardpointAngleOffsets": [
+    0,
+    0
+  ],
+  "barrelMode": "LINKED",
+  "animationType": "GLOW_AND_FLASH",
+  "muzzleFlashSpec": {
+    "length": 18,
+    "spread": 15,
+    "particleSizeMin": 15,
+    "particleSizeRange": 15,
+    "particleDuration": 0.15,
+    "particleCount": 30,
+    "particleColor": [
+      255,
+      100,
+      150,
+      255
+    ]
+  },
+  "textureType": ROUGH,
+  "fireSoundTwo": "apex_shredder_shot"
+}

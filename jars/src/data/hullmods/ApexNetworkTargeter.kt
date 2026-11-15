@@ -24,8 +24,8 @@ class ApexNetworkTargeter : BaseHullMod()
     {
         const val ENGAGEMENT_RANGE_PENALTY_MULT = 0.5f
         const val MAX_OP_FOR_BONUS = 120f
-        const val MAX_WEP_FLAT_BONUS = 300f
-        const val MAX_FIGHTER_FLAT_BONUS = 600f
+        const val MAX_WEP_FLAT_BONUS = 200f
+        const val MAX_FIGHTER_FLAT_BONUS = 500f
         const val MAX_RANGE_AFTER_BOOST = 900f
         const val ID = "apex_net_target"
         private val BLOCKED_HULLMODS: MutableSet<String> = HashSet()

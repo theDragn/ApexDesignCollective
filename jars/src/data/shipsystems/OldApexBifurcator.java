@@ -1,10 +1,12 @@
 package data.shipsystems;
 
+// NOTE TO SELF: REWRITE
+// just track every gun fired in the last X seconds then fire em again
+
+
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
-import com.fs.starfarer.api.loading.MissileSpecAPI;
-import com.fs.starfarer.api.loading.ProjectileSpecAPI;
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
@@ -15,20 +17,31 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class ApexBifurcator extends BaseShipSystemScript
+public class OldApexBifurcator extends BaseShipSystemScript
 {
     public static final float MAX_SPLIT_ANGLE = 25f;
     public static final float SPLIT_CHANCE_PER_INTERVAL = 0.075f; // 50% chance per second to split at least once
     public static final float MAX_SPLIT_RANGE = 1350 * 1350; // stops splitting projectiles if they're this far from the ship
 
+
+    private HashSet<DamagingProjectileAPI> dont_dupe = new HashSet<>();
     // turns projectile spec ID's into appropriate weapon ID's, if something isn't present, it's fine
     private static final HashMap<String, String> projToWep = new HashMap<>();
 
-
+    private boolean runOnce = false;
     // why the fuck did I make this thing
     // "what if I make a system that turns every gun into the templar fractal laser"
     // fucking idiot
     // and yet, here we are
+
+    // TWO YEARS LATER UPDATE
+    // I asked alex to make an API method so that I could dupe projectiles without doing this
+    // he did
+    // it crashes whenever you call it with a null pointer exception
+    // no matter how you call it
+    // lmao thanks dude
+
+    // I'm sure half of these are no longer relevant, and also that there's a lot of new stuff.
     static
     {
         projToWep.put("istl_scatterlaser_sub_shot", "istl_scatterlaser_sub");
@@ -100,17 +113,20 @@ public class ApexBifurcator extends BaseShipSystemScript
     @Override
     public void apply(MutableShipStatsAPI stats, String id, ShipSystemStatsScript.State state, float effectLevel)
     {
-
         CombatEngineAPI engine = Global.getCombatEngine();
         float amount = engine.getElapsedInLastFrame();
-        if (((ShipAPI) stats.getEntity()).isPhased() || amount == 0)
+        if (runOnce || (((ShipAPI) stats.getEntity()).isPhased() || amount == 0))
             return;
+
+
+
         splitTimer.advance(amount / stats.getTimeMult().getModifiedValue());
         if (splitTimer.intervalElapsed())
         {
             for (DamagingProjectileAPI proj : engine.getProjectiles())
             {
-                if (proj.getSource() != stats.getEntity())
+
+                if (proj.getSource() != stats.getEntity() || dont_dupe.contains(proj))
                     continue;
                 if (proj.didDamage() || proj.isExpired() || !engine.isInPlay(proj))
                     continue;
@@ -118,41 +134,43 @@ public class ApexBifurcator extends BaseShipSystemScript
                     continue;
                 if (proj.getWeapon().getType().equals(WeaponAPI.WeaponType.MISSILE))
                     continue;
-                float moveSpeed = proj.getVelocity().length();
-                float exp = (moveSpeed / 700f * SPLIT_CHANCE_PER_INTERVAL)/2f + 1f;
-                if (Misc.random.nextFloat() < Math.pow(1 + SPLIT_CHANCE_PER_INTERVAL * moveSpeed / 700f, exp) - 1f)
-                {
-                    if (MathUtils.getDistanceSquared(proj.getLocation(), proj.getSource().getLocation()) > MAX_SPLIT_RANGE)
-                        continue;
-                    spawnSplitProj(proj);
-                }
+
+                dont_dupe.add(spawnSplitProj(proj));
+
+                dont_dupe.add(proj);
             }
         }
     }
 
-    private void spawnSplitProj(DamagingProjectileAPI proj)
+    @Override
+    public void unapply(MutableShipStatsAPI stats, String id) {
+        dont_dupe.clear();
+    }
+
+    private DamagingProjectileAPI spawnSplitProj(DamagingProjectileAPI proj)
     {
         // unfuck weapon ID
         String weaponID = proj.getWeapon().getId();//getUnfuckedWeaponID(proj);
         String spec = proj.getProjectileSpecId();
         boolean didSwap = false;
-        if (projToWep.containsKey(spec))
-        {
-            weaponID = projToWep.get(spec);
-            didSwap = true;
-        } else if (wepToWep.containsKey(weaponID))
-        {
-            weaponID = wepToWep.get(weaponID);
-            didSwap = true;
-        }
+//        if (projToWep.containsKey(spec))
+//        {
+//            weaponID = projToWep.get(spec);
+//            didSwap = true;
+//        } else if (wepToWep.containsKey(weaponID))
+//        {
+//            weaponID = wepToWep.get(weaponID);
+//            didSwap = true;
+//        }
         if (weaponID == null)
-            return;
+            return null;
         float facing = proj.getFacing() + Misc.random.nextFloat() * MAX_SPLIT_ANGLE - MAX_SPLIT_ANGLE / 2f;
         //float facing = (Misc.random.nextBoolean() ? -1 : 1) * MAX_SPLIT_ANGLE + proj.getFacing();
         DamagingProjectileAPI newProj = (DamagingProjectileAPI) Global.getCombatEngine().spawnProjectile(
                 proj.getSource(),
                 proj.getWeapon(),
                 weaponID,
+                proj.getProjectileSpecId(),
                 proj.getLocation(),
                 facing,
                 Misc.ZERO);
@@ -160,7 +178,7 @@ public class ApexBifurcator extends BaseShipSystemScript
 
         // don't do on-fire if we had to unfuck the gun
         if (didSwap)
-            return;
+            return newProj;
         OnFireEffectPlugin onFire;
         System.out.println(newProj.getProjectileSpecId());
 
@@ -190,7 +208,7 @@ public class ApexBifurcator extends BaseShipSystemScript
             onFire.onFire(newProj, proj.getWeapon(), Global.getCombatEngine());
 
         if (color == null)
-            return;
+            return newProj;
         // one particle for flash
         Global.getCombatEngine().addHitParticle(proj.getLocation(), Misc.ZERO, size * 3f, 1f, 0.5f, color);
         // a few particles for splitty bits
@@ -199,6 +217,6 @@ public class ApexBifurcator extends BaseShipSystemScript
             Vector2f randVel = MathUtils.getRandomPointInCircle(Misc.ZERO, 100f);
             Global.getCombatEngine().addHitParticle(proj.getLocation(), randVel, size, 1f, 0.5f, color);
         }
-
+        return newProj;
     }
 }

@@ -149,7 +149,7 @@ public class ApexToroidEffect implements OnFireEffectPlugin
         }
         for (ShipAPI ship : CombatUtils.getShipsWithinRange(projectile.getLocation(), EXP_RANGE * 3))
         {
-            if (ship.getOwner() == projectile.getOwner() || target == ship)
+            if (ship.getOwner() == projectile.getOwner() || target == ship || ship.isPhased())
                 continue;
             Vector2f collisionPoint = CollisionUtils.getCollisionPoint(projectile.getLocation(), ship.getLocation(), ship);
             if (collisionPoint != null && MathUtils.getDistanceSquared(projectile.getLocation(), collisionPoint) < EXP_RANGE * EXP_RANGE)

@@ -2,9 +2,9 @@
 	"id":"apex_design",
 	"name":"Apex Design Collective",
 	"author":"theDragn",
-	"version":{ "major": '1', "minor": '2', "patch": '14' },
+	"version":{ "major": '1', "minor": '2', "patch": '16' },
 	"description":"A collectivist faction that focuses on ultra-modern, high-performance ships and remote support systems.",
-	"gameVersion":"0.98a-RC7",
+	"gameVersion":"0.98.5a-RC6",
 	"jars":["jars/ADC.jar"],
 	"dependencies": [
         {
@@ -14,7 +14,6 @@
 		{
 			"id": "MagicLib",
             "name": "MagicLib",
-			#"version":"1.4.0"
 		},
 		{
 			"id": "shaderLib",

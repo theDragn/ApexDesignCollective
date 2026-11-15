@@ -13,6 +13,8 @@ import java.awt.*;
 import java.util.HashSet;
 
 import static com.fs.starfarer.api.util.Misc.ZERO;
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 import static plugins.ApexModPlugin.POTATO_MODE;
 
 public class ApexFusionBeamEffect implements BeamEffectPlugin
@@ -22,6 +24,9 @@ public class ApexFusionBeamEffect implements BeamEffectPlugin
     public static final float BONUS_DAMAGE_FRACTION_SMALL = 0.05f;
     public static final float BONUS_DAMAGE_FRACTION_MEDIUM = 0.10f;
     public static final float BONUS_DAMAGE_FRACTION_LARGE = 0.20f;
+    public static final float BONUS_DAMAGE_CAP_SMALL = 250f;
+    public static final float BONUS_DAMAGE_CAP_MEDIUM = 500f;
+    public static final float BONUS_DAMAGE_CAP_LARGE = 1000f;
     public static final float TIME_FOR_EXPLOSION = 0.33f;
 
     public static final String LIGHT_PROC_SOUND = "apex_fusion_light_proc";
@@ -59,20 +64,24 @@ public class ApexFusionBeamEffect implements BeamEffectPlugin
                     hitTargets.add(target);
                     Vector2f point = beam.getRayEndPrevFrame();
                     float bonusFraction;
+                    float damageCap;
                     switch (beam.getWeapon().getSize()) {
                         case LARGE:
                             bonusFraction = BONUS_DAMAGE_FRACTION_LARGE;
+                            damageCap = BONUS_DAMAGE_CAP_LARGE;
                             break;
                         case MEDIUM:
                             bonusFraction = BONUS_DAMAGE_FRACTION_MEDIUM;
-                            break;
-                        case SMALL:
-                            bonusFraction = BONUS_DAMAGE_FRACTION_SMALL;
+                            damageCap = BONUS_DAMAGE_CAP_MEDIUM;
                             break;
                         default:
-                            bonusFraction = 0f;
+                        case SMALL:
+                            bonusFraction = BONUS_DAMAGE_FRACTION_SMALL;
+                            damageCap = BONUS_DAMAGE_CAP_SMALL;
+                            break;
                     }
                     float damage = ship.getArmorGrid().getArmorRating() * bonusFraction * ship.getMutableStats().getBeamWeaponDamageMult().computeMultMod() * ship.getMutableStats().getEnergyWeaponDamageMult().computeMultMod();
+                    damage = min(damage, damageCap);
                     //System.out.println(damage);
                     //engine.spawnExplosion(point, ZERO, Color.WHITE, damage * 0.66f, 1f);
                     //float radius = Math.min(damage * 0.66f, 250);

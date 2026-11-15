@@ -262,6 +262,7 @@ public class ApexShield extends BaseHullMod
 
         public void applyBypassDamage(ShipAPI source, float remainingDamage, CombatEntityAPI target, Vector2f bypassloc, boolean isFrag)
         {
+            //if (remainingDamage < 1) return;
             Global.getCombatEngine().applyDamage(target,
                     bypassloc,
                     remainingDamage * MULT_MAP.get(((ShipAPI)target).getHullSize()),

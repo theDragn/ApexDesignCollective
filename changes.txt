@@ -1,3 +1,21 @@
+Version 1.2.16
+- Sunbeam: Repair gantry repair bonus increased to 50%
+- Agama, Photon: System no longer locks the ship in forward thrust. The bonus is just reduced the further away from forwards you're going, down to no bonus when traveling sideways or backwards.
+- Anaconda: Reduced system duration by 0.5s (2.5 -> 2)
+- Python: System reworked into a "random bullshit go" button that summons ~3 seconds worth of your burst DPS from the ether and points it at your target.
+- Cryocooled Armor: Reduced beam damage reduction (30% -> 20%).
+- Fusion Beams: Now cap damage at 250/500/1000 per explosion to make them take slightly longer to delete Invictuses and similar ships.
+- Ultrachromatic Charge Launcher: Increased projectile speed by ~25%.
+- Toroid Mortar: Explosion no longer hits phased ships.
+- Downgraded the Collective's nanoforge to a corrupted one; slightly rewrote lore to match.
+
+
+Version 1.2.15
+Changes:
+- Laser Drone Pod: Fires 50% more shots, fires drones 25% faster, and shots no longer collide with allies.
+- Relic weapons and hulls are now unlockable in the codex rather than available from the start.
+- Chameleon support fighters and Gecko interceptors should now loiter in front of the ship.
+
 Version 1.2.14
 Fixes:
 - Crash on mousing over the Networked Targeting Array hullspec item

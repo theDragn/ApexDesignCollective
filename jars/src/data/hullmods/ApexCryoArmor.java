@@ -42,7 +42,7 @@ public class ApexCryoArmor extends BaseHullMod
         bonusMap.put(ShipAPI.HullSize.CAPITAL_SHIP, 250f);
     }
 
-    public static final float BEAM_DAMAGE_MULT = 0.7f;
+    public static final float BEAM_DAMAGE_MULT = 0.8f;
     public static final float MANEUVERING_MULT = 0.9f;
     public static final float REGEN_MULT = 0.67f;
 

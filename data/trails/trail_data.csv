@@ -69,3 +69,5 @@ apex_ins_pr_glow1,apex_ins_plasmarifle_shot,base_trail_zapWithCore,10,0.2,0.1,0.
 apex_ins_pr_glow2,apex_ins_plasmarifle_shot,base_trail_zap,10,0.1,0.1,0.6,20,5,"[255,255,255]","[207,73,207]",0.7,-128,-256,20,10,1,TRUE,FALSE,TRUE,50,0,2,0,180,180,TRUE,FALSE
 apex_ins_pr_zap1,apex_ins_plasmarifle_shot,base_trail_zap,10,0.2,0.1,0.4,25,7.5,"[207,150,207]","[207,73,207]",0.5,-128,-256,20,0,1,TRUE,FALSE,TRUE,50,0,2,0,180,180,TRUE,FALSE
 apex_ins_pr_zap2,apex_ins_plasmarifle_shot,base_trail_aura,10,0.1,0.1,1.2,20,1,"[155,10,155]","[181,43,132]",0.3,-128,-256,20,10,1,TRUE,FALSE,TRUE,50,0,2,0,180,180,TRUE,FALSE
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+apex_python_dummy,apex_python_dummyproj,base_trail_smooth,10,0.05,0.25,0.25,15,5,"[100,100,255]","[0,0,100]",0.5,300,-300,20,0,1,TRUE,FALSE,TRUE,0,0,0,0,0,0,TRUE,FALSE

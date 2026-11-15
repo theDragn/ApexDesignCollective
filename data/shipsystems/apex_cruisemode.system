@@ -1,36 +1,21 @@
 {
 	"id":"apex_cruisemode",
-	"type":"ENGINE_MOD",
+	"type":"STAT_MOD",
+	#"aiType":"DAMPER_FIELD",
 	"aiType":"CUSTOM",
 	
 	"aiScript":"data.shipsystems.ai.ApexCruiseModeAI",
-	
 	"statsScript":"data.shipsystems.ApexCruiseMode",
-	
-	"engineGlowColor":[255,255,255,255],
-	#"engineGlowContrailColor":[100,165,255,25],
-	
-	"flameoutOnImpactChance":0.5,
 
-	"clampTurnRateAfter":true,
-	"clampMaxSpeedAfter":true,
-	"alwaysAccelerate":true,
+	"canUseWhileRightClickSystemOn":false,
 
-	#"useSound":"system_burn_drive_activate",
-	#"loopSound":"system_burn_drive_loop",
-	#"deactivateSound":"system_burn_drive_deactivate",
-	#"outOfUsesSound":"engine_disabled",
+	"useSound":"system_targeting_feed",
+	"outOfUsesSound":"gun_out_of_ammo",
 	
+	"aiHints":{
+	}
 
-	"useSound":"system_burn_drive_activate",
-	"loopSound":"system_burn_drive_loop",
-	"deactivateSound":"system_burn_drive_deactivate",
-	"outOfUsesSound":"engine_disabled",
-
-    "aiHints":{
-        "activeSpeedIncrease":100,
-        "burstMovementPotential":0,
-        "averageSpeedIncrease":100,
-    }
-	
 }
+
+
+

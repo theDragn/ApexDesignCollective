@@ -1,0 +1,17 @@
+{
+	"id":"apex_python_dummyproj",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"length":50.0,
+	"width":25.0,
+	"hitGlowRadius":50,
+	"fadeTime":0.5,
+	"fringeColor":[140,3,252,255],
+	"coreColor":[255,230,255,255],
+	#"coreColor":[255,255,255,50],
+	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256,
+	"pixelsPerTexel":5.0
+}
